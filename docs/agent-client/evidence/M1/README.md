@@ -56,3 +56,7 @@ npm --prefix packages/agent-host test
 当前没有文件日志/诊断导出；仅保留现有 OTLP 内存日志。尚未认证 Host/SDK 崩溃、任务中停止及所有子进程异常清理。共享服务图仍含 lazy Claude/Codex 支持代码，SDK 不分发；Windows registry 与 Kerberos 集成代理认证明确列为 omitted externals。未提供通用 VSIX 兼容，也未执行全仓类型检查。Node 二进制来源/发行许可完整性和目标平台最低系统依赖留待分发验收。上述限制不影响本轮已验证的独立工程切片，不能据此宣称整个 M1 已验收。
 
 下一步：[M1-B 真实任务与分发闭包验收](NEXT.md)。
+
+## 续作持久化
+
+上述报告是原始 M1 验证记录，测试结果未改写。后续用户授权提交/推送后，本实现已持久化于 `codex/agent-client-implementation` 的 `31906f393148626814c5945c810462e19183cc3a`，并创建以 roadmap 为 base 的 [草稿 PR #2](https://github.com/MorCherlf/vscode/pull/2)。M2 云端工程在同分支继续；真实账户与 Mac 门禁仍待验收，见 [本轮复核](../M2/prior-validation.md)。

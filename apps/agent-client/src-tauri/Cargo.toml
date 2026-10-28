@@ -1,0 +1,15 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+[package]
+name = "morcherlf-agent-client"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.90"
+
+[build-dependencies]
+tauri-build = { version = "=2.7.4", features = [] }
+
+[dependencies]
+tauri = { version = "=2.12.4", features = [] }
+agent-host-supervisor = { path = "../../../packages/agent-host-supervisor" }
+serde_json = "=1.0.145"

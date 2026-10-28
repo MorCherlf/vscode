@@ -70,3 +70,5 @@ flowchart LR
 ## 2026-10-28 工程推进
 
 M0 工程审计完成、完整基线待 Mac 验收；M1 的首个独立 Node Host 构建与确定性验证已落地于 `packages/agent-host/`。证据见 [M0](evidence/M0/README.md) 与 [M1](evidence/M1/README.md)。下一工作包为 [M1-B](evidence/M1/NEXT.md)，先闭合真实 Copilot、故障恢复和目标平台分发门禁；M2 与后续里程碑不因本次构建成功而自动完成。
+
+用户续作授权后，M2.1–M2.3 和 M2.5 的云端工程与 M1 剩余验收并行推进：官方 AHP SDK、Tauri 外壳、进程管理和确定性测试已落地。M2.4 原生账户/Keychain 适配尚未实现，M2.6 WKWebView 与真实 Mac 生命周期未验收。见 [M2 报告](evidence/M2/README.md)，完整门禁不变。

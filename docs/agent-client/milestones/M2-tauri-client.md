@@ -3,7 +3,7 @@
 
 # M2 Tauri 客户端与 AHP 验证
 
-状态：待启动。前置：M1 可运行 Host；M0 已明确首版交互。对应目标：G02、G03、G06、G11。执行角色：Rust、前端和协议测试。
+状态：进行中（2026-10-28 已交付云端工程，真实账户/Mac 门禁未通过）。前置：M1 可运行 Host；M0 已明确首版交互。对应目标：G02、G03、G06、G11。执行角色：Rust、前端和协议测试。
 
 ## 目标
 
@@ -37,7 +37,7 @@
 
 ## 交付物
 
-可运行的 Tauri 原型、协议 transport 与状态边界说明、凭据和进程管理实现、T01 至 T04 的阶段报告及 WKWebView 适配结论。证据计划存入 `evidence/M2/`。
+可运行的 Tauri 原型、协议 transport 与状态边界说明、凭据和进程管理实现、T01 至 T04 的阶段报告及 WKWebView 适配结论。证据已存入 `evidence/M2/`。
 
 ## 验收门禁
 
@@ -54,4 +54,4 @@
 
 ## 推进记录与下一步
 
-当前尚无执行证据。先完成 M2.1 至 M2.3，再接真实登录与真机交互。通过后进入 [M3](M3-agent-workflow.md)，并允许提前准备 M4 的插件适配。
+已实现 `apps/agent-client/`、`packages/agent-client-core/` 和 `packages/agent-host-supervisor/`。官方 AHP 1.0.0 SDK/reducer、轻量 React/TypeScript 界面、Tauri 2.12.4 外壳、凭据留在 native 的帧转发、有界队列、重连快照、取消/文本问题/工具审批、窗口隐藏与退出选择均有实际代码。Linux 完整 Rust check 与调试可执行文件构建通过，核心 6/6、supervisor 4/4、浏览器 2/2 通过；真实 Tauri 图形窗口因云端无显示环境未运行，Chromium 截图不算 WKWebView 验收。M2.4 的原生登录/Keychain 适配尚未实现，真实账户与 M2.6 真机交互未验证；M2 不得标为已验收。详见 [M2 证据](../evidence/M2/README.md) 与 [M2-B](../evidence/M2/NEXT.md)。

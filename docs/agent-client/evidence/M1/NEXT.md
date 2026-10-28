@@ -13,3 +13,5 @@
 6. **进入 M2 的交付**：先闭合真实 Copilot 登录/任务与 Mac Host 运行门禁，再给 Tauri supervisor 使用 readiness、tokenFile、stdin/SIGTERM 合同。M2 的 WKWebView、Keychain、窗口关闭/完整退出验证不能从当前 Linux 成绩推导。
 
 恢复本轮工作：先核对 HEAD 是交接 SHA 或其包含本次变更的后续提交，阅读根 AGENTS 与适用指令，运行 `git diff --check`。依赖锁与构建输入未改变时复用本轮证据；有代码变化才针对受影响路径重新构建/测试。不自动合并或发布。
+
+2026-10-28 续作授权：用户明确要求 M2 云端工程并行推进，现已实现首个云端切片。上面的真实 Copilot/Mac 门禁继续保留，不能将它们作为停止 M2 独立工程工作的理由。M2 后续见 [M2-B](../M2/NEXT.md)。
