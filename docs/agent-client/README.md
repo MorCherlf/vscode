@@ -5,7 +5,7 @@
 
 项目目标是把当前 VS Code 仓库中的 Agent 能力做成独立应用：使用 Tauri 客户端，保留 Copilot Agent、会话、工具、结果审阅和 Agent 扩展，移除常规 IDE 工作台及编辑器扩展。优先验证 macOS，再考虑网页、Windows 和 Linux。
 
-当前阶段：规划完成，工程里程碑尚未启动。基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定，规划日期为 2026 年 10 月 28 日。文档中的性能数字是建议的验收目标，不是已有实测结果。
+当前阶段：M0 工程审计已交付，完整基线待 Mac 验收；M1 独立 Host 首个可构建、可测试实现已交付，真实账户与 Mac 分发门禁仍未通过。基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定，规划日期为 2026 年 10 月 28 日。文档中的性能数字是建议的验收目标，不是已有实测结果。
 
 ## 阅读入口
 
@@ -21,8 +21,8 @@
 
 | 编号 | 大目标 | 状态 |
 | --- | --- | --- |
-| [M0](milestones/M0-baseline.md) | 能力边界、依赖清单和性能基线 | 待启动 |
-| [M1](milestones/M1-standalone-host.md) | 可独立分发的 Agent Host | 待启动 |
+| [M0](milestones/M0-baseline.md) | 能力边界、依赖清单和性能基线 | 待验收（工程审计完成） |
+| [M1](milestones/M1-standalone-host.md) | 可独立分发的 Agent Host | 进行中（首个实现通过 Linux 确定性验证） |
 | [M2](milestones/M2-tauri-client.md) | Tauri 客户端和 AHP 通信验证 | 待启动 |
 | [M3](milestones/M3-agent-workflow.md) | 完整的本地 Agent 任务流程 | 待启动 |
 | [M4](milestones/M4-agent-plugins.md) | Agent 原生插件与自定义能力 | 待启动 |
@@ -37,11 +37,15 @@
 2. 每个推进文档包含目标、输入、任务、交付物、验收和失败处理；接手者从文末的下一步开始。
 3. 状态统一为“待启动、进行中、待验收、已验收、受阻”。完成代码不等于已验收；验收必须有可复现证据。
 4. `GOALS.md` 定义全局标准，`VALIDATION.md` 定义测量方式，里程碑文档细化本阶段执行。改变标准时同步更新受影响文档和决策记录。
-5. 未来实现建议放在独立的 `apps/agent-client/`、`packages/agent-host/`、`packages/agent-extension-host/` 和 `packages/agent-client-core/` 中；这些是规划位置，当前未创建工程。
-6. 未来证据存入本目录的 `evidence/`；每次验收记录提交、环境、命令、结果和限制。真实账户凭据与完整聊天内容不进入仓库。
+5. 未来实现建议放在独立的 `apps/agent-client/`、`packages/agent-host/`、`packages/agent-extension-host/` 和 `packages/agent-client-core/` 中；其中 `packages/agent-host/` 已创建，其余仍是规划位置。
+6. 执行证据存入本目录的 `evidence/`；每次验收记录提交、环境、命令、结果和限制。真实账户凭据与完整聊天内容不进入仓库。
 
 ## 首版完成条件
 
 M0 至 M7 的门禁全部通过，G01 至 G12 均有验收记录；性能在扩展关闭和兼容扩展启用两种模式下均按相同能力基线比较；安装包在没有 VS Code 和开发环境的 Mac 上完成真实任务。M8 不阻塞首版发布。
 
 首版的“完整 Agent 流程”指目标矩阵定义的能力。任意 VS Code 扩展兼容、旧 Local harness 的全部行为、远程与云端产品能力不自动包含在这个承诺中；它们必须在 M0 能力清单中明确分类，不能在发布时才发现缺口。
+
+## 本次工程交付
+
+见 [M0 审计](evidence/M0/README.md)、[M1 验证](evidence/M1/README.md)、[独立 Host 使用说明](../../packages/agent-host/README.md) 和 [下一工作包 M1-B](evidence/M1/NEXT.md)。未运行 Mac、WKWebView、Keychain 或签名验收，未自动合并或发布。
