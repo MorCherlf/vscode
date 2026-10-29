@@ -1,0 +1,8 @@
+# Next H1 work package
+
+1. Classify actual 4,870 script resource trace against necessary Agent/shared text/diff/terminal functionality. Trace the notebook contribution and 288 editor-only candidate resources back to owning import edges; trim only proven editor-only registrations. No broad upstream deletion; a missing editor.all request is insufficient.
+2. Add real Extension Host startup/language/command/dependency negative activation probes on a platform permitting original IPC. Unit manifest tests are not this gate. Before adding any ID to product admission, audit its whole activate/import/dependency graph; keep mixed/built-in under the same rule. Maintain original account/provider requirements, no sign-in bypass.
+3. Run original native Sessions UI on Mac arm64 using README commands, resolve native builds, verify original Host/provider configuration with a dedicated account, perform actual read/write/check/diff/approval/stop/restart demo in disposable project. Produce runnable source-version-matched Mac build and record ABI/package size, screenshot and startup/module/worker/EH traces. Do not reuse prototype package or browser results as native proof.
+4. Only after these engineering gates, mark H1 “可提交人工验收”; user's explicit result alone marks “人工通过”. H2–H4 stay separate. Independent H2 preparation may continue, but must not delay H1 or silently enable its VSIX/provider.
+
+Cloud block: original Electron single-instance Unix socket EPERM; original browser is usable with loopback TCP. Account sign-in and complete module exclusion are separate unresolved gates. No request for personal caches/token paste or another product identity.

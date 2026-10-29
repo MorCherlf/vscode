@@ -3,9 +3,13 @@
 
 # Agent 专用客户端项目总览
 
+## 人工交付顺序（当前优先）
+
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。
+
 当前产品方向是 VSC Agent First：直接复用原 Agent/Sessions 组件和原扩展宿主，禁用编辑器专用插件，不主动加载 editor-only 组件；DSH 使用自有 VS Code 插件适配器，插件继续由原 DSH 运行时加载。双方独立保留同步上游的路径。方向已由用户确认，具体边界见 [ADR-001](ADR-001-agent-first-dsh-extension.md)，方案见 [SOLUTION](SOLUTION.md)。首版优先 macOS arm64；最终容器仍待验证。
 
-[完整可行性报告](feasibility/README.md) 与 [PoC 计划](feasibility/POC_PLAN.md) 保留调研来源；其中广泛编辑器兼容/恢复一般 IDE 的候选范围已由 ADR 收窄。新增 AF-01–06 运行门禁均未执行，会话 API 编译探针已通过。下文原 M0–M8 状态只表示已有原型交付，不把方向调整或类型检查当成运行验收。
+[完整可行性报告](feasibility/README.md) 与 [PoC 计划](feasibility/POC_PLAN.md) 保留调研来源；其中广泛编辑器兼容/恢复一般 IDE 的候选范围已由 ADR 收窄。新增 AF-01/02 仅有 H1 浏览器/加载基线的部分证据，AF-01–06 完整门禁均未通过，会话 API 编译探针已通过。下文原 M0–M8 状态只表示已有原型交付，不把方向调整或类型检查当成运行验收。
 
 当前阶段（2026-10-29）：M0 工程审计已交付，完整性能基线仍待验收；M1 独立 Host 已通过 Linux 与本机 Mac 原生/确定性验证；M2 已产出 Mac arm64 Release 开发包，并交付 Sessions 界面首批迁移。真实账户、Keychain、完整 WKWebView 与原版界面对照等门禁仍未通过。规划基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定；文档中的性能数字是建议的验收目标，不是已有实测结果。
 

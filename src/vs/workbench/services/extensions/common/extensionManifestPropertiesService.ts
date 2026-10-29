@@ -188,6 +188,11 @@ export class ExtensionManifestPropertiesService extends Disposable implements IE
 	}
 
 	canExecuteOnSessionsWindow(manifest: IExtensionManifest, isBuiltin: boolean = false): boolean {
+		// Product admission precedes user overrides, built-in heuristics and contribution-based auto-enable.
+		// An Agent contribution cannot make an unaudited executable extension safe to activate.
+		if (!this.isProductAdmitted(manifest)) {
+			return false;
+		}
 		const configuredSessionsWindowSupport = this.getConfiguredSessionsWindowSupport(manifest);
 		if (configuredSessionsWindowSupport !== undefined) {
 			return configuredSessionsWindowSupport;
@@ -231,12 +236,14 @@ export class ExtensionManifestPropertiesService extends Disposable implements IE
 		return autoEnable === true && this.canAutoEnableOnSessionsWindow(manifest, isBuiltin);
 	}
 
-	/**
-	 * Built-in extensions are curated by the product, and extensions that support the sessions window are enabled there
-	 * anyway. Authors and users can declare that an extension doesn't support the sessions window.
-	 */
+	private isProductAdmitted(manifest: IExtensionManifest): boolean {
+		const admitted = this.productService.agentFirstExecutableExtensions;
+		return !admitted || !(manifest.main || manifest.browser) || admitted.some(id => ExtensionIdentifier.equals(id, getGalleryExtensionId(manifest.publisher, manifest.name)));
+	}
+
+	/** Built-in extensions already have a curated policy; product admission also gates auto-enable suggestions. */
 	private isEligibleForSessionsWindowAutoEnablement(manifest: IExtensionManifest, isBuiltin: boolean): boolean {
-		return !isBuiltin && !this.canExecuteOnSessionsWindow(manifest, isBuiltin)
+		return this.isProductAdmitted(manifest) && !isBuiltin && !this.canExecuteOnSessionsWindow(manifest, isBuiltin)
 			&& manifest.capabilities?.agentsWindow?.supported !== false && this.getConfiguredSessionsWindowSupport(manifest) !== false;
 	}
 

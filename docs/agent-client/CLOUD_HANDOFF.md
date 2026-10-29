@@ -3,13 +3,17 @@
 
 # Codex 云端推进交接
 
+## 人工交付顺序（当前优先）
+
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。
+
 用户已经授权把 Agent 客户端路线转交 Codex 云端实施。目标仓库为 `MorCherlf/vscode`，初始交接分支为 `codex/agent-client-roadmap`。云端从该分支中的规划开始推进，不把本地未推送文件或其他聊天历史当作必要输入。
 
 ## 当前接力（2026-10-29）
 
 当前权威方向是 [ADR-001](ADR-001-agent-first-dsh-extension.md)，用户已确认 VSC Agent First、禁用编辑器专用插件、不主动加载 editor-only 组件；DSH 尽量由一个自有 VS Code 插件适配，保留原 runtime/profile/插件行为和独立上游升级。SOLUTION/GOALS/ROADMAP/VALIDATION 已同步，原报告保留研究候选。不要恢复一般 IDE 兼容区；不要继续扩大仿写 React UI 或手写 vscode API 子集。
 
-会话注册/工具调用的严格编译探针已通过，但所有 AF-01–06 运行门禁尚未执行。接手先做 AF-01/03 的最小原组件/原扩展链路，并记录 AF-02 加载基线：原 `chatSessionsProvider` 接口是 proposed，需要产品级精确 allowlist；原 Agents Window 不自动列出任意扩展会话，必要时只增加通用 `extensionSessions` provider，DSH 特有逻辑留在 VSIX/驱动层。DSH loop 不替换为 VSC 模型 provider，SDK 逐会话取消缺口按原 Cordis 驱动补足。最终容器仍候选。
+会话注册/工具调用的严格编译探针已通过，但AF-01/02 已有 H1 浏览器/加载基线的部分证据，所有 AF-01–06 完整运行门禁尚未通过。接手优先闭合 H1 / AF-01/02 原组件与裁剪运行，AF-03 的独立准备可保留但不能阻塞 H1，并记录 AF-02 加载基线：原 `chatSessionsProvider` 接口是 proposed，需要产品级精确 allowlist；原 Agents Window 不自动列出任意扩展会话，必要时只增加通用 `extensionSessions` provider，DSH 特有逻辑留在 VSIX/驱动层。DSH loop 不替换为 VSC 模型 provider，SDK 逐会话取消缺口按原 Cordis 驱动补足。最终容器仍候选。
 
 继续现有实现分支 `codex/agent-client-implementation` 与草稿 PR #2，base 保持 `codex/agent-client-roadmap`。M0/M1 首轮和 M2 初始工程已经提交；本机又交付 Mac 原生/确定性验证及 Sessions 界面首批迁移。先读 [当前报告](evidence/M2-ui/README.md)、[界面目标与来源](UI_MIGRATION.md) 和 [M2-B](evidence/M2/NEXT.md)，不要把下面的首轮任务重新执行一遍。
 

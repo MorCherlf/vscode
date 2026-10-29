@@ -3,6 +3,10 @@
 
 # Agent 专用客户端 Roadmap
 
+## 人工交付顺序（当前优先）
+
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。
+
 当前采用 [ADR-001](ADR-001-agent-first-dsh-extension.md) 确定的 Agent First 路线：原组件/原宿主 → 编辑器插件准入与组件加载裁剪 → DSH Adapter VSIX 接入原会话界面 → 原 DSH 插件行为 → 双上游升级与性能发行。编辑器专用插件禁用，不通过恢复通用 IDE 扩大兼容；DSH 专属逻辑在插件/驱动层。
 
 ## 当前工作顺序

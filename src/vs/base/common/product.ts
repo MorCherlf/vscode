@@ -262,6 +262,10 @@ export interface IProductConfiguration {
 	}>;
 	readonly extensionsForceVersionByQuality?: readonly string[];
 	readonly builtInExtensionsEnabledWithAutoUpdates: readonly string[];
+	/** Executable extensions audited for the Agent First product, including their activation/import graph. */
+	readonly agentFirstExecutableExtensions?: readonly string[];
+	/** Curated extension session contributions projected into the Agents Window. */
+	readonly agentFirstSessionTypes?: readonly string[];
 	readonly sessionsWindowAllowedExtensions?: readonly string[];
 
 	readonly msftInternalDomains?: string[];

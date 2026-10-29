@@ -5,7 +5,14 @@
 
 //#region --- editor/workbench core
 
-import '../editor/editor.all.js';
+// Agent First composition: keep the original input/text/diff machinery, not the full editor contribution barrel.
+import '../editor/browser/coreCommands.js';
+import '../editor/browser/widget/codeEditor/codeEditorWidget.js';
+import '../editor/browser/widget/diffEditor/diffEditor.contribution.js';
+import '../editor/contrib/clipboard/browser/clipboard.js';
+import '../editor/contrib/contextmenu/browser/contextmenu.js';
+import '../editor/contrib/cursorUndo/browser/cursorUndo.js';
+import '../editor/contrib/wordOperations/browser/wordOperations.js';
 import { getColorRegistry } from '../platform/theme/common/colorUtils.js';
 import { PANEL_BACKGROUND } from '../workbench/common/theme.js';
 import { TERMINAL_BACKGROUND_COLOR } from '../workbench/contrib/terminal/common/terminalColorRegistry.js';
