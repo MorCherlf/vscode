@@ -2,5 +2,5 @@
 	"identifier": "main",
 	"description": "Local main window only. No shell, filesystem, HTTP or remote window permissions.",
 	"windows": ["main"],
-	"permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+	"permissions": ["core:event:allow-listen", "core:event:allow-unlisten", "core:window:allow-start-dragging"]
 }

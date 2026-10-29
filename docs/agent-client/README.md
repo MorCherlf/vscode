@@ -5,7 +5,7 @@
 
 项目目标是把当前 VS Code 仓库中的 Agent 能力做成独立应用：使用 Tauri 客户端，保留 Copilot Agent、会话、工具、结果审阅和 Agent 扩展，移除常规 IDE 工作台及编辑器扩展。优先验证 macOS，再考虑网页、Windows 和 Linux。
 
-当前阶段：M0 工程审计已交付，完整基线待 Mac 验收；M1 独立 Host 与 M2 Tauri 客户端云端工程已交付，真实账户与 Mac 门禁仍未通过。基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定，规划日期为 2026 年 10 月 28 日。文档中的性能数字是建议的验收目标，不是已有实测结果。
+当前阶段（2026-10-29）：M0 工程审计已交付，完整性能基线仍待验收；M1 独立 Host 已通过 Linux 与本机 Mac 原生/确定性验证；M2 已产出 Mac arm64 Release 开发包，并交付 Sessions 界面首批迁移。真实账户、Keychain、完整 WKWebView 与原版界面对照等门禁仍未通过。规划基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定；文档中的性能数字是建议的验收目标，不是已有实测结果。
 
 ## 阅读入口
 
@@ -15,6 +15,7 @@
 | [Roadmap](ROADMAP.md) | 里程碑顺序、依赖、交付物和进入下一阶段的门禁 |
 | [目标与验收矩阵](GOALS.md) | 统一的目标编号、验收标准、对应里程碑 |
 | [验证与证据规范](VALIDATION.md) | 功能场景、性能测量口径、结果记录与发布判定 |
+| [界面迁移推进文档](UI_MIGRATION.md) | VS Code Agent/Sessions 的组件来源、分批迁移和界面对照门禁 |
 | [Codex 云端推进交接](CLOUD_HANDOFF.md) | 云端首个任务、执行范围、Mac 验收交接和继续推进规则 |
 
 ## 里程碑推进文档
@@ -22,8 +23,8 @@
 | 编号 | 大目标 | 状态 |
 | --- | --- | --- |
 | [M0](milestones/M0-baseline.md) | 能力边界、依赖清单和性能基线 | 待验收（工程审计完成） |
-| [M1](milestones/M1-standalone-host.md) | 可独立分发的 Agent Host | 进行中（首个实现通过 Linux 确定性验证） |
-| [M2](milestones/M2-tauri-client.md) | Tauri 客户端和 AHP 通信验证 | 进行中（云端工程已实现，Mac/账户未验收） |
+| [M1](milestones/M1-standalone-host.md) | 可独立分发的 Agent Host | 进行中（Linux/Mac 原生与确定性验证通过，真实任务待验收） |
+| [M2](milestones/M2-tauri-client.md) | Tauri 客户端和 AHP 通信验证 | 进行中（Mac 开发包与首批界面迁移已交付，账户/完整界面和真机交互待验收） |
 | [M3](milestones/M3-agent-workflow.md) | 完整的本地 Agent 任务流程 | 待启动 |
 | [M4](milestones/M4-agent-plugins.md) | Agent 原生插件与自定义能力 | 待启动 |
 | [M5](milestones/M5-extension-compatibility.md) | Agent 工具扩展及富交互兼容 | 待启动 |
@@ -48,6 +49,6 @@ M0 至 M7 的门禁全部通过，G01 至 G12 均有验收记录；性能在扩�
 
 ## 本次工程交付
 
-见 [M0 审计](evidence/M0/README.md)、[M1 验证](evidence/M1/README.md)、[独立 Host 使用说明](../../packages/agent-host/README.md) 和 [下一工作包 M1-B](evidence/M1/NEXT.md)。未运行 Mac、WKWebView、Keychain 或签名验收，未自动合并或发布。
+见 [M0 审计](evidence/M0/README.md)、[M1 验证](evidence/M1/README.md)、[独立 Host 使用说明](../../packages/agent-host/README.md) 和 [下一工作包 M1-B](evidence/M1/NEXT.md)。早期云端报告的环境边界保留不变；新增 [Mac 运行时与 Sessions 界面验证](evidence/M2-ui/README.md) 单独记录本机结果。Keychain、完整 WKWebView 和签名验收仍未执行，未自动合并或发布。
 
 M2 续作见 [执行证据](evidence/M2/README.md) 与 [下一工作包](evidence/M2/NEXT.md)。源码、锁文件和证据已通过实现分支与 [草稿 PR #2](https://github.com/MorCherlf/vscode/pull/2) 独立审阅，不以开发构建代替发布验收。

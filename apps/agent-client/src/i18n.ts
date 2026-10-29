@@ -1,11 +1,55 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/* Copyright (c) Microsoft Corporation. All rights reserved. */
+/* Licensed under the MIT License. See LICENSE.txt in the project root for license information. */
 const en = {
-	app: 'MorCherlf Agent', subtitle: 'A focused space for your agent tasks', projects: 'Project', projectPath: 'Absolute project directory', sessions: 'Sessions', newSession: 'New session', connect: 'Connect', reconnect: 'Reconnect and sync', quit: 'Quit', send: 'Send', cancel: 'Stop turn', prompt: 'Describe a task…', empty: 'Choose a project and start a session.', select: 'Select a session to read its conversation.', desktop: 'Open this interface in the desktop application to connect to the local Host.', account: 'Sign-in is not available in this preview. Account and Keychain integration require a native adapter.', signIn: 'Sign in', ready: 'Connected', offline: 'Offline', connecting: 'Connecting', 'resync-required': 'Connection interrupted. Sync before continuing.', quitTitle: 'Quit the application?', quitDetail: 'An agent turn is active. Wait for it to finish, or stop your Host and quit.', wait: 'Wait and quit', stop: 'Stop and quit', keep: 'Keep working', waiting: 'Waiting for active turns to finish…', question: 'Agent needs your input', accept: 'Approve', reject: 'Reject', unsupported: 'This input form requires an adapter that is not available yet. Stop the turn or use a supported client.', tools: 'Tool activity', error: 'Operation failed',
+	app: 'MorCherlf Agent', sessions: 'Sessions', newSession: 'New Session', welcome: 'What are we building?',
+	project: 'Project', projectPath: 'Absolute project directory', chooseProject: 'Choose Project',
+	projectHelp: 'Enter an absolute local folder path. The agent will use this folder for the new session.',
+	invalidProject: 'Enter an absolute local folder path.', noProject: 'No project selected', ungrouped: 'Other Sessions',
+	connect: 'Connect', reconnect: 'Reconnect and Sync', quit: 'Quit', send: 'Send', cancel: 'Stop Turn',
+	prompt: 'Describe a task…', agent: 'Agent', provider: 'Agent Provider', noProvider: 'Connect to load agents',
+	emptySessions: 'Your sessions will appear here.', searchSessions: 'Search Sessions', noResults: 'No matching sessions.',
+	ready: 'Connected', offline: 'Offline', connecting: 'Connecting', 'resync-required': 'Connection interrupted. Sync before continuing.',
+	desktop: 'Open the desktop application to connect to your local agent.',
+	account: 'Account sign-in is not available in this preview.', signIn: 'Sign In',
+	quitTitle: 'Quit the application?', quitDetail: 'An agent turn is active or its state is uncertain. Wait for it to finish, or stop your Host and quit.',
+	wait: 'Wait and Quit', stop: 'Stop and Quit', keep: 'Keep Working', waiting: 'Waiting for active turns to finish…',
+	question: 'The agent needs your input', accept: 'Approve', reject: 'Reject', submit: 'Submit',
+	unsupported: 'This input form is not supported yet. Stop the turn or use a supported client.',
+	error: 'Operation failed', close: 'Close', apply: 'Apply', back: 'Cancel', settings: 'Settings',
+	appearance: 'Appearance', theme: 'Color Theme', systemTheme: 'System', darkTheme: 'Dark Modern', lightTheme: 'Light Modern',
+	toggleSidebar: 'Toggle Sidebar', draftHint: 'Enter to send · Shift+Enter for a new line',
+	working: 'Working…', you: 'You', assistant: 'Agent', thinking: 'Thinking', toolDetails: 'Tool Details',
+	toolPending: 'Approval required', toolRunning: 'Running', toolComplete: 'Completed', toolCancelled: 'Cancelled',
+	toolAuth: 'Sign-in required', toolResult: 'Review required', toolStreaming: 'Preparing',
+	copy: 'Copy', copied: 'Copied', copyFailed: 'Could not copy to clipboard.',
+	linksUnavailable: 'Opening links is not available in this preview.', imageOmitted: 'Image omitted',
+	shortcuts: 'Keyboard Shortcuts', newShortcut: 'New Session: ⌘/Ctrl+N', sidebarShortcut: 'Toggle Sidebar: ⌘/Ctrl+B',
+	attribution: 'Codicons © Microsoft · CC BY 4.0',
 };
 const zh: typeof en = {
-	app: 'MorCherlf Agent', subtitle: '专注处理 Agent 任务', projects: '项目', projectPath: '项目的绝对路径', sessions: '会话', newSession: '新建会话', connect: '连接', reconnect: '重连并同步', quit: '退出应用', send: '发送', cancel: '停止当前轮次', prompt: '描述要完成的任务…', empty: '选择项目，然后新建会话。', select: '选择会话以查看对话。', desktop: '请在桌面应用中打开此界面，以连接本地 Host。', account: '此预览尚未实现账户登录；原生账户与 Keychain 适配仍待完成。此界面不接收账户凭据。', signIn: '登录', ready: '已连接', offline: '未连接', connecting: '正在连接', 'resync-required': '连接已中断，请先同步后继续。', quitTitle: '退出应用？', quitDetail: 'Agent 仍在执行任务。可以等待完成，或停止自有 Host 后退出。', wait: '完成后退出', stop: '停止并退出', keep: '继续工作', waiting: '正在等待活跃任务完成…', question: 'Agent 需要你的输入', accept: '批准', reject: '拒绝', unsupported: '此输入表单尚缺适配。可停止轮次，或使用支持该表单的客户端。', tools: '工具记录', error: '操作失败',
+	app: 'MorCherlf Agent', sessions: '会话', newSession: '新建会话', welcome: '我们来构建些什么？',
+	project: '项目', projectPath: '项目的绝对路径', chooseProject: '选择项目',
+	projectHelp: '输入本地文件夹的绝对路径。Agent 将在此文件夹中处理新会话。',
+	invalidProject: '请输入本地文件夹的绝对路径。', noProject: '尚未选择项目', ungrouped: '其他会话',
+	connect: '连接', reconnect: '重连并同步', quit: '退出应用', send: '发送', cancel: '停止当前轮次',
+	prompt: '描述要完成的任务…', agent: 'Agent', provider: 'Agent 提供方', noProvider: '连接后加载 Agent',
+	emptySessions: '你的会话将显示在这里。', searchSessions: '搜索会话', noResults: '没有匹配的会话。',
+	ready: '已连接', offline: '未连接', connecting: '正在连接', 'resync-required': '连接已中断，请先同步后继续。',
+	desktop: '请打开桌面应用，以连接本地 Agent。',
+	account: '此预览暂未提供账户登录。', signIn: '登录',
+	quitTitle: '退出应用？', quitDetail: 'Agent 仍在执行任务，或当前状态尚未确认。可以等待完成，或停止自有 Host 后退出。',
+	wait: '完成后退出', stop: '停止并退出', keep: '继续工作', waiting: '正在等待活跃任务完成…',
+	question: 'Agent 需要你的输入', accept: '批准', reject: '拒绝', submit: '提交',
+	unsupported: '此输入表单暂不受支持。可停止轮次，或使用支持该表单的客户端。',
+	error: '操作失败', close: '关闭', apply: '应用', back: '取消', settings: '设置',
+	appearance: '外观', theme: '颜色主题', systemTheme: '跟随系统', darkTheme: 'Dark Modern', lightTheme: 'Light Modern',
+	toggleSidebar: '切换侧边栏', draftHint: 'Enter 发送 · Shift+Enter 换行',
+	working: '正在处理…', you: '你', assistant: 'Agent', thinking: '思考过程', toolDetails: '工具详情',
+	toolPending: '等待批准', toolRunning: '执行中', toolComplete: '已完成', toolCancelled: '已取消',
+	toolAuth: '需要登录', toolResult: '等待审阅', toolStreaming: '准备中',
+	copy: '复制', copied: '已复制', copyFailed: '无法复制到剪贴板。',
+	linksUnavailable: '此预览暂不支持打开链接。', imageOmitted: '已省略图片',
+	shortcuts: '键盘快捷键', newShortcut: '新建会话：⌘/Ctrl+N', sidebarShortcut: '切换侧边栏：⌘/Ctrl+B',
+	attribution: 'Codicons © Microsoft · CC BY 4.0',
 };
 export const labels = navigator.language.startsWith('zh') ? zh : en;

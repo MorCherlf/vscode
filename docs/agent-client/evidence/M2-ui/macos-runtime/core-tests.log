@@ -1,0 +1,18 @@
+
+> @morcherlf/agent-client-core@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ official client negotiates released protocol, preserves opaque identities and resubscribes without replaying mutations (29.40125ms)
+✔ Tauri transport ignores old generations, acknowledges consumed frames and fails closed on overflow (0.482417ms)
+✔ outbound failure is an unknown outcome; transport never retries a side effect (0.189833ms)
+✔ snapshot/action race is reconciled with the official chat reducer (12.547958ms)
+✔ input requests and tool denials use the official action contract without an execution bypass (12.278208ms)
+✔ official SDK and bounded Tauri transport drive the existing M1 mock Host and converge after reconnect (2772.72375ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2842.821208
