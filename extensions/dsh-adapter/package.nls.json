@@ -1,0 +1,9 @@
+{
+	"displayName": "DSH Agent Adapter",
+	"description": "Run the original isolated DeepSeek Harness through native VS Code chat sessions.",
+	"nodePath": "Absolute product-managed Node 24.22.1 executable. No shell is invoked.",
+	"runtimeDirectory": "Absolute path to the separately installed, locked MorCherlf DSH runtime package.",
+	"profile": "Original DSH named profile (SDK protocol required).",
+	"provider": "Original DSH provider route.",
+	"model": "Original DSH model identifier."
+}
