@@ -1,10 +1,32 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE.txt in the project root for license information.
 
+pub mod account;
+pub mod credentials;
+
 use serde::{Deserialize, Serialize};
 use std::{collections::BTreeSet, fs, io::{BufRead, BufReader, Read}, net::TcpStream, path::PathBuf, process::{Child, Command, Stdio}, sync::{mpsc::{self, SyncSender}, Arc}, thread::{self, JoinHandle}, time::{Duration, Instant}};
 use tungstenite::{client::client_with_config, protocol::{Message, WebSocketConfig}, Error as WsError};
 
+/// Opening is an explicit user action; opening a page never completes an AHP request.
+pub fn supported_input_url(value: &str) -> bool {
+	if value.len() > 2048 { return false; }
+	reqwest::Url::parse(value).is_ok_and(|url| url.scheme() == "https" && url.host_str().is_some() && url.username().is_empty() && url.password().is_none())
+}
+pub fn account_expired_frame(text: &str) -> bool {
+	serde_json::from_str::<serde_json::Value>(text).is_ok_and(|value| value["method"] == "auth/required" && value["params"]["reason"] == "expired" && value["params"]["resource"]["resource"] == "https://api.github.com")
+}
+/// Capability filter, not a second protocol/state implementation. In particular, logs and
+/// account authentication are not renderer capabilities.
+pub fn validate_renderer_frame(text: &str) -> Result<(), String> {
+	if text.len() > 1024 * 1024 { return Err("FRAME_TOO_LARGE".into()); }
+	let frame: serde_json::Value = serde_json::from_str(text).map_err(|_| "INVALID_FRAME")?;
+	if !frame.is_object() { return Err("INVALID_FRAME".into()); }
+	let method = frame["method"].as_str().ok_or("UNSUPPORTED_RENDERER_METHOD")?;
+	if !["initialize", "subscribe", "unsubscribe", "listSessions", "createSession", "dispatchAction", "ping"].contains(&method) { return Err("UNSUPPORTED_RENDERER_METHOD".into()); }
+	if frame["params"]["channel"].as_str().is_some_and(|channel| channel.starts_with("ahp-otlp:")) { return Err("NATIVE_LOG_CHANNEL_UNAVAILABLE".into()); }
+	Ok(())
+}
 const MAX_FRAME: usize = 1024 * 1024;
 const WINDOW: usize = 64;
 type Sink = Arc<dyn Fn(BridgeEvent) -> Result<(), String> + Send + Sync>;
@@ -40,12 +62,16 @@ impl HostSupervisor {
 	fn start(&mut self) -> Result<(), String> {
 		if let Some(child) = self.child.as_mut() {
 			if child.try_wait().map_err(|_| "HOST_STATUS_FAILED")?.is_none() { return Ok(()); }
-			self.child = None; self.token.clear();
+			Self::reap_descendants(child.id()); self.child = None; self.token.clear();
 		}
 		fs::create_dir_all(&self.data).map_err(|_| "DATA_DIRECTORY_FAILED")?;
 		let node = self.directory.join("bin").join(if cfg!(windows) { "node.exe" } else { "node" });
-		let mut child = Command::new(node).arg(self.directory.join(&self.entry)).arg("--user-data-dir").arg(&self.data)
-			.current_dir(&self.directory).stdin(Stdio::piped()).stdout(Stdio::piped()).stderr(Stdio::piped()).spawn().map_err(|_| "HOST_SPAWN_FAILED")?;
+		let mut command = Command::new(node);
+		command.arg(self.directory.join(&self.entry)).arg("--user-data-dir").arg(&self.data).current_dir(&self.directory).stdin(Stdio::piped()).stdout(Stdio::piped()).stderr(Stdio::piped());
+		for name in ["GH_TOKEN", "GITHUB_TOKEN", "COPILOT_GITHUB_TOKEN", "GITHUB_COPILOT_GITHUB_TOKEN", "GITHUB_COPILOT_API_TOKEN", "GH_ENTERPRISE_TOKEN", "GITHUB_ENTERPRISE_TOKEN"] { command.env_remove(name); }
+		command.env("GH_CONFIG_DIR", self.data.join("gh"));
+		#[cfg(unix)] { use std::os::unix::process::CommandExt; command.process_group(0); }
+		let mut child = command.spawn().map_err(|_| "HOST_SPAWN_FAILED")?;
 		let stdout = child.stdout.take().ok_or("HOST_STDOUT_MISSING")?;
 		let stderr = child.stderr.take().ok_or("HOST_STDERR_MISSING")?;
 		thread::spawn(move || { let mut reader = stderr; let mut buffer = [0u8; 4096]; while matches!(reader.read(&mut buffer), Ok(n) if n > 0) {} });
@@ -70,8 +96,42 @@ impl HostSupervisor {
 		});
 		match checked {
 			Ok((port, token)) => { self.port = port; self.token = token; self.child = Some(child); Ok(()) }
-			Err(error) => { let _ = child.kill(); let _ = child.wait(); Err(error.into()) }
+			Err(error) => { Self::reap_descendants(child.id()); let _ = child.kill(); let _ = child.wait(); Err(error.into()) }
 		}
+	}
+	/// Separate native AHP connection: account credentials never enter the WebView frame stream.
+	pub fn authenticate_account(&mut self, account_token: &str, expires_in: Option<u64>) -> Result<(), String> {
+		self.authenticate_resource("https://api.github.com", account_token, expires_in)
+	}
+	fn authenticate_resource(&mut self, resource: &str, account_token: &str, expires_in: Option<u64>) -> Result<(), String> {
+		self.start()?;
+		let stream = TcpStream::connect_timeout(&format!("127.0.0.1:{}", self.port).parse().map_err(|_| "ADDRESS_INVALID")?, Duration::from_secs(5)).map_err(|_| "HOST_CONNECT_FAILED")?;
+		stream.set_read_timeout(Some(Duration::from_secs(10))).map_err(|_| "SOCKET_OPTIONS_FAILED")?;
+		stream.set_write_timeout(Some(Duration::from_secs(10))).map_err(|_| "SOCKET_OPTIONS_FAILED")?;
+		let url = format!("ws://127.0.0.1:{}/?tkn={}", self.port, self.token);
+		let (mut socket, _) = client_with_config(url.as_str(), stream, Some(WebSocketConfig::default().max_message_size(Some(MAX_FRAME)).max_frame_size(Some(MAX_FRAME)))).map_err(|_| "HOST_AUTHENTICATION_FAILED")?;
+		let initialize = serde_json::json!({"jsonrpc":"2.0","id":1,"method":"initialize","params":{"channel":"ahp-root://","clientId":"morcherlf-native-account","protocolVersions":["1.0.0"]}});
+		socket.send(Message::Text(initialize.to_string().into())).map_err(|_| "ACCOUNT_HANDOFF_FAILED")?;
+		let deadline = Instant::now() + Duration::from_secs(10);
+		let mut step = 1;
+		while Instant::now() < deadline {
+			match socket.read().map_err(|_| "ACCOUNT_HANDOFF_FAILED")? {
+				Message::Text(text) => {
+					let value: serde_json::Value = serde_json::from_str(&text).map_err(|_| "ACCOUNT_HANDOFF_FAILED")?;
+					if value["id"] != step { continue; }
+					if value.get("error").is_some() || value.get("result").is_none() { return Err("ACCOUNT_HANDOFF_REJECTED".into()); }
+					if step == 2 { let _ = socket.close(None); return Ok(()); }
+					if value["result"]["protocolVersion"] != "1.0.0" { return Err("UNSUPPORTED_PROTOCOL".into()); }
+					let mut params = serde_json::json!({"channel":"ahp-root://","resource":resource,"token":account_token});
+					if let Some(expiry) = expires_in { params["expiresIn"] = expiry.into(); }
+					let request = serde_json::json!({"jsonrpc":"2.0","id":2,"method":"authenticate","params":params});
+					socket.send(Message::Text(request.to_string().into())).map_err(|_| "ACCOUNT_HANDOFF_FAILED")?; step = 2;
+				}
+				Message::Ping(data) => { socket.send(Message::Pong(data)).map_err(|_| "ACCOUNT_HANDOFF_FAILED")?; }
+				_ => return Err("ACCOUNT_HANDOFF_FAILED".into()),
+			}
+		}
+		Err("ACCOUNT_HANDOFF_TIMEOUT".into())
 	}
 	pub fn connect(&mut self, sink: Sink) -> Result<u64, String> {
 		self.disconnect(); self.start()?;
@@ -126,14 +186,20 @@ impl HostSupervisor {
 	fn disconnect(&mut self) {
 		if let Some(connection) = self.connection.take() { let _ = connection.sender.send(SocketCommand::Close); let _ = connection.thread.join(); }
 	}
+	fn reap_descendants(pid: u32) {
+		#[cfg(unix)]
+		// The process group is created by us, with the Host as leader. Never target the app's group.
+		unsafe { libc::kill(-(pid as i32), libc::SIGKILL); }
+	}
 	pub fn stop(&mut self) -> Result<(), String> {
 		self.disconnect(); self.token.clear();
 		if let Some(mut child) = self.child.take() {
 			drop(child.stdin.take()); let deadline = Instant::now() + Duration::from_secs(7);
 			while Instant::now() < deadline {
-				if child.try_wait().map_err(|_| "HOST_WAIT_FAILED")?.is_some() { return Ok(()); }
+				if child.try_wait().map_err(|_| "HOST_WAIT_FAILED")?.is_some() { Self::reap_descendants(child.id()); return Ok(()); }
 				thread::sleep(Duration::from_millis(25));
 			}
+			Self::reap_descendants(child.id());
 			child.kill().map_err(|_| "HOST_KILL_FAILED")?; child.wait().map_err(|_| "HOST_REAP_FAILED")?;
 			return Err("HOST_FORCED_STOP".into());
 		}
@@ -167,7 +233,7 @@ mod tests {
 		let peer = thread::spawn(move || {
 			let (stream, _) = listener.accept().unwrap();
 			let mut socket = tungstenite::accept(stream).unwrap();
-			for _ in 0..65 { if socket.send(Message::Text("{}".into())).is_err() { break; } }
+			for _ in 0..65 { if socket.send(Message::Text("x".repeat(MAX_FRAME / 2).into())).is_err() { break; } }
 		});
 		let data = tempfile::tempdir().unwrap();
 		let mut supervisor = HostSupervisor::new(PathBuf::from("/unused"), data.path().into());
@@ -202,5 +268,41 @@ mod tests {
 		assert_eq!(supervisor.send(first, "{}".into()).unwrap_err(), "STALE_GENERATION");
 		supervisor.stop().unwrap(); assert!(supervisor.pid().is_none());
 		assert!(!fs::read_dir(data.path().join("data")).unwrap().any(|entry| entry.unwrap().file_name().to_string_lossy().starts_with(".connection-")));
+	}
+}
+
+#[cfg(test)]
+mod fault_tests {
+	use super::*;
+	#[test]
+	fn public_urls_and_revocation_notifications_are_capability_checked() {
+		assert!(supported_input_url("https://github.com/login/device"));
+		assert!(validate_renderer_frame(r#"{"method":"authenticate","params":{"token":"fixture"}}"#).is_err());
+		assert!(validate_renderer_frame(r#"{"method":"subscribe","params":{"channel":"ahp-otlp:/logs"}}"#).is_err());
+		assert!(validate_renderer_frame(r#"{"method":"subscribe","params":{"channel":"opaque:/chat"}}"#).is_ok());
+		for url in ["javascript:alert(1)", "file:///etc/passwd", "http://localhost", "https://user:pass@example.org"] { assert!(!supported_input_url(url)); }
+		assert!(account_expired_frame(r#"{"method":"auth/required","params":{"resource":{"resource":"https://api.github.com"},"reason":"expired"}}"#));
+		assert!(!account_expired_frame(r#"{"method":"auth/required","params":{"resource":{"resource":"https://other.invalid"},"reason":"expired"}}"#));
+	}
+	#[test]
+	fn oversized_frame_and_peer_crash_require_resync() {
+		for large in [false, true] {
+			let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap(); let port = listener.local_addr().unwrap().port();
+			let peer = thread::spawn(move || { let (stream, _) = listener.accept().unwrap(); let mut socket = tungstenite::accept(stream).unwrap(); if large { let _ = socket.send(Message::Text("x".repeat(MAX_FRAME + 1).into())); } });
+			let data = tempfile::tempdir().unwrap(); let mut supervisor = HostSupervisor::new(PathBuf::from("/unused"), data.path().into());
+			supervisor.child = Some(Command::new("sh").arg("-c").arg("cat").stdin(Stdio::piped()).stdout(Stdio::null()).spawn().unwrap()); supervisor.port = port;
+			let (sender, receiver) = mpsc::channel(); supervisor.connect(Arc::new(move |event| sender.send(event).map_err(|_| "closed".into()))).unwrap();
+			assert!(matches!(receiver.recv_timeout(Duration::from_secs(10)).unwrap(), BridgeEvent::Fault { .. })); supervisor.stop().unwrap(); peer.join().unwrap();
+		}
+	}
+	#[test]
+	#[ignore = "requires AGENT_HOST_TEST_DIR"]
+	fn native_account_handoff_and_host_crash_restart() {
+		let directory = PathBuf::from(std::env::var_os("AGENT_HOST_TEST_DIR").expect("AGENT_HOST_TEST_DIR")); let data = tempfile::tempdir().unwrap();
+		let mut host = HostSupervisor::with_entry(directory, data.path().join("data"), "start-test.mjs");
+		host.authenticate_resource("https://fixture.invalid", "fixture-account-token", Some(3600)).unwrap();
+		assert!(host.authenticate_resource("https://fixture.invalid", "invalid-fixture", None).is_err());
+		let first = host.pid().unwrap(); host.child.as_mut().unwrap().kill().unwrap(); host.child.as_mut().unwrap().wait().unwrap();
+		host.authenticate_resource("https://fixture.invalid", "fixture-account-token", None).unwrap(); assert_ne!(host.pid(), Some(first)); host.stop().unwrap();
 	}
 }

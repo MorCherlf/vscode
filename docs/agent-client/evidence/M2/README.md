@@ -3,6 +3,8 @@
 
 # M2 云端工程执行报告
 
+最新交付：[M2-B 原生账户、输入与故障工程](M2-B/README.md)。下文保留首轮历史报告与原始边界；本轮源码已改变，不能用旧平台结果宣称新版 Mac 或真实账户通过。M1/M2 仍未验收。
+
 2026-10-28，执行者 Codex。复用当前工作区，未重克隆或丢弃 M0/M1。M0/M1 已推送至实现分支 `codex/agent-client-implementation` 的 `31906f393148626814c5945c810462e19183cc3a`；本轮 M2 在相同分支追加，以 [草稿 PR #2](https://github.com/MorCherlf/vscode/pull/2) 独立审阅，base 为 `codex/agent-client-roadmap`。最终提交身份见 Git 分支/PR；被测源码和依赖由 source-hashes.json 精确识别。
 
 **状态：M2 进行中。** M2.1–M2.3/M2.5 云端切片已有实际实现；M2.4 原生账户/Keychain 适配未实现，M2.6 WKWebView、真实账户与 Mac 进程行为未验收。M1 继续等待真实账户任务和 Mac 验收；上轮 5/5 的准确边界见 [复核](prior-validation.md)，不是 5 个真实模型任务。

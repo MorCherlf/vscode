@@ -104,3 +104,31 @@ test('input requests and tool denials use the official action contract without a
 		]);
 	} finally { await client.disconnect(); }
 });
+
+test('input cancellation, duplicate/stale responses and reconnect preserve unknown outcomes without replay', async () => {
+	const host = fixture(); const first = host.connect(); const client = new AgentClient();
+	const action = async (connection, serverSeq, action) => { await connection.server.send({ jsonrpc: '2.0', method: 'action', params: { channel: chat, serverSeq, action } }); await delay(5); };
+	try {
+		await client.connect(first.transport); await client.selectSession(session);
+		await action(first, 100, { type: 'chat/turnStarted', turnId: 'turn', startedAt: '2026-10-29T00:00:00.000Z', message: { text: 'ask', origin: { kind: 'user' } } });
+		await action(first, 101, { type: 'chat/inputRequested', request: { id: 'r', questions: [{ id: 'v', kind: 'integer', required: true }] } });
+		client.answerForm(chat, 'r', { v: '3' });
+		assert.throws(() => client.answerForm(chat, 'r', { v: '4' }), /OUTCOME_UNKNOWN/);
+		await first.server.close(); await delay(5);
+		assert.throws(() => client.answerForm(chat, 'r', { v: '4' }), /RESYNC_REQUIRED/);
+		const second = host.connect(); await client.connect(second.transport);
+		// The same still-open request in a fresh snapshot/action is not permission to resend.
+		await action(second, 200, { type: 'chat/turnStarted', turnId: 'turn', startedAt: '2026-10-29T00:00:00.000Z', message: { text: 'ask', origin: { kind: 'user' } } });
+		await action(second, 201, { type: 'chat/inputRequested', request: { id: 'r', questions: [{ id: 'v', kind: 'integer' }] } });
+		assert.throws(() => client.answerForm(chat, 'r', { v: '4' }), /OUTCOME_UNKNOWN/);
+		await action(second, 202, { type: 'chat/inputRequested', request: { id: 'resolved-elsewhere' } });
+		await action(second, 203, { type: 'chat/inputCompleted', requestId: 'resolved-elsewhere', response: 'cancel' });
+		assert.throws(() => client.answer(chat, 'resolved-elsewhere', 'accept'), /OUTCOME_UNKNOWN/);
+		await action(second, 204, { type: 'chat/inputRequested', request: { id: 'cancel-me' } });
+		client.answer(chat, 'cancel-me', 'cancel');
+		await action(second, 205, { type: 'chat/turnCancelled', turnId: 'turn', duration: 0 });
+		assert.throws(() => client.answer(chat, 'r', 'accept'), /OUTCOME_UNKNOWN/);
+		await delay(5);
+		assert.deepEqual(host.mutations.filter(frame => frame.method === 'dispatchAction').map(frame => frame.params.action.response), ['accept', 'cancel']);
+	} finally { await client.disconnect(); }
+});

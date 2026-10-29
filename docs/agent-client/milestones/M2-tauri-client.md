@@ -56,4 +56,6 @@
 
 ## 推进记录与下一步
 
-已实现 `apps/agent-client/`、`packages/agent-client-core/` 和 `packages/agent-host-supervisor/`。官方 AHP 1.0.0 SDK/reducer、轻量 React/TypeScript 界面、Tauri 2.12.4 外壳、凭据留在 native 的帧转发、有界队列、重连快照、取消/文本问题/工具审批、窗口隐藏与退出选择均有实际代码。Linux 完整 Rust check 与调试可执行文件构建通过，核心 6/6、supervisor 4/4、浏览器 2/2 通过；真实 Tauri 图形窗口因云端无显示环境未运行，Chromium 截图不算 WKWebView 验收。M2.4 的原生登录/Keychain 适配尚未实现，真实账户与 M2.6 真机交互未验证；M2 不得标为已验收。详见 [M2 证据](../evidence/M2/README.md) 与 [M2-B](../evidence/M2/NEXT.md)。
+已实现 `apps/agent-client/`、`packages/agent-client-core/` 和 `packages/agent-host-supervisor/`。官方 AHP 1.0.0 SDK/reducer、轻量 React/TypeScript 界面、Tauri 2.12.4 外壳、凭据留在 native 的帧转发、有界队列、重连快照、取消/文本问题/工具审批、窗口隐藏与退出选择均有实际代码。Linux 完整 Rust check 与调试可执行文件构建通过，核心 6/6、supervisor 4/4、浏览器 2/2 通过；真实 Tauri 图形窗口因云端无显示环境未运行，Chromium 截图不算 WKWebView 验收。M2-B 已加入自有 OAuth device flow/refresh、原生凭据交接、credential-store/Keychain 后端、输入约束与故障工程，见 [本轮证据](../evidence/M2/M2-B/README.md)。真实账户、新版 Mac 编译/Keychain 与 M2.6 真机交互仍未验证；M2 不得标为已验收。详见 [M2 证据](../evidence/M2/README.md) 与 [M2-B](../evidence/M2/NEXT.md)。
+
+用户后续要求优先直接复用 VS Code 原组件与插件生态、持续合并上游，并探索 DSH。主聊天负责 `feasibility/`；本轮不扩大 React 视图或实现 vscode API 子集，也不提前决定双运行时或替换容器。已有资产/主题复用与表单适配不作为原组件复用证明。

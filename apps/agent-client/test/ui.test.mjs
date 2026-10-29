@@ -15,7 +15,7 @@ import { WebSocket, WebSocketServer } from '../../../packages/agent-host/node_mo
 
 const app = fileURLToPath(new URL('../', import.meta.url));
 const production = path.join(app, 'dist');
-const evidence = fileURLToPath(new URL('../../../docs/agent-client/evidence/M2-ui/', import.meta.url));
+const evidence = process.env.AGENT_CLIENT_UI_EVIDENCE || fileURLToPath(new URL('../../../docs/agent-client/evidence/M2-ui/', import.meta.url));
 const config = JSON.parse(await readFile(path.join(app, 'src-tauri/tauri.conf.json'), 'utf8'));
 let temporary, fixture, host, exited, server, browser, base, token;
 const connections = new Set();
@@ -214,5 +214,29 @@ test('Chinese compact window keeps the welcome/composer visible without horizont
 		await expect(page.getByRole('textbox', { name: '描述要完成的任务…' })).toBeVisible();
 		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 		await page.screenshot({ path: path.join(evidence, 'preview-zh-compact.png') });
+	} finally { await page.close(); }
+});
+
+test('input controls submit typed values once; URL opening never implicitly approves', { timeout: 30000 }, async () => {
+	const page = await browser.newPage({ locale: 'en-US' }); page.setDefaultTimeout(5000);
+	try {
+		await page.goto(base + '/fixture.html?inputs');
+		await page.getByLabel('Name', { exact: true }).fill('Ada');
+		await page.getByLabel('Count', { exact: true }).fill('0');
+		await page.getByLabel('Ratio', { exact: true }).fill('0.5');
+		await page.getByLabel('Flag', { exact: true }).selectOption('false');
+		await page.getByLabel('One', { exact: true }).selectOption('a');
+		await page.getByLabel('Many', { exact: true }).selectOption(['a', 'b']);
+		await page.getByRole('button', { name: 'Submit', exact: true }).click();
+		await expect(page.getByRole('button', { name: 'Submit', exact: true })).toBeDisabled();
+		const result = JSON.parse(await page.locator('body').getAttribute('data-answer'));
+		assert.deepEqual(Object.values(result.answers).map(answer => answer.value.value), ['Ada', 0, 0.5, false, 'a', ['a', 'b']]);
+		await page.goto(base + '/fixture.html?inputs&url');
+		await expect(page.getByRole('button', { name: 'Approve', exact: true })).toBeDisabled();
+		await page.getByRole('button', { name: 'Open Authentication Page', exact: true }).click();
+		assert.equal(await page.locator('body').getAttribute('data-answer'), null);
+		await expect(page.getByRole('button', { name: 'Approve', exact: true })).toBeEnabled();
+		await page.getByRole('button', { name: 'Reject', exact: true }).click();
+		assert.equal(await page.locator('body').getAttribute('data-answer'), 'decline');
 	} finally { await page.close(); }
 });

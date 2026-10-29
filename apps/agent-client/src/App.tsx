@@ -2,7 +2,7 @@
 /* Licensed under the MIT License. See LICENSE.txt in the project root for license information. */
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { AgentClient, type SessionSummary } from '@morcherlf/agent-client-core';
-import type { ClientRuntime } from './runtime';
+import type { ClientRuntime, AccountView, AccountAction } from './runtime';
 import { Icon } from './Icon';
 import { Modal } from './Modal';
 import { Transcript } from './Transcript';
@@ -49,6 +49,8 @@ export function App({ client, runtime }: { client: AgentClient; runtime: ClientR
 	const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
 	const [projectDialog, setProjectDialog] = useState(false);
 	const [settings, setSettings] = useState(false);
+	const [accountDialog, setAccountDialog] = useState(false);
+	const [account, setAccount] = useState<AccountView>({ phase: 'unconfigured' });
 	const [quit, setQuit] = useState(false);
 	const [wait, setWait] = useState(false);
 	const [theme, setTheme] = useState<Theme>(readTheme);
@@ -96,6 +98,21 @@ export function App({ client, runtime }: { client: AgentClient; runtime: ClientR
 		if (element) { element.style.height = 'auto'; element.style.height = Math.min(element.scrollHeight, 240) + 'px'; }
 	}, [draft]);
 
+	const accountAction = (action: AccountAction) => run(async () => {
+		if (!runtime.available || !runtime.account) { return; }
+		if (action === 'login' || action === 'logout') { await client.disconnect(); }
+		setAccount(await runtime.account(action));
+	});
+	useEffect(() => {
+		if (!runtime.available || !runtime.account) { return; }
+		let alive = true; let timer: ReturnType<typeof setTimeout>;
+		const poll = async () => {
+			try { const value = await runtime.account!('poll'); if (alive) { setAccount(value); } }
+			catch { if (alive) { setError(t.error); } }
+			if (alive) { timer = setTimeout(() => void poll(), 1000); }
+		};
+		void poll(); return () => { alive = false; clearTimeout(timer); };
+	}, [runtime]);
 	const choose = (uri: string) => run(async () => {
 		const nextChat = await client.selectSession(uri);
 		setSession(uri); setChat(nextChat);
@@ -140,7 +157,7 @@ export function App({ client, runtime }: { client: AgentClient; runtime: ClientR
 				</section>)}
 				{!groups.size && <p className="sidebar-empty">{query ? t.noResults : t.emptySessions}</p>}
 			</nav>
-			<footer className="sidebar-footer"><button disabled title={t.account}><Icon name="account"/>{t.signIn}</button><p>{t.account}</p><button onClick={() => setSettings(true)}><Icon name="settings-gear"/>{t.settings}</button></footer>
+			<footer className="sidebar-footer"><button disabled={!runtime.available || !runtime.account} title={t.account} onClick={() => setAccountDialog(true)}><Icon name="account"/>{account.phase === 'signed-in' ? t.account : t.signIn}</button><p>{runtime.account ? t.accountState[account.phase] : t.account}</p><button onClick={() => setSettings(true)}><Icon name="settings-gear"/>{t.settings}</button></footer>
 		</aside>}
 		<main className="sessions-panel">
 			<div className="session-header"><span className="session-heading"><Icon name="comment-discussion"/>{currentSession?.title || t.newSession}</span><div className="connection-actions"><span role="status" className={'status ' + client.status}><span className="status-dot"/>{t[client.status]}</span><button className="connection-button" disabled={!runtime.available || busy} onClick={() => void run(async () => client.connect(await runtime.connect()))}><Icon name="debug-disconnect"/>{client.status === 'offline' ? t.connect : t.reconnect}</button></div></div>
@@ -148,7 +165,7 @@ export function App({ client, runtime }: { client: AgentClient; runtime: ClientR
 			{error && <p role="alert" className="notice error">{error}</p>}
 			{wait && <p className="notice">{t.waiting}</p>}
 			<div className={'chat-surface' + (!session ? ' new-chat-widget-container' : '')}>
-				{session && <Transcript state={current} chat={chat} connected={client.status === 'ready'} client={client} onError={setError}/>}
+				{session && <Transcript state={current} chat={chat} connected={client.status === 'ready'} client={client} onError={setError} onOpenUrl={runtime.openInputUrl}/>}
 				<div className={!session ? 'new-chat-widget-content' : 'session-composer'}>
 					{!session && <div className="new-session-welcome-message"><h1 className="new-session-welcome-message-title">{t.welcome}</h1></div>}
 					<form className="chat-input-container" onSubmit={event => { event.preventDefault(); send(); }}>
@@ -161,6 +178,7 @@ export function App({ client, runtime }: { client: AgentClient; runtime: ClientR
 			</div>
 		</main>
 		{projectDialog && <ProjectDialog initial={directory} onClose={() => setProjectDialog(false)} onApply={value => { setDirectory(value); setProjectDialog(false); composer.current?.focus(); }}/>}
+		{accountDialog && <Modal title={t.account} onClose={() => setAccountDialog(false)}><p role="status">{t.accountState[account.phase]}</p>{account.phase === 'unconfigured' && <p>{t.accountConfig}</p>}<p>{t.accountStop}</p>{account.phase === 'authorizing' && <><p><code>{account.userCode}</code></p><p>{account.verificationUri}</p><button onClick={() => void run(async () => runtime.openAccount?.())}>{t.openLogin}</button><button onClick={() => void accountAction('cancel')}>{t.cancelLogin}</button></>}<div className="dialog-actions">{account.phase === 'signed-in' ? <button disabled={busy || active} onClick={() => void accountAction('logout')}>{t.signOut}</button> : <button disabled={busy || active || account.phase === 'unconfigured' || account.phase === 'authorizing'} onClick={() => void accountAction('login')}>{t.signIn}</button>}<button onClick={() => setAccountDialog(false)}>{t.close}</button></div></Modal>}
 		{settings && <Modal title={t.settings} onClose={() => setSettings(false)}><label className="field">{t.theme}<select value={theme} onChange={event => setTheme(event.target.value as Theme)}><option value="system">{t.systemTheme}</option><option value="light">{t.lightTheme}</option><option value="dark">{t.darkTheme}</option></select></label><h3>{t.shortcuts}</h3><p>{t.newShortcut}<br/>{t.sidebarShortcut}</p><p className="muted">{t.account}</p><p className="muted">{t.attribution}</p><div className="dialog-actions"><button disabled={!runtime.available} onClick={() => { setSettings(false); setQuit(true); }}>{t.quit}</button><button className="primary" onClick={() => setSettings(false)}>{t.close}</button></div></Modal>}
 		{quit && <Modal title={t.quitTitle} onClose={() => setQuit(false)}>{active && <p>{t.quitDetail}</p>}<div className="dialog-actions"><button onClick={() => { setQuit(false); setWait(false); }}>{t.keep}</button>{active && <button onClick={() => { setWait(true); setQuit(false); }}>{t.wait}</button>}<button className="primary" disabled={busy} onClick={() => void run(async () => { await client.disconnect(); await runtime.quit(); })}>{t.stop}</button></div></Modal>}
 	</div>;

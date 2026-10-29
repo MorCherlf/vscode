@@ -55,6 +55,17 @@ test('official SDK and bounded Tauri transport drive the existing M1 mock Host a
 		await until(() => !!clients[1].getChat(chats[1]).activeTurn);
 		clients[0].cancel(chats[0], clients[0].getChat(chats[0]).activeTurn.id);
 		await until(() => clients.every((client, index) => !client.getChat(chats[index]).activeTurn));
+		clients[0].send(chats[0], 'permission');
+		await until(() => clients.every((client, index) => JSON.stringify(client.getChat(chats[index])).includes('pending-confirmation')));
+		const beforeReconnect = dispatches;
+		await clients[0].disconnect(); await clients[0].connect(await TauriTransport.connect(bridge()));
+		assert.equal(dispatches, beforeReconnect);
+		assert.equal(clients[0].hasActiveTurns(), true);
+		const pending = clients[0].getChat(chats[0]).activeTurn;
+		clients[0].confirmTool(chats[0], pending.id, 'tc-perm-1', false);
+		await until(() => clients.every((client, index) => JSON.stringify(client.getChat(chats[index])).includes('cancelled')));
+		clients[0].cancel(chats[0], pending.id);
+		await until(() => clients.every((client, index) => !client.getChat(chats[index]).activeTurn));
 		assert.equal(JSON.stringify(clients.map(client => client.root)).includes(token), false);
 	} finally {
 		await Promise.all(clients.map(client => client.disconnect())); host.stdin.end();

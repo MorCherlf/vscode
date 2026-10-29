@@ -3,7 +3,7 @@
 
 # Tauri Agent client — Sessions migration
 
-A Tauri **2.12.4** shell, React **19.2.0** / TypeScript **6.0.2** / Vite **7.1.12** interface, and shared official AHP client. It exposes projects, sessions, conversation/tool activity, text input requests, approvals and cancellation without loading the general workbench or `editor.all`. Sign-in is deliberately unavailable: the native account adapter and Keychain integration are not implemented yet. M2 is **in progress**, not accepted.
+A Tauri **2.12.4** shell, React **19.2.0** / TypeScript **6.0.2** / Vite **7.1.12** interface, and shared official AHP client. It exposes projects, sessions, conversation/tool activity, text input requests, approvals and cancellation without loading the general workbench or `editor.all`. Native GitHub.com OAuth device authorization, refresh, sign-out and a macOS Keychain backend are implemented; the product-owned OAuth client ID must be configured. Real login and the new Mac backend remain unverified. M2 is **in progress**, not accepted.
 
 The current UI follows this checkout's Agent/Sessions shell and composer structure, uses the pinned upstream Codicons and generated Light/Dark Modern tokens, and adds project grouping/search, session drafts, keyboard navigation, safe Markdown/GFM and tool cards. It is the first adapted component slice; the full upstream ChatWidget, native folder chooser, model picker and change-review views have not been migrated. Source mapping and comparison gates are in [UI migration](../../docs/agent-client/UI_MIGRATION.md).
 
@@ -39,7 +39,7 @@ node apps/agent-client/node_modules/playwright/cli.js install chromium-headless-
 npm --prefix apps/agent-client test
 ```
 
-If using a custom Playwright browser cache, pass the same `PLAYWRIGHT_BROWSERS_PATH` to installation and tests. Current UI tests build a separate test-only entry into a temporary directory and connect the same App/official client to the actual M1 mock Host through a Node proxy. The Host connection token remains in the Node fixture. Tests require this checkout's matching Host dist-test and dependencies; production assets exclude the fixture. Current 5/5 UI groups, original 6/6 core and 4/4 Rust results, platform boundaries and screenshots are in [current evidence](../../docs/agent-client/evidence/M2-ui/README.md). Browser screenshots and synthesized composition events do not validate native Tauri IPC, real WKWebView input methods or a real model account. Original Linux setup details remain in [M2 evidence](../../docs/agent-client/evidence/M2/README.md).
+If using a custom Playwright browser cache, pass the same `PLAYWRIGHT_BROWSERS_PATH` to installation and tests. Current UI tests build a separate test-only entry into a temporary directory and connect the same App/official client to the actual M1 mock Host through a Node proxy. The Host connection token remains in the Node fixture. Tests require this checkout's matching Host dist-test and dependencies; production assets exclude the fixture. Prior Mac 5/5 UI groups, original 6/6 core and 4/4 Rust results, platform boundaries and screenshots are in [prior evidence](../../docs/agent-client/evidence/M2-ui/README.md). Browser screenshots and synthesized composition events do not validate native Tauri IPC, real WKWebView input methods or a real model account. Original Linux setup details remain in [M2 evidence](../../docs/agent-client/evidence/M2/README.md).
 
 ## State, credentials and lifecycle
 
@@ -49,4 +49,6 @@ The application-scoped data path and production Host directory are selected nati
 
 Closing the window hides it and keeps the Host alive. Quit presents keep-working, wait and stop choices; active/uncertain connection state prevents treating the task as definitely idle. The wait path keeps processing state updates; stop tears down only the owned Host. Actual Mac close/reopen/Cmd-Q, active-task quit and crash behavior require the test matrix in M2 evidence.
 
-Text questions and basic accept/refuse requests have protocol adapters. Numeric, selection, URL auth and richer elicitation forms are explicitly marked unavailable; they are not empty implementations. Full account login, secure credential persistence/refresh/logout, Keychain, WKWebView interactions, real model tasks and clean Mac acceptance remain the next work package.
+AHP text constraints, numeric/boolean/selection/freeform answers and explicitly opened HTTPS requests have adapters; unknown types fail closed and opening never approves. Native account configuration, exact scopes, storage errors, runner and fresh Linux tests are documented in [M2-B](../../docs/agent-client/evidence/M2/M2-B/README.md). Missing `MORCHERLF_GITHUB_OAUTH_CLIENT_ID` produces an explicit unconfigured state. No pasted-token path or VS Code/CLI personal cache is used. Mac compilation/Keychain, real login/model tasks, WKWebView and clean Mac acceptance remain pending.
+
+Current React views are application adapters, not directly reused VS Code components. Further view expansion is paused pending the main feasibility report on upstream component/plugin reuse and DSH; this change does not decide the final runtime/container architecture.

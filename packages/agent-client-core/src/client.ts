@@ -3,7 +3,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { AhpClient, type AhpTransport } from '@microsoft/agent-host-protocol/client';
-import { SessionStatus, ActionType, ChatInputResponseKind, ChatInputAnswerState, ChatInputAnswerValueKind, ToolCallConfirmationReason, ToolCallCancellationReason, MessageKind, SUPPORTED_PROTOCOL_VERSIONS, rootReducer, sessionReducer, chatReducer, type RootState, type SessionState, type SessionSummary, type ChatState, type RootAction, type SessionAction, type ChatAction, type StateAction, type ChatInputAnswer } from '@microsoft/agent-host-protocol';
+import { SessionStatus, ActionType, ChatInputResponseKind, ToolCallConfirmationReason, ToolCallCancellationReason, MessageKind, SUPPORTED_PROTOCOL_VERSIONS, rootReducer, sessionReducer, chatReducer, type RootState, type SessionState, type SessionSummary, type ChatState, type RootAction, type SessionAction, type ChatAction, type StateAction, type ChatInputAnswer } from '@microsoft/agent-host-protocol';
+
+import { inputAnswers, type InputValue } from './input.js';
 
 export type ChannelKind = 'root' | 'session' | 'chat';
 type State = RootState | SessionState | ChatState;
@@ -12,6 +14,7 @@ type State = RootState | SessionState | ChatState;
 export class AgentClient {
 	private client?: AhpClient;
 	private generation = 0;
+	private submittedInputs = new Set<string>();
 	private channels = new Map<string, { kind: ChannelKind; state?: State; sequence: number; pending?: import('@microsoft/agent-host-protocol').ActionEnvelope[] }>();
 	private listeners = new Set<() => void>();
 	private events?: AsyncIterableIterator<import('@microsoft/agent-host-protocol/client').ClientEvent>;
@@ -107,13 +110,23 @@ export class AgentClient {
 		this.ready().dispatch(chat, { type: ActionType.ChatTurnStarted, turnId: crypto.randomUUID(), startedAt: new Date().toISOString(), message: { text, origin: { kind: MessageKind.User } } });
 	}
 	cancel(chat: string, turnId: string): void { this.ready().dispatch(chat, { type: ActionType.ChatTurnCancelled, turnId, duration: 0 }); }
-	answer(chat: string, requestId: string, response: ChatInputResponseKind, answers?: Record<string, ChatInputAnswer>): void { this.ready().dispatch(chat, { type: ActionType.ChatInputCompleted, requestId, response, ...(answers ? { answers } : {}) }); }
-	acceptInput(chat: string, requestId: string, accepted: boolean): void { this.answer(chat, requestId, accepted ? ChatInputResponseKind.Accept : ChatInputResponseKind.Decline); }
-	answerText(chat: string, requestId: string, values: Record<string, string>): void {
-		const answers: Record<string, ChatInputAnswer> = {};
-		for (const [key, value] of Object.entries(values)) { answers[key] = { state: ChatInputAnswerState.Submitted, value: { kind: ChatInputAnswerValueKind.Text, value } }; }
-		this.answer(chat, requestId, ChatInputResponseKind.Accept, answers);
+	answer(chat: string, requestId: string, response: ChatInputResponseKind, answers?: Record<string, ChatInputAnswer>): void {
+		const client = this.ready(); const turn = this.getChat(chat)?.activeTurn;
+		const part = turn?.responseParts.find(part => part.kind === 'inputRequest' && part.request.id === requestId);
+		const key = JSON.stringify([chat, turn?.id, requestId]);
+		if (!turn || !part || part.kind !== 'inputRequest' || part.response || this.submittedInputs.has(key)) { throw new Error('INPUT_STALE_OR_OUTCOME_UNKNOWN'); }
+		this.submittedInputs.add(key);
+		// Keep the reservation across reconnects. An unacknowledged side effect is never replayed.
+		client.dispatch(chat, { type: ActionType.ChatInputCompleted, requestId, response, ...(answers ? { answers } : {}) });
 	}
+	cancelInput(chat: string, requestId: string): void { this.answer(chat, requestId, ChatInputResponseKind.Cancel); }
+	acceptInput(chat: string, requestId: string, accepted: boolean): void { if (accepted) { this.answerForm(chat, requestId, {}); } else { this.answer(chat, requestId, ChatInputResponseKind.Decline); } }
+	answerForm(chat: string, requestId: string, values: Record<string, InputValue>): void {
+		const part = this.getChat(chat)?.activeTurn?.responseParts.find(part => part.kind === 'inputRequest' && part.request.id === requestId);
+		if (!part || part.kind !== 'inputRequest') { throw new Error('INPUT_STALE_OR_OUTCOME_UNKNOWN'); }
+		this.answer(chat, requestId, ChatInputResponseKind.Accept, inputAnswers(part.request, values));
+	}
+	answerText(chat: string, requestId: string, values: Record<string, string>): void { this.answerForm(chat, requestId, values); }
 	confirmTool(chat: string, turnId: string, toolCallId: string, approved: boolean): void {
 		this.ready().dispatch(chat, approved ? { type: ActionType.ChatToolCallConfirmed, turnId, toolCallId, approved: true, confirmed: ToolCallConfirmationReason.UserAction } : { type: ActionType.ChatToolCallConfirmed, turnId, toolCallId, approved: false, reason: ToolCallCancellationReason.Denied });
 	}

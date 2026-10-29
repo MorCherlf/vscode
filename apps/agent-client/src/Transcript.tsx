@@ -3,7 +3,7 @@
 import { memo, useLayoutEffect, useRef, useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { AgentClient, type ChatState, type ChatInputRequest } from '@morcherlf/agent-client-core';
+import { AgentClient, supportsQuestion, supportsInputUrl, type InputValue, type ChatState, type ChatInputRequest, type ChatInputQuestion } from '@morcherlf/agent-client-core';
 import { Icon } from './Icon';
 import { labels as t } from './i18n';
 
@@ -18,7 +18,7 @@ export const MarkdownText = memo(function MarkdownText({ text }: { text: string 
 	}}>{text}</Markdown></div>;
 });
 
-export function Transcript({ state, chat, connected, client, onError }: { state?: ChatState; chat: string; connected: boolean; client: AgentClient; onError(message: string): void }) {
+export function Transcript({ state, chat, connected, client, onError, onOpenUrl }: { state?: ChatState; chat: string; connected: boolean; client: AgentClient; onError(message: string): void; onOpenUrl?(url: string): Promise<void> }) {
 	const viewport = useRef<HTMLDivElement>(null);
 	const follow = useRef(true);
 	useLayoutEffect(() => { follow.current = true; }, [chat]);
@@ -35,7 +35,7 @@ export function Transcript({ state, chat, connected, client, onError }: { state?
 				if (part.kind === 'markdown') { return <MarkdownText key={index} text={part.content}/>; }
 				if (part.kind === 'reasoning') { return <details className="thinking" key={index}><summary>{t.thinking}</summary><MarkdownText text={part.content}/></details>; }
 				if (part.kind === 'toolCall') { return <ToolCard key={part.toolCall.toolCallId} tool={part.toolCall} canAct={connected && turn.id === state?.activeTurn?.id} onDecision={approved => client.confirmTool(chat, turn.id, part.toolCall.toolCallId, approved)} onError={onError}/>; }
-				if (part.kind === 'inputRequest') { return <InputPrompt key={part.request.id} request={part.request} chat={chat} active={turn.id === state?.activeTurn?.id} connected={connected} client={client} onError={onError}/>; }
+				if (part.kind === 'inputRequest') { return <InputPrompt key={part.request.id} request={part.request} chat={chat} active={turn.id === state?.activeTurn?.id && !part.response} connected={connected} client={client} onError={onError} onOpenUrl={onOpenUrl}/>; }
 				return <details className="tool-card" key={index}><summary>{t.toolDetails}</summary><pre>{JSON.stringify(part, null, 2)}</pre></details>;
 			})}
 			{turn.responseParts.some(part => part.kind === 'markdown') && <CopyButton text={turn.responseParts.filter(part => part.kind === 'markdown').map(part => part.content).join('\n\n')} onError={onError}/>}
@@ -66,13 +66,39 @@ function ToolCard({ tool, canAct, onDecision, onError }: { tool: ToolCall; canAc
 		{pending && <div className="approval-actions"><button disabled={!canAct || submitted} onClick={() => decide(false)}>{t.reject}</button><button className="primary" disabled={!canAct || submitted} onClick={() => decide(true)}>{t.accept}</button></div>}
 	</section>;
 }
-function InputPrompt({ request, chat, active, connected, client, onError }: { request: ChatInputRequest; chat: string; active: boolean; connected: boolean; client: AgentClient; onError(message: string): void }) {
-	const [values, setValues] = useState<Record<string, string>>({});
+export function InputPrompt({ request, chat, active, connected, client, onError, onOpenUrl }: { request: ChatInputRequest; chat: string; active: boolean; connected: boolean; client: AgentClient; onError(message: string): void; onOpenUrl?(url: string): Promise<void> }) {
+	const [values, setValues] = useState<Record<string, InputValue>>({});
 	const [submitted, setSubmitted] = useState(false);
-	const textOnly = !!request.questions?.length && request.questions.every(question => question.kind === 'text') && !request.url;
-	const answer = (action: () => void) => { if (!active || !connected || submitted) { return; } try { action(); setSubmitted(true); } catch (failure) { onError(String(failure)); } };
+	const [opened, setOpened] = useState(false);
+	const supported = (request.questions ?? []).every(supportsQuestion) && (!request.url || (supportsInputUrl(request.url) && !!onOpenUrl));
+	const disabled = !active || !connected || submitted;
+	const answer = (action: () => void) => { if (disabled) { return; } try { action(); setSubmitted(true); } catch { onError(t.inputInvalid); } };
 	return <section className="input-request"><h3>{t.question}</h3><p>{request.message}</p>{active && <>
-		{textOnly ? <form aria-label={t.question} onSubmit={event => { event.preventDefault(); answer(() => client.answerText(chat, request.id, values)); }}>{request.questions?.map(question => <label className="field" key={question.id}>{question.title || question.message}<input required={question.required} disabled={!connected || submitted} value={values[question.id] ?? ''} onChange={event => setValues(previous => ({ ...previous, [question.id]: event.target.value }))}/></label>)}<button className="primary" disabled={!connected || submitted}>{t.submit}</button></form> : !request.questions?.length && !request.url ? <button className="primary" disabled={!connected || submitted} onClick={() => answer(() => client.acceptInput(chat, request.id, true))}>{t.accept}</button> : <p className="muted">{t.unsupported}</p>}
-		<button disabled={!connected || submitted} onClick={() => answer(() => client.acceptInput(chat, request.id, false))}>{t.reject}</button>
+		{supported ? <form aria-label={t.question} onSubmit={event => { event.preventDefault(); if (request.url && !opened) { return; } answer(() => client.answerForm(chat, request.id, values)); }}>
+			{request.url && <><p>{t.urlReview}</p><code>{request.url}</code><button type="button" disabled={disabled} onClick={() => { void onOpenUrl!(request.url!).then(() => setOpened(true)).catch(() => onError(t.error)); }}>{t.openRequest}</button></>}
+			{request.questions?.map(question => <Question key={question.id} question={question} disabled={disabled} value={values[question.id]} onChange={value => setValues(previous => ({ ...previous, [question.id]: value }))}/>)}
+			<button className="primary" disabled={disabled || (!!request.url && !opened)}>{request.questions?.length ? t.submit : t.accept}</button>
+		</form> : <p className="muted">{t.unsupported}</p>}
+		<button disabled={disabled} onClick={() => answer(() => client.acceptInput(chat, request.id, false))}>{t.reject}</button>
+		<button disabled={disabled} onClick={() => answer(() => client.cancelInput(chat, request.id))}>{t.back}</button>
 	</>}</section>;
+}
+function Question({ question, disabled, value, onChange }: { question: ChatInputQuestion; disabled: boolean; value?: InputValue; onChange(value: InputValue): void }) {
+	const initial = 'defaultValue' in question ? question.defaultValue : undefined;
+	const selected = value ?? initial;
+	const label = question.title || question.message;
+	if (question.kind === 'boolean') {
+		return <label className="field">{label}<select aria-label={label} disabled={disabled} required={question.required} value={selected === undefined ? '' : String(selected)} onChange={event => onChange(event.target.value === '' ? '' : event.target.value === 'true')}><option value=""></option><option value="true">{t.yes}</option><option value="false">{t.no}</option></select></label>;
+	}
+	if (question.kind === 'single-select' && question.allowFreeformInput) {
+		return <label className="field">{label}<input list={'choices-' + question.id} disabled={disabled} required={question.required} value={typeof selected === 'string' ? selected : ''} onChange={event => onChange(event.target.value)}/><datalist id={'choices-' + question.id}>{question.options.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</datalist></label>;
+	}
+	if (question.kind === 'multi-select' && question.allowFreeformInput) {
+		const choices = Array.isArray(selected) ? selected : [];
+		return <fieldset disabled={disabled}><legend>{label}</legend>{question.options.map(option => <label key={option.id}><input type="checkbox" checked={choices.includes(option.id)} onChange={event => onChange(event.target.checked ? [...choices, option.id] : choices.filter(id => id !== option.id))}/>{option.label}</label>)}<label className="field">{t.freeform}<textarea value={choices.filter(id => !question.options.some(option => option.id === id)).join('\n')} onChange={event => onChange([...choices.filter(id => question.options.some(option => option.id === id)), ...event.target.value.split('\n').filter(Boolean)])}/></label></fieldset>;
+	}
+	if (question.kind === 'single-select' || question.kind === 'multi-select') {
+		return <label className="field">{label}<select aria-label={label} multiple={question.kind === 'multi-select'} required={question.required} disabled={disabled} value={question.kind === 'multi-select' ? (Array.isArray(selected) ? selected : []) : typeof selected === 'string' ? selected : ''} onChange={event => onChange(question.kind === 'multi-select' ? [...event.target.selectedOptions].map(option => option.value) : event.target.value)}>{question.kind === 'single-select' && <option value=""></option>}{question.options.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</select></label>;
+	}
+	return <label className="field">{label}<input disabled={disabled} required={question.required} type={question.kind === 'text' ? (question.format === 'email' ? 'email' : 'text') : 'number'} step={question.kind === 'integer' ? 1 : 'any'} min={question.kind === 'text' ? undefined : question.min} max={question.kind === 'text' ? undefined : question.max} minLength={question.kind === 'text' ? question.min : undefined} maxLength={question.kind === 'text' ? question.max : undefined} value={typeof selected === 'string' || typeof selected === 'number' ? selected : ''} onChange={event => onChange(event.target.value)}/></label>;
 }
