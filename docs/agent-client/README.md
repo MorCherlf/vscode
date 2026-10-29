@@ -3,7 +3,9 @@
 
 # Agent 专用客户端项目总览
 
-项目目标是把当前 VS Code 仓库中的 Agent 能力做成独立应用：使用 Tauri 客户端，保留 Copilot Agent、会话、工具、结果审阅和 Agent 扩展，移除常规 IDE 工作台及编辑器扩展。优先验证 macOS，再考虑网页、Windows 和 Linux。
+原阶段目标是把当前 VS Code 仓库中的 Agent 能力做成独立应用：使用 Tauri 客户端，保留 Copilot Agent、会话、工具、结果审阅和 Agent 扩展，移除常规 IDE 工作台及编辑器扩展。优先验证 macOS，再考虑网页、Windows 和 Linux。新的兼容性优先级及其与原裁剪目标的冲突见下一段。
+
+2026-10-29 新增方向：尽量直接复用 VS Code 原组件，以 VS Code 插件兼容及持续合并上游为基础，探索 DSH 原生插件与深度能力。见 [完整可行性报告](feasibility/README.md) 和 [验证与推进计划](feasibility/POC_PLAN.md)。报告建议保留必要编辑器/工作台服务、采用双原生宿主，并在原组件基线上验证 Tauri；这是待 PoC/ADR 确认的架构建议，尚未替换既有验收标准，也未把旧裁剪目标标成通过。下文原 M0–M8 状态保留已有交付含义。
 
 当前阶段（2026-10-29）：M0 工程审计已交付，完整性能基线仍待验收；M1 独立 Host 已通过 Linux 与本机 Mac 原生/确定性验证；M2 已产出 Mac arm64 Release 开发包，并交付 Sessions 界面首批迁移。真实账户、Keychain、完整 WKWebView 与原版界面对照等门禁仍未通过。规划基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定；文档中的性能数字是建议的验收目标，不是已有实测结果。
 
@@ -12,6 +14,8 @@
 | 文档 | 用途 |
 | --- | --- |
 | [方案总结](SOLUTION.md) | 产品边界、推荐架构、复用与重写范围、主要技术取舍 |
+| [VSC / DSH 双生态可行性报告](feasibility/README.md) | 新方向的原组件复用、两类插件兼容、Tauri 取舍、双上游维护与成本 |
+| [双生态验证与推进计划](feasibility/POC_PLAN.md) | 七组 PoC、F0–F4 工作包、验收与失败处理；均待执行 |
 | [Roadmap](ROADMAP.md) | 里程碑顺序、依赖、交付物和进入下一阶段的门禁 |
 | [目标与验收矩阵](GOALS.md) | 统一的目标编号、验收标准、对应里程碑 |
 | [验证与证据规范](VALIDATION.md) | 功能场景、性能测量口径、结果记录与发布判定 |
