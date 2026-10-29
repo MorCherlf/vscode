@@ -12,6 +12,18 @@
 | [plugin-manifests.json](plugin-manifests.json) | 三个 VSC、两个 DSH 包的版本/贡献点/声明许可/字节哈希 | 能安装、能激活、主要任务通过或服务可用 |
 | [sources.json](sources.json) | 原上游基点确认、34 份 DSH 一手源码/文档、8 份本地源码和官方网页索引 | 外部 live 文档的永久快照或未来版本兼容 |
 
+## ADR-001 的插件适配接缝验证
+
+[dsh-vscode-api-probe.ts](dsh-vscode-api-probe.ts) 是编译探针，直接使用仓库原 `vscode.d.ts` 和 proposed 声明，验证会话 controller/content provider、participant 回调和全局 `lm.invokeTool` 调用。配置见 [tsconfig](tsconfig.dsh-vscode-api-probe.json)，`strict: true`、`skipLibCheck: false`、`noEmit: true`；没有自建 `vscode` 模拟模块。结果和本次来源见 [adapter-api-validation.json](adapter-api-validation.json)。
+
+在依赖已安装的 checkout 重跑：
+
+```sh
+node apps/agent-client/node_modules/typescript/bin/tsc --project docs/agent-client/feasibility/evidence/tsconfig.dsh-vscode-api-probe.json
+```
+
+本次类型检查通过。探针不是已打包/安装的 VSIX，不启动 DSH，不注册进程中的真实服务，也不验证 Agents Window 可见性。核心已确认的缺口是原 Agents Window 的 provider 投影：workbench `chatSessions` 注册并不自动进入主会话列表。后续按 [ADR-001](../../ADR-001-agent-first-dsh-extension.md) AF-03 验证，必要时只增加通用会话桥。
+
 本地依赖审计先在 `28eb53a537f541dcc45fc69ebda9af276e783257` 执行，再于云端提交 `c58fae13e220bb2f9f75c8fcd7afa78480f4f6e4` 重跑，TypeScript `6.0.2`；两次除输入提交外的全部审计结果一致，后者也没有修改被审计的原 VS Code `src/` 文件；本次报告只把云端认证/协议结果作为独立来源引用。DSH 固定 `f3803c96974ad4a94195fb97e5c637e9c2a3afe3`，检索到的关键文件字节与该提交 Git tree 的 blob SHA 已核对。
 
 在所需依赖已安装的对应 checkout 内重跑：

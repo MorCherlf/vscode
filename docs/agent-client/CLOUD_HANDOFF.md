@@ -7,7 +7,9 @@
 
 ## 当前接力（2026-10-29）
 
-新增研究交付：[原组件与 VSC/DSH 双生态可行性报告](feasibility/README.md)、[七组 PoC 与 F0–F4 推进计划](feasibility/POC_PLAN.md)。用户新优先级是原组件、VSC 插件生态及持续合并上游；报告提出原 Code OSS 基线、DSH 原生宿主和窄桥接，Tauri 继续作为待验证容器。尚未执行兼容 PoC 或确定最终架构；先依据来源和具体门禁形成 ADR，再调整原目标，不把建议直接算作实现成果。
+当前权威方向是 [ADR-001](ADR-001-agent-first-dsh-extension.md)，用户已确认 VSC Agent First、禁用编辑器专用插件、不主动加载 editor-only 组件；DSH 尽量由一个自有 VS Code 插件适配，保留原 runtime/profile/插件行为和独立上游升级。SOLUTION/GOALS/ROADMAP/VALIDATION 已同步，原报告保留研究候选。不要恢复一般 IDE 兼容区；不要继续扩大仿写 React UI 或手写 vscode API 子集。
+
+会话注册/工具调用的严格编译探针已通过，但所有 AF-01–06 运行门禁尚未执行。接手先做 AF-01/03 的最小原组件/原扩展链路，并记录 AF-02 加载基线：原 `chatSessionsProvider` 接口是 proposed，需要产品级精确 allowlist；原 Agents Window 不自动列出任意扩展会话，必要时只增加通用 `extensionSessions` provider，DSH 特有逻辑留在 VSIX/驱动层。DSH loop 不替换为 VSC 模型 provider，SDK 逐会话取消缺口按原 Cordis 驱动补足。最终容器仍候选。
 
 继续现有实现分支 `codex/agent-client-implementation` 与草稿 PR #2，base 保持 `codex/agent-client-roadmap`。M0/M1 首轮和 M2 初始工程已经提交；本机又交付 Mac 原生/确定性验证及 Sessions 界面首批迁移。先读 [当前报告](evidence/M2-ui/README.md)、[界面目标与来源](UI_MIGRATION.md) 和 [M2-B](evidence/M2/NEXT.md)，不要把下面的首轮任务重新执行一遍。
 
@@ -48,7 +50,7 @@ M0 工程审计通过后可开展 M1 实现，不以缺少 Mac 基线阻塞无�
 
 ## 执行约束
 
-- 原阶段采用 Tauri/轻量界面的路线保留为历史原型；新增探索以真实原组件和完整插件语义为约束，不扩大仿写 React UI 或手写 vscode API 子集。原版 Electron/Web 工作台的必要基线实验按新 PoC 推进，最终容器和功能范围经证据/ADR 决定，不擅自全量改写 Rust 后端。
+- 原阶段 Tauri/轻量界面保留历史原型。执行 ADR-001 的原组件与 Agent First 准入，混合插件默认不自动启用，不将“带有 Agent contribution”视为放行全部激活路径。原版 Electron/Web 的必要基线实验可执行，最终容器经门禁决定，不擅自全量改写 Rust 后端。
 - 新增工程代码时遵循适用指令；独立 Host 常规迭代采用最小安装与验证范围。原组件/插件基线若需要原工作台构建，按新 PoC 范围执行并记录输入，不重复启动已有构建任务。
 - 保留现有源文件以方便对照与上游同步；裁剪发布和激活清单，不批量删除编辑器源码。
 - 不把网络受限、缺少测试凭据、缺少原生系统依赖与产品缺陷混为一谈，分别记录失败来源。
@@ -58,8 +60,8 @@ M0 工程审计通过后可开展 M1 实现，不以缺少 Mac 基线阻塞无�
 
 ## 任务输出和后续交接
 
-任务结果应说明实际实现、验证、证据、未完成验收项以及下一个工作包。后续云端任务从已交付提交继续，优先闭合 M1 的构建与资源缺口，再进入 M2；复用已通过且输入未改变的结果。
+任务结果应说明实际实现、验证、证据、未完成验收项以及下一个工作包。后续从已交付提交继续，以当前 ADR/AF 门禁为先；既有 M1 构建/认证等独立缺口可继续闭合，复用已通过且输入未改变的结果。
 
 Mac 待验收清单记录测试名、所需产物、精确运行步骤、预期结果和结果回填位置，使本地执行者无需重新调研即可接手。云端任务结束只代表该次交付完成，不代表整个 roadmap 自动完成。
 
-最新架构约束：尽可能直接复用 VS Code 原组件，以插件生态和持续合并上游为基础探索 DSH。主聊天维护 `docs/agent-client/feasibility/`；其他工作不并发修改该目录。不扩大仿写 React UI、不手写 vscode API 子集，不提前决定双运行时或最终桌面容器。资产/主题复用不等于原组件复用。
+架构边界以 ADR-001 为准，原主题/资产复用不等于原组件复用。双运行时由 VSIX/驱动层衔接，原会话/插件包与数据保持各自权威，两个上游分别锁版回归；编译、静态分析、确定性 fixture、真实 DSH、Mac 和真实账户结果分别报告。

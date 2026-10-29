@@ -5,6 +5,8 @@
 
 日期：2026-10-29。状态：研究结论与架构建议，尚未实施本报告提出的双运行时方案。本文响应新的优先级：尽量直接复用原组件、保留 VS Code 插件生态、增强 Agent 插件能力，并能持续合并 VS Code 上游。此前的 Tauri 原型和 M0–M8 文档仍是已有交付记录，不能作为本方案已落地的证据。
 
+后续决策已收录于 [ADR-001](../ADR-001-agent-first-dsh-extension.md)：Agent First，编辑器专用插件禁用、editor-only 组件不主动加载；DSH 优先通过自有 VS Code 插件 + 原 DSH 运行时适配。本文“广泛生态/恢复可选一般兼容工作区”是研究候选，不再属于默认产品承诺；当前方案与门禁以 ADR、SOLUTION 和 GOALS 为准。新增会话 API 编译探针通过，双生态运行门禁仍未执行。
+
 阅读配套：[验证计划与分阶段推进文档](POC_PLAN.md)、[源码依赖审计](evidence/vscode-import-audit.json)、[代表性插件清单审计](evidence/plugin-manifests.json)、[来源与版本记录](evidence/sources.json)。
 
 ## 1. 结论与建议

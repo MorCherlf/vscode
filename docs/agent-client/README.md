@@ -3,9 +3,9 @@
 
 # Agent 专用客户端项目总览
 
-原阶段目标是把当前 VS Code 仓库中的 Agent 能力做成独立应用：使用 Tauri 客户端，保留 Copilot Agent、会话、工具、结果审阅和 Agent 扩展，移除常规 IDE 工作台及编辑器扩展。优先验证 macOS，再考虑网页、Windows 和 Linux。新的兼容性优先级及其与原裁剪目标的冲突见下一段。
+当前产品方向是 VSC Agent First：直接复用原 Agent/Sessions 组件和原扩展宿主，禁用编辑器专用插件，不主动加载 editor-only 组件；DSH 使用自有 VS Code 插件适配器，插件继续由原 DSH 运行时加载。双方独立保留同步上游的路径。方向已由用户确认，具体边界见 [ADR-001](ADR-001-agent-first-dsh-extension.md)，方案见 [SOLUTION](SOLUTION.md)。首版优先 macOS arm64；最终容器仍待验证。
 
-2026-10-29 新增方向：尽量直接复用 VS Code 原组件，以 VS Code 插件兼容及持续合并上游为基础，探索 DSH 原生插件与深度能力。见 [完整可行性报告](feasibility/README.md) 和 [验证与推进计划](feasibility/POC_PLAN.md)。报告建议保留必要编辑器/工作台服务、采用双原生宿主，并在原组件基线上验证 Tauri；这是待 PoC/ADR 确认的架构建议，尚未替换既有验收标准，也未把旧裁剪目标标成通过。下文原 M0–M8 状态保留已有交付含义。
+[完整可行性报告](feasibility/README.md) 与 [PoC 计划](feasibility/POC_PLAN.md) 保留调研来源；其中广泛编辑器兼容/恢复一般 IDE 的候选范围已由 ADR 收窄。新增 AF-01–06 运行门禁均未执行，会话 API 编译探针已通过。下文原 M0–M8 状态只表示已有原型交付，不把方向调整或类型检查当成运行验收。
 
 当前阶段（2026-10-29）：M0 工程审计已交付，完整性能基线仍待验收；M1 独立 Host 已通过 Linux 与本机 Mac 原生/确定性验证；M2 已产出 Mac arm64 Release 开发包，并交付 Sessions 界面首批迁移。真实账户、Keychain、完整 WKWebView 与原版界面对照等门禁仍未通过。规划基于源码版本 `1.145.0`、提交 `f0e704e856d` 制定；文档中的性能数字是建议的验收目标，不是已有实测结果。
 
@@ -13,6 +13,7 @@
 
 | 文档 | 用途 |
 | --- | --- |
+| [ADR-001：Agent First 与 DSH 插件适配](ADR-001-agent-first-dsh-extension.md) | 已确认的方向、插件准入、原组件裁剪、扩展会话桥、DSH 行为和 AF 门禁 |
 | [方案总结](SOLUTION.md) | 产品边界、推荐架构、复用与重写范围、主要技术取舍 |
 | [VSC / DSH 双生态可行性报告](feasibility/README.md) | 新方向的原组件复用、两类插件兼容、Tauri 取舍、双上游维护与成本 |
 | [双生态验证与推进计划](feasibility/POC_PLAN.md) | 七组 PoC、F0–F4 工作包、验收与失败处理；均待执行 |
@@ -42,12 +43,12 @@
 2. 每个推进文档包含目标、输入、任务、交付物、验收和失败处理；接手者从文末的下一步开始。
 3. 状态统一为“待启动、进行中、待验收、已验收、受阻”。完成代码不等于已验收；验收必须有可复现证据。
 4. `GOALS.md` 定义全局标准，`VALIDATION.md` 定义测量方式，里程碑文档细化本阶段执行。改变标准时同步更新受影响文档和决策记录。
-5. 未来实现建议放在独立的 `apps/agent-client/`、`packages/agent-host/`、`packages/agent-extension-host/` 和 `packages/agent-client-core/` 中；其中 `packages/agent-host/`、`packages/agent-client-core/`、`apps/agent-client/` 已创建，Rust 进程管理在 `packages/agent-host-supervisor/`，扩展宿主仍是规划位置。
+5. 现有原型在 `apps/agent-client/`、`packages/agent-host/`、`packages/agent-client-core/` 和 `packages/agent-host-supervisor/` 保留。后续原组件/原扩展宿主沿用上游路径，DSH 特有内容集中在自有 VSIX/驱动插件；不再建设手写 API 子集的独立扩展宿主。新增目录在 AF 实现时决定并记录。
 6. 执行证据存入本目录的 `evidence/`；每次验收记录提交、环境、命令、结果和限制。真实账户凭据与完整聊天内容不进入仓库。
 
 ## 首版完成条件
 
-M0 至 M7 的门禁全部通过，G01 至 G12 均有验收记录；性能在扩展关闭和兼容扩展启用两种模式下均按相同能力基线比较；安装包在没有 VS Code 和开发环境的 Mac 上完成真实任务。M8 不阻塞首版发布。
+按新方向完成相应 M0 至 M7 与 AF-01–06 门禁，G01 至 G12 均有验收记录；VSC Agent 插件和 DSH 启用/关闭的资源按同能力基线比较；安装包在没有 VS Code 和开发环境的 Mac 上完成真实任务。M8 不阻塞首版发布。旧阶段凭据/签名/真实账户门禁继续保留，性能预算校准按 GOALS 在优化前记录。
 
 首版的“完整 Agent 流程”指目标矩阵定义的能力。任意 VS Code 扩展兼容、旧 Local harness 的全部行为、远程与云端产品能力不自动包含在这个承诺中；它们必须在 M0 能力清单中明确分类，不能在发布时才发现缺口。
 

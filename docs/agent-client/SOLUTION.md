@@ -1,91 +1,86 @@
 <!-- Copyright (c) Microsoft Corporation. All rights reserved. -->
 <!-- Licensed under the MIT License. See LICENSE.txt in the project root for license information. -->
 
-# Agent 专用客户端方案总结
+# Agent First 客户端方案总结
 
-推荐建设独立的 Tauri 应用，复用现有 Node Agent Host，通过 Agent Host Protocol（AHP）管理 Copilot 任务。沿用 VS Code Agent/Sessions 的界面与交互，迁移基础组件和样式，重写必要的平台绑定；按实际依赖保留 Agent 扩展能力。Rust 首先承担外壳、进程生命周期和系统集成；后端热点是否改写由实测决定。界面迁移的来源、当前实现边界与对照门禁见 [推进文档](UI_MIGRATION.md)。
+当前方向由 [ADR-001](ADR-001-agent-first-dsh-extension.md) 定义：VSC 本体以裁剪为主，直接复用原版 Agent/Sessions 组件与扩展宿主；禁用编辑器专用插件，不主动加载 editor-only 组件；DSH 由自有 VS Code 扩展适配，插件继续由原 DSH 运行时加载。VSC、适配器和 DSH 分别保留升级路径。
 
-## 产品形态
+这是已确认的产品方向，不代表实现完成。已有 Tauri/React 原型和 Host、协议、认证工程保留其原证据；原 React 组件不是原 ChatWidget 的复用。新方向的门禁为 ADR 中 AF-01–06，全部运行门禁尚未执行；会话 API 类型接缝的编译探针已通过。
 
-主界面由项目、会话列表、聊天、工具执行记录、变更审阅和设置组成。用户可以给 Agent 分配任务、回答问题、控制权限并审阅成果，无需进入常规 IDE。文件修改由 Agent 工具完成，文件和 Diff 默认只读；需要手动编辑时可以显式用外部编辑器打开。
+## 产品边界
 
-首版面向 macOS arm64，使用 Tauri 2 和系统 WKWebView。独立安装包包含或管理必要的 Node 与 Copilot 运行时，不要求用户安装 VS Code 或系统 Node。关闭窗口保留应用与任务运行；完整退出时对活跃任务提供等待或停止的明确选择，再关闭自有进程。首版不引入独立于应用运行的常驻 daemon。
+主界面聚焦项目、会话、聊天、工具、权限、文件上下文、只读变更审阅和 Agent 插件管理。文件修改由 Agent 完成，手动编辑可用外部编辑器。首版不恢复通用代码编辑区、补全、调试、Notebook 和编辑器专用插件。
 
-## 架构和责任
+原聊天输入依赖的 Monaco、文本模型、代码块/diff 和文件/命令等基础服务可以保留；它们由真实 Agent 调用链决定。纯编辑器插件和部件的可执行入口、启动贡献与依赖激活必须被准入/裁剪规则阻断，不能仅隐藏入口。
+
+首版仍优先 macOS arm64、独立安装运行，不要求用户另装 VS Code、Node 或 DSH。运行时可随包或由产品明确管理，计入完整安装占用。原版 Electron 平台用于建立正确性基线；Tauri 只在承载相同原组件、原扩展行为及平台门禁通过后采用，最终容器尚未决定。
+
+## 分层架构
 
 ```mermaid
 flowchart TB
-	UI["轻量 TypeScript 界面"] --> CORE["共享客户端核心与 AHP 客户端"]
-	CORE --> BRIDGE["Tauri Transport"]
-	BRIDGE --> RUST["Rust 外壳与 HostSupervisor"]
-	RUST -->|"鉴权 WebSocket 转发"| HOST["Node Agent Host"]
-	HOST --> COPILOT["Copilot SDK 与运行时"]
-	HOST --> NATIVE["MCP Skills Agents Hooks Plugins"]
-	CORE --> TOOLS["客户端工具路由"]
-	TOOLS --> EXT["按需 Node 扩展宿主"]
-	EXT --> API["经过验证的 VS Code API 子集"]
-	CORE --> RICH["浏览器与富交互适配"]
-	WEB["后续网页客户端"] -.-> CORE
+	VSC["VSC Agent First 原组件"] <--> EH["原 Extension Host / MainThread API"]
+	VSC <--> BR["必要的通用扩展会话桥"]
+	BR <--> EH
+	EH --- EXT["DSH Adapter VSIX"]
+	EXT <--> DSH["原 DSH 独立进程与 Cordis 驱动"]
+	DSH --- PLUGINS["原 profiles / bundles / plugins / Agent loop"]
+	VSC <--> AHP["已有原 Agent Host / AHP provider"]
 ```
 
-| 组件 | 负责的行为 | 约束 |
+| 层 | 职责 | 升级边界 |
 | --- | --- | --- |
-| TypeScript 前端 | 聊天、输入、会话、工具结果、审批表单、Diff 和设置 | 建议使用 React 与 Vite；不导入通用 workbench 或 `editor.all`；长列表虚拟化 |
-| 共享客户端核心 | 官方 AHP TypeScript 客户端、订阅、协议状态与界面投影 | Host 是持久状态权威；只使用一套客户端 reducer，不在 Rust 再维护另一份会话状态 |
-| Rust 外壳 | 窗口、Keychain 集成、宿主启动停止、连接令牌和 WebSocket 转发 | 凭据留在原生侧；转发保留 AHP 帧语义；队列有界，溢出后重同步而不丢事件继续运行 |
-| Node Agent Host | Copilot 适配、会话状态、工具权限、文件与 Git、持久化、协议服务 | 尽量复用上游；新增独立构建入口；补齐 worker、动态资源和原生模块 |
-| 扩展宿主 | 运行兼容清单中的 JavaScript Agent 工具扩展 | 第一次使用才启动；无扩展需求时不常驻；不承诺任意 VSIX 兼容 |
-| 原生 Agent 插件与富交互 | MCP、Skills 等资源及浏览器、Canvas 的独立适配 | 按运行时和能力协商启用；浏览器客户端不自动获得桌面专属能力 |
+| VSC 本体 | 原组件、真实 API、Agent First 布局、插件准入、组件加载策略、通用 provider 接入 | 保留原历史，产品差异集中为小补丁，不引入 DSH 专属业务 |
+| DSH Adapter VSIX | 会话注册/投影、profile/model 选择、启动/停止、流式展示、审批/问题、工具桥和诊断 | 配套 VSC API/proposals 与桥协议独立更新 |
+| DSH 侧 Cordis 驱动 | 对 UI 所需的控制/事件提供版本化接口，补齐 SDK 当前缺口 | 调用原 Agent/Session 服务，不修改 loop 私有实现 |
+| 原 DSH runtime/插件 | 运行原工具、hook、上下文/compaction、模型、工作流及持久化 | 固定 release/SHA、profile、完整插件锁和 client graph |
+| 原 Agent Host/AHP | 保留已有 Copilot/provider 能力和独立工程成果 | 与 DSH 协议分开，不把 AHP 当作 VS Code 扩展 RPC |
 
-Node 扩展执行的是受信任的本机代码。Tauri capability 约束 WebView 调用原生接口，不等于给 Node 扩展、MCP 进程或命令执行建立沙箱；相应能力沿用 Host 和运行时权限，并明确安装来源及授权范围。
+初期 DSH 使用独立进程，由适配器拥有其生命周期；不把全部 DSH 依赖装入共享 Extension Host。未选择 DSH/未使用其能力时不启动 DSH loop。普通 Node 插件仍是受信任代码，进程边界和 Tauri capability 不构成任意插件的完整 OS 沙箱。
 
-## 复用与重写
+## VS Code 插件准入与组件裁剪
 
-| 对象 | 处理方式 |
-| --- | --- |
-| `src/vs/platform/agentHost` | 主要复用，提取运行与构建边界；先以 Copilot 单 provider 分发，不删除其他 provider 源码 |
-| `src/vs/base`、必要的 `src/vs/platform` | 保留被依赖的基础服务；为环境、产品配置、文件、日志和存储提供独立启动配置 |
-| `editor/common` 的文本和 Diff 能力 | 按实际依赖保留；worker 入口须单独纳入产物分析 |
-| `src/vs/sessions` | 参考会话模型与交互行为；不直接加载其完整桌面入口 |
-| 聊天与审阅界面 | 保留原版 Agent 的布局和交互，迁移可复用的组件和样式，重写宿主绑定；优先虚拟化、增量渲染和明确的状态归属；不能以简化聊天网页替代界面验收 |
-| VS Code 扩展 API | 优先复用可独立运行的部分；只提供兼容清单所需子集，不以空实现伪装支持 |
-| 编辑器、补全、调试及普通工作台扩展 | 从发布和激活清单移除；源码暂保留以便对照、提取和同步上游 |
+复用 [原 manifest 服务](../../src/vs/workbench/services/extensions/common/extensionManifestPropertiesService.ts) 的 Agent 贡献点、缺失功能和支持声明检查，再按产品范围收紧。原生 Agent 插件使用原宿主/API，而不是“兼容清单所需 API 子集”的新实现。
 
-当前 Sessions 入口加载完整编辑器，见 [sessions.common.main.ts](../../src/vs/sessions/sessions.common.main.ts)。独立服务入口见 [agentHostServerMain.ts](../../src/vs/platform/agentHost/node/agentHostServerMain.ts)。服务构造边界见 [serviceBootstrapping.md](../../src/vs/platform/agentHost/node/serviceBootstrapping.md)。Diff worker 仍依赖底层编辑器算法，见 [diffWorkerMain.ts](../../src/vs/platform/agentHost/node/diffWorkerMain.ts)。
+- 声明式资源、MCP 和适用 Agent tools 走原路径；可执行插件通过真实依赖/工作流验证后按需激活。
+- 编辑器专用插件不激活，自有发布清单不包含其可执行包；startup、语言事件、命令和运行依赖不能绕过。
+- 混合插件默认不自动启用；按整个 activate/import 路径审计，无法隔离时禁用或让作者拆包。带有 Agent contribution 不自动获得准入。
+- 组件分为 Agent 必要、共享依赖、editor-only。前两类按真实需求使用；editor-only 不进入主动初始化，源码保留便于合并上游。
 
-## 接口与数据流
+原 Sessions 入口仍加载 `editor.all` 等副作用注册，需要先做加载基线再逐项裁剪。记录模块 evaluate、worker/服务创建和插件 activate，分别验证；静态 bundle 中存在、已执行和已激活不应混算。不得通过删除所有 editor 路径、再用新输入/审阅组件补回功能。
 
-- 前端使用共享 `AgentTransport` 抽象：桌面走 Tauri 转发，后续网页走经过鉴权的 WebSocket。正式方法及类型在 M2 依据锁定的 AHP 客户端确定，不复制手写协议类型。
-- Rust 的 `HostSupervisor` 区分应用拥有的 Host 与外部连接。只有自有进程可以被自动停止；首版默认自有本地 Host，外部和远程连接留给后续阶段。
-- AHP 通过版本协商使用实际发布的兼容基线，不能把当前源码里的开发版本常量当成所有 SDK 都支持的版本。各版本和 capability 记录在构建清单中。
-- AHP 的会话、聊天、终端、changeset 和工具请求映射成界面状态；工具调用按实际来源路由到 Host、原生插件或客户端扩展。
-- Host 已确认的状态负责持久化；前端仅保存布局、草稿和显示偏好。断线恢复先同步状态，有副作用的未知结果请求不自动重发。
-- Copilot 账户登录与本地 Host 连接令牌分别管理。登录实现使用受支持的流程，不依赖复制 VS Code 凭据或开发机已有登录状态。
+## DSH 适配器的具体接入
 
-## Agent 扩展兼容策略
+原扩展 API 已有 `createChatSessionItemController` 和 `registerChatSessionContentProvider`，可由 VSIX 注册会话列表/内容；原 Copilot 扩展有现成使用路径。该接口目前属于 `chatSessionsProvider` proposal，需要产品对配套扩展显式允许并锁定 VSC 版本。
 
-第一层直接保留原生 Agent 资源，包括协议和运行时支持的 MCP、Skills、自定义 Agent、指令、Prompts、Hooks 和插件。第二层按需启动精简 Node 扩展宿主，接纳已经验证的 VS Code 工具扩展。第三层针对浏览器、Canvas 和混合扩展提供单独适配，明确到每项能力。
+原 Agents Window 通过 `ISessionsProvider` 路由，当前 Copilot Chat provider 只接 Cloud；注册扩展会话不等于会自动进入原主列表。先验证最小 DSH 会话链路；必要时增加通用扩展会话 provider，保持共享 Sessions/Workbench 不依赖 DSH 类型和包。不得通过另写聊天页面绕过这个门禁。
 
-现有 [扩展筛选逻辑](../../src/vs/workbench/services/extensions/common/extensionManifestPropertiesService.ts) 提供 Agent 贡献点与缺失工作台特征检查，可作为审计入口。扩展即使声明支持 Agent 窗口，也可能在运行时调用活动编辑器、语言诊断、Webview 或调试 API，因此必须验证实际依赖。
+DSH 保留自己的 Agent loop。将它仅暴露为模型 provider 或只导出 tools，无法保持原 hook、上下文、compaction 和工作流行为。适配器应接完整会话/事件/控制；工具互通是附加能力。
 
-首版至少覆盖工具、MCP 提供和声明式资源三类扩展样本。M0 增加真实候选扩展及固定版本；M5 对每个必选扩展给出兼容、拆分适配或阻塞结论。没有通过运行验证的扩展不进入支持清单。
+DSH 当前 SDK 可先接入启动、profile、事件、审批、问题和恢复，但缺逐会话关闭/中途取消 RPC。完整交互通过自有 Cordis driver 或上游新增能力补齐；取消 A 不能影响 B，不能用 kill 共用 runtime 宣称实现了会话取消。
 
-## Tauri 与 Rust 的采用条件
+DSH 原 session log/profile 是持久化权威，VSC 保存显示投影、布局和自己的草稿。原 DSH 前端插件按需在 Agent 插件页承载原 client graph/renderer；缺失 UI 能力明确标级，不默认所有前端插件都能映射到 VSC 原组件。
 
-Tauri 的主要机会是减少随包浏览器引擎和 IDE 前端负担。仍需计入系统 WebView 进程、Node Host、Copilot 运行时与插件，因此不能仅凭外壳体积预测总内存。应用能否达到性能目标，以 M6 的同能力比较为准。
+## 行为一致性与权限
 
-优先优化不必要的初始化、扩展激活、历史扫描、重复状态和渲染，再决定是否把 Diff、搜索或存储等热点改写为 Rust。替换必须保留协议、结果和错误语义，并通过确定性对照。全量 Rust 重写、替换 Copilot 推理循环、重建通用 IDE 均不进入首版。
+以相同 DSH SHA、profile、插件锁、工作目录、模型参数、权限配置为对照。确定性测试检查工具/事件顺序、hook/guard、审批拒绝、取消、结果类型、context/compaction、持久化和卸载；真实模型验证可观察工作流，不要求随机文本逐字相等。
 
-若 WKWebView 的关键能力无法满足首版，M2 记录问题并调整客户端方案；独立 Host、协议适配和测试资产继续复用。若必须保留的工具扩展导致精简宿主规模过大，M5 比较转为 MCP、拆分扩展与保留兼容宿主的成本，并保留可运行的原生插件模式。
+工具桥经原 `vscode.lm`/DSH 执行链调用，保留来源、命名空间和执行拥有者。原 deny 不能被 UI 批准覆盖；取消后迟到的批准失效；参数变化需要重新授权；结果未知的写操作不自动重放。长期账户/模型凭据留在相应受控存储，不进入 renderer 或普通日志。
 
-## 首版与后续能力
+## 双上游同步与分发
 
-首版交付定义在 [GOALS.md](GOALS.md)，完整路线见 [ROADMAP.md](ROADMAP.md)。网页客户端、Windows、Linux、多 provider、远程连接和热点原生化进入 M8。云端会话、自动化调度、电脑操作等能力由 M0 单独归类，未列入首版必选清单时不得宣传已经覆盖。
+保留 VSC 上游历史；原 Chat/API/扩展 RPC 尽量原样，产品差异集中在 composition root、准入、产品配置和通用桥。DSH 通过固定原运行时和自有驱动/适配器更新，不逐插件翻译原 API，不混用两边 node_modules。
 
-## 参考资料
+每次发布记录完整版本元组：产品、VSC SHA/API proposals、容器、适配器、DSH SHA/version/profile/bundles/lock、驱动协议和数据格式。分别升级 VSC 与 DSH 并运行回归和数据回退演练；尽量做到 DSH 升级只变更插件/驱动/锁，VSC 核心不出现 DSH 专属补丁。
 
-- [VS Code Agent Host architecture](https://code.visualstudio.com/docs/agents/concepts/agent-host)：独立 Host、AHP 与客户端工具的职责。
-- [Agent Host Protocol](https://github.com/microsoft/agent-host-protocol)：官方客户端和协议定义。
-- [Tauri sidecar](https://v2.tauri.app/develop/sidecar/)：按目标架构分发和启动外部运行时。
-- [Tauri capabilities](https://v2.tauri.app/security/capabilities/)：WebView 与宿主接口的权限边界。
-- [Copilot SDK](https://github.com/github/copilot-sdk)：运行时集成入口；客户端 SDK 不等于 VS Code 扩展兼容层。
+插件来源、商店和服务授权独立核对，沿用报告中的 [发行边界](feasibility/README.md#10-发行插件来源与许可边界)。原生 API 兼容不自动授权访问微软 Marketplace。依赖、插件与运行时均进入来源和完整性清单。
+
+## 推进顺序
+
+1. AF-01/02：原组件和原扩展宿主基线、插件准入与编辑器专用组件负向加载清单。
+2. AF-03：最小 DSH Adapter VSIX，把会话接到原列表/聊天；必要的通用桥也在此验收。
+3. AF-04：DSH 原插件、SDK/控制驱动、审批/取消/恢复的原生行为对照。
+4. AF-05：工具互通、原 DSH client 插件页和诊断。
+5. AF-06：两个上游独立升级、回滚；再做同能力性能与最终容器/发行验收。
+
+目标见 [GOALS.md](GOALS.md)，阶段组织见 [ROADMAP.md](ROADMAP.md)，验收任务详见 [ADR-001](ADR-001-agent-first-dsh-extension.md) 与 [PoC 计划](feasibility/POC_PLAN.md)。此前性能百分比没有实测，不因新方向自动通过；同能力新基线和预算调整必须在优化实施前留下记录。
