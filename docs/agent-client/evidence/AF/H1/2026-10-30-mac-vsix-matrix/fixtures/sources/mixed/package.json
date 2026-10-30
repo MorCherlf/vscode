@@ -1,0 +1,45 @@
+{
+  "name": "mixed",
+  "publisher": "h1-native-fixture",
+  "version": "0.0.1",
+  "displayName": "H1 native fixture mixed",
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "*",
+    "onStartupFinished",
+    "onLanguage:h1-native-fixture",
+    "onCommand:h1.native.mixed",
+    "onChatParticipant:h1-native-fixture.mixed"
+  ],
+  "capabilities": {
+    "agentsWindow": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "h1.native.mixed",
+        "title": "H1 native fixture mixed"
+      }
+    ],
+    "languages": [
+      {
+        "id": "h1-native-fixture",
+        "extensions": [
+          ".h1native"
+        ]
+      }
+    ],
+    "languageModelTools": [
+      {
+        "name": "h1NativeFixtureTool",
+        "displayName": "H1 native fixture tool",
+        "modelDescription": "Synthetic fixture only; no model calls"
+      }
+    ]
+  }
+}

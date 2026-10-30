@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date": "2026-10-30",
+  "testedCheckout": "78b70f43adc58e72ca832e2069bcabbde6371539",
+  "implementationSource": "09c03744303e2693251b4dd077851307b1b2d95a",
+  "platform": {
+    "os": "macOS",
+    "version": "27.2",
+    "build": "26B123",
+    "arch": "arm64"
+  },
+  "node": "v24.22.1",
+  "electron": "43.8.3",
+  "runtimeReused": "same verified original source Electron/runtime and compiled output as previous Mac retest; no source/dependency changes",
+  "fixtureKind": "Three synthetic local VSIX archives and one separate development source, not arbitrary marketplace compatibility or a DSH plugin",
+  "passed": {
+    "nativeVSIXInstallation": true,
+    "globalAndWorkspaceEnableDenied": true,
+    "autoEnableAndCapabilityOverrideDenied": true,
+    "admittedSyntheticPositiveControlExecuted": true,
+    "savedWorkspacePolicySurvivedRestart": true,
+    "nativeDevelopmentCandidateBlocked": true,
+    "booleanAutoEnableDenied": true
+  },
+  "enableAttempts": {
+    "globalAndWorkspaceRequests": 6,
+    "allRejected": true
+  },
+  "originalWorkspaceIdentityPreserved": true,
+  "productionExecutableList": [],
+  "positiveControl": "Temporary renderer ProductService overlay admits only the three synthetic IDs. Their actual native modules and activations each write one marker. This is test control data, not production policy or a real Agent task. Product JSON unchanged; list restored before exit.",
+  "restartEvidence": "Original same profile/workspace restarted normally and with extensionDevelopmentPath. Same-run complete logs have native host startup, normal exit0 and no executable activation; markers do not grow.",
+  "developmentCandidate": {
+    "autoEnable": true,
+    "scanned": [
+      {
+        "id": "h1-native-fixture.development-only",
+        "main": "./extension.cjs",
+        "valid": true,
+        "state": 2
+      }
+    ]
+  },
+  "account": "No interactive login, personal profile copy, token inspection or model request. Original SDK global account/customization discovery not fully isolated.",
+  "acceptancePass": false,
+  "unverified": [
+    "arbitrary external marketplace/VSIX compatibility",
+    "admitted dependent with unadmitted dependency at native EH startup (service/browser evidence remains separate)",
+    "standalone browser-entrypoint VSIX in native WebWorker EH",
+    "separate unconfigured-product development positive control",
+    "remaining native windows/restore/resource/drop routes",
+    "actual provider model/tools/approval/cancel/history",
+    "full task-time loading/worker/service attribution",
+    "system IME/VoiceOver",
+    "standalone Mac package and human H1 acceptance"
+  ]
+}
