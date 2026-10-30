@@ -1,0 +1,485 @@
+{
+	"retrievedDate": "2026-10-29",
+	"method": "Read-only local source audit and official GitHub connector/web sources; no third-party plugin executed. DSH cached file bytes verified against pinned Git tree when available.",
+	"vscode": {
+		"localSourceAuditCommit": "c58fae13e220bb2f9f75c8fcd7afa78480f4f6e4",
+		"upstreamBase": "f0e704e856d22441707652e4f7f263b6162b367a",
+		"upstreamBaseVerifiedInOfficialRepository": true,
+		"upstreamBaseUrl": "https://github.com/microsoft/vscode/commit/f0e704e856d22441707652e4f7f263b6162b367a",
+		"files": [
+			{
+				"path": "src/vs/sessions/sessions.common.main.ts",
+				"bytes": 28490,
+				"sha256": "41290d663630fb86ef0ab326b3995062a48db1189c5e5362232b401527fbd514",
+				"gitBlobSha": "8566759e05e6de09bed94460a43cc48188ea07e0"
+			},
+			{
+				"path": "src/vs/sessions/sessions.web.main.internal.ts",
+				"bytes": 935,
+				"sha256": "23f9ebc9f7d506ee562862c395cc8f035febf84acd667610ca2a4ff0f128f26c",
+				"gitBlobSha": "4e7ae75ffc2bd58249dc609e7ba00b956e62b008"
+			},
+			{
+				"path": "src/vs/sessions/browser/web.factory.ts",
+				"bytes": 1966,
+				"sha256": "41b90e466a4a97972dc726c4704ecaeb3ed6c4dd29791e4c786f4785d199aeed",
+				"gitBlobSha": "595d27fae9158f9e07acdd3cdb11c24f06e41265"
+			},
+			{
+				"path": "src/vs/workbench/services/extensions/browser/extensionService.ts",
+				"bytes": 19387,
+				"sha256": "89bcf844a9cc049b14df99f94987a4030c18947b63ffc16e746fd1c5153680d2",
+				"gitBlobSha": "531e1adffd68c30b92a49bcf83c0d44b9b1cf71e"
+			},
+			{
+				"path": "src/vs/workbench/services/extensions/common/extensionManifestPropertiesService.ts",
+				"bytes": 26954,
+				"sha256": "0120d9854a5d28aceb3fece7d5bd326ba5e814b8489eb49a6cbbb634b9618cef",
+				"gitBlobSha": "4b8cf47d8dc89428af84c125280f434febf30a8d"
+			},
+			{
+				"path": "src/vs/workbench/api/common/extHost.protocol.ts",
+				"bytes": 207309,
+				"sha256": "8314ccbed293212c80ffbe721cdec7d372e41f402e8696859e4c573405627f1b",
+				"gitBlobSha": "836c019927a52e3377ba82cb1cd427154ff0a2f1"
+			},
+			{
+				"path": "src/vs/workbench/contrib/webview/browser/pre/index.html",
+				"bytes": 42446,
+				"sha256": "1f6423592cf01b4bda295a8fdc822c0bf91d6086862ef262a9e45d2460ab5bff",
+				"gitBlobSha": "4871f147907bea180d8b92b2b6dd470872761cd5"
+			},
+			{
+				"path": "src/vscode-dts/vscode.d.ts",
+				"bytes": 742500,
+				"sha256": "1fc60f012cdde89eceaf26cfe4401e9d0862d9d38062115224fee1564e6ee774",
+				"gitBlobSha": "bd520cf7bb88454e99bd15da13c6b9c6ac56fd65"
+			}
+		],
+		"initialLocalSourceAuditCommit": "28eb53a537f541dcc45fc69ebda9af276e783257"
+	},
+	"dsh": {
+		"repository": "deepseek-ai/deepseek-harness",
+		"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+		"rootVersion": "0.2.2-alpha.2",
+		"nodeEngine": ">=24.9.0",
+		"files": [
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "SAFETY.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/SAFETY.md",
+				"bytes": 1673,
+				"sha256": "62075bb51e0f7790441e7722ff12063107b4866019332e71ef01b63b6f880fee",
+				"gitBlobSha": "2b76f00e0619ee69553afdc507df361080f4d3ac",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "apps/desktop/package.json",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/apps/desktop/package.json",
+				"bytes": 4296,
+				"sha256": "e986ebcfa4f1034e2837c638ee75dd17c540eb55d07a85d9eab1b4c6d0f6554e",
+				"gitBlobSha": "081a90ead3e6b6a69c28355c9e8edf6808faa235",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/agent-lifecycle.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/agent-lifecycle.md",
+				"bytes": 5766,
+				"sha256": "c4e6996195e880d6dbb3bcb05e7c4e34651d002db4e2ca05b59cd74d30309617",
+				"gitBlobSha": "8dea01c10015ee0da3f29d5f0b185cece4f2df8e",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/architecture.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/architecture.md",
+				"bytes": 18884,
+				"sha256": "c329e1a9e6227475069edc19284c4eee39aff8cc77084ec962099617b1698358",
+				"gitBlobSha": "e3f5cd24a39d1d6275a291c83f165e6839ce191b",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/capability-seams.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/capability-seams.md",
+				"bytes": 70684,
+				"sha256": "a87181f104fb03495fdbb8ad26b411b31d4de0142b2e0e692d1033e7f41a7269",
+				"gitBlobSha": "84d110253e48feb99117c0fd46984780792a8e0e",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/cookbook/adding-a-package.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/cookbook/adding-a-package.md",
+				"bytes": 18146,
+				"sha256": "47132dd37256a95b4688af0a54bf9b947ca498304ce9951152fd21c903c8fe43",
+				"gitBlobSha": "16fe3e564f2128a0dc54320e73c9299a5edecfa5",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/cookbook/adding-a-settings-card.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/cookbook/adding-a-settings-card.md",
+				"bytes": 4720,
+				"sha256": "8032b80e9e18ff374fcc88b8db1d091a5b85567f92c1dfab6ce0344e963ab9be",
+				"gitBlobSha": "3e473d8bbc52d0bbfddcabc2512dbef1b23a8fb4",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/cookbook/adding-a-tool.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/cookbook/adding-a-tool.md",
+				"bytes": 14321,
+				"sha256": "e6c6ff0d8186b6bb05956e43e518ae4a6efada22a198c8436fe97f48870b7af5",
+				"gitBlobSha": "ebef4b6b03a2df160f1a10880cb79f8d829f4c1f",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/cookbook/extension-cookbook.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/cookbook/extension-cookbook.md",
+				"bytes": 11330,
+				"sha256": "1fd17d6289bed1927371a3c1e6a0dd47d11fe155e6690f8bc9b07ba3d748779f",
+				"gitBlobSha": "7e960a85f53bfd629a399d6343aa231b01cf4a63",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/cordis-primer.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/cordis-primer.md",
+				"bytes": 4136,
+				"sha256": "f0cc573cc10b60d1bd76039fb0bd666edfb32c9b18027d4dc301c042a9e65d58",
+				"gitBlobSha": "2e5a48745cf96068bec9e31b0c6f1bf9d84b0e34",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/rescope.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/rescope.md",
+				"bytes": 5391,
+				"sha256": "2b8fbe0747a1879bbf07c447e2e7a368a6e78f303bc42c71f93106dc4f559f8c",
+				"gitBlobSha": "2e25989742ea219ccaa636b79f5159db23cdcfdf",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "docs/tool-execution-pipeline.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/docs/tool-execution-pipeline.md",
+				"bytes": 4480,
+				"sha256": "2046ba9f08206def424bbd27ccfe6f8967254373292e2aa3046bf2095dd41a26",
+				"gitBlobSha": "bdb8152984750862d3fec9395730398474c544cb",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/acp/acp/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/acp/acp/README.md",
+				"bytes": 13587,
+				"sha256": "f72402f208acd96fa65359cd8ea083e3944c7f30b0f835eb9fd2ce1705bf432b",
+				"gitBlobSha": "06ba85def5f5c1e9d953890db81afb88b4513087",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/boot/plugin-manager/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/boot/plugin-manager/README.md",
+				"bytes": 40203,
+				"sha256": "1035898f3ebf446f7c24a0790f9ebbc32adbc7c43e7756e557f5994fa206c238",
+				"gitBlobSha": "fd75a0d46ae6dc918126579e9f4b57a6d59aa70c",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/boot/plugin-manager/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/boot/plugin-manager/src/index.ts",
+				"bytes": 78538,
+				"sha256": "70d4744231efb584639ef8a71dea3a0d3037247376bb0db00f1f8dc80d636d9e",
+				"gitBlobSha": "271e6af0d35b50459777dcd2f0ffeb353e572e08",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/client/modules/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/client/modules/README.md",
+				"bytes": 20476,
+				"sha256": "0fde4a4ead9bcf4d4e256308aefdf7c7b4f4a7de8f3cfb1fea46c1c6117d2f94",
+				"gitBlobSha": "6048a7393948a1654434a4b07154b1c4e204c329",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/client/ui-renderer/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/client/ui-renderer/README.md",
+				"bytes": 6347,
+				"sha256": "bfd27c6b6ef9a4abdd34d6439c389a6709e12d7edff93dc9cb979d66cd8838b4",
+				"gitBlobSha": "e6699e8d98f665e2580cfe21c354a983a0ff19dc",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/client/ui-renderer/src/client/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/client/ui-renderer/src/client/index.ts",
+				"bytes": 3352,
+				"sha256": "bc0e0e4beaefa5d1b20cd94b64d65a38e9500b6d0a830de300b1c24e5394bb3c",
+				"gitBlobSha": "f12efd09c26c8ac25f960f116f93f79a04c54c10",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/core/agent/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/core/agent/src/index.ts",
+				"bytes": 32835,
+				"sha256": "19c6c34dd4dd63dfa8c3c388bffe0cd4d4f254a1fc564eb52c44ef4321f79b39",
+				"gitBlobSha": "c93ebbc94d76d279d3de8536632f37645ac70058",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/core/agent/src/runtime-types.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/core/agent/src/runtime-types.ts",
+				"bytes": 21273,
+				"sha256": "2f7161c634956759bc33285ab1f293443cc30e64826c71c4164977802025f216",
+				"gitBlobSha": "2b1698e39c663f4d8d7760ebdaef647bed693257",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/core/agent/src/types.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/core/agent/src/types.ts",
+				"bytes": 4576,
+				"sha256": "1491b489633e6eefd336e81dd6d960628ba22d3c1435e8668b18f799c58d3eaa",
+				"gitBlobSha": "06d2c88ab1e5ada455214555aaae542077caa571",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/core/system-prompt/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/core/system-prompt/src/index.ts",
+				"bytes": 29973,
+				"sha256": "fa4334c2398a9286a2f24e36aa74b014faa82373687a632f7ee54144a1777284",
+				"gitBlobSha": "45442e3a234e7fe71c482f74196013f06fe51559",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/core/tools/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/core/tools/src/index.ts",
+				"bytes": 18227,
+				"sha256": "020c566150cf82dd49d368f5585043c73c191aaeba9103fd77a3efde6ee909dd",
+				"gitBlobSha": "d2d10d6b5be2d77696470e82164bda47322c2112",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/extensions/cordis-client-runner/src/client/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/extensions/cordis-client-runner/src/client/index.ts",
+				"bytes": 15786,
+				"sha256": "6833d43e34779cf8f92d48c2130c15cb8fc42bdd70b85be84bd564cc487229df",
+				"gitBlobSha": "68858edfeea9aae2bfbf75c5f33152ad3ecc39f6",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/extensions/cordis-host-runner/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/extensions/cordis-host-runner/src/index.ts",
+				"bytes": 53396,
+				"sha256": "2cb144c5c51cc65d90f0348080abc53f1f6bdcee069cd5b3409d4bf7531f5139",
+				"gitBlobSha": "3c48a82bcfb42c3a80f3e2a92f33a7fcb5a0c54b",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/extensions/ui-cordis/src/client/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/extensions/ui-cordis/src/client/index.ts",
+				"bytes": 6567,
+				"sha256": "b1d36f95ad96e12eaa017ef0c08530414c7b093245502aaeee5fdf285adf75fd",
+				"gitBlobSha": "dae71afa4229b1c6b3a52d0410b1f26d6376eb9a",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/llm/llm-retry/src/index.ts",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/llm/llm-retry/src/index.ts",
+				"bytes": 9365,
+				"sha256": "3e16b7603771fcf4476d7e07ae1fd2715bb5bfd8fa7afe6bcb431f02aa149c8e",
+				"gitBlobSha": "45fa11c5d4d3091340b9f181767b73757a79b069",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/sdk/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/sdk/README.md",
+				"bytes": 2482,
+				"sha256": "32fc20040b3f41689373f71b0af015d962eb2e95b9eaa7a655a4c2e990bf5daa",
+				"gitBlobSha": "227175269b820b967c543c215926a3efe3ab7ea8",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/sdk/client/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/sdk/client/README.md",
+				"bytes": 13978,
+				"sha256": "1aee0dff2b19ba0f880aa5bb2d235551bae32be4a8074bde68be55f82f46feff",
+				"gitBlobSha": "7d7048c6fc2b20ac439c72cdf6d17b547c52a796",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/sdk/protocol/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/sdk/protocol/README.md",
+				"bytes": 11677,
+				"sha256": "140cedd28eaf11c785f11b87ac084bac0e33a14509c566a1c1dee090e12bedea",
+				"gitBlobSha": "93a34454af7f5da9fadd19a29f54c2698da76057",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "packages/sdk/server/README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/sdk/server/README.md",
+				"bytes": 14272,
+				"sha256": "d8c469ec81199823a98cef05b5d9cc4faa4bad228b8a0169086eac418ce6bdb0",
+				"gitBlobSha": "e9007e593c4c88b1f30027a283a19bfe7a37c547",
+				"blobVerifiedAgainstPinnedTree": true
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "package.json",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/package.json",
+				"bytes": 19936,
+				"sha256": "d0fd7a2084d455b1651815bfbf9034e8b7dfb6571513727bec5d6cbc175a0b45",
+				"gitBlobSha": "9dccd6008bc8baa11863c2cab544eac2c786808e"
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "LICENSE",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/LICENSE",
+				"bytes": 1065,
+				"sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+				"gitBlobSha": "c1f7a78e89e4e4dc7b86664c3b3c76eb5eee1785"
+			},
+			{
+				"repository": "deepseek-ai/deepseek-harness",
+				"commit": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+				"path": "README.md",
+				"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/README.md",
+				"bytes": 2673,
+				"sha256": "0f5516be2acde776f05572cbc8c3093c90549afe04ce118e11157d073d5d15f4",
+				"gitBlobSha": "7941e30f7bdca9391befe39b9115d211157fa42d"
+			}
+		]
+	},
+	"webSources": [
+		{
+			"title": "VS Code extension host",
+			"url": "https://code.visualstudio.com/api/advanced-topics/extension-host",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VS Code API",
+			"url": "https://code.visualstudio.com/api/references/vscode-api",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VS Code tools",
+			"url": "https://code.visualstudio.com/api/extension-guides/ai/tools",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VS Code Webview",
+			"url": "https://code.visualstudio.com/api/extension-guides/webview",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VS Code proposed API",
+			"url": "https://code.visualstudio.com/api/advanced-topics/using-proposed-api",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VSIX publishing",
+			"url": "https://code.visualstudio.com/api/working-with-extensions/publishing-extension",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "VS Code FAQ",
+			"url": "https://code.visualstudio.com/docs/supporting/faq",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "Visual Studio Marketplace Terms (September 2025)",
+			"url": "https://aka.ms/vsmarketplace-ToU",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "Tauri frontend configuration",
+			"url": "https://v2.tauri.app/start/frontend/",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "Open VSX use in VS Code",
+			"url": "https://github.com/eclipse-openvsx/openvsx/wiki/Using-Open-VSX-in-VS-Code",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		},
+		{
+			"title": "OpenVSCode Server",
+			"url": "https://github.com/gitpod-io/openvscode-server",
+			"retrievedDate": "2026-10-29",
+			"snapshotHash": null,
+			"limitation": "Live documentation; no immutable page snapshot committed"
+		}
+	]
+}

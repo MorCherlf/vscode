@@ -1,0 +1,9 @@
+{
+	"name": "@morcherlf/dsh-runtime",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": { "test": "node --test test/*.test.mjs" },
+	"dependencies": { "@deepseek-ai/dsh-sdk-client": "0.2.2-alpha.2" },
+	"engines": { "node": "24.22.1" }
+}

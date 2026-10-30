@@ -1,0 +1,10 @@
+{"extensionHostProbe":{"enabled":["h1-fixture.control"],"status":{"h1-fixture.control":{"activated":true,"errors":0}}},"builtinChatFixtureId":"h1-fixture.mixed","control":"control","manifests":["control","dependent","editor-only","mixed"],"fixtureModules":["control"],"activations":["control"]}
+{"originalChatInputFixture":{"chatInput":{"readOnly":false,"value":""},"chatTyped":{"readOnly":false,"value":"CHAT_INPUT_MARKER"}},"boundary":"actual original ChatWidget/InputPart DI and keyboard, no request/model/account"}
+file:///workspace/scratch/11910be6d76c/vscode-h1-continued/scripts/agent-first/web-smoke.mjs:171
+		if (!profileTyping.value.includes('KEYBOARD_PROFILE_MARKER')) { throw new Error('Original profile instruction editor typing failed'); }
+		                                                                      ^
+
+Error: Original profile instruction editor typing failed
+    at file:///workspace/scratch/11910be6d76c/vscode-h1-continued/scripts/agent-first/web-smoke.mjs:171:73
+
+Node.js v24.22.1

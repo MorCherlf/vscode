@@ -1,0 +1,13 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm.
+npm warn Unknown project config "target". This will stop working in the next major version of npm.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm.
+
+> code-oss-dev@1.145.0 eslint
+> node --max-old-space-size=8192 build/eslint.ts src/vs/workbench/browser/parts/editor/textEditor.ts src/vs/workbench/browser/parts/editor/textEditorReviewPolicy.ts src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts src/vs/workbench/contrib/files/browser/fileActions.contribution.ts src/vs/workbench/contrib/files/browser/fileCommands.ts src/vs/sessions/contrib/editor/browser/emptyFileEditor.ts src/vs/sessions/contrib/editor/browser/emptyFileEditor.contribution.ts src/vs/sessions/contrib/editor/browser/emptyFileEditorAccessibility.ts src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts
+
+ESLint: checking 9 requested targets.
+ESLint: checked 9 files in 1560ms.

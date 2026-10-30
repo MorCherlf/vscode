@@ -3,6 +3,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import { localize } from '../../nls.js';
+import { IProductService } from '../../platform/product/common/productService.js';
+import { INotificationService } from '../../platform/notification/common/notification.js';
 import { DataTransfers, IDragAndDropData } from '../../base/browser/dnd.js';
 import { DragAndDropObserver, EventType, addDisposableListener, onDidRegisterWindow } from '../../base/browser/dom.js';
 import { DragMouseEvent } from '../../base/browser/mouseEvent.js';
@@ -122,6 +125,8 @@ export class ResourcesDropHandler {
 		@IHostService private readonly hostService: IHostService,
 		@IWorkspaceContextService private readonly contextService: IWorkspaceContextService,
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
+		@IProductService private readonly productService: IProductService,
+		@INotificationService private readonly notificationService: INotificationService,
 	) {
 	}
 
@@ -129,6 +134,26 @@ export class ResourcesDropHandler {
 		const editors = await this.instantiationService.invokeFunction(accessor => extractEditorsAndFilesDropData(accessor, event));
 		if (!editors.length) {
 			return;
+		}
+
+		if (this.productService.agentFirst) {
+			if (editors.some(editor => !editor.resource || editor.resource.scheme === Schemas.untitled || editor.contents !== undefined)) {
+				this.notificationService.warn(localize('agentFirst.unsavedDropUnsupported', "Drop saved resources for review. Unsaved editors and embedded editor inputs are not supported in Agent First."));
+				return;
+			}
+			// Validate the entire batch before contributed handlers, recents or workspace mutation.
+			// Merely disabling allowWorkspaceOpen would fall through to opening folders as editors.
+			for (const editor of editors) {
+				if (editor.resource?.scheme !== Schemas.file) {
+					continue;
+				}
+				const workspaceIntent = this.options.allowWorkspaceOpen && editor.allowWorkspaceOpen && hasWorkspaceFileExtension(editor.resource);
+				const directory = await this.fileService.stat(editor.resource).then(stat => stat.isDirectory, () => false);
+				if (workspaceIntent || directory) {
+					this.notificationService.warn(localize('agentFirst.workspaceDropUnsupported', "Agent First does not open folders or workspaces by dropping them into a review group. Open a project from the Agents window instead."));
+					return;
+				}
+			}
 		}
 
 		// Make the window active to handle the drop properly within
@@ -179,6 +204,10 @@ export class ResourcesDropHandler {
 	}
 
 	private async handleWorkspaceDrop(resources: URI[]): Promise<boolean> {
+		// Enforce again at the mutation boundary, even if resource type changes after preflight.
+		if (this.productService.agentFirst) {
+			return false;
+		}
 		const toOpen: IWindowOpenable[] = [];
 		const folderURIs: IWorkspaceFolderCreationData[] = [];
 

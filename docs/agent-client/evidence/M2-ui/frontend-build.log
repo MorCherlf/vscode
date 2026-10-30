@@ -1,0 +1,14 @@
+
+> @morcherlf/agent-client@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.1.12 building for production...
+transforming...
+✓ 365 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.53 kB │ gzip:   0.37 kB
+dist/assets/codicon-BMRf8Agl.ttf  154.01 kB
+dist/assets/index-z9izC5SB.css     49.79 kB │ gzip:   9.80 kB
+dist/assets/index-Bfxd7i6o.js     436.38 kB │ gzip: 132.87 kB
+✓ built in 872ms

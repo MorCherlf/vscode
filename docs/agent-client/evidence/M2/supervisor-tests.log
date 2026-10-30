@@ -1,0 +1,17 @@
+   Compiling agent-host-supervisor v0.1.0 (/workspace/scratch/11910be6d76c/vscode/packages/agent-host-supervisor)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running unittests src/lib.rs (packages/agent-host-supervisor/target/debug/deps/agent_host_supervisor-cf4606f3cca6b383)
+
+running 4 tests
+test tests::validates_generation_and_frame_size ... ok
+test tests::missing_artifact_is_an_explicit_failure ... ok
+test tests::native_receive_window_overflow_requires_resync ... ok
+test tests::owns_real_mock_host_reconnects_without_restart_and_reaps_it ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.87s
+
+   Doc-tests agent_host_supervisor
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,21 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dsh-adapter@0.1.0 package
+> vsce package --no-dependencies --out dsh-adapter.vsix
+
+ WARNING  A 'repository' field is missing from the 'package.json' manifest file.
+Use --allow-missing-repository to bypass.
+ WARNING  LICENSE, LICENSE.md, or LICENSE.txt not found
+ INFO  Files included in the VSIX:
+dsh-adapter.vsix
+├─ [Content_Types].xml 
+├─ extension.vsixmanifest 
+└─ extension/
+   ├─ .gitignore [0.03 KB]
+   ├─ package.json [1.86 KB]
+   ├─ package.nls.json [0.48 KB]
+   └─ out/
+      ├─ extension.js [5.62 KB]
+      └─ runtime.js [5.5 KB]
+
+ DONE  Packaged: dsh-adapter.vsix (7 files, 6.59 KB)

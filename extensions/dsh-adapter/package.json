@@ -1,0 +1,91 @@
+{
+	"name": "dsh-adapter",
+	"publisher": "morcherlf",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"version": "0.1.0",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.145.0"
+	},
+	"main": "./out/extension.js",
+	"enabledApiProposals": [
+		"chatSessionsProvider",
+		"chatParticipantPrivate"
+	],
+	"extensionKind": [
+		"workspace"
+	],
+	"capabilities": {
+		"agentsWindow": {
+			"supported": true
+		},
+		"untrustedWorkspaces": {
+			"supported": false
+		}
+	},
+	"activationEvents": [
+		"onChatSession:morcherlf-dsh"
+	],
+	"contributes": {
+		"chatSessions": [
+			{
+				"type": "morcherlf-dsh",
+				"name": "DSH",
+				"displayName": "%displayName%",
+				"description": "%description%",
+				"requiresCopilotSignIn": false
+			}
+		],
+		"chatParticipants": [
+			{
+				"id": "morcherlf-dsh",
+				"name": "dsh",
+				"fullName": "DeepSeek Harness",
+				"description": "%description%"
+			}
+		],
+		"configuration": {
+			"title": "DSH Adapter",
+			"properties": {
+				"dshAdapter.nodePath": {
+					"type": "string",
+					"default": "",
+					"scope": "machine",
+					"description": "%nodePath%"
+				},
+				"dshAdapter.runtimeDirectory": {
+					"type": "string",
+					"default": "",
+					"scope": "machine",
+					"description": "%runtimeDirectory%"
+				},
+				"dshAdapter.profile": {
+					"type": "string",
+					"default": "sdk",
+					"description": "%profile%"
+				},
+				"dshAdapter.provider": {
+					"type": "string",
+					"default": "deepseek-official",
+					"description": "%provider%"
+				},
+				"dshAdapter.model": {
+					"type": "string",
+					"default": "deepseek-v4-flash",
+					"description": "%model%"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"test": "node --test test/*.test.mjs",
+		"package": "vsce package --no-dependencies --out dsh-adapter.vsix"
+	},
+	"devDependencies": {
+		"@types/node": "24.12.4",
+		"@vscode/vsce": "3.6.2",
+		"typescript": "6.0.2"
+	}
+}

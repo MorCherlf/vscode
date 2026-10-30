@@ -1,0 +1,6 @@
+[
+  {
+    "relativePath": "20261030T155155/window1/exthost/exthost.log",
+    "body": "2026-10-30 15:52:03.443 [info] Extension host with pid 54870 started\n2026-10-30 15:52:03.443 [info] Skipping acquiring lock for /tmp/code-oss-dev-20261030-155153-54810-tJWHvW/user-data/User/workspaceStorage/4f23f70b.\n2026-10-30 15:52:03.443 [info] Eager extensions activated\n2026-10-30 15:52:03.443 [info] [node-compile-cache] extension-host: packaged cache inactive (status: development, configured: $REPO/out/vs/base/node-compile-cache/extension-host, active: none)\n2026-10-30 15:52:21.024 [info] Extension host terminating: received terminate message from renderer\n2026-10-30 15:52:21.025 [info] Extension host with pid 54870 exiting with code 0\n"
+  }
+]

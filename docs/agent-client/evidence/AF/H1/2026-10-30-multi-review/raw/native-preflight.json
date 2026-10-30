@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "source": "e6927023c49b0c4c8573a2145a0490a73b16a01e",
+  "dirty": true,
+  "platform": "linux",
+  "arch": "x64",
+  "node": "24.22.1",
+  "product": {
+    "agentFirst": true,
+    "executableExtensions": []
+  },
+  "compiledClientPresent": true,
+  "nativeIpcProbe": {
+    "status": "blocked",
+    "code": "EPERM"
+  },
+  "macArm64": false,
+  "scope": "platform/socket probe only; compiled output presence is not freshness or native execution",
+  "unverified": [
+    "native window/EH/VSIX",
+    "real dedicated account/model/tool/approval task",
+    "full task-time module/service/worker exclusion",
+    "Mac package/IME/VoiceOver",
+    "human H1 acceptance"
+  ],
+  "account": "not inspected; do not send account tokens or credential logs"
+}

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "source": "0bec73fa99db00cb1bcccadf71326f5c72adc8b2",
+  "dirty": false,
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "24.22.1",
+  "product": {
+    "agentFirst": true,
+    "executableExtensions": []
+  },
+  "compiledClientPresent": false,
+  "nativeIpcProbe": {
+    "status": "available-for-probe-only"
+  },
+  "macArm64": true,
+  "scope": "platform/socket probe only; compiled output presence is not freshness or native execution",
+  "unverified": [
+    "native window/EH/VSIX",
+    "real dedicated account/model/tool/approval task",
+    "full task-time module/service/worker exclusion",
+    "Mac package/IME/VoiceOver",
+    "human H1 acceptance"
+  ],
+  "account": "not inspected; do not send account tokens or credential logs"
+}

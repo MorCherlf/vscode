@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "testedSource": "0bec73fa99db00cb1bcccadf71326f5c72adc8b2",
+  "sourceCleanAtPreflight": true,
+  "date": "2026-10-30",
+  "platform": {
+    "os": "macOS",
+    "version": "27.2",
+    "build": "26B123",
+    "arch": "arm64"
+  },
+  "vscodeVersion": "1.145.0",
+  "node": "24.22.1",
+  "electron": "43.8.3",
+  "chromium": "150.0.7871.250",
+  "mode": "source launch of original native Electron Agents window; not a standalone packaged product",
+  "build": {
+    "command": "npm run build-fast",
+    "exitCode": 0,
+    "client": true,
+    "builtinExtensions": true,
+    "copilot": true
+  },
+  "runtimePrepare": {
+    "command": "npm run electron",
+    "exitCode": 0
+  },
+  "testControllerExitCode": 0,
+  "acceptancePass": false,
+  "account": "No login, token inspection, personal profile copy or model request",
+  "isolation": "Empty source User profile, disposable project outside repository, in-memory SecretStorage. Global SDK customization discovery was not fully isolated; visible counts are not an extension-admission proof.",
+  "nativeExtensionAdmission": {
+    "status": "FAIL",
+    "expected": "Empty executable extension allowlist blocks GitHub.copilot-chat execution",
+    "observed": "Original native extension host entered _doActivateExtension for GitHub.copilot-chat and logged its configuration access"
+  },
+  "unverified": [
+    "real model and tool task",
+    "approval/rejection/cancel/recovery",
+    "actual OS Chinese IME composition",
+    "VoiceOver",
+    "full task-time module/service/worker exclusion",
+    "external VSIX negative activation and workspace override bypass",
+    "native window/OS open/restore/remote/drop route matrix",
+    "standalone Mac package/signing/notarization",
+    "human H1 acceptance"
+  ]
+}

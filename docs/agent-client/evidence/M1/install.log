@@ -1,0 +1,4 @@
+npm warn Unknown cli config "--nodedir". This will stop working in the next major version of npm.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+added 66 packages in 1m

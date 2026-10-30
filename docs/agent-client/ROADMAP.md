@@ -3,9 +3,33 @@
 
 # Agent 专用客户端 Roadmap
 
-采用“独立 Agent Host、Tauri 验证、核心任务、扩展兼容、性能与发布”的推进顺序。首先证明客户端能脱离 VS Code 完成任务，再扩大兼容范围。既有 `src/vs/sessions` 用作行为参考，不作为整包搬运的客户端。
+## 人工交付顺序（当前优先）
 
-## 阶段与交付物
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次交付；只有用户明确确认才标人工通过。当前先闭合 H1，DSH 保留且未启用。
+
+已整合远端 `988fbfd2`：保留 [Mac 外部 VSIX 矩阵](evidence/AF/H1/2026-10-30-mac-vsix-matrix/README.md) 的 checkout78b70f4/product09c0374 实际安装、六次启用拒绝与重启对照；保留 [native 窗口 API 修复](evidence/AF/H1/2026-10-30-mac-native-window-api/README.md) product20c9dc7 的正常目录/canonical 两正向与六拒绝。历史 0bec73f、96fa875 失败按原版本保留，不把旧开发扫描结果归到更新后的入口策略。
+
+最新 [原资源 resolver/占位视图工作包](evidence/AF/H1/2026-10-30-provider-resource/README.md) 防止无 owner 的旧 custom-editor cache 在 Sessions 产品准入前注册；Agent First 不再加载 Test Custom View 占位贡献，保留原服务和普通产品行为。6 项原 resolver 回归、47 项原 custom view/editor resolver/auth gate 测试、原界面两路对照、类型/构建/lint/layers 通过，属于 Linux/browser/fixture 证据。后端真实路径见 [backend/认证调查](evidence/AF/H1/2026-10-30-provider-resource/BACKENDS.md)：GitHub OAuth 不作为所有 backend、本地界面或裁剪工程的通用前置；本轮未启动真实 SDK/账户任务。
+
+H1 仍为工程进行中，尚不可提交人工验收。剩余原生 OS/CLI/旧恢复/custom pane、真实 provider 任务、完整任务时加载归因、IME/VoiceOver、独立 Mac 包等门禁保留。见 [H1 证据索引](evidence/AF/H1/README.md) 与 [NEXT](evidence/AF/H1/NEXT.md)。生产 executable 清单 []，DSH/H2–H4 未启用，不合并或发布。
+
+当前采用 [ADR-001](ADR-001-agent-first-dsh-extension.md) 确定的 Agent First 路线：原组件/原宿主 → 编辑器插件准入与组件加载裁剪 → DSH Adapter VSIX 接入原会话界面 → 原 DSH 插件行为 → 双上游升级与性能发行。编辑器专用插件禁用，不通过恢复通用 IDE 扩大兼容；DSH 专属逻辑在插件/驱动层。
+
+## 当前工作顺序
+
+| 阶段 | 当前目标 | 对应旧里程碑 | 必选门禁 |
+| --- | --- | --- | --- |
+| F0 | 原组件、原宿主和 Agent First 清单基线 | M0、M2、M5 重新核对范围 | AF-01，AF-02 加载基线 |
+| F1 | 最小 DSH VSIX + 通用会话接入 + 原运行时链路 | M2 至 M5 的新架构验证 | AF-03，AF-04 首轮；Tauri 同组件实验另记 |
+| F2 | Agent 准入/组件裁剪、完整 DSH 交互与原插件行为 | M3 至 M5 | AF-01/02 完整门禁，AF-04 |
+| F3 | 原 DSH client 插件页、工具桥、独立升级 | M4、M5、M7 维护工程 | AF-05/06 |
+| F4 | 同能力性能、最终容器与 Mac 发行 | M6、M7 | G01 至 G12 与 AF 门禁、签名/真实账户/干净机器 |
+
+每项输入、交付物、验收和失败处理见 [ADR](ADR-001-agent-first-dsh-extension.md#7-首轮推进与验收) 与 [PoC 工作包](feasibility/POC_PLAN.md)。全部新运行门禁待执行；已有协议、Host 和原型测试保留准确的提交/平台边界。下一步先做 AF-01/03 最小原组件与会话链路，再逐项裁剪并扩展 DSH，不继续扩大 React 仿写页面。
+
+## 原 M0–M8 阶段与交付物
+
+以下保留早期原型路线与交付编号供核对。其 Tauri 固定选型、轻量前端和 API 子集等旧技术约束由 ADR-001 取代；已有真实测试/账户/签名门禁不因此取消，里程碑不自动改为已验收。
 
 | 里程碑 | 主要目标 | 前置条件 | 可验收交付物 | 退出门禁 |
 | --- | --- | --- | --- | --- |
@@ -54,7 +78,7 @@ flowchart LR
 
 ## 范围和排期
 
-首版平台为 macOS arm64；macOS x64、网页和其他桌面平台进入 M8。框架为 Tauri 2、Rust 外壳、TypeScript 前端和复用的 Node Agent Host。精确依赖版本在对应里程碑实现时锁定，不追踪未固定的最新版本。
+首版平台为 macOS arm64；macOS x64、网页和其他桌面平台进入 M8。早期原型为 Tauri 2、Rust、React 与独立 Node Host；当前主线改为原 VSC Agent 组件/宿主 + DSH VSIX/原运行时，最终容器通过同能力验证决定。精确依赖版本锁定，不追踪未固定的 latest。
 
 实施主要在 Codex 云端推进。M0 拆分为工程审计和 Mac 基线：能力、依赖、测试设计与版本风险审计完成后，可进入 M1 的独立构建实现；缺少 Mac 的测量不能伪造或改为 Linux 成绩，M0 完整状态保持待验收。云端完成的 M1、M2 工作同样区分实现与最终验收，详见 [Codex 云端推进交接](CLOUD_HANDOFF.md)。
 
@@ -66,3 +90,9 @@ flowchart LR
 - 目标矩阵中的对应场景通过，并提供结果记录；“暂不支持”不能代替必选能力的通过证据。
 - 已记录失败场景、剩余限制与恢复方式，无未处理的数据丢失或权限绕过问题。
 - 推进文档的状态、交付物和下一步同步更新。只有证据齐全才改为“已验收”。
+
+## 2026-10-28 工程推进
+
+M0 工程审计完成、完整基线待 Mac 验收；M1 的首个独立 Node Host 构建与确定性验证已落地于 `packages/agent-host/`。证据见 [M0](evidence/M0/README.md) 与 [M1](evidence/M1/README.md)。下一工作包为 [M1-B](evidence/M1/NEXT.md)，先闭合真实 Copilot、故障恢复和目标平台分发门禁；M2 与后续里程碑不因本次构建成功而自动完成。
+
+用户续作授权后，M2.1–M2.3 和 M2.5 的云端工程与 M1 剩余验收并行推进：官方 AHP SDK、Tauri 外壳、进程管理和确定性测试已落地。M2.4 原生账户/Keychain 适配尚未实现，M2.6 WKWebView 与真实 Mac 生命周期未验收。见 [M2 报告](evidence/M2/README.md)，完整门禁不变。

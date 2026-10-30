@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import { getAgentFirstResolvedFolder } from './agentFirstWindow.js';
 import { CancellationToken } from '../../../base/common/cancellation.js';
 import { URI } from '../../../base/common/uri.js';
 import { NativeParsedArgs } from '../../environment/common/argv.js';
@@ -27,11 +28,11 @@ export function sendAgentsWindowOpenIntent(window: ICodeWindow, isExistingWindow
 		URI.revive(options.onboardingSessionResource)?.toJSON());
 }
 
-export async function resolveAgentsWindowFolder(openConfig: IOpenConfiguration, folderUri: URI | undefined, sessionResource: URI | undefined, source: AgentsWindowOpenSource | undefined, extractPaths: (cli: NativeParsedArgs) => Promise<readonly { readonly workspace?: IWorkspaceIdentifier | ISingleFolderWorkspaceIdentifier }[]>): Promise<URI | undefined> {
+export async function resolveAgentsWindowFolder(openConfig: IOpenConfiguration, folderUri: URI | undefined, sessionResource: URI | undefined, source: AgentsWindowOpenSource | undefined, extractPaths: (cli: NativeParsedArgs) => Promise<readonly { readonly workspace?: IWorkspaceIdentifier | ISingleFolderWorkspaceIdentifier }[]>, requireSingleLocalFolder = false): Promise<URI | undefined> {
 	if (folderUri || sessionResource || openConfig.context !== OpenContext.CLI || !openConfig.cli.agents || (source !== undefined && source !== AgentsWindowOpenSource.CommandLine)) {
 		return folderUri;
 	}
 
 	const paths = await extractPaths(openConfig.cli);
-	return paths.map(path => path.workspace).find(isSingleFolderWorkspaceIdentifier)?.uri;
+	return requireSingleLocalFolder ? getAgentFirstResolvedFolder(paths) : paths.map(path => path.workspace).find(isSingleFolderWorkspaceIdentifier)?.uri;
 }

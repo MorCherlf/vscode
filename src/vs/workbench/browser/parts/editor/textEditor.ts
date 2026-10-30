@@ -29,6 +29,8 @@ import { IEditorOptions, ITextEditorOptions, TextEditorSelectionRevealType, Text
 import { ICursorPositionChangedEvent } from '../../../../editor/common/cursorEvents.js';
 import { IFileService } from '../../../../platform/files/common/files.js';
 import { IMarkdownString } from '../../../../base/common/htmlContent.js';
+import product from '../../../../platform/product/common/product.js';
+import { TextEditorReviewPolicy } from './textEditorReviewPolicy.js';
 
 export interface IEditorConfiguration {
 	editor: object;
@@ -62,6 +64,7 @@ export abstract class AbstractTextEditor<T extends IEditorViewState> extends Abs
 	private lastAppliedEditorOptions?: ICodeEditorOptions;
 
 	private readonly inputListener = this._register(new MutableDisposable());
+	private readonly reviewPolicy: TextEditorReviewPolicy | undefined;
 
 	constructor(
 		id: string,
@@ -76,6 +79,14 @@ export abstract class AbstractTextEditor<T extends IEditorViewState> extends Abs
 		@IFileService protected readonly fileService: IFileService
 	) {
 		super(id, group, AbstractTextEditor.VIEW_STATE_PREFERENCE_KEY, telemetryService, instantiationService, storageService, textResourceConfigurationService, themeService, editorService, editorGroupService);
+		if (product.agentFirst) {
+			this.reviewPolicy = instantiationService.createInstance(TextEditorReviewPolicy);
+			this._register(this.reviewPolicy.onDidChange(() => {
+				if (this.input) {
+					this.updateReadonly(this.input);
+				}
+			}));
+		}
 
 		// Listen to configuration changes
 		this._register(this.textResourceConfigurationService.onDidChangeConfiguration(e => this.handleConfigurationChangeEvent(e)));
@@ -156,9 +167,10 @@ export abstract class AbstractTextEditor<T extends IEditorViewState> extends Abs
 	}
 
 	protected getReadonlyConfiguration(isReadonly: boolean | IMarkdownString | undefined): { readOnly: boolean; readOnlyMessage: IMarkdownString | undefined } {
+		const reviewReason = this.reviewPolicy?.getReadonlyReason(this.input);
 		return {
-			readOnly: !!isReadonly,
-			readOnlyMessage: typeof isReadonly !== 'boolean' ? isReadonly : undefined
+			readOnly: !!isReadonly || !!reviewReason,
+			readOnlyMessage: (typeof isReadonly !== 'boolean' ? isReadonly : undefined) ?? reviewReason
 		};
 	}
 

@@ -1,0 +1,4 @@
+2026-10-30 14:58:21.766 [info] Extension host with pid 39367 started
+2026-10-30 14:58:22.063 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatParticipant:github.copilot.editsAgent'
+2026-10-30 14:58:25.261 [warning] [GitHub.copilot-chat] Accessing a resource scoped configuration without providing a resource is not expected. To get the effective value for 'github.copilot.chat.languageContext.typescript7.enabled', provide the URI of a resource or 'null' for any resource.
+2026-10-30 14:58:32.377 [info] Extension host with pid 39367 exiting with code 0

@@ -22,6 +22,8 @@ import { MultiDiffEditorViewModel } from '../../../../editor/browser/widget/mult
 import { IDiffEditorOptions } from '../../../../editor/common/config/editorOptions.js';
 import { IResolvedTextEditorModel, ITextModelService } from '../../../../editor/common/services/resolverService.js';
 import { ITextResourceConfigurationService } from '../../../../editor/common/services/textResourceConfiguration.js';
+import product from '../../../../platform/product/common/product.js';
+import { getAgentFirstReadonlyMessage } from '../../../browser/parts/editor/textEditorReviewPolicy.js';
 import { localize } from '../../../../nls.js';
 import { ConfirmResult } from '../../../../platform/dialogs/common/dialogs.js';
 import { IInstantiationService } from '../../../../platform/instantiation/common/instantiation.js';
@@ -256,8 +258,8 @@ export class MultiDiffEditorInput extends EditorInput implements ILanguageSuppor
 				contextKeys: r.contextKeys,
 				get options() {
 					return {
-						...getReadonlyConfiguration(modified?.object.isReadonly() ?? true),
 						...computeOptions(textResourceConfigurationService.getValue(uri)),
+						...getReadonlyConfiguration(modified?.object.isReadonly() ?? true),
 					} satisfies IDiffEditorOptions;
 				},
 				onOptionsDidChange: h => this._textResourceConfigurationService.onDidChangeConfiguration(e => {
@@ -420,8 +422,8 @@ function isUriDirty(onDidChangeDirty: FastEventDispatcher<ITextFileEditorModel, 
 
 function getReadonlyConfiguration(isReadonly: boolean | IMarkdownString | undefined): { readOnly: boolean; readOnlyMessage: IMarkdownString | undefined } {
 	return {
-		readOnly: !!isReadonly,
-		readOnlyMessage: typeof isReadonly !== 'boolean' ? isReadonly : undefined
+		readOnly: !!isReadonly || !!product.agentFirst,
+		readOnlyMessage: (typeof isReadonly !== 'boolean' ? isReadonly : undefined) ?? (product.agentFirst ? getAgentFirstReadonlyMessage() : undefined)
 	};
 }
 

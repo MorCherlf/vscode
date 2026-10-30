@@ -1,0 +1,12 @@
+Failed to load resource: the server responded with a status of 404 (Not found) []
+Failed to load test module '../vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test' TypeError: Failed to fetch dynamically imported module: http://localhost:40713/1260be48b3d564057255dbdf68c61a44/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.js [
+  "Failed to load test module '../vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test'",
+  [Error [TypeError]: Failed to fetch dynamically imported module: http://localhost:40713/1260be48b3d564057255dbdf68c61a44/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.js]
+]
+page.evaluate: TypeError: Failed to fetch dynamically imported module: http://localhost:40713/1260be48b3d564057255dbdf68c61a44/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.js
+    at runTestsInBrowser (/workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:416:14)
+    at async runTestsWithReruns (/workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:746:13)
+    at async /workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:963:12
+    at async /workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:961:15 {
+  log: []
+}

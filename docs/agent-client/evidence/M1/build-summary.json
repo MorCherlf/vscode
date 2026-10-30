@@ -1,0 +1,344 @@
+{
+	"sourceCommit": "5d89fa5583233f7aefd2ad65db8296e775d1099b",
+	"lockSha256": "1ebadaeed3c60342f33e26586ac06c26919a1e2c1055fc09edf7312d4dd6b6a9",
+	"platform": "linux",
+	"arch": "x64",
+	"node": "24.22.1",
+	"abi": "137",
+	"testing": false,
+	"entries": [
+		"packages/agent-host/src/main.ts",
+		"src/vs/platform/agentHost/node/diffWorkerMain.ts",
+		"src/bootstrap-fork.ts",
+		"src/vs/platform/files/node/watcher/watcherMain.ts"
+	],
+	"resources": [
+		"src/vs/base/node/terminateProcess.sh",
+		"src/vs/workbench/contrib/terminal/common/scripts"
+	],
+	"dependencies": [
+		{
+			"location": "node_modules/@github/copilot-sdk",
+			"version": "1.0.27-unstable.40031404408.gba6c003",
+			"integrity": "sha512-WPuh3q1gV7h02W2riOyx4AD0dqGY8QKExd2Fwv3aiHevpSPTn0mHAuIPCSOvNoy14LxBJ3ViBOORHEAucClX2A=="
+		},
+		{
+			"location": "node_modules/@github/copilot-sdk-linux-x64",
+			"version": "1.0.27-unstable.40031404408.gba6c003",
+			"integrity": "sha512-6Rk0wqvhN+TE/1TgrBQogNy7OnHiMJnbhV8lzuHbQ/O4gRst74W3dMwFuIBukK9Z1CgaSURFd8zoJWBelLe1iw=="
+		},
+		{
+			"location": "node_modules/@github/copilot-sdk/node_modules/zod",
+			"version": "4.3.6",
+			"integrity": "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="
+		},
+		{
+			"location": "node_modules/@hpke/common",
+			"version": "1.10.1",
+			"integrity": "sha512-moJwhmtLtuxiUzzNp1jpfBfx8yefKoO9D/RCR9dmwrnc7qjJqId1rEtQz+lSlU5cabX8daToMSx/7HayXOiaFw=="
+		},
+		{
+			"location": "node_modules/@hpke/core",
+			"version": "1.9.0",
+			"integrity": "sha512-pFxWl1nNJeQCSUFs7+GAblHvXBCjn9EPN65vdKlYQil2aURaRxfGMO6vBKGqm1YHTKwiAxJQNEI70PbSowMP9Q=="
+		},
+		{
+			"location": "node_modules/@isaacs/fs-minipass",
+			"version": "4.0.1",
+			"integrity": "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="
+		},
+		{
+			"location": "node_modules/@koromix/koffi-linux-x64",
+			"version": "3.2.1",
+			"integrity": "sha512-c7hw7Qs/r5gnFRTQLcbifBwRU7wiocj+2pVuDQ5Ahb3r36SZmupmgYbTWcLvTW+hul1jd7SKRV0d14ZJq/tvSw=="
+		},
+		{
+			"location": "node_modules/@microsoft/1ds-core-js",
+			"version": "3.2.13",
+			"integrity": "sha512-CluYTRWcEk0ObG5EWFNWhs87e2qchJUn0p2D21ZUa3PWojPZfPSBs4//WIE0MYV8Qg1Hdif2ZTwlM7TbYUjfAg=="
+		},
+		{
+			"location": "node_modules/@microsoft/1ds-post-js",
+			"version": "3.2.13",
+			"integrity": "sha512-HgS574fdD19Bo2vPguyznL4eDw7Pcm1cVNpvbvBLWiW3x4e1FCQ3VMXChWnAxCae8Hb0XqlA2sz332ZobBavTA=="
+		},
+		{
+			"location": "node_modules/@microsoft/applicationinsights-core-js",
+			"version": "2.8.15",
+			"integrity": "sha512-yYAs9MyjGr2YijQdUSN9mVgT1ijI1FPMgcffpaPmYbHAVbQmF7bXudrBWHxmLzJlwl5rfep+Zgjli2e67lwUqQ=="
+		},
+		{
+			"location": "node_modules/@microsoft/applicationinsights-shims",
+			"version": "2.0.2",
+			"integrity": "sha512-PoHEgsnmcqruLNHZ/amACqdJ6YYQpED0KSRe6J7gIJTtpZC1FfFU9b1fmDKDKtFoUSrPzEh1qzO3kmRZP0betg=="
+		},
+		{
+			"location": "node_modules/@microsoft/dynamicproto-js",
+			"version": "1.1.11",
+			"integrity": "sha512-gNw9z9LbqLV+WadZ6/MMrWwO3e0LuoUH1wve/1iPsBNbgqeVCiB0EZFNNj2lysxS2gkqoF9hmyVaG3MoM1BkxA=="
+		},
+		{
+			"location": "node_modules/@parcel/watcher",
+			"version": "2.5.6",
+			"integrity": "sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ=="
+		},
+		{
+			"location": "node_modules/@parcel/watcher-linux-x64-glibc",
+			"version": "2.5.6",
+			"integrity": "sha512-kbT5wvNQlx7NaGjzPFu8nVIW1rWqV780O7ZtkjuWaPUgpv2NMFpjYERVi0UYj1msZNyCzGlaCWEtzc+exjMGbQ=="
+		},
+		{
+			"location": "node_modules/@tootallnate/once",
+			"version": "3.0.1",
+			"integrity": "sha512-VyMVKRrpHTT8PnotUeV8L/mDaMwD5DaAKCFLP73zAqAtvF0FCqky+Ki7BYbFCYQmqFyTe9316Ed5zS70QUR9eg=="
+		},
+		{
+			"location": "node_modules/@vscode/copilot-api",
+			"version": "0.5.2",
+			"integrity": "sha512-U+2jyi0/Hpum2ZnED47cVFKgx5+p+thRhOPDKc1+t2PVAzsKlr3aJPKxMeMLOIXGWyLuQcng5BuFvj1vxD1d8w=="
+		},
+		{
+			"location": "node_modules/@vscode/deviceid",
+			"version": "0.1.5",
+			"integrity": "sha512-D0be67wWo7WyyBqHnRkL2bK7lp7CDH/EMN4kMV6INoKc7kxRL3nsTtngt9JZrOcZdnW59gquGRk+6KFIDyD3QA=="
+		},
+		{
+			"location": "node_modules/@vscode/fs-copyfile",
+			"version": "2.0.0",
+			"integrity": "sha512-ARb4+9rN905WjJtQ2mSBG/q4pjJkSRun/MkfCeRkk7h/5J8w4vd18NCePFJ/ZucIwXx/7mr9T6nz9Vtt1tk7hg=="
+		},
+		{
+			"location": "node_modules/@vscode/proxy-agent",
+			"version": "0.45.0",
+			"integrity": "sha512-rSR81pniNECvd3Zr1sq0VqYL7H+02dT723sEexpoweWi9mMklwLoapHTkwK6nAtxhjXNagRkT7l2GWuripXD7Q=="
+		},
+		{
+			"location": "node_modules/@vscode/ripgrep-universal",
+			"version": "1.18.0",
+			"integrity": "sha512-kgrAVy1L/v/8erAjo+I720ifTf7o4rvYUwgsuEu97XAEBtPT9sk3HhcSgFpxMydvNmwdJtXo9/AVee7JjocTrg=="
+		},
+		{
+			"location": "node_modules/@vscode/sqlite3",
+			"version": "5.1.12-vscode",
+			"integrity": "sha512-WLTftbMtK3Ni0s+q46qtKJ2CFtA3YrS5N4GcrETDCxqNTQAvk1LlYlG3RwGE6vZLcUqPt3TCHobijYeNUhEQ9Q=="
+		},
+		{
+			"location": "node_modules/@vscode/sqlite3/node_modules/node-addon-api",
+			"version": "8.9.2",
+			"integrity": "sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg=="
+		},
+		{
+			"location": "node_modules/@vscode/tree-sitter-wasm",
+			"version": "0.3.1",
+			"integrity": "sha512-RJFoomET6FajjG511fmQxeBQfU6M24a0aFZPqpid+ttIxanWf1VGytBG0UmsGjt07qmIPJS8U31D+aecuCucsQ=="
+		},
+		{
+			"location": "node_modules/@xterm/headless",
+			"version": "6.1.0-beta.303",
+			"integrity": "sha512-FjPRg5OF0UdloypPRZcUdtpxaxYKk7FdNArgpOaedoj7UWzinB+THZyEY7t6QHRR5bjcbz7B7s4vX0Zo5LT6aw=="
+		},
+		{
+			"location": "node_modules/agent-base",
+			"version": "7.1.4",
+			"integrity": "sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ=="
+		},
+		{
+			"location": "node_modules/buffer-crc32",
+			"version": "0.2.13",
+			"integrity": "sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ=="
+		},
+		{
+			"location": "node_modules/chownr",
+			"version": "3.0.0",
+			"integrity": "sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g=="
+		},
+		{
+			"location": "node_modules/debug",
+			"version": "4.4.3",
+			"integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="
+		},
+		{
+			"location": "node_modules/detect-libc",
+			"version": "2.1.2",
+			"integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="
+		},
+		{
+			"location": "node_modules/fs-extra",
+			"version": "11.4.1",
+			"integrity": "sha512-KYAb4c9BJQI6QqGKthV68OHe0badztdXJWKo0WtBA9IuCFPTKvE5ZdUBglP833aMjhaSPNO4A5j/EkzZtGlKjA=="
+		},
+		{
+			"location": "node_modules/graceful-fs",
+			"version": "4.2.11",
+			"integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
+		},
+		{
+			"location": "node_modules/http-proxy-agent",
+			"version": "7.0.2",
+			"integrity": "sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig=="
+		},
+		{
+			"location": "node_modules/https-proxy-agent",
+			"version": "7.0.6",
+			"integrity": "sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw=="
+		},
+		{
+			"location": "node_modules/ip-address",
+			"version": "10.7.5",
+			"integrity": "sha512-t2v0rkILYv9WXmSL7TpAaU3HXgaFYOPUcH3QHgwQ++gpJuH3bqyMy4Fvt/DJCTKwzH3Cf+bAp5W/mFL39KPLzA=="
+		},
+		{
+			"location": "node_modules/is-extglob",
+			"version": "2.1.1",
+			"integrity": "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ=="
+		},
+		{
+			"location": "node_modules/is-glob",
+			"version": "4.0.3",
+			"integrity": "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg=="
+		},
+		{
+			"location": "node_modules/jsonfile",
+			"version": "6.2.1",
+			"integrity": "sha512-zwOTdL3rFQ/lRdBnntKVOX6k5cKJwEc1HdilT71BWEu7J41gXIB2MRp+vxduPSwZJPWBxEzv4yH1wYLJGUHX4Q=="
+		},
+		{
+			"location": "node_modules/koffi",
+			"version": "3.2.1",
+			"integrity": "sha512-0qE3lZ8jllRqPN4Ob6Ajl7c2bJSJDhQWuKLGP5hIEpHLllJWv1ydHFMhHmHc5p/W9GticKVDbYzZd7TBoQ4CZg=="
+		},
+		{
+			"location": "node_modules/libsodium",
+			"version": "0.8.4",
+			"integrity": "sha512-lMcYaRi0zcs7tarATsQUYC7rstliIXZuoq0c6zXSgNtSNtdvBgkSegjWhpMJAXzKX3SUSwIp7+zEsob+j3LuRw=="
+		},
+		{
+			"location": "node_modules/libsodium-wrappers",
+			"version": "0.8.4",
+			"integrity": "sha512-mu8aAWucZjTB5O/BtGXtW4e1agy7uHxNYG7zPthmmD1jU43LCDmSWZLN4JhflbdPXj3yDO4lxM1O9hLDgIOXDw=="
+		},
+		{
+			"location": "node_modules/minimist",
+			"version": "1.2.8",
+			"integrity": "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
+		},
+		{
+			"location": "node_modules/minipass",
+			"version": "7.1.3",
+			"integrity": "sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A=="
+		},
+		{
+			"location": "node_modules/minizlib",
+			"version": "3.1.0",
+			"integrity": "sha512-KZxYo1BUkWD2TVFLr0MQoM8vUUigWD3LlD83a/75BqC+4qE0Hb1Vo5v1FgcfaNXvfXzr+5EhQ6ing/CaBijTlw=="
+		},
+		{
+			"location": "node_modules/ms",
+			"version": "2.1.3",
+			"integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
+		},
+		{
+			"location": "node_modules/node-addon-api",
+			"version": "7.1.1",
+			"integrity": "sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ=="
+		},
+		{
+			"location": "node_modules/node-pty",
+			"version": "1.2.0-beta.18",
+			"integrity": "sha512-3Rej3788OnasAwoSmTZhlCeUraJ9CQldtL5b571b9+3Nv47+PaxA5VPIGOOs+16OYQePTrC1Lrs8a9/df5WPRg=="
+		},
+		{
+			"location": "node_modules/pend",
+			"version": "1.2.0",
+			"integrity": "sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg=="
+		},
+		{
+			"location": "node_modules/picomatch",
+			"version": "4.0.7",
+			"integrity": "sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA=="
+		},
+		{
+			"location": "node_modules/smart-buffer",
+			"version": "4.2.0",
+			"integrity": "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
+		},
+		{
+			"location": "node_modules/socks",
+			"version": "2.8.10",
+			"integrity": "sha512-e0VyvkVTwVYViNovRkZ9aodhxVlyoMn7eJhVUPxZ+eK9P/7CBkxvvsBOHqFPEH416726W8tLXXXjKwqgTErrCQ=="
+		},
+		{
+			"location": "node_modules/socks-proxy-agent",
+			"version": "8.0.5",
+			"integrity": "sha512-HehCEsotFqbPW9sJ8WVYB6UbmIMv7kUUORIF2Nncq4VQvBfNBLibW9YZR5dlYCSUhwcD628pRllm7n+E+YTzJw=="
+		},
+		{
+			"location": "node_modules/tar",
+			"version": "7.5.22",
+			"integrity": "sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA=="
+		},
+		{
+			"location": "node_modules/tslib",
+			"version": "2.8.1",
+			"integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+		},
+		{
+			"location": "node_modules/undici",
+			"version": "7.30.1",
+			"integrity": "sha512-03KrMbjIFDWQR5RNPrSw3bd1r12JpyFQl9/yxjUbJtqkjmllqC5lFjZh6ujeuJCKr8EOQvRW872Oy/az+nLYxg=="
+		},
+		{
+			"location": "node_modules/universalify",
+			"version": "2.0.1",
+			"integrity": "sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw=="
+		},
+		{
+			"location": "node_modules/uuid",
+			"version": "14.0.3",
+			"integrity": "sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw=="
+		},
+		{
+			"location": "node_modules/vscode-jsonrpc",
+			"version": "8.2.1",
+			"integrity": "sha512-kdjOSJ2lLIn7r1rtrMbbNCHjyMPfRnowdKjBQ+mGq6NAW5QY2bEZC/khaC5OR8svbbjvLEaIXkOq45e2X9BIbQ=="
+		},
+		{
+			"location": "node_modules/ws",
+			"version": "8.21.0",
+			"integrity": "sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g=="
+		},
+		{
+			"location": "node_modules/yallist",
+			"version": "5.0.0",
+			"integrity": "sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw=="
+		},
+		{
+			"location": "node_modules/yauzl",
+			"version": "3.3.1",
+			"integrity": "sha512-RNPCUkiE/ZgO4w8i9U5yDQVHaFDdnzaFANElRvpJteCspvmv2VqrRb9lvS6odVD+jqI/zDsxAHJVsafpcheVQQ=="
+		},
+		{
+			"location": "node_modules/yazl",
+			"version": "2.4.3",
+			"integrity": "sha512-cIUrm3/81iF/BzuyORI7ppz1vGHAhA62JYzAFFC+rwJ2jQF1LcYxY9UXx4XyUXojkCnol0SvPuc+Toc7FO4W8g=="
+		},
+		{
+			"location": "node_modules/zod",
+			"version": "4.4.3",
+			"integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="
+		}
+	],
+	"modules": 1032,
+	"omittedExternals": {
+		"@anthropic-ai/claude-agent-sdk": "Claude provider is not registered",
+		"@vscode/windows-registry": "Windows is outside the current platform scope",
+		"kerberos": "Integrated enterprise proxy authentication requires a separate native build and acceptance"
+	},
+	"files": 4822,
+	"inventoryBytesExcludingManifest": 497787038,
+	"manifestSha256": "0a3ea31fe9e5b4fcae53faaa8161c98ba6d60f4ac4a610ca130839ddcf0d2fd7",
+	"sourceHashes": {
+		"packages/agent-host/src/host.ts": "aa73bc136e016f2c0709a4a5f8268a71a3bd88de90038fd9e4334d23d98f8084",
+		"packages/agent-host/src/main.ts": "e1cd093c6d61b425f0eb4171e4fede953a09dbfb678dd3b04acb8f086c2399cd"
+	}
+}

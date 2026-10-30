@@ -1,0 +1,16 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-client@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ production surface has narrow native capability and excludes IDE frontend modules (10.647382ms)
+✔ browser preview renders the built UI, explains unavailable native functions and escapes draft content (335.682547ms)
+ℹ Chromium browser preview only; no Tauri IPC or WKWebView acceptance claimed.
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1073.723689

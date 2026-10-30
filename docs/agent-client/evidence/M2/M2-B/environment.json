@@ -1,0 +1,13 @@
+{
+  "source": "https://github.com/MorCherlf/vscode.git",
+  "branch": "codex/agent-client-implementation",
+  "restoredCommit": "28eb53a537f541dcc45fc69ebda9af276e783257",
+  "checkout": "/workspace/scratch/11910be6d76c/vscode-restored",
+  "restoration": "Fresh clone into new empty directory after search found no surviving vscode checkout. Does not recover uncommitted files.",
+  "platform": "Linux x86_64",
+  "node": "v24.22.1",
+  "rust": "1.90.0",
+  "networkReadiness": "environment_status tool unavailable; /etc/codex/network-policy.json absent. Actual git/npm/crate/apt requests succeeded via inherited network configuration. No credential readiness assertion.",
+  "realAccount": "No safely configured dedicated account identified; no OAuth requests or model tasks executed.",
+  "macOS": "No new Mac compilation or execution. Prior evidence remains separately attributed."
+}

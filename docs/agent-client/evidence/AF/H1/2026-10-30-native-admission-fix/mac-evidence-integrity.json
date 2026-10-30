@@ -1,0 +1,19 @@
+{
+  "importedCommit": "a40ddffacee049ed650bde1d77ec782b345af270",
+  "macTestedProductCode": "0bec73fa99db00cb1bcccadf71326f5c72adc8b2",
+  "verifiedExistingSha256Files": [
+    "README.md",
+    "raw/build-product-native.log",
+    "raw/electron-runtime-integrity.json",
+    "raw/electron-types-integrity.json",
+    "raw/exthost-activation-excerpt.log",
+    "raw/native-smoke-controller.mjs",
+    "raw/native-smoke.json",
+    "raw/preflight-native.json",
+    "screenshots/native-chinese-draft.png",
+    "screenshots/native-command-palette.png",
+    "screenshots/native-readonly-review.png",
+    "validation.json"
+  ],
+  "meaning": "import integrity only; no new Mac execution"
+}

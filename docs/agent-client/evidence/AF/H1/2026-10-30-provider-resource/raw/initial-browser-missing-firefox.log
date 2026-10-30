@@ -1,0 +1,16 @@
+browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/firefox-1532/firefox/firefox
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+    at runTestsInBrowser (/workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:331:48)
+    at async runTestsWithReruns (/workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:746:13)
+    at async /workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:963:12
+    at async /workspace/scratch/11910be6d76c/vscode-h1-continued/test/unit/browser/index.js:961:15 {
+  log: [],
+  name: 'Error'
+}

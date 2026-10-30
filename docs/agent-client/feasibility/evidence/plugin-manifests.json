@@ -1,0 +1,166 @@
+{
+	"retrievedDate": "2026-10-29",
+	"scope": "Five representative manifests, not a compatibility test. Non-DSH refs are moving default branches; gitBlobSha identifies exact file bytes, not a commit.",
+	"samples": [
+		{
+			"repository": "continuedev/continue",
+			"path": "extensions/vscode/package.json",
+			"refAtRead": "main",
+			"retrievedDate": "2026-10-29",
+			"url": "https://github.com/continuedev/continue/blob/main/extensions/vscode/package.json",
+			"bytes": 26035,
+			"sha256": "d741a10a3dacca2a8bc8c29ce41e7a4dcdbf215ba50e8c57120b5e64ed0ec3a7",
+			"gitBlobSha": "0030d3ea59c17585401ca1303886fd8424419fd3",
+			"name": "continue",
+			"publisher": "Continue",
+			"version": "1.3.40",
+			"declaredLicense": "Apache-2.0",
+			"engines": {
+				"vscode": "^1.70.0",
+				"node": ">=20.20.1"
+			},
+			"main": "./out/extension.js",
+			"browser": null,
+			"extensionKind": [
+				"ui",
+				"workspace"
+			],
+			"activationEvents": [
+				"onUri",
+				"onStartupFinished",
+				"onView:continueGUIView"
+			],
+			"contributionPoints": [
+				"languages",
+				"grammars",
+				"configuration",
+				"commands",
+				"keybindings",
+				"submenus",
+				"menus",
+				"viewsContainers",
+				"views",
+				"jsonValidation"
+			],
+			"dsh": null,
+			"runtimeValidation": "NOT EXECUTED; static source/manifest audit only"
+		},
+		{
+			"repository": "cline/cline",
+			"path": "apps/vscode/package.json",
+			"refAtRead": "main",
+			"retrievedDate": "2026-10-29",
+			"url": "https://github.com/cline/cline/blob/main/apps/vscode/package.json",
+			"bytes": 18001,
+			"sha256": "5132aea96330965fc7bc9e14652b732797e47d3753799ce3a4b23cf09337f7d9",
+			"gitBlobSha": "0e6b70bf71ed7b61366ae8eaf420c6a097fcacc4",
+			"name": "claude-dev",
+			"publisher": "saoudrizwan",
+			"version": "4.1.26",
+			"declaredLicense": "Apache-2.0",
+			"engines": {
+				"vscode": "^1.101.0"
+			},
+			"main": "./dist/extension.js",
+			"browser": null,
+			"extensionKind": null,
+			"activationEvents": [
+				"onLanguage",
+				"onUri",
+				"onStartupFinished"
+			],
+			"contributionPoints": [
+				"icons",
+				"walkthroughs",
+				"viewsContainers",
+				"views",
+				"commands",
+				"keybindings",
+				"menus",
+				"configuration"
+			],
+			"dsh": null,
+			"runtimeValidation": "NOT EXECUTED; static source/manifest audit only"
+		},
+		{
+			"repository": "microsoft/vscode-extension-samples",
+			"path": "webview-sample/package.json",
+			"refAtRead": "main",
+			"retrievedDate": "2026-10-29",
+			"url": "https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/package.json",
+			"bytes": 1101,
+			"sha256": "18312bfbad63b1f33cbe2079dece8b778ff029ee7596e5520d7bd8f65d049032",
+			"gitBlobSha": "b1ce1cada43a080923b4d466ae6fb7d7853c6cd0",
+			"name": "cat-coding",
+			"publisher": "vscode-samples",
+			"version": "0.0.1",
+			"declaredLicense": "MIT",
+			"engines": {
+				"vscode": "^1.100.0"
+			},
+			"main": "./out/extension.js",
+			"browser": null,
+			"extensionKind": null,
+			"activationEvents": [
+				"onWebviewPanel:catCoding"
+			],
+			"contributionPoints": [
+				"commands"
+			],
+			"dsh": null,
+			"runtimeValidation": "NOT EXECUTED; static source/manifest audit only"
+		},
+		{
+			"repository": "deepseek-ai/deepseek-harness",
+			"path": "packages/llm/llm-retry/package.json",
+			"refAtRead": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+			"retrievedDate": "2026-10-29",
+			"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/llm/llm-retry/package.json",
+			"bytes": 2335,
+			"sha256": "785ac0caaadb5f842b9747dbf8bd2d7b0803f8c1fd88670f01c09a707003450d",
+			"gitBlobSha": "f4b5358a49a90432499d1cc757c5c7f5d317679f",
+			"name": "@deepseek-ai/dsh-llm-retry",
+			"publisher": null,
+			"version": "0.2.2-alpha.2",
+			"declaredLicense": "MIT",
+			"engines": null,
+			"main": "lib/index.js",
+			"browser": null,
+			"extensionKind": null,
+			"activationEvents": null,
+			"contributionPoints": [],
+			"dsh": null,
+			"runtimeValidation": "NOT EXECUTED; static source/manifest audit only"
+		},
+		{
+			"repository": "deepseek-ai/deepseek-harness",
+			"path": "packages/client/ui-settings-plugins/package.json",
+			"refAtRead": "f3803c96974ad4a94195fb97e5c637e9c2a3afe3",
+			"retrievedDate": "2026-10-29",
+			"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/client/ui-settings-plugins/package.json",
+			"bytes": 1749,
+			"sha256": "255107fb5e2447e731fc329af923bc9a0b6e86d5204bd1d025b25b8ee1991107",
+			"gitBlobSha": "88c9f4b2263a82e9be3bd377e44dc0fcf7c77eeb",
+			"name": "@deepseek-ai/dsh-client-ui-settings-plugins",
+			"publisher": null,
+			"version": "0.2.2-alpha.2",
+			"declaredLicense": "MIT",
+			"engines": null,
+			"main": "lib/index.js",
+			"browser": null,
+			"extensionKind": null,
+			"activationEvents": null,
+			"contributionPoints": [],
+			"dsh": {
+				"client": {
+					"inject": [
+						"@deepseek-ai/dsh-client-locale",
+						"@deepseek-ai/dsh-client-ui-settings"
+					],
+					"platform": "web"
+				}
+			},
+			"runtimeValidation": "NOT EXECUTED; static source/manifest audit only"
+		}
+	]
+}

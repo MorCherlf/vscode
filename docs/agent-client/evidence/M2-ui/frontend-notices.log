@@ -1,0 +1,5 @@
+
+> @morcherlf/agent-client@0.1.0 prepare:notices
+> node scripts/prepare-notices.mjs
+
+{"frontendNotices":109,"missingLicenseFiles":["@microsoft/agent-host-protocol@1.0.0"]}

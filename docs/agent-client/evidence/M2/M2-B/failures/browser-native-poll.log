@@ -1,0 +1,41 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-client@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ production has narrow native capability, safe fonts and no IDE/test fixture entry (2826.989466ms)
+✖ production preview: themes, persisted preference, project validation, dialog focus and keyboard navigation (284.175634ms)
+✔ actual M1 mock Host drives UI: create/send, drafts, session switching, search, IME guard, cancel, approvals and reconnect (2302.384703ms)
+✔ Markdown renders code/tables while blocking raw HTML, remote images and executable links (125.562437ms)
+✔ Chinese compact window keeps the welcome/composer visible without horizontal overflow (168.825088ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6295.791889
+
+✖ failing tests:
+
+test at test/ui.test.mjs:103:1
+✖ production preview: themes, persisted preference, project validation, dialog focus and keyboard navigation (284.175634ms)
+  Error: expect(locator).toContainText(expected) failed
+  
+  Locator: getByRole('alert')
+  Expected substring: "absolute local folder path"
+  Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+      1) <p role="alert" class="notice error">Operation failed</p> aka getByText('Operation failed')
+      2) <p role="alert" class="error">Enter an absolute local folder path.</p> aka getByText('Enter an absolute local folder path.', { exact: true })
+  
+  Call log:
+    - Expect "to.have.text" with timeout 5000ms
+    - waiting for getByRole('alert')
+  
+      at Proxy.<anonymous> (/workspace/scratch/11910be6d76c/vscode-restored/apps/agent-client/node_modules/playwright/lib/matchers/expect.js:221:24)
+      at TestContext.<anonymous> (file:///workspace/scratch/11910be6d76c/vscode-restored/apps/agent-client/test/ui.test.mjs:117:41)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    matcherResult: { name: 'toContainText', expected: 'absolute local folder path', message: `expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: "absolute local folder path"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role="alert" class="notice error">Operation failed</p> aka getByText('Operation failed')\n    2) <p role="alert" class="error">Enter an absolute local folder path.</p> aka getByText('Enter an absolute local folder path.', { exact: true })\n\nCall log:\n  - Expect "to.have.text" with timeout 5000ms\n  - waiting for getByRole('alert')\n`, pass: false, actual: undefined, log: [ '  - Expect "to.have.text" with timeout 5000ms', "  - waiting for getByRole('alert')" ], timeout: undefined }
+  }

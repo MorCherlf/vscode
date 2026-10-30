@@ -1,0 +1,1566 @@
+{
+  "kind": "static-overapproximation-including-type-imports-not-runtime-proof",
+  "entry": "src/vs/sessions/sessions.desktop.main.ts",
+  "modules": 5663,
+  "editorAllPaths": [],
+  "sharedMonaco": 429,
+  "candidatesForReview": [
+    "src/vs/workbench/contrib/debug/electron-browser/extensionHostDebugService.ts",
+    "src/vs/editor/contrib/clipboard/browser/clipboard.ts",
+    "src/vs/editor/contrib/contextmenu/browser/contextmenu.ts",
+    "src/vs/editor/contrib/cursorUndo/browser/cursorUndo.ts",
+    "src/vs/editor/contrib/wordOperations/browser/wordOperations.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebook.contribution.ts",
+    "src/vs/workbench/contrib/testing/common/nullTestingService.ts",
+    "src/vs/workbench/contrib/testing/common/testProfileService.ts",
+    "src/vs/workbench/contrib/testing/common/testResultService.ts",
+    "src/vs/workbench/contrib/testing/common/testService.ts",
+    "src/vs/workbench/contrib/search/browser/searchQuickAccess.contribution.ts",
+    "src/vs/workbench/contrib/search/browser/search.common.contribution.ts",
+    "src/vs/sessions/contrib/search/browser/search.contribution.ts",
+    "src/vs/workbench/contrib/scm/browser/quickDiff.contribution.ts",
+    "src/vs/workbench/contrib/scm/browser/scm.service.contribution.ts",
+    "src/vs/workbench/contrib/debug/common/nullDebugService.ts",
+    "src/vs/workbench/contrib/debug/common/debug.ts",
+    "src/vs/workbench/contrib/debug/common/debugVisualizers.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/copyPasteController.ts",
+    "src/vs/workbench/contrib/scm/common/scm.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestController.ts",
+    "src/vs/editor/contrib/suggest/browser/suggest.ts",
+    "src/vs/editor/contrib/snippet/browser/snippetController2.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookEditor.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookEditorInput.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookCommon.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookEditorModelResolverService.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookDiffEditorInput.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffEditor.ts",
+    "src/vs/workbench/contrib/notebook/common/services/notebookWorkerService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookWorkerServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookCellStatusBarService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookCellStatusBarServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookEditorService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookEditorServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/diffElementViewModel.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookEditorModelResolverServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookKernelService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookKernelServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookRendererMessagingServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookRendererMessagingService.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/notebookOutlineDataSourceFactory.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/coreActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/insertCellActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/executeActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/sectionActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/layoutActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/editActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/cellOutputActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/apiActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/foldingController.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/chat/notebook.chat.contribution.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/variablesActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/editorHint/emptyCellEditorHint.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/clipboard/notebookClipboard.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/notebookFind.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/format/formatting.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/saveParticipants/saveParticipants.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/gettingStarted/notebookGettingStarted.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/layout/layoutActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/marker/markerProvider.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/navigation/arrow.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/outline/notebookOutline.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/profile/notebookProfile.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellStatusBar/statusBarProviders.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellStatusBar/contributedStatusBarItemController.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellStatusBar/executionStatusBarItemController.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/editorStatusBar/editorStatusBar.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/undoRedo/notebookUndoRedo.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellCommands/cellCommands.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/viewportWarmup/viewportWarmup.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/troubleshoot/layout.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/debug/notebookBreakpoints.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/debug/notebookCellPausing.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/debug/notebookDebugDecorations.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/execute/executionEditorProgress.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/kernelDetection/notebookKernelDetection.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellDiagnostics/cellDiagnostics.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/multicursor/notebookMulticursor.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/multicursor/notebookSelectionHighlight.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookInlineVariables.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookExecutionStateServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookExecutionServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookExecutionService.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookKeymapService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookKeymapServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookExecutionStateService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookKernelHistoryServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookLoggingService.ts",
+    "src/vs/workbench/contrib/notebook/browser/services/notebookLoggingServiceImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariables.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookAccessibilityHelp.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookAccessibleView.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookMultiDiffEditor.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookMultiDiffEditorInput.ts",
+    "src/vs/workbench/contrib/notebook/common/model/notebookCellTextModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/notebookOutlineEntryFactory.ts",
+    "src/vs/workbench/contrib/notebook/common/model/notebookMetadataTextModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/outputEditor/notebookOutputEditor.ts",
+    "src/vs/workbench/contrib/notebook/browser/outputEditor/notebookOutputEditorInput.ts",
+    "src/vs/editor/contrib/peekView/browser/peekView.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookBrowser.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookIcons.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookContextKeys.ts",
+    "src/vs/workbench/contrib/debug/browser/repl.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts",
+    "src/vs/workbench/contrib/notebook/browser/replEditorAccessibleView.ts",
+    "src/vs/workbench/contrib/testing/common/mainThreadTestCollection.ts",
+    "src/vs/workbench/contrib/testing/common/observableValue.ts",
+    "src/vs/workbench/contrib/testing/common/testExclusions.ts",
+    "src/vs/workbench/contrib/testing/common/testResult.ts",
+    "src/vs/workbench/contrib/testing/common/testTypes.ts",
+    "src/vs/workbench/contrib/testing/common/storedValue.ts",
+    "src/vs/workbench/contrib/testing/common/testId.ts",
+    "src/vs/workbench/contrib/testing/common/testingContextKeys.ts",
+    "src/vs/workbench/contrib/testing/common/testResultStorage.ts",
+    "src/vs/editor/contrib/quickAccess/browser/gotoLineQuickAccess.ts",
+    "src/vs/workbench/contrib/search/browser/anythingQuickAccess.ts",
+    "src/vs/workbench/contrib/search/browser/symbolsQuickAccess.ts",
+    "src/vs/workbench/contrib/search/browser/searchActionsSymbol.ts",
+    "src/vs/editor/contrib/find/browser/findModel.ts",
+    "src/vs/workbench/contrib/search/browser/searchActionsBase.ts",
+    "src/vs/workbench/contrib/search/browser/searchIcons.ts",
+    "src/vs/workbench/contrib/search/common/constants.ts",
+    "src/vs/workbench/contrib/search/common/search.ts",
+    "src/vs/workbench/contrib/search/browser/replaceContributions.ts",
+    "src/vs/workbench/contrib/search/browser/notebookSearch/notebookSearchContributions.ts",
+    "src/vs/workbench/contrib/search/common/searchHistoryService.ts",
+    "src/vs/sessions/contrib/search/browser/searchEditorEmptyState.contribution.ts",
+    "src/vs/workbench/contrib/scm/common/quickDiff.ts",
+    "src/vs/workbench/contrib/scm/common/quickDiffService.ts",
+    "src/vs/workbench/contrib/scm/browser/quickDiffDecorator.ts",
+    "src/vs/workbench/contrib/scm/browser/quickDiffModel.ts",
+    "src/vs/workbench/contrib/scm/browser/quickDiffWidget.ts",
+    "src/vs/workbench/contrib/scm/common/scmService.ts",
+    "src/vs/workbench/contrib/scm/browser/scmViewService.ts",
+    "src/vs/workbench/contrib/debug/common/debugModel.ts",
+    "src/vs/workbench/contrib/debug/common/debugCompoundRoot.ts",
+    "src/vs/workbench/contrib/debug/common/debugSource.ts",
+    "src/vs/workbench/contrib/debug/common/debugContext.ts",
+    "src/vs/editor/contrib/find/browser/findDecorations.ts",
+    "src/vs/editor/contrib/folding/browser/folding.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorDetector.ts",
+    "src/vs/editor/contrib/inlayHints/browser/inlayHints.ts",
+    "src/vs/editor/contrib/inlayHints/browser/inlayHintsController.ts",
+    "src/vs/editor/contrib/documentSymbols/browser/outlineModel.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/controller/commands.ts",
+    "src/vs/editor/contrib/floatingMenu/browser/floatingMenu.ts",
+    "src/vs/workbench/contrib/scm/browser/scmHistoryChatContext.ts",
+    "src/vs/workbench/contrib/scm/common/history.ts",
+    "src/vs/editor/contrib/editorState/browser/editorState.ts",
+    "src/vs/editor/contrib/inlineProgress/browser/inlineProgress.ts",
+    "src/vs/editor/contrib/message/browser/messageController.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/copyPasteContribution.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/defaultProviders.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/edit.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/pasteEditSession.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/postEditWidget.ts",
+    "src/vs/workbench/contrib/debug/common/abstractDebugAdapter.ts",
+    "src/vs/workbench/contrib/debug/common/debugUtils.ts",
+    "src/vs/editor/contrib/snippet/browser/snippetParser.ts",
+    "src/vs/editor/contrib/snippet/browser/snippetSession.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/telemetry.ts",
+    "src/vs/workbench/contrib/scm/browser/scmHistory.ts",
+    "src/vs/workbench/contrib/scm/common/artifact.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookRange.ts",
+    "src/vs/workbench/contrib/search/common/searchNotebookHelpers.ts",
+    "src/vs/workbench/contrib/notebook/common/model/notebookTextModel.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookEditorModel.ts",
+    "src/vs/workbench/contrib/testing/common/testCoverage.ts",
+    "src/vs/editor/contrib/linesOperations/browser/linesOperations.ts",
+    "src/vs/editor/contrib/indentation/browser/indentation.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestMemory.ts",
+    "src/vs/editor/contrib/suggest/browser/wordContextKey.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestAlternatives.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestCommitCharacters.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestModel.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestOvertypingCapturer.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestWidget.ts",
+    "src/vs/editor/contrib/codeAction/common/types.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookKernelView.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookPerformance.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookProvider.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookExtensionPoint.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookOutputRenderer.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffList.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffEditorBrowser.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/diffNestedCellViewModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/renderers/backLayerWebView.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/eventDispatcher.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookOptions.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookViewEvents.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffOverviewRuler.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiffViewModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/editorHeightCalculator.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookInlineDiffWidget.ts",
+    "src/vs/workbench/contrib/notebook/common/services/notebookWebWorker.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/diffCellEditorOptions.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/notebookOutlineDataSource.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/cellOperations.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/notebookViewModelImpl.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/codeCellViewModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/OutlineEntry.ts",
+    "src/vs/editor/contrib/comment/browser/lineCommentCommand.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/notebookIndentationActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/cellOutputTextHelper.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/foldingModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookEditorExtensions.ts",
+    "src/vs/editor/contrib/folding/browser/foldingRanges.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/chat/notebookChatUtils.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/chat/cellChatActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/controller/chat/notebookChatContext.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariableContextKeys.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/media/notebookFind.css",
+    "src/vs/editor/contrib/find/browser/findController.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/notebookFindWidget.ts",
+    "src/vs/editor/contrib/format/browser/format.ts",
+    "src/vs/editor/contrib/codeAction/browser/codeAction.ts",
+    "src/vs/editor/contrib/gotoError/browser/markerNavigationService.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/markupCellViewModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellStatusBar/notebookVisibleCellObserver.ts",
+    "src/vs/workbench/contrib/debug/browser/breakpointEditorContribution.ts",
+    "src/vs/workbench/contrib/debug/browser/callStackEditorContribution.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellDiagnostics/cellDiagnosticEditorContrib.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellDiagnostics/cellDiagnosticsActions.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/cellDiagnostics/diagnosticCellStatusBarContrib.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellEditorOptions.ts",
+    "src/vs/workbench/contrib/debug/browser/debugEditorContribution.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookKernelQuickPickStrategy.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesView.ts",
+    "src/vs/workbench/contrib/notebook/common/model/notebookCellOutputTextModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/eventDispatcher.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/viewContext.ts",
+    "src/vs/editor/contrib/quickAccess/browser/gotoSymbolQuickAccess.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/searchTreeCommon.ts",
+    "src/vs/editor/contrib/rename/browser/rename.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/goToSymbol.ts",
+    "src/vs/workbench/contrib/search/browser/searchChatContext.ts",
+    "src/vs/editor/contrib/hover/browser/hoverTypes.ts",
+    "src/vs/editor/contrib/peekView/browser/media/peekViewWidget.css",
+    "src/vs/editor/contrib/zoneWidget/browser/zoneWidget.ts",
+    "src/vs/editor/contrib/parameterHints/browser/parameterHints.ts",
+    "src/vs/editor/contrib/gotoError/browser/gotoError.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverController.ts",
+    "src/vs/editor/contrib/hover/browser/glyphHoverController.ts",
+    "src/vs/workbench/contrib/debug/common/replModel.ts",
+    "src/vs/workbench/contrib/debug/browser/debugActionViewItems.ts",
+    "src/vs/workbench/contrib/debug/browser/debugCommands.ts",
+    "src/vs/workbench/contrib/debug/browser/debugExpressionRenderer.ts",
+    "src/vs/workbench/contrib/debug/browser/debugIcons.ts",
+    "src/vs/workbench/contrib/debug/browser/media/repl.css",
+    "src/vs/workbench/contrib/debug/browser/replFilter.ts",
+    "src/vs/workbench/contrib/debug/browser/replViewer.ts",
+    "src/vs/workbench/contrib/notebook/browser/media/notebook.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellChat.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellEditorHint.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellInsertToolbar.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellStatusBar.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellTitleToolbar.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookFocusIndicator.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookToolbar.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookDnd.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookFolding.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookCellOutput.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookEditorStickyScroll.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookKernelActionViewItem.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookOutline.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookChatEditController.css",
+    "src/vs/workbench/contrib/notebook/browser/media/notebookChatEditorOverlay.css",
+    "src/vs/workbench/contrib/debug/browser/debugColors.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookLogger.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellContextKeys.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellDnd.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/notebookCellList.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/notebookRenderingCommon.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/renderers/cellRenderer.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/renderers/webviewMessages.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookEditorToolbar.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookEditorWidgetContextKeys.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookOverviewRuler.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookTopCellToolbar.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/cellEditorOptions.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/findModel.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookEditorStickyScroll.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookAccessibilityProvider.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookHorizontalTracker.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/notebookCellEditorPool.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/controller/inlineCompletionsController.ts",
+    "src/vs/workbench/contrib/notebook/browser/notebookCellLayoutManager.ts",
+    "src/vs/workbench/contrib/testing/common/getComputedState.ts",
+    "src/vs/workbench/contrib/testing/common/testingStates.ts",
+    "src/vs/workbench/contrib/testing/common/constants.ts",
+    "src/vs/editor/contrib/quickAccess/browser/commandsQuickAccess.ts",
+    "src/vs/editor/contrib/quickAccess/browser/editorNavigationQuickAccess.ts",
+    "src/vs/workbench/contrib/search/browser/media/anythingQuickAccess.css",
+    "src/vs/workbench/contrib/search/common/cacheState.ts",
+    "src/vs/editor/contrib/find/browser/findState.ts",
+    "src/vs/editor/contrib/find/browser/replaceAllCommand.ts",
+    "src/vs/editor/contrib/find/browser/replacePattern.ts",
+    "src/vs/workbench/contrib/search/browser/searchView.ts",
+    "src/vs/workbench/contrib/search/browser/searchCompare.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/peek/referencesController.ts",
+    "src/vs/workbench/contrib/search/browser/patternInputWidget.ts",
+    "src/vs/workbench/contrib/search/browser/searchWidget.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/searchModel.ts",
+    "src/vs/workbench/contrib/search/browser/searchMessage.ts",
+    "src/vs/editor/contrib/unusualLineTerminators/browser/unusualLineTerminators.ts",
+    "src/vs/workbench/contrib/search/browser/replace.ts",
+    "src/vs/workbench/contrib/search/browser/replaceService.ts",
+    "src/vs/workbench/contrib/search/common/notebookSearch.ts",
+    "src/vs/workbench/contrib/search/browser/notebookSearch/notebookSearchService.ts",
+    "src/vs/sessions/contrib/search/browser/media/searchEditorEmptyState.css",
+    "src/vs/workbench/contrib/scm/browser/media/dirtydiffDecorator.css",
+    "src/vs/workbench/contrib/scm/browser/menus.ts",
+    "src/vs/workbench/contrib/scm/browser/util.ts",
+    "src/vs/workbench/contrib/debug/common/debugStorage.ts",
+    "src/vs/workbench/contrib/debug/common/disassemblyViewInput.ts",
+    "src/vs/editor/contrib/toggleTabFocusMode/browser/toggleTabFocusMode.ts",
+    "src/vs/editor/contrib/semanticTokens/common/semanticTokensConfig.ts",
+    "src/vs/editor/contrib/folding/browser/folding.css",
+    "src/vs/editor/contrib/folding/browser/foldingModel.ts",
+    "src/vs/editor/contrib/folding/browser/hiddenRangeModel.ts",
+    "src/vs/editor/contrib/folding/browser/indentRangeProvider.ts",
+    "src/vs/editor/contrib/folding/browser/foldingDecorations.ts",
+    "src/vs/editor/contrib/folding/browser/syntaxRangeProvider.ts",
+    "src/vs/editor/contrib/colorPicker/browser/color.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/link/clickLinkGesture.ts",
+    "src/vs/editor/contrib/inlayHints/browser/inlayHintsLocations.ts",
+    "src/vs/editor/contrib/symbolIcons/browser/symbolIcons.ts",
+    "src/vs/editor/contrib/codeAction/browser/codeActionController.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/controller/commandIds.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/controller/inlineCompletionContextKeys.ts",
+    "src/vs/editor/contrib/find/browser/findWidget.ts",
+    "src/vs/editor/contrib/links/browser/links.ts",
+    "src/vs/editor/contrib/placeholderText/browser/placeholderTextContribution.ts",
+    "src/vs/editor/contrib/bracketMatching/browser/bracketMatching.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/link/goToDefinitionAtPosition.ts",
+    "src/vs/editor/contrib/semanticTokens/browser/viewportSemanticTokens.ts",
+    "src/vs/editor/contrib/smartSelect/browser/smartSelect.ts",
+    "src/vs/editor/contrib/wordHighlighter/browser/wordHighlighter.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/goToCommands.ts",
+    "src/vs/editor/contrib/editorState/browser/keybindingCancellation.ts",
+    "src/vs/editor/contrib/inlineProgress/browser/inlineProgressWidget.css",
+    "src/vs/editor/contrib/message/browser/messageController.css",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/postEditWidget.css",
+    "src/vs/editor/contrib/snippet/browser/snippetSession.css",
+    "src/vs/editor/contrib/snippet/browser/snippetVariables.ts",
+    "src/vs/workbench/contrib/notebook/common/model/cellEdit.ts",
+    "src/vs/editor/contrib/linesOperations/browser/copyLinesCommand.ts",
+    "src/vs/editor/contrib/linesOperations/browser/moveLinesCommand.ts",
+    "src/vs/editor/contrib/linesOperations/browser/sortLinesCommand.ts",
+    "src/vs/editor/contrib/indentation/common/indentation.ts",
+    "src/vs/editor/contrib/indentation/common/indentUtils.ts",
+    "src/vs/editor/contrib/suggest/browser/completionModel.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/controller/common.ts",
+    "src/vs/editor/contrib/suggest/browser/wordDistance.ts",
+    "src/vs/editor/contrib/suggest/browser/media/suggest.css",
+    "src/vs/editor/contrib/suggest/browser/suggestWidgetStatus.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestWidgetDetails.ts",
+    "src/vs/editor/contrib/suggest/browser/suggestWidgetRenderer.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/notebookDiff.css",
+    "src/vs/workbench/contrib/notebook/browser/diff/diffComponents.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellActionView.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/cellOutputViewModel.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/renderers/webviewPreloads.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/renderers/webviewThemeMapping.ts",
+    "src/vs/workbench/contrib/notebook/common/notebookDiff.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookInlineDiff.ts",
+    "src/vs/workbench/contrib/notebook/common/services/notebookCellMatching.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/cellSelectionCollection.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewModel/baseCellViewModel.ts",
+    "src/vs/editor/contrib/comment/browser/blockCommentCommand.ts",
+    "src/vs/editor/contrib/find/browser/findOptionsWidget.ts",
+    "src/vs/editor/contrib/find/browser/findWidgetSearchHistory.ts",
+    "src/vs/editor/contrib/find/browser/replaceWidgetHistory.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/findFilters.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/notebookFindReplaceWidget.ts",
+    "src/vs/editor/contrib/format/browser/formattingEdit.ts",
+    "src/vs/workbench/contrib/debug/browser/breakpointsView.ts",
+    "src/vs/workbench/contrib/debug/browser/breakpointWidget.ts",
+    "src/vs/workbench/contrib/debug/browser/media/callStackEditorContribution.css",
+    "src/vs/workbench/contrib/notebook/browser/view/cellPart.ts",
+    "src/vs/editor/contrib/hover/browser/hoverOperation.ts",
+    "src/vs/workbench/contrib/debug/browser/debugHover.ts",
+    "src/vs/workbench/contrib/debug/browser/exceptionWidget.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesDataSource.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesTree.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/rangeDecorations.ts",
+    "src/vs/editor/contrib/rename/browser/renameWidget.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/referencesModel.ts",
+    "src/vs/editor/contrib/zoneWidget/browser/zoneWidget.css",
+    "src/vs/editor/contrib/parameterHints/browser/parameterHintsModel.ts",
+    "src/vs/editor/contrib/parameterHints/browser/provideSignatureHelp.ts",
+    "src/vs/editor/contrib/parameterHints/browser/parameterHintsWidget.ts",
+    "src/vs/editor/contrib/gotoError/browser/gotoErrorWidget.ts",
+    "src/vs/editor/contrib/hover/browser/hoverActionIds.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/hintsWidget/inlineCompletionsHintsWidget.ts",
+    "src/vs/editor/contrib/hover/browser/hoverUtils.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverWidgetWrapper.ts",
+    "src/vs/editor/contrib/hover/browser/hover.css",
+    "src/vs/editor/contrib/colorPicker/browser/hoverColorPicker/hoverColorPicker.ts",
+    "src/vs/editor/contrib/hover/browser/glyphHoverWidget.ts",
+    "src/vs/workbench/contrib/debug/common/loadedScriptsPicker.ts",
+    "src/vs/workbench/contrib/debug/browser/debugSessionPicker.ts",
+    "src/vs/workbench/contrib/debug/browser/baseDebugView.ts",
+    "src/vs/workbench/contrib/debug/browser/debugANSIHandling.ts",
+    "src/vs/workbench/contrib/debug/browser/linkDetector.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/notebookCellListView.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/notebookCellAnchor.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookViewZones.ts",
+    "src/vs/workbench/contrib/notebook/browser/viewParts/notebookCellOverlays.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellEditorOverflowWidgets.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/chat/cellChatPart.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellComments.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellDecorations.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellDragRenderer.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellExecution.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellFocus.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellFocusIndicator.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellProgressBar.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellStatusPart.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellToolbars.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/codeCell.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/codeCellRunToolbar.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/collapsedCellInput.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/collapsedCellOutput.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/foldedCellHint.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/markupCell.ts",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/findMatchDecorationModel.ts",
+    "src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorContribution.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/changeRecorder.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/inlineCompletionsModel.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/suggestWidgetAdapter.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/utils.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineSuggestionsView.ts",
+    "src/vs/workbench/contrib/search/browser/media/searchview.css",
+    "src/vs/editor/contrib/multicursor/browser/multicursor.ts",
+    "src/vs/workbench/contrib/search/browser/searchResultsView.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/searchViewModelWorkbenchService.ts",
+    "src/vs/workbench/contrib/search/browser/notebookSearch/notebookSearchModelBase.ts",
+    "src/vs/workbench/contrib/search/browser/AISearch/aiSearchModel.ts",
+    "src/vs/workbench/contrib/search/browser/searchActionsTopBar.ts",
+    "src/vs/workbench/contrib/search/browser/AISearch/aiSearchModelBase.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/peek/referencesWidget.ts",
+    "src/vs/workbench/contrib/search/browser/searchFindInput.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/searchResult.ts",
+    "src/vs/workbench/contrib/search/browser/notebookSearch/searchNotebookHelpers.ts",
+    "src/vs/workbench/contrib/scm/browser/media/scm.css",
+    "src/vs/editor/contrib/colorPicker/browser/defaultDocumentColorProvider.ts",
+    "src/vs/editor/contrib/symbolIcons/browser/symbolIcons.css",
+    "src/vs/editor/contrib/codeAction/browser/codeActionKeybindingResolver.ts",
+    "src/vs/editor/contrib/codeAction/browser/codeActionMenu.ts",
+    "src/vs/editor/contrib/codeAction/browser/codeActionModel.ts",
+    "src/vs/editor/contrib/codeAction/browser/lightBulbWidget.ts",
+    "src/vs/editor/contrib/find/browser/findWidget.css",
+    "src/vs/editor/contrib/codelens/browser/codelensController.ts",
+    "src/vs/editor/contrib/links/browser/links.css",
+    "src/vs/editor/contrib/links/browser/getLinks.ts",
+    "src/vs/editor/contrib/bracketMatching/browser/bracketMatching.css",
+    "src/vs/editor/contrib/gotoSymbol/browser/link/goToDefinitionAtPosition.css",
+    "src/vs/editor/contrib/semanticTokens/common/getSemanticTokens.ts",
+    "src/vs/editor/contrib/smartSelect/browser/bracketSelections.ts",
+    "src/vs/editor/contrib/smartSelect/browser/wordSelections.ts",
+    "src/vs/editor/contrib/wordHighlighter/browser/highlightDecorations.ts",
+    "src/vs/editor/contrib/wordHighlighter/browser/textualHighlightProvider.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/symbolNavigation.ts",
+    "src/vs/workbench/contrib/testing/common/testItemCollection.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/diffElementOutputs.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/unchangedEditorRegions.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookCellDiffDecorator.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookDeletedCellDecorator.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookInsertedCellDecorator.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookOriginalModelRefFactory.ts",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookOriginalCellModelFactory.ts",
+    "src/vs/editor/contrib/find/browser/findOptionsWidget.css",
+    "src/vs/workbench/contrib/notebook/browser/contrib/find/notebookFindReplaceWidget.css",
+    "src/vs/workbench/contrib/debug/browser/disassemblyView.ts",
+    "src/vs/workbench/contrib/debug/browser/media/breakpointWidget.css",
+    "src/vs/workbench/contrib/debug/browser/variablesView.ts",
+    "src/vs/workbench/contrib/debug/browser/media/exceptionWidget.css",
+    "src/vs/editor/contrib/rename/browser/renameWidget.css",
+    "src/vs/editor/contrib/parameterHints/browser/parameterHints.css",
+    "src/vs/editor/contrib/gotoError/browser/media/gotoErrorWidget.css",
+    "src/vs/editor/contrib/inlineCompletions/browser/hintsWidget/inlineCompletionsHintsWidget.css",
+    "src/vs/editor/contrib/hover/browser/contentHoverWidget.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverComputer.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverTypes.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverRendered.ts",
+    "src/vs/editor/contrib/hover/browser/glyphHoverComputer.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellWidgets.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellToolbarStickyScroll.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellOutput.ts",
+    "src/vs/workbench/contrib/notebook/browser/view/cellParts/codeCellExecutionIcon.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/structuredLogger.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/computeGhostText.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/ghostText.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/inlineCompletionsSource.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/inlineSuggestionItem.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/provideInlineCompletions.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/singleTextEditHelpers.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViewInterface.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/typingSpeed.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/ghostText/ghostTextView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/components/gutterIndicatorView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsNewUsers.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViewProducer.ts",
+    "src/vs/workbench/contrib/search/browser/searchActionsRemoveReplace.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/fileMatch.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/textSearchHeading.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/match.ts",
+    "src/vs/editor/contrib/gotoSymbol/browser/peek/referencesWidget.css",
+    "src/vs/editor/contrib/gotoSymbol/browser/peek/referencesTree.ts",
+    "src/vs/editor/contrib/codeAction/browser/lightBulbWidget.css",
+    "src/vs/editor/contrib/codelens/browser/codelens.ts",
+    "src/vs/editor/contrib/codelens/browser/codeLensCache.ts",
+    "src/vs/editor/contrib/codelens/browser/codelensWidget.ts",
+    "src/vs/editor/contrib/wordHighlighter/browser/highlightDecorations.css",
+    "src/vs/workbench/contrib/notebook/browser/diff/inlineDiff/notebookModifiedCellDecorator.ts",
+    "src/vs/editor/contrib/hover/browser/resizableContentWidget.ts",
+    "src/vs/editor/contrib/hover/browser/contentHoverStatusBar.ts",
+    "src/vs/editor/contrib/hover/browser/hoverCopyButton.ts",
+    "src/vs/editor/contrib/hover/browser/markdownHoverParticipant.ts",
+    "src/vs/editor/contrib/colorPicker/browser/hoverColorPicker/hoverColorPickerParticipant.ts",
+    "src/vs/editor/contrib/inlayHints/browser/inlayHintsHover.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/renameSymbolProcessor.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/textModelValueReference.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/editKind.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/inlineCompletionIsVisible.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/InlineSuggestAlternativeAction.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/model/graph.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/ghostText/ghostTextView.css",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScrollController.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/theme.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/utils/utils.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/components/gutterIndicatorMenu.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsModel.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsCollapsedView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditWithChanges.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsView.ts",
+    "src/vs/workbench/contrib/search/browser/notebookSearch/notebookSearchModel.ts",
+    "src/vs/workbench/contrib/search/browser/searchTreeModel/folderMatch.ts",
+    "src/vs/editor/contrib/codelens/browser/codelensWidget.css",
+    "src/vs/editor/contrib/hover/browser/getHover.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerModel.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerWidget.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParticipantUtils.ts",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScrollWidget.ts",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScrollProvider.ts",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScrollElement.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsCustomView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsDeletionView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsInsertionView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsLineReplacementView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/longDistanceHint/inlineEditsLongDistanceHint.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsSideBySideView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/inlineEditsWordReplacementView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/originalEditorInlineDiffView.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/view.css",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/jumpToView.ts",
+    "src/vs/workbench/contrib/search/common/cellSearchModel.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPicker.css",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerBody.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerHeader.ts",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScroll.css",
+    "src/vs/editor/contrib/stickyScroll/browser/stickyScrollModelProvider.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/debugVisualization.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/utils/flexBoxLayout.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/longDistanceHint/longDistancePreviewEditor.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsViews/longDistanceHint/longDistnaceWidgetPlacement.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerSaturationBox.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerInsertButton.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerStrip.ts",
+    "src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerCloseButton.ts",
+    "src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/utils/towersLayout.ts"
+  ],
+  "extensions": [
+    {
+      "id": "vscode.bat",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.clojure",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.coffeescript",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.configuration-editing",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onProfile",
+        "onProfile:github",
+        "onLanguage:json",
+        "onLanguage:jsonc"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/configurationEditingMain",
+        "browser": "./dist/browser/configurationEditingMain"
+      }
+    },
+    {
+      "id": "GitHub.copilot-chat",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onStartupFinished",
+        "onLanguageModelChat:copilot",
+        "onUri",
+        "onCommand:_github.copilot.chat.reportModelFeedbackSurvey",
+        "onCommand:github.copilot.survey.signalUsage",
+        "onSpeech",
+        "onFileSystem:ccreq",
+        "onFileSystem:ccsettings"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./dist/extension"
+      }
+    },
+    {
+      "id": "vscode.cpp",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.csharp",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.css",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.css-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:css",
+        "onLanguage:less",
+        "onLanguage:scss"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./client/out/node/cssClientMain",
+        "browser": "./client/dist/browser/cssClientMain"
+      }
+    },
+    {
+      "id": "vscode.dart",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.debug-auto-launch",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onStartupFinished"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension"
+      }
+    },
+    {
+      "id": "vscode.debug-server-ready",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onDebugResolve"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension"
+      }
+    },
+    {
+      "id": "vscode.diff",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.docker",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.dotenv",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "morcherlf.dsh-adapter",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onChatSession:morcherlf-dsh"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension.js"
+      }
+    },
+    {
+      "id": "vscode.emmet",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onCommand:emmet.expandAbbreviation",
+        "onLanguage"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/node/emmetNodeMain",
+        "browser": "./dist/browser/emmetBrowserMain"
+      }
+    },
+    {
+      "id": "vscode.extension-editing",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:json",
+        "onLanguage:markdown"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extensionEditingMain",
+        "browser": "./dist/browser/extensionEditingBrowserMain"
+      }
+    },
+    {
+      "id": "vscode.fsharp",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.git",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "*",
+        "onEditSession:file",
+        "onFileSystem:git",
+        "onFileSystem:git-show"
+      ],
+      "extensionDependencies": [
+        "vscode.git-base"
+      ],
+      "entry": {
+        "main": "./out/main"
+      }
+    },
+    {
+      "id": "vscode.git-base",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "*"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension.js",
+        "browser": "./dist/browser/extension.js"
+      }
+    },
+    {
+      "id": "vscode.github",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "*"
+      ],
+      "extensionDependencies": [
+        "vscode.git-base"
+      ],
+      "entry": {
+        "main": "./out/extension.js"
+      }
+    },
+    {
+      "id": "vscode.github-authentication",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension.js",
+        "browser": "./dist/browser/extension.js"
+      }
+    },
+    {
+      "id": "vscode.go",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.groovy",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.grunt",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTaskType:grunt"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/main"
+      }
+    },
+    {
+      "id": "vscode.gulp",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTaskType:gulp"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/main"
+      }
+    },
+    {
+      "id": "vscode.handlebars",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.hlsl",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.html",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.html-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:html",
+        "onLanguage:handlebars"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./client/out/node/htmlClientMain",
+        "browser": "./client/dist/browser/htmlClientMain"
+      }
+    },
+    {
+      "id": "vscode.ini",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.ipynb",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onNotebook:jupyter-notebook",
+        "onNotebookSerializer:interactive",
+        "onNotebookSerializer:repl"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/ipynbMain.node.js",
+        "browser": "./dist/browser/ipynbMain.browser.js"
+      }
+    },
+    {
+      "id": "vscode.jake",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTaskType:jake"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/main"
+      }
+    },
+    {
+      "id": "vscode.java",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.javascript",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.json",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.json-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:json",
+        "onLanguage:jsonc",
+        "onLanguage:snippets",
+        "onCommand:json.validate"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./client/out/node/jsonClientMain",
+        "browser": "./client/dist/browser/jsonClientMain"
+      }
+    },
+    {
+      "id": "vscode.julia",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.latex",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.less",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.log",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.lua",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.make",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.markdown",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.markdown-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:markdown",
+        "onLanguage:prompt",
+        "onLanguage:instructions",
+        "onLanguage:chatagent",
+        "onLanguage:skill",
+        "onCommand:markdown.api.render",
+        "onCommand:markdown.api.reloadPlugins",
+        "onWebviewPanel:markdown.preview"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.markdown-math",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.merge-conflict",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onStartupFinished"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/mergeConflictMain",
+        "browser": "./dist/browser/mergeConflictMain"
+      }
+    },
+    {
+      "id": "vscode.mermaid-markdown-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onWebviewPanel:vscode.mermaid-markdown-features.preview"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.microsoft-authentication",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension.js"
+      }
+    },
+    {
+      "id": "vscode.builtin-notebook-renderers",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.npm",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTaskType:npm",
+        "onLanguage:json",
+        "workspaceContains:package.json"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/npmMain",
+        "browser": "./dist/browser/npmBrowserMain"
+      }
+    },
+    {
+      "id": "vscode.objective-c",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.perl",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.php",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.php-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:php"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/phpMain"
+      }
+    },
+    {
+      "id": "vscode.powershell",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.prompt",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.pug",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.python",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.r",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.razor",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.references-view",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onCommand:references-view.find",
+        "onCommand:editor.action.showReferences"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.restructuredtext",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.ruby",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.rust",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.scss",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.search-result",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:search-result"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension.js",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.shaderlab",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.shellscript",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.simple-browser",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onCommand:simpleBrowser.api.open",
+        "onOpenExternalUri:http",
+        "onOpenExternalUri:https",
+        "onWebviewPanel:simpleBrowser.view"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.sql",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.swift",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.terminal-suggest",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTerminalShellIntegration:*"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/terminalSuggestMain"
+      }
+    },
+    {
+      "id": "vscode.theme-abyss",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-defaults",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-kimbie-dark",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.vscode-modern-icons",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-monokai",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-monokai-dimmed",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-quietlight",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-red",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.vscode-theme-seti",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-solarized-dark",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-solarized-light",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.theme-tomorrow-night-blue",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.tunnel-forwarding",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onTunnel"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension"
+      }
+    },
+    {
+      "id": "vscode.typescript",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.typescript-language-features",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:javascript",
+        "onLanguage:javascriptreact",
+        "onLanguage:typescript",
+        "onLanguage:typescriptreact",
+        "onLanguage:jsx-tags",
+        "onCommand:typescript.tsserverRequest",
+        "onCommand:_typescript.configurePlugin",
+        "onCommand:_typescript.learnMoreAboutRefactorings",
+        "onCommand:typescript.fileReferences",
+        "onTaskType:typescript",
+        "onLanguage:jsonc",
+        "onWalkthrough:nodejsWelcome"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/extension"
+      }
+    },
+    {
+      "id": "vscode.vb",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.vscode-api-tests",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension"
+      }
+    },
+    {
+      "id": "vscode.vscode-colorize-perf-tests",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:json"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/colorizerTestMain"
+      }
+    },
+    {
+      "id": "vscode.vscode-colorize-tests",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onLanguage:json"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/colorizerTestMain"
+      }
+    },
+    {
+      "id": "vscode.vscode-test-resolver",
+      "executable": true,
+      "admitted": false,
+      "activationEvents": [
+        "onResolveRemoteAuthority:test",
+        "onCommand:vscode-testresolver.newWindow",
+        "onCommand:vscode-testresolver.currentWindow",
+        "onCommand:vscode-testresolver.newWindowWithError",
+        "onCommand:vscode-testresolver.showLog",
+        "onCommand:vscode-testresolver.openTunnel",
+        "onCommand:vscode-testresolver.startRemoteServer",
+        "onCommand:vscode-testresolver.toggleConnectionPause"
+      ],
+      "extensionDependencies": [],
+      "entry": {
+        "main": "./out/extension",
+        "browser": "./dist/browser/testResolverMain"
+      }
+    },
+    {
+      "id": "vscode.xml",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    },
+    {
+      "id": "vscode.yaml",
+      "executable": false,
+      "admitted": false,
+      "activationEvents": [],
+      "extensionDependencies": [],
+      "entry": {}
+    }
+  ]
+}

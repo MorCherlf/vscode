@@ -1,0 +1,41 @@
+{
+  "name": "dependent",
+  "publisher": "h1-native-fixture",
+  "version": "0.0.1",
+  "displayName": "H1 native fixture dependent",
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "*",
+    "onStartupFinished",
+    "onLanguage:h1-native-fixture",
+    "onCommand:h1.native.dependent",
+    "onChatParticipant:h1-native-fixture.mixed"
+  ],
+  "capabilities": {
+    "agentsWindow": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "h1.native.dependent",
+        "title": "H1 native fixture dependent"
+      }
+    ],
+    "languages": [
+      {
+        "id": "h1-native-fixture",
+        "extensions": [
+          ".h1native"
+        ]
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "h1-native-fixture.editor-only"
+  ]
+}
