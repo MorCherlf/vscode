@@ -1,0 +1,1 @@
+{"kind":"unix-socket-capability","code":"EPERM","message":"listen EPERM: operation not permitted /tmp/h1c-ipc-12.sock"}

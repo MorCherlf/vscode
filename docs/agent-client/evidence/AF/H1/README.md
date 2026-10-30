@@ -1,6 +1,8 @@
 # H1 engineering checkpoint — 2026-10-29
 
-Latest engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
+Latest: [iteration 3 — editor-window routes and worker attribution](2026-10-30-editor-routes/README.md). H1 remains engineering in progress, not ready for human acceptance.
+
+Previous engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
 
 **Status: engineering in progress; pending Mac build/verification. Not ready for human acceptance, not human accepted.** Rules and demos: [HUMAN_ACCEPTANCE](../../../HUMAN_ACCEPTANCE.md). H2–H4 remain separate; no DSH activation is required for H1.
 

@@ -6,5 +6,5 @@
 		"rootDir": "../..",
 		"typeRoots": ["../../../node_modules/@types", "../../../node_modules"]
 	},
-	"include": ["sessions.common.main.ts", "../../**/*.d.ts"]
+	"include": ["sessions.common.main.ts", "sessions.web.main.ts", "sessions.desktop.main.ts", "../../vs/platform/windows/electron-main/agentFirstWindow.ts", "../../vs/platform/windows/electron-main/windowsMainService.ts", "../../**/*.d.ts"]
 }

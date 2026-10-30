@@ -5,7 +5,7 @@
 
 ## 人工交付顺序（当前优先）
 
-遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。 2026-10-30 已进一步裁掉五组原编辑器贡献入口，原 Worker EH 准入/依赖探针和原只读 diff fixture 通过；同探针 A/B 为 4,993 → 4,901 JS 请求，worker 数未下降，仍非完整裁剪/真实任务/Mac 门禁。见 [本轮原始证据](evidence/AF/H1/2026-10-30/README.md)。
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。 2026-10-30 已进一步裁掉五组原编辑器贡献入口，原 Worker EH 准入/依赖探针和原只读 diff fixture 通过；同探针 A/B 为 4,993 → 4,901 JS 请求，worker 数未下降，仍非完整裁剪/真实任务/Mac 门禁。见 [本轮原始证据](evidence/AF/H1/2026-10-30/README.md)。 后续 [H1 迭代 3](evidence/AF/H1/2026-10-30-editor-routes/README.md) 已关闭通用编辑器窗口入口并加入原生路由边界，18 项纯决策测试及普通 Web 产品对照通过；原生窗口未运行。全量层次检查这次返回 0；本轮三类 Worker 已有来源取证。H1 仍待窗口内编辑入口收口、真实任务与 Mac/人工验收。
 
 当前采用 [ADR-001](ADR-001-agent-first-dsh-extension.md) 确定的 Agent First 路线：原组件/原宿主 → 编辑器插件准入与组件加载裁剪 → DSH Adapter VSIX 接入原会话界面 → 原 DSH 插件行为 → 双上游升级与性能发行。编辑器专用插件禁用，不通过恢复通用 IDE 扩大兼容；DSH 专属逻辑在插件/驱动层。
 

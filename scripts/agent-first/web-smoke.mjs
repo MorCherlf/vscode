@@ -12,7 +12,8 @@ import { once } from 'node:events';
 import { checkComposition } from './composition-check.mjs';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const require = createRequire(new URL('../../package.json', import.meta.url));
-for (const argument of process.argv.slice(2)) { if (!['--mock-host', '--probe-extensions'].includes(argument)) { throw new Error('Unsupported smoke option: ' + argument); } }
+for (const argument of process.argv.slice(2)) { if (!['--mock-host', '--probe-extensions', '--legacy-editor-routes'].includes(argument)) { throw new Error('Unsupported smoke option: ' + argument); } }
+const legacyEditorRoutes = process.argv.includes('--legacy-editor-routes');
 let host;
 let hostHome;
 let server;
@@ -62,6 +63,7 @@ async function scan(dir) {
 }
 await scan('out');
 const product = JSON.parse(await readFile(resolve(root, 'product.json'), 'utf8'));
+if (legacyEditorRoutes) { product.agentFirst = false; }
 // Diagnostic A/B only: serve a separately transpiled, pinned original composition entry.
 const baselineEntry = process.env.AGENT_FIRST_BASELINE_ENTRY ? await readFile(process.env.AGENT_FIRST_BASELINE_ENTRY, 'utf8') : undefined;
 if (probeExtensions) {
@@ -119,8 +121,16 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 	browser = await chromium.launch({ headless: true, ...(process.env.AGENT_FIRST_CHROMIUM ? { executablePath: process.env.AGENT_FIRST_CHROMIUM } : {}) });
 	const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 	const scripts = new Set(); const workers = new Set();
+	const workerLifetimes = []; const workerAttributions = [];
 	page.on('response', r => { if (new URL(r.url()).pathname.endsWith('.js')) { scripts.add(new URL(r.url()).pathname); } if (probeExtensions && r.status() === 404) { console.log('HTTP404', new URL(r.url()).pathname); } });
-	page.on('worker', w => workers.add(new URL(w.url()).pathname));
+	page.on('worker', worker => {
+		const url = new URL(worker.url()).pathname;
+		workers.add(url);
+		const lifetime = { url, name: undefined, closed: false, attributionUnavailable: false };
+		workerLifetimes.push(lifetime);
+		worker.on('close', () => { lifetime.closed = true; });
+		workerAttributions.push(within(worker.evaluate(() => globalThis.name), 'Worker name').then(name => { lifetime.name = name; }, () => { lifetime.attributionUnavailable = true; }));
+	});
 	page.on('pageerror', e => console.error('PAGE_ERROR', redact(e.message)));
 	page.on('console', m => { if (m.type() === 'error') { console.error('CONSOLE_ERROR', redact(m.text())); } });
 	await page.goto(`http://127.0.0.1:${server.address().port}/`);
@@ -135,9 +145,31 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 		const diff = await within(page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.diff')), 'Original diff');
 		console.log(JSON.stringify({ originalDiffFixture: diff }));
 		if (diff.pane !== 'workbench.editors.textDiffEditor' || diff.readOnly !== true || !diff.modified?.includes('a + b')) { throw new Error('Original read-only diff fixture failed'); }
+		if (!legacyEditorRoutes) {
+			const result = await within(page.evaluate(async () => {
+				// Evaluate the actual Agent-only desktop registration branch; no native host or Electron runtime is substituted.
+				await import('/out/vs/sessions/electron-browser/sessions.desktop.contribution.js');
+				const shouldShowReturn = await window.agentFirstWorkbench.commands.executeCommand('agents.shouldShowReturnToVSCodeEditor');
+				const rejected = [];
+				for (const command of ['sessions.openInVSCode', 'agents.openSessionInVSCode', 'agents.openVSCodeWindow', 'agents.returnToVSCodeEditor']) {
+					try { await window.agentFirstWorkbench.commands.executeCommand(command); } catch { rejected.push(command); }
+				}
+				return { shouldShowReturn, rejected };
+			}), 'Editor route rejection');
+			console.log(JSON.stringify({ editorRouteProbe: result, platform: 'browser; desktop registration branch only' }));
+			if (result.shouldShowReturn !== false || result.rejected.length !== 4) { throw new Error('Editor routes were not rejected'); }
+		}
 	}
-	if (process.env.AGENT_FIRST_TRACE) { await writeFile(process.env.AGENT_FIRST_TRACE, JSON.stringify({ kind: 'browser-resource-load-not-EH-activation', scripts: [...scripts].sort(), workers: [...workers].sort() }, null, 2)); }
-	const composition = await checkComposition(page, scripts);
+	const workerDetails = [];
+	for (const worker of page.workers()) {
+		try {
+			workerDetails.push(await within(worker.evaluate(() => ({ name: globalThis.name, resources: performance.getEntriesByType('resource').flatMap(entry => { const url = new URL(entry.name, location.href); return ['http:', 'https:'].includes(url.protocol) ? [url.pathname] : []; }), resourceTimingMayBeTruncated: true })), 'Worker attribution'));
+		} catch { workerDetails.push({ unavailable: true }); }
+	}
+	await Promise.all(workerAttributions);
+	console.log(JSON.stringify({ workerLifetimes, workerDetails }));
+	if (process.env.AGENT_FIRST_TRACE) { await writeFile(process.env.AGENT_FIRST_TRACE, JSON.stringify({ kind: 'browser-resource-load-not-EH-activation', scripts: [...scripts].sort(), workers: [...workers].sort(), workerLifetimes, workerDetails }, null, 2)); }
+	const composition = await checkComposition(page, scripts, legacyEditorRoutes);
 	console.log(JSON.stringify({ composition }));
 	console.log(JSON.stringify({ browser: browser.version(), originalWorkbench: await page.locator('.monaco-workbench').count(), text: (await page.locator('body').innerText()).slice(0, 2000) }));
 	if (process.argv.includes('--mock-host') && !(await page.locator('body').innerText()).includes('Deterministic test Host')) { throw new Error('Original UI did not discover fixture Host'); }

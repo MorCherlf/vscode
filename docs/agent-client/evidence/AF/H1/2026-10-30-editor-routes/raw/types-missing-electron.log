@@ -1,0 +1,275 @@
+src/vs/base/parts/contextmenu/electron-main/contextmenu.ts(6,46): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/base/parts/contextmenu/electron-main/contextmenu.ts(62,13): error TS7006: Parameter 'menuItem' implicitly has an 'any' type.
+src/vs/base/parts/contextmenu/electron-main/contextmenu.ts(62,23): error TS7006: Parameter 'win' implicitly has an 'any' type.
+src/vs/base/parts/contextmenu/electron-main/contextmenu.ts(62,28): error TS7006: Parameter 'contextmenuEvent' implicitly has an 'any' type.
+src/vs/base/parts/ipc/electron-main/ipc.electron.ts(6,29): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/base/parts/ipc/electron-main/ipc.mp.ts(6,62): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/base/parts/ipc/electron-main/ipcMain.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/code/electron-main/app.ts(6,170): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/code/electron-main/app.ts(256,50): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(258,45): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(281,55): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(281,68): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(281,80): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(281,90): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(291,53): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(291,66): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(291,78): error TS7006: Parameter '_origin' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(291,87): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(301,28): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(313,63): error TS7006: Parameter 'request' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(313,72): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(316,60): error TS7006: Parameter 'w' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(335,17): error TS18048: 'cachedScreenSources' is possibly 'undefined'.
+src/vs/code/electron-main/app.ts(342,14): error TS18048: 'cachedScreenSources' is possibly 'undefined'.
+src/vs/code/electron-main/app.ts(345,29): error TS18048: 'cachedScreenSources' is possibly 'undefined'.
+src/vs/code/electron-main/app.ts(382,49): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(382,91): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(386,48): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(403,55): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(425,54): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(425,63): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(468,56): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(468,65): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(497,56): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(497,65): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(555,44): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(555,51): error TS7006: Parameter 'accessibilitySupportEnabled' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(560,29): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(560,36): error TS7006: Parameter 'hasVisibleWindows' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(573,35): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(573,42): error TS7006: Parameter 'contents' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(583,33): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(595,34): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(622,24): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(622,31): error TS7006: Parameter 'path' implicitly has an 'any' type.
+src/vs/code/electron-main/app.ts(1761,61): error TS2503: Cannot find namespace 'Electron'.
+src/vs/code/electron-main/app.ts(1762,57): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/agentHost/electron-main/electronAgentHostStarter.ts(11,67): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/agentHost/electron-main/electronAgentHostStarter.ts(283,43): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+src/vs/platform/auxiliaryWindow/electron-main/auxiliaryWindow.ts(6,77): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/auxiliaryWindow/electron-main/auxiliaryWindows.ts(6,78): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/auxiliaryWindow/electron-main/auxiliaryWindowsMainService.ts(6,98): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/auxiliaryWindow/electron-main/auxiliaryWindowsMainService.ts(58,37): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/auxiliaryWindow/electron-main/auxiliaryWindowsMainService.ts(58,45): error TS7006: Parameter 'browserWindow' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSession.ts(6,25): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/browserView/electron-main/browserSession.ts(52,51): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSession.ts(81,46): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSession.ts(87,44): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSession.ts(310,29): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSession.ts(392,62): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSession.ts(392,71): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSession.ts(413,54): error TS7006: Parameter 'request' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(11,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(39,24): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(58,24): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(74,24): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(103,37): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(103,68): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(184,29): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(185,48): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(185,61): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(185,73): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(185,83): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(188,46): error TS7006: Parameter '_webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(188,60): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(188,72): error TS7006: Parameter 'requestingOrigin' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(188,90): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(210,44): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(210,51): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(210,60): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(225,43): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(225,51): error TS7006: Parameter 'device' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(225,59): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(228,45): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(228,53): error TS7006: Parameter 'device' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(228,61): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(232,45): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(232,52): error TS7006: Parameter 'portList' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(232,62): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(232,75): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(247,44): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(247,52): error TS7006: Parameter 'port' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(247,58): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(250,46): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(250,54): error TS7006: Parameter 'port' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(250,60): error TS7006: Parameter 'webContents' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(254,44): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(254,51): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(254,60): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(269,43): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(269,51): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(275,45): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(275,53): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(335,37): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(335,68): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(367,25): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(416,34): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(425,37): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(438,41): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(448,30): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(448,76): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(463,45): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(499,31): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(602,4): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(603,4): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(604,4): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(605,4): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(613,68): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(637,31): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(646,32): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(655,31): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionPermissions.ts(664,37): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(37,39): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(60,64): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(78,59): error TS7006: Parameter 'request' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(78,68): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(101,39): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(102,40): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(102,47): error TS7006: Parameter 'url' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(102,52): error TS7006: Parameter '_error' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(102,60): error TS7006: Parameter 'certificate' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserSessionTrust.ts(102,73): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(6,54): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/browserView/electron-main/browserView.ts(132,95): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(133,48): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(134,12): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(143,25): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(188,48): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(215,20): error TS7006: Parameter 'options' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(242,46): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(242,54): error TS7006: Parameter 'params' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(294,49): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(294,57): error TS7006: Parameter 'favicons' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(336,36): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(348,35): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(355,41): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(355,49): error TS7006: Parameter 'title' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(385,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(385,39): error TS7006: Parameter 'errorCode' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(385,50): error TS7006: Parameter 'errorDescription' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(385,68): error TS7006: Parameter 'validatedURL' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(385,82): error TS7006: Parameter 'isMainFrame' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(415,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(415,35): error TS7006: Parameter '_details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(415,45): error TS7006: Parameter 'authInfo' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(415,55): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(427,42): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(427,50): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(438,35): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(438,38): error TS7006: Parameter 'url' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(439,43): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(439,46): error TS7006: Parameter 'url' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(439,51): error TS7006: Parameter 'isMainFrame' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(454,69): error TS7006: Parameter 'error' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(459,46): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(459,53): error TS7006: Parameter 'devices' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(459,62): error TS7006: Parameter 'callback' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(486,41): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(486,48): error TS7006: Parameter 'input' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(520,34): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(520,42): error TS7006: Parameter 'input' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(535,42): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(540,36): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(540,44): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(550,49): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(623,21): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(946,69): error TS7006: Parameter 'error' implicitly has an 'any' type.
+src/vs/platform/browserView/electron-main/browserView.ts(1060,23): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserView.ts(1069,29): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewDebugger.ts(64,44): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewDebugger.ts(65,38): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewDebugger.ts(77,35): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewEmulator.ts(113,17): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewFrameInspector.ts(142,19): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewFrameInspector.ts(188,34): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewFrameInspector.ts(202,36): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewFrameInspector.ts(211,33): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(123,33): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(124,51): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(446,38): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(480,38): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(490,45): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(572,52): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(577,42): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(583,20): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(591,26): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewInspector.ts(651,10): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(11,43): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(59,44): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(421,223): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(460,4): error TS2554: Expected 8 arguments, but got 9.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(476,146): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/browserView/electron-main/browserViewMainService.ts(591,59): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/debug/electron-main/extensionHostDebugIpc.ts(6,31): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/debug/electron-main/extensionHostDebugIpc.ts(147,31): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/diagnostics/electron-main/diagnosticsMainService.ts(6,55): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/dialogs/electron-main/dialogMainService.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/encryption/electron-main/encryptionMainService.ts(6,57): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/encryption/electron-main/encryptionMainService.ts(18,34): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/files/electron-main/diskFileSystemProviderServer.ts(6,23): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/gpu/electron-main/gpuProcessMainService.ts(6,53): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/gpu/electron-main/gpuProcessMainService.ts(44,90): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/gpu/electron-main/gpuProcessTelemetry.ts(6,39): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/launch/electron-main/launchMainService.ts(6,21): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/lifecycle/electron-main/lifecycleMainService.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/lifecycle/electron-main/lifecycleMainService.ts(316,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(6,120): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/menubar/electron-main/menubar.ts(425,91): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(425,97): error TS7006: Parameter 'window' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(425,105): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(567,18): error TS7006: Parameter 'menuItem' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(567,28): error TS7006: Parameter 'win' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(567,33): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(859,20): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(859,26): error TS7006: Parameter 'window' implicitly has an 'any' type.
+src/vs/platform/menubar/electron-main/menubar.ts(859,34): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/native/electron-main/auth.ts(6,119): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(8,348): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(170,88): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(1000,32): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(1305,98): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(1308,24): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(1497,24): error TS7006: Parameter '_event' implicitly has an 'any' type.
+src/vs/platform/native/electron-main/nativeHostMainService.ts(1497,32): error TS7006: Parameter 'actionIndex' implicitly has an 'any' type.
+src/vs/platform/profiling/electron-main/windowProfiling.ts(7,31): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/protocol/electron-main/remoteResourceProtocol.ts(6,21): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/protocol/electron-main/remoteResourceProtocol.ts(10,47): error TS2304: Cannot find name 'GlobalRequest'.
+src/vs/platform/protocol/electron-main/remoteResourceProtocol.ts(10,73): error TS2304: Cannot find name 'GlobalResponse'.
+src/vs/platform/sharedProcess/electron-main/sharedProcess.ts(6,47): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/terminal/electron-main/electronPtyHostStarter.ts(15,30): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/update/electron-main/updateService.darwin.ts(6,27): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/update/electron-main/updateService.win32.ts(7,21): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/url/electron-main/electronUrlListener.ts(6,45): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/utilityProcess/electron-main/utilityProcess.ts(6,123): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/utilityProcess/electron-main/utilityProcess.ts(387,43): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/utilityProcess/electron-main/utilityProcess.ts(397,30): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/webContentExtractor/electron-main/webContentExtractorService.ts(6,31): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/webContentExtractor/electron-main/webPageLoader.ts(6,282): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/webContentExtractor/electron-main/webPageLoader.ts(50,30): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/webContentExtractor/electron-main/webPageLoader.ts(97,38): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/vs/platform/webContentExtractor/electron-main/webPageLoader.ts(229,68): error TS7006: Parameter 'v' implicitly has an 'any' type.
+src/vs/platform/webContentExtractor/electron-main/webPageLoader.ts(275,42): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/webview/electron-main/webviewMainService.ts(6,53): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/webview/electron-main/webviewMainService.ts(114,38): error TS7006: Parameter 'frame' implicitly has an 'any' type.
+src/vs/platform/webview/electron-main/webviewProtocolProvider.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/webview/electron-main/webviewProtocolProvider.ts(33,46): error TS2304: Cannot find name 'GlobalRequest'.
+src/vs/platform/webview/electron-main/webviewProtocolProvider.ts(33,70): error TS2304: Cannot find name 'GlobalResponse'.
+src/vs/platform/window/electron-main/window.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/windows/electron-main/windowImpl.ts(6,68): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/windows/electron-main/windowImpl.ts(243,82): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/windows/electron-main/windowImpl.ts(243,105): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/windows/electron-main/windowImpl.ts(281,88): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/windows/electron-main/windowImpl.ts(958,81): error TS7006: Parameter 'details' implicitly has an 'any' type.
+src/vs/platform/windows/electron-main/windowImpl.ts(958,90): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+src/vs/platform/windows/electron-main/windowImpl.ts(1251,103): error TS2503: Cannot find namespace 'Electron'.
+src/vs/platform/windows/electron-main/windowImpl.ts(1726,13): error TS7006: Parameter 'selectedIndex' implicitly has an 'any' type.
+src/vs/platform/windows/electron-main/windows.ts(6,46): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/windows/electron-main/windows.ts(355,66): error TS18048: 'state.width' is possibly 'undefined'.
+src/vs/platform/windows/electron-main/windows.ts(362,67): error TS18048: 'state.height' is possibly 'undefined'.
+src/vs/platform/windows/electron-main/windows.ts(375,34): error TS7006: Parameter 'd' implicitly has an 'any' type.
+src/vs/platform/windows/electron-main/windows.ts(459,55): error TS7006: Parameter 'win' implicitly has an 'any' type.
+src/vs/platform/windows/electron-main/windowsMainService.ts(7,56): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/windows/electron-main/windowsStateHandler.ts(6,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/workspaces/electron-main/workspacesHistoryMainService.ts(6,53): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
+src/vs/platform/workspaces/electron-main/workspacesManagementMainService.ts(7,22): error TS2307: Cannot find module 'electron' or its corresponding type declarations.
