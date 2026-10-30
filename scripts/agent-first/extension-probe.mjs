@@ -26,7 +26,7 @@ window.addEventListener('pagehide', () => disposables.dispose(), { once: true })
 disposables.add(CommandsRegistry.registerCommand('agentFirst.test.extensionStatus', async accessor => {
 	const service = accessor.get(IExtensionService);
 	await service.whenInstalledExtensionsRegistered();
-	for (const event of ['*', 'onStartupFinished', 'onLanguage:agent-first-fixture', 'onCommand:agentFirst.fixture.denied']) {
+	for (const event of ['*', 'onStartupFinished', 'onLanguage:agent-first-fixture', 'onCommand:agentFirst.fixture.denied', 'onChatParticipant:h1-fixture.mixed']) {
 		await service.activateByEvent(event);
 	}
 	return {

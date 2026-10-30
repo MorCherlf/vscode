@@ -1,0 +1,218 @@
+
+
+  ExtensionEnablementService Test - /CHROMIUM/
+    ✔ test disable an extension globally
+    ✔ test disable an extension globally should return truthy promise
+    ✔ test disable an extension globally triggers the change event
+    ✔ test disable an extension globally again should return a falsy promise
+    ✔ test state of globally disabled extension
+    ✔ test state of globally enabled extension
+    ✔ test disable an extension for workspace
+    ✔ test disable an extension for workspace returns a truthy promise
+    ✔ test disable an extension for workspace again should return a falsy promise
+    ✔ test state of workspace disabled extension
+    ✔ test state of workspace and globally disabled extension
+    ✔ test state of workspace enabled extension
+    ✔ test state of globally disabled and workspace enabled extension
+    ✔ test state of an extension when disabled for workspace from workspace enabled
+    ✔ test state of an extension when disabled globally from workspace enabled
+    ✔ test state of an extension when disabled globally from workspace disabled
+    ✔ test state of an extension when enabled globally from workspace enabled
+    ✔ test state of an extension when enabled globally from workspace disabled
+    ✔ test disable an extension for workspace and then globally
+    ✔ test disable an extension for workspace and then globally return a truthy promise
+    ✔ test disable an extension for workspace and then globally trigger the change event
+    ✔ test disable an extension globally and then for workspace
+    ✔ test disable an extension globally and then for workspace return a truthy promise
+    ✔ test disable an extension globally and then for workspace triggers the change event
+    ✔ test disable an extension for workspace when there is no workspace throws error
+    ✔ test enable an extension globally
+    ✔ test enable an extension globally return truthy promise
+    ✔ test enable an extension globally triggers change event
+    ✔ test enable an extension globally when already enabled return falsy promise
+    ✔ test enable an extension for workspace
+    ✔ test enable an extension for workspace return truthy promise
+    ✔ test enable an extension for workspace triggers change event
+    ✔ test enable an extension for workspace when already enabled return truthy promise
+    ✔ test enable an extension for workspace when disabled in workspace and gloablly
+    ✔ test enable an extension globally when disabled in workspace and gloablly
+    ✔ test enable an extension also enables dependencies
+    ✔ test enable an extension in workspace with a dependency extension that has auth providers
+    ✔ test enable an extension with a dependency extension that cannot be enabled
+    ✔ test enable an extension also enables packed extensions
+    ✔ test remove an extension from disablement list when uninstalled
+    ✔ test isEnabled return false extension is disabled globally
+    ✔ test isEnabled return false extension is disabled in workspace
+    ✔ test isEnabled return true extension is not disabled
+    ✔ test canChangeEnablement return false for language packs
+    ✔ test canChangeEnablement return true for auth extension
+    ✔ test canChangeEnablement return true for auth extension when user data sync account does not depends on it
+    ✔ test canChangeEnablement return true for auth extension when user data sync account depends on it but auto sync is off
+    ✔ test canChangeEnablement return false for auth extension and user data sync account depends on it and auto sync is on
+    ✔ test canChangeWorkspaceEnablement return true
+    ✔ test canChangeWorkspaceEnablement return false if there is no workspace
+    ✔ test canChangeWorkspaceEnablement return true for auth extension when it is not used by settings sync
+    ✔ test canChangeWorkspaceEnablement return false for auth extension when settings sync depends on it
+    ✔ test canChangeEnablement return false when extensions are disabled in environment
+    ✔ test canChangeEnablement return false when the extension is disabled in environment
+    ✔ test canChangeEnablement return true for system extensions when extensions are disabled in environment
+    ✔ test canChangeEnablement return false for system extension when extension is disabled in environment
+    ✔ test extension is disabled when disabled in environment
+    ✔ test extension is enabled globally when enabled in environment
+    ✔ test extension is enabled workspace when enabled in environment
+    ✔ test extension is enabled by environment when disabled globally
+    ✔ test extension is enabled by environment when disabled workspace
+    ✔ test extension is disabled by environment when also enabled in environment
+    ✔ test canChangeEnablement return false when the extension is enabled in environment
+    ✔ test extension does not support vitrual workspace is not enabled in virtual workspace
+    ✔ test web extension from web extension management server and does not support vitrual workspace is enabled in virtual workspace
+    ✔ test web extension from remote extension management server and does not support vitrual workspace is disabled in virtual workspace
+    ✔ test enable a remote workspace extension and local ui extension that is a dependency of remote
+    ✔ test enable a remote workspace extension also enables its dependency in local
+    ✔ test canChangeEnablement return false when extension is disabled in virtual workspace
+    ✔ test extension does not support vitrual workspace is enabled in normal workspace
+    ✔ test extension supports virtual workspace is enabled in virtual workspace
+    ✔ test extension does not support untrusted workspaces is disabled in untrusted workspace
+    ✔ test canChangeEnablement return true when extension is disabled by workspace trust
+    ✔ test extension supports untrusted workspaces is enabled in untrusted workspace
+    ✔ test extension does not support untrusted workspaces is enabled in trusted workspace
+    ✔ test extension supports untrusted workspaces is enabled in trusted workspace
+    ✔ test extension without any value for virtual workspace is enabled in virtual workspace
+    ✔ test local workspace extension is disabled by kind
+    ✔ test local workspace + ui extension is enabled by kind
+    ✔ test local ui extension is not disabled by kind
+    ✔ test canChangeEnablement return true when the local workspace extension is disabled by kind
+    ✔ test canChangeEnablement return true for local ui extension
+    ✔ test remote ui extension is disabled by kind
+    ✔ test remote ui+workspace extension is disabled by kind
+    ✔ test remote ui extension is disabled by kind when there is no local server
+    ✔ test remote workspace extension is not disabled by kind
+    ✔ test canChangeEnablement return true when the remote ui extension is disabled by kind
+    ✔ test canChangeEnablement return true for remote workspace extension
+    ✔ test web extension on local server is disabled by kind when web worker is not enabled
+    ✔ test web extension on local server is not disabled by kind when web worker is enabled
+    ✔ test web extension on remote server is disabled by kind when web worker is not enabled
+    ✔ test web extension on remote server is disabled by kind when web worker is enabled
+    ✔ test web extension on remote server is enabled in web
+    ✔ test web extension on web server is not disabled by kind
+    ✔ test state of multipe extensions
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled by virtual workspace
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled by virtual workspace
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled by workspace trust
+    ✔ test extension is not disabled by dependency if it has a dependency that is disabled by extension kind
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled by workspace trust
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled globally
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled workspace
+    ✔ test extension is not disabled by dependency even if it has a dependency that is disabled when installed extensions are not set
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled when all extensions are passed
+    ✔ test extension is not disabled when it has a missing dependency
+    ✔ test extension is not disabled when it has a dependency in another server
+    ✔ test extension is enabled when it has a dependency in another server which is disabled
+    ✔ test extension is enabled when it has a dependency in another server which is disabled and with no exports and no main and no browser entrypoints
+    ✔ test extension is disabled by dependency when it has a dependency in another server  which is disabled and with no exports and has main entry point
+    ✔ test extension is disabled by dependency when it has a dependency in another server  which is disabled and with no exports and has browser entry point
+    ✔ test extension is disabled by invalidity
+    ✔ test extension is disabled by dependency when it has a dependency that is invalid
+    ✔ test extension is enabled when its dependency becomes valid
+    ✔ test override workspace to trusted when getting extensions enablements
+    ✔ test override workspace to not trusted when getting extensions enablements
+    ✔ test update extensions enablements on trust change triggers change events for extensions depending on workspace trust
+    ✔ test adding an extension that was disabled
+    ✔ test chat extension is disabled on profile switch when setup is not completed
+    ✔ test extension is disabled by allowed list
+    ✔ test extension is disabled by malicious
+    ✔ test installed malicious extension triggers change event
+    ✔ test extensions are disabled in sessions window unless they only contribute themes
+    ✔ test unsupported extensions can be enabled for the sessions window workspace
+    ✔ test unsupported built-in extensions cannot be enabled for the sessions window workspace
+    ✔ test turning off agents window management ignores saved choices and restores them when turned on
+    ✔ test sessions window automatically enables useful extensions unless users disabled them
+    ✔ test automatic enablement in the sessions window follows its setting and requires extension management
+    ✔ test automatic enablement in the sessions window notifies the extensions that depend on affected extensions
+    ✔ test automatic enablement in the sessions window enables only listed extensions and disables them again when they are no longer listed
+    ✔ test built-in npm tasks are parsed in editor window
+    ✔ test built-in npm tasks are parsed in sessions window
+    ✔ test built-in npm can be disabled globally in sessions window
+    ✔ test built-in npm can be disabled for workspace in sessions window
+    ✔ test agents window declarations without the proposal with capability setting disabled
+    ✔ test agents window declarations without the proposal with capability setting enabled
+    ✔ test configured extensions are enabled in sessions window
+    ✔ test product allow-listed opt-out in editor window with extension management disabled
+    ✔ test product allow-listed opt-out in editor window with extension management enabled
+    ✔ test product allow-listed opt-out in sessions window with extension management disabled
+    ✔ test product allow-listed opt-out in sessions window with extension management enabled
+    ✔ test extensions declaring agents window support can still be disabled by the user
+    ✔ test extensions are not disabled in non-sessions window
+    Agent First product admission - /CHROMIUM/
+      ✔ builtin chat main: unconfigured product preserves upstream special case
+      ✔ builtin chat main: empty product policy blocks
+      ✔ builtin chat browser: unconfigured product preserves upstream special case
+      ✔ builtin chat browser: empty product policy blocks
+      1) saved workspace enable, overrides and auto-enable true cannot bypass product admission
+      2) saved workspace enable, overrides and auto-enable ["pub.mixed"] cannot bypass product admission
+      ✔ admitted dependents, cycles and development filtering cannot pull in denied code
+      3) admission is a ceiling: declarative resources and audited code keep original enablement rules
+      4) development override preserves upstream behavior when outside Sessions
+      5) development override preserves upstream behavior when product policy is absent
+
+
+  148 passing (1s)
+  5 failing
+
+  1) ExtensionEnablementService Test
+       Agent First product admission
+         saved workspace enable, overrides and auto-enable true cannot bypass product admission:
+     
+  AssertionError: Missing expected rejection
+      at expectsError (http://localhost:33759/94415e8931da9550afbccf3c0491df14/test/unit/assert.js:467:4)
+      at ok.rejects (http://localhost:33759/94415e8931da9550afbccf3c0491df14/test/unit/assert.js:474:2)
+      at async Context.<anonymous> (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.js:1062:9)
+
+  2) ExtensionEnablementService Test
+       Agent First product admission
+         saved workspace enable, overrides and auto-enable ["pub.mixed"] cannot bypass product admission:
+     
+  AssertionError: Missing expected rejection
+      at expectsError (http://localhost:33759/94415e8931da9550afbccf3c0491df14/test/unit/assert.js:467:4)
+      at ok.rejects (http://localhost:33759/94415e8931da9550afbccf3c0491df14/test/unit/assert.js:474:2)
+      at async Context.<anonymous> (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.js:1062:9)
+
+  3) ExtensionEnablementService Test
+       Agent First product admission
+         admission is a ceiling: declarative resources and audited code keep original enablement rules:
+     
+  Error: Cannot change enablement of pub.allowed extension because it is enabled in environment
+      at TestExtensionEnablementService.throwErrorIfCannotChangeEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:217:13)
+      at TestExtensionEnablementService.setEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:265:14)
+      at async Context.<anonymous> (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.js:1084:7)
+
+  4) ExtensionEnablementService Test
+       Agent First product admission
+         development override preserves upstream behavior when outside Sessions:
+     
+  Error: Cannot change enablement of pub.dev extension because it is enabled in environment
+      at TestExtensionEnablementService.throwErrorIfCannotChangeEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:217:13)
+      at TestExtensionEnablementService.setEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:265:14)
+      at async Context.<anonymous> (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.js:1091:9)
+
+  5) ExtensionEnablementService Test
+       Agent First product admission
+         development override preserves upstream behavior when product policy is absent:
+     
+  Error: Cannot change enablement of pub.dev extension because it is enabled in environment
+      at TestExtensionEnablementService.throwErrorIfCannotChangeEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:217:13)
+      at TestExtensionEnablementService.setEnablement (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/browser/extensionEnablementService.js:265:14)
+      at async Context.<anonymous> (http://localhost:33759/94415e8931da9550afbccf3c0491df14/out/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.js:1091:9)
+
+
+
+The followings tests are failing:
+ - ExtensionEnablementService Test Agent First product admission saved workspace enable, overrides and auto-enable true cannot bypass product admission (reason: Missing expected rejection)
+ - ExtensionEnablementService Test Agent First product admission saved workspace enable, overrides and auto-enable ["pub.mixed"] cannot bypass product admission (reason: Missing expected rejection)
+ - ExtensionEnablementService Test Agent First product admission admission is a ceiling: declarative resources and audited code keep original enablement rules (reason: Cannot change enablement of pub.allowed extension because it is enabled in environment)
+ - ExtensionEnablementService Test Agent First product admission development override preserves upstream behavior when outside Sessions (reason: Cannot change enablement of pub.dev extension because it is enabled in environment)
+ - ExtensionEnablementService Test Agent First product admission development override preserves upstream behavior when product policy is absent (reason: Cannot change enablement of pub.dev extension because it is enabled in environment)
+
+To DEBUG, open CHROMIUM and navigate to http://localhost:33759/94415e8931da9550afbccf3c0491df14/test/unit/browser/renderer.html?baseUrl=file%3A%2F%2F%2Fworkspace%2Fscratch%2F11910be6d76c%2Fvscode-h1-continued%2Fsrc&_devCssData=H4sIAAAAAAAAA7VdW3fjqpL%2BQ7Mna%2BZh1nnNrbuzTmcnO3Z3P87CUsVmjEAbkBPvXz%2BrAEnowkWy%2ByGOBPV9AsSlKAp0Ujc7ouBmJ8WHAnnT0BtSaCr4jsj%2B6j8Lpf7jNCMqKTE%2FIYGdBFIWsql2yr%2F%2BRcs96CCo0Vpw9y8kVIiSFoKr9qL9%2F0clSvpOQaqlyLA81%2FCpTxQ%2B%2FOuweMP1HSn34F2GhEtKmNi7f0EhXuJfMFqKuhQfvLsICb5TXlJeN9pcPeFVSHQvaWl%2BYjk9iBNI%2Bxt%2FoVi638kOmLlieBUTVeZ3AwwKfSc%2Bg6KYgZ34tBcRwSOcdybre5uI0X0IxqjS5ickUAFvzE%2BkhVSiUXDfSCWkfx0Sr%2BknsE1NOQc5uAkCpNhLUAqbq3cdEpekpML%2BhkQUUQfzExQopGAMH1hBSUl%2FH2xxCvYVcA3lUyH4Vuz3DObCwnBXE%2FqrBaL3jdKiCgNOIKk%2BYyra%2FHhBQVjNqO0RasIh1kh6ye4qJKrJjoH9DYq4wvugugi%2BICeko4WqhTDv0P0PikkAVy5tTlm4oXvSeDkQ06D0DRcl3NTv6uadfupGgrpRVHdyUFItZEeInS1WLZAm5t72vTecaHoC9%2B%2Bxj1jGgj%2B3Ekh3kWba181NoZTLYAmFkAQHyHul3hoGj59akkL3jXsEx7J7JVKrmx0TxfGhw08DkgxFIyVw%2FZ1y%2BEb3B0b3Bz0bmGQqvWSUC1KwZ%2Bf68EzknnL%2FOo2rm2cij%2B3%2FpDzlJXD9taElDG%2BSSEY5%2FNlUO5CD6yyc8t%2FOOCDJUNliqfJKxIr5D5yEpDkopxWp2%2F9JeRyzGTnbYXt8m0TLhmGh2n9JaTs%2B9LmZBKQZTF9uiqa%2FTKLwyo62g%2BssHLYh7yqJ%2BThQDaomBXiXaZSQ5S9J6ide0oKgzCQkwPFh3hRqrqYHFNIJxMVL%2Bv7uxAtR1YID1%2BqGFAUoRXcMHuj7%2B08KH5DPo%2FSZhTLqpCsij6iWvgEvQUIfL21A%2BewEEjQN0%2FQh%2FmTT19PdDeHFQUirQXY8fmAAt5OkOIJ%2BJro4UL7voKPwABrfxq2pnB3Q9MF3DdsNFeQZIAMcB7oxywYkUEzIV1ocwR%2FsurAACicTrbQ3qRhLSVG%2FyFeiNDxxLTpELZTG8o8mDGcXHQJvXmrTYpeB4tJMEE35%2FhlV8A7lBYZwgpX%2Bi3X3Aem90OJRSq8u2qG%2FC4%2BmEaU252onmFcd%2BPFmL7biAd4pp1gqt%2FpVKDrTDUZoaoDjjYR3kMALiJernaS1SHMXkKQcB7p7UdUMnFrSoijX7ilTqW995GJioxfvD0LpLepk3dVPT0teRmajsYra7jvK8uomTB3FMDiRqVdGCniDGv95DH5wAIvVAEpMpF8XB6ERpBogxmNTK1mBUmQPXs019%2FedNhzC0bJksDFDdA%2F2AgO4mkhSgQZp6kNfVQfBISzAEV%2F5qJm1wdH3YMr5IFgJ0tSh7sHD8ABaAicV%2BCMSqSD6PMVpXUP%2FHHe%2FwSE02IaVpsXxPCpUPzCEa%2FZ7nDYNy8WFhjCmr3gq%2FKbhhQVQDac46HTzBq%2FP2BE0QCQrToRhGhXgQPVnjuDQhoV14pbiH8HdC%2BzQfdAIozThJWGC%2B%2B1X1VDorTjieDy4ywC%2FknJzEB%2F%2FhvNOEFlOAtIUfze0OBrTnBf7VxeYJuiD%2FtCDZNeM6HchK2fV7SuHtbN6NoCgJNq6HrmWZ6vlYNt80lAFcKO34AfmITTZ7aC0z%2FpOlQ5h98D1NzFpJljlPm%2FrWooTYWqoFPVgqek7KfQT17DvpuMDnlbkATShTH33LIIdzTtloDwTR2fekKAEwxHYt3OkYQrkiRZwo0QF%2F9vo9%2F%2F6HzZFR4b2TkbUwD0hHDEmMqbOWcPwMOd%2FT%2Bqdst3cuIjwKU%2F85%2BZelJAQrQ%2BCw3dyFknSNngD%2BkedkqUl7Ii0deVusHAQQvjTh4DMh5DHHfDe0jaRq%2B3s29aT5pMySuT5jkic32WBigPRqMygDgh3fRtMgr5K0dQPUtRbIr1WkYdTvoIVhxjrKYp%2FlbTMzpbtn7LF0bTI8qWl%2BD%2B07S4oZgmV0ICdxA9OToQyNLI%2BVrU%2BbzTR4Xrgc7hIrGMnqs%2B5L8tFLnxVLvINSPnC2fmO%2BIsAOUi1Lncqu0hdZHZNck00m19TzRBQZwDEjjJoVYDGGdEMi416bm0HOalNkb1YYxlSqTwuH23Hoc0B0hVhCnZa5hfKNMj7A61XJGAjpO0ElqTB%2FLs%2FEL05QK%2BtdqDO7lKYJc%2FBrNx1jjZmiy%2F1jowmzst5VuOxC3wFfVscKJwAV6DM%2Buy0HDsq1C6%2BAJQ7UhzHifHjbrUmxQEZL%2BeyJq75kXclWarEqF0no%2F8YHWgrAWZmZAGpMOvfDZG0qcY0LjiMa7So5pWxLuZhsGY%2BoSgOhO9hDHeht0MT8nIwDgDr0Jumqog8J15HlCJa5Enk2rxDcVTrUi2BaHhtGHuDvxtv4pqJd2L3NvJxYOe%2BgCLeurCfCMwD3PunkU4jhm60qCkTqx7tzVJMF34hx6oMGJUCJ0GL0DuJ5vfhJCwHh0GL3xQGpRrJHCZdvacoKI478Ylj8RIcfGqQnDA3oAfUuwgBh497UzQjw9MC7DN11eBPoWkx1RLjDO65r1JUtXYG%2FkUU4radt0c01QiBbPimkLTWtkNbAu27A1u3ttYH4gF2TXRACfGIqiaSKlTXVcMWVSB1IBLKLiV2KpiqCtq3Cc5XJWdJCPN087rt1MA4jAxyjNbp%2FJnfXe%2Frtwb%2BDUgZKYR5JNaiL5RBYoRwYLMMKAX%2FY9xPmbuMKonlzuesBkb5Ur8oL8XHYycU5LE2oCGFCYv2YHvAjlhqKEfQPuIe%2Bybff21KQvWh2Y0NNP1Aneiua8Focb5D35VJMrrppC8TZpLiREv0KQgZ87rwTdvm%2BDvdpxLY0dr5%2F23QUsi59Sp4oGTPBVrmwy8slxUXs%2BxM7SpUNq8PIx%2FPK1DOzwOX8tnYlIaogMjiMKkrGGibbUbDcwGmv7S9XUDd8yUuZ%2Fsl5BGd2u4ZEN7UiV4mYFHsqvF26HaXje8nRvdElslsjfE72xBdIxrYsnMpCn8GqFbmo1cg5pcScnnUBRnxsQkVKJPhHX12YrpIgifTOpJg%2BWn8i%2Fg0N25RQRkl4o4Ux70UDR%2F33MPIlqQzhY%2FWczrj93BWORV3YuiehmMTmmfGbuMhUDtz1mTsaBBB6KeK7OFVDpxzY%2FKvlLFk%2Bt%2BdTcV0F3lpab1S8JWkH%2BBbO0Myg6WLqZC13BFnpej9tNsQMtCXl%2BNHNtkgQbsc4jEEVkhCFHblue26zE3Ok52G1yp0nSbqPIEXwe0NukPpgfF%2BARgbUh2vhUGs58WwAm3W76x73wq00kQ3a4CaXFLWxu6%2FBl6JkrDHycJTHhYXCC5LvVnfOOPv0BUzE8z3DBYnoFVf3fphTuNwswQmdoTNLTzGcbhQ16FySpl7w2JLMgi7TQ0cmTz3uJkkmYskja9IrCbZCuKZx0I0ZtHTXwDNeX1uFW24ppYFNK3Zg7b3OeB2La5tLXbP031eJR2B59b1QlDsNf2qN9p%2BkgM7%2Bct0PWCwiqJ%2BClrAaJQ9YdizKOGFG98dzylvSuOgM0sm7u4XsEJUM6P2HEPcNhHhaJhZ7emLw6o%2FXUQYWhDGvlGQOBM7j7UjPy5GwU9EgQolv7WWGbEIjW8kM6%2FnlTV7yh%2F9%2FnISvoSvnf14xobR7Kyzxw0NDNchxzp1RV7s%2FRsN8oeCDeh%2BTWARKXzWIGll9gP4Viwb7xwuZrXG9eRtR2B7oo%2BAMr2Kv%2BG4Bbg0fnO3Af0ng9hLrAv7Nt3supaxnZadBhsuVrNZe%2BNXSeoDLa7EZnJ77%2FktruBz2XTLnt98J7UU23Cx2U%2FfV6e%2BoA2wsYsYG9A4y8p%2B0fPkw9AHqgpMcKzTW0z6TDjZg%2B8ncA1WN77Y5ZjvpOHFwbN6rXqCcU0bpHx%2BwWgd%2BbBI5BG0metsRCML%2BEUkv%2Fhlhh6RHIoXc7fl8kDUYeDnm%2BLuXEZUb7J4gxOQGaVqlgFvzLKV984Gy1gZ%2BHYfQs%2FgQuzI6tydrkL4WTPCydQPeDWpmPFLzyDr26DH1wcuUinCfLiJK2iwCnKN%2Bk8vyCoNdsLkG0uzSHVTDxjzNQUjb8ZonyBgHJhlaK1mm0ae4Dwuoi%2BD2ExKz2438ObKTdJgcOrNnca9LZcDK%2FObUbA7Nyw3VZlE5DKa7ntLK8B9SC3bIDCTSdUAxWErzJ4Yy1PSQrv%2BqvjKxIw5ajFTztQom2zkyZBgMtOze0b7NmdCFmQswGD0%2Fpl9JjlsBouVekL47HnGJ5javb3GM5xrnOjYPf9mUlJIU88Js9tph13iXPSFT%2B3JbcfjloadzFXJ0bhsTmTZSsKHeyIv5%2Fc9Im3bNOqjrMj1n%2FMM0u60u2oJee5nZv37quy4c8Os0uMyyBVZGSO12VvuSVyRvn%2BDi8bZNPUDVbhFoLxnpCnhmxBHde0iRy3DrGkN96tcztv5nFw7xVgMv%2BM9Gr33K25UMq%2FyDrfZ%2F84HtBt8r%2FsMs3f41hwycOXK2B6QcNX0Phf1BuQJpEKPUEl%2BS7fy2mlC16Ps%2FZOundq%2FkNSYKCUe1XW9ftCl90VS70CYy1lpcfjubei7mLD1rTIO2%2BXQmfFy8mZnbDfXfmkt70sNxqPzesRnpaHy%2FTp%2BR9%2B3BVlRThg60vyWfml7oPxI%2Bf7a5b6l9dUphWD%2BmH7ddthpOJeXLh6a9sRPwlYL%2FykY80bVcXDqY%2F5TvuApKO3FmlHEbuOdWVa3lmtJ6jrbUjKg7N%2FSV0GY9ZRbn0B%2F2KwbvcigmCJqW%2BvVUrdosSZGtNH5poAAzytun7apkqACa95LCFs3PFkc6An%2BbBZXW0eIlhx3GFHnjtGGLCPs07YW53xU85caJgwLFj0m2Nellc7XE%2Ba2%2By5lMWemLDJyTyjQ2RXPRxV7sYgC1yVHri1FZ6pdwXRyvozDSR%2Be0fgDT7NxRzJcn3hF3xHkHftjXs5m%2FESD3hcD1sla%2FNBt09rAOuNOqiSnbDMrfvYwCNMGF%2FO5QbThHBgWQQTfH33XZ80eZEcZ1efh3SKeziLpKvJDe7%2BIxexHQTunDcfzj%2BbCFnGaQ9IUxbOvshSEKYM70caGDk%2B58cMWcYpGG3N1KYoGjY%2F2tDK19U6AzeJx5xo9cmN5cYfgTMNinJVdTBtWJ%2BNctRgV8hzuYGYJcJQFf3Uw1emVZt1u7OID5FgLOt7hnodGRx2jY3hLY%2B4Ig5VEa1JR2vXH1Q83YYnRO4jDKcSsN2MS%2BTPkWxZDwmcBdY6yOQeWUEeqJfY9W2BQgZa9Rxa0RkPLEYGHtqd1EZdgk8NFmiLVPNIMOZ4UaRaVfPEZHKOTcxdwyIZrWkFvtE2Vy9x%2BQfismZC4vSORlSHY95M0B0VZv%2B8wfHbDoA18A2VcNxINl6Iltp3Xj4gGcREKewLkdDW3j7gIbF%2FA7fu7kCXhsWkpbQ2nJ%2F8AuS4s9Sbn4G1iupgIXKlmAsSwN6iFjE4Mk9Ck00eSAf8rzP85NQdkhO8bsgfnYzDkHEaGSdpDhkfwanS08DxwsOfP3s%2BclJGB7Z4Z9b2qinoMaW3xtwkvywh04A33RciIe0iEJVVnjfhr61Y8bb4u6lKanwmnyApXWEe6l%2BFy2emjIxyiBMl%2FPI2eT6bne2VjUZUkvAztRUiizTZkewaskFuyi1WieQ63%2FV7I2R1DCfC74PqNVBHHoBBQCqWh%2FMpIzNM2AD66wzG%2FiKJRaP1YzDDYfGHPBVqejJqUcUeWII6DPa9g%2BTONzxHuhpR8DRy%2F0vKN8JLBCuyBlCK2MyKEMx3xmsbhpnIpTTmA1mtaQ%2BtiHgGOTpUfdYvD2F9UH%2FCEiflNQi0lFxp2QvRncvXKFy%2F7GmtkcBa%2FlsnncOdNp8p2Qogn%2BXehmNEF2GFOVgPvgbG4zpZBkGNPyaB54grkeG%2F%2BKqaXRkdNFRkUm3RLy2AxtsKLc%2BTU4hxn20yqDMfiBNPDoqYzxNoUbGZO4F5MZYatyfc6VtCw%2BPCTwP8bJAc2f5rCYrIXa9FbjU%2FWN9E5jo4Y%2BohtYL91kkLVQg%2B%2BfTSDdRbLkQUzbqUXpkn7mGgLr%2FsPNMwoPPb7c5ERLQueUnHDJF7MehLl9txYhv%2B%2BhCJpQKmlQHv%2Bo7N0TLIziA3T2GNqJoY4DEzagWaxdq3iZ9RUjIa%2BP8ctZoGhYBa%2FwFKgivEJnCWV%2BoyDv3N0jj19ilZFpGuZPeKH8LPGL%2Bdk7ciLHBIUN8n7BwnNwlMFbU5j69cj8C4ibPYrTCq0CW2PIYj1J9p5%2FowrlAteDTSbmRejP1INMIDD0%2BcitWGCMvJd8BeccaY91Vvx%2B7kF02Hu7yfnOKbpSjgBE%2FWkV%2BnC86kGnzEapiyu64%2BJrD3SrBrO0z3h94MIi%2Bu8Y1ZzIsgX%2Bhng%2FMtF5xNKUPQfeMDdt8Z67ZS6AP%2FbvHT%2B42Y%2FpNJOTHOUuQnh7BdWWqnN9Lspc5RKT7UQF7oG9tx%2BqocJSf%2BJ174hB95bt01jwBzfJ%2F31dLvzaDyNtsGJ%2FuxcQ%2BgIgUFcmKKpSzIZYfGbYz9MRKpdz8IlMCAKUDVVoZNZogQ2sD2by3z%2FZB2DEEzTiHGtUSAfiCavUuA6zZhkGJtU2z6sB9DtwENjNCr7cUmPIUf41WpswdMnvcgk10tIhz%2FhR8XN59GSHL8IO%2BqDFM1%2BrDJ8EHbc2pi4zyeG2I83jgja8K1sVNCJKeFiEzwZLeD88mG23k%2FFu9PbzFtrV%2FhnXRdmJF78L3xGyOvxJ9E6%2FdoEb6xchMApb3PftPG%2BgLMM2H0EZ3cpwdy5aT1Bzte2ZnDoNWYabP9o4PhReb4fpQG3tV2FCKWuQpQu1oVc10vXvyJEi7rK%2BcnZ4BDl7nOoX9pUGBVz7Ao5OlU5m6zN22LgyADttBsvGf8PCMBfE8CBAAA%3D?m=vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test&m=vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test&m=vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test&m=vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test&m=vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test
+

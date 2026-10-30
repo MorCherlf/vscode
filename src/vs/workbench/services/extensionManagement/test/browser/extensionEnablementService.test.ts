@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 import assert from 'assert';
 import * as sinon from 'sinon';
-import { IExtensionManagementService, DidUninstallExtensionEvent, ILocalExtension, InstallExtensionEvent, InstallExtensionResult, UninstallExtensionEvent, DidUpdateExtensionMetadata, InstallOperation, IAllowedExtensionsService, AllowedExtensionsConfigKey, IExtensionsControlManifest } from '../../../../../platform/extensionManagement/common/extensionManagement.js';
+import { IExtensionManagementService, DidUninstallExtensionEvent, ILocalExtension, InstallExtensionEvent, InstallExtensionResult, UninstallExtensionEvent, DidUpdateExtensionMetadata, InstallOperation, IAllowedExtensionsService, AllowedExtensionsConfigKey, IExtensionsControlManifest, ENABLED_EXTENSIONS_STORAGE_PATH } from '../../../../../platform/extensionManagement/common/extensionManagement.js';
 import { EnablementState, IExtensionManagementServerService, IExtensionManagementServer, IWorkbenchExtensionManagementService, ExtensionInstallLocation, IProfileAwareExtensionManagementService, DidChangeProfileEvent } from '../../common/extensionManagement.js';
 import { ExtensionEnablementService } from '../../browser/extensionEnablementService.js';
 import { TestInstantiationService } from '../../../../../platform/instantiation/test/common/instantiationServiceMock.js';
@@ -20,7 +20,7 @@ import { URI } from '../../../../../base/common/uri.js';
 import { Schemas } from '../../../../../base/common/network.js';
 import { TestConfigurationService } from '../../../../../platform/configuration/test/common/testConfigurationService.js';
 import { productService, TestLifecycleService } from '../../../../test/browser/workbenchTestServices.js';
-import { GlobalExtensionEnablementService } from '../../../../../platform/extensionManagement/common/extensionEnablementService.js';
+import { GlobalExtensionEnablementService, StorageManager } from '../../../../../platform/extensionManagement/common/extensionEnablementService.js';
 import { IUserDataSyncAccountService, UserDataSyncAccountService } from '../../../../../platform/userDataSync/common/userDataSyncAccount.js';
 import { IUserDataSyncEnablementService } from '../../../../../platform/userDataSync/common/userDataSync.js';
 import { ILifecycleService } from '../../../lifecycle/common/lifecycle.js';
@@ -109,11 +109,11 @@ export class TestExtensionEnablementService extends ExtensionEnablementService {
 			instantiationService.stub(IAllowedExtensionsService, disposables.add(new AllowedExtensionsService(instantiationService.get(IProductService), instantiationService.get(IConfigurationService)))),
 			workspaceTrustManagementService,
 			new class extends mock<IWorkspaceTrustRequestService>() { override requestWorkspaceTrust(options?: WorkspaceTrustRequestOptions): Promise<boolean> { return Promise.resolve(true); } },
-			instantiationService.get(IExtensionManifestPropertiesService) || instantiationService.stub(IExtensionManifestPropertiesService, disposables.add(new ExtensionManifestPropertiesService(TestProductService, instantiationService.get(IConfigurationService), new TestWorkspaceTrustEnablementService(), new NullLogService()))),
+			instantiationService.get(IExtensionManifestPropertiesService) || instantiationService.stub(IExtensionManifestPropertiesService, disposables.add(new ExtensionManifestPropertiesService(instantiationService.get(IProductService) || TestProductService, instantiationService.get(IConfigurationService), new TestWorkspaceTrustEnablementService(), new NullLogService()))),
 			chatEntitlementService ?? new TestChatEntitlementService(),
 			instantiationService,
 			new NullLogService(),
-			productService
+			instantiationService.get(IProductService) || productService
 		);
 		this._register(disposables);
 	}
@@ -1250,6 +1250,88 @@ suite('ExtensionEnablementService Test', () => {
 		const result = await promise;
 		assert.deepStrictEqual(result[0], local);
 		assert.strictEqual(testObject.getEnablementState(local), EnablementState.DisabledByMalicious);
+	});
+
+	suite('Agent First product admission', () => {
+		const chatId = productService.defaultChatAgent!.chatExtensionId;
+
+		async function createProductService(admitted: string[] | undefined, extensions: ILocalExtension[], sessions = true, autoEnable: boolean | string[] = true, forceEnable = false) {
+			testObject.dispose();
+			const product = { ...TestProductService, agentFirstExecutableExtensions: admitted };
+			instantiationService.stub(IProductService, product);
+			instantiationService.stub(IWorkbenchEnvironmentService, { isSessionsWindow: sessions, enableExtensions: forceEnable ? extensions.map(extension => extension.identifier.id) : undefined });
+			const configuration = instantiationService.get(IConfigurationService) as TestConfigurationService;
+			await configuration.setUserConfiguration(EXTENSIONS_AGENTS_WINDOW_MANAGEMENT, true);
+			await configuration.setUserConfiguration(EXTENSIONS_AGENTS_WINDOW_AUTO_ENABLE, autoEnable);
+			await configuration.setUserConfiguration(EXTENSIONS_SUPPORT_AGENTS_WINDOW, Object.fromEntries(extensions.map(extension => [extension.identifier.id, true])));
+			instantiationService.stub(IExtensionManifestPropertiesService, disposableStore.add(new ExtensionManifestPropertiesService(product, configuration, new TestWorkspaceTrustEnablementService(), new NullLogService())));
+			installed.push(...extensions);
+			testObject = disposableStore.add(new TestExtensionEnablementService(instantiationService));
+			await testObject.waitUntilInitialized();
+		}
+
+		for (const entry of ['main', 'browser'] as const) {
+			for (const policy of [undefined, []]) {
+				test(`builtin chat ${entry}: ${policy ? 'empty product policy blocks' : 'unconfigured product preserves upstream special case'}`, async () => {
+					const chat = aLocalExtension2(chatId, { [entry]: 'entry.js', contributes: someContributions({ languageModelTools: [{}], views: { explorer: [{}] } }) }, { type: ExtensionType.System });
+					await createProductService(policy, [chat]);
+					await (instantiationService.get(IConfigurationService) as TestConfigurationService).setUserConfiguration(EXTENSIONS_SUPPORT_AGENTS_WINDOW, { [chatId]: false });
+					assert.deepStrictEqual({ state: testObject.getEnablementState(chat), enabled: testObject.isEnabled(chat) }, { state: policy ? EnablementState.DisabledByEnvironment : EnablementState.EnabledGlobally, enabled: !policy });
+				});
+			}
+		}
+
+		for (const autoEnable of [true, ['pub.mixed']]) {
+			test(`saved workspace enable, overrides and auto-enable ${JSON.stringify(autoEnable)} cannot bypass product admission`, async () => {
+				const mixed = aLocalExtension2('pub.mixed', { main: 'entry.js', capabilities: { agentsWindow: { supported: true } }, contributes: someContributions({ languageModelTools: [{}], views: { explorer: [{}] } }) });
+				await createProductService([], [mixed], true, autoEnable);
+				const storage = disposableStore.add(new StorageManager(instantiationService.get(IStorageService)));
+				storage.set(ENABLED_EXTENSIONS_STORAGE_PATH, [mixed.identifier], StorageScope.WORKSPACE);
+				assert.deepStrictEqual({ state: testObject.getEnablementState(mixed), workspace: testObject.canChangeWorkspaceEnablement(mixed), global: testObject.canChangeEnablement(mixed) }, { state: EnablementState.DisabledByEnvironment, workspace: false, global: false });
+				await assert.rejects(() => testObject.setEnablement([mixed], EnablementState.EnabledWorkspace));
+				await assert.rejects(() => testObject.setEnablement([mixed], EnablementState.EnabledGlobally));
+			});
+		}
+
+		test('environment enable flags cannot re-enable a denied executable', async () => {
+			const extension = aLocalExtension2('pub.forced', { main: 'entry.js', capabilities: { agentsWindow: { supported: true } } });
+			await testObject.setEnablement([extension], EnablementState.DisabledGlobally);
+			await createProductService([], [extension], true, true, true);
+			assert.strictEqual(testObject.getEnablementState(extension), EnablementState.DisabledByEnvironment);
+		});
+
+		test('admitted dependents, cycles and development filtering cannot pull in denied code', async () => {
+			const denied = aLocalExtension2(chatId, { main: 'entry.js' }, { type: ExtensionType.System });
+			const dependent = aLocalExtension2('pub.dependent', { main: 'entry.js', extensionDependencies: [chatId, 'pub.transitive'], capabilities: { agentsWindow: { supported: true } } });
+			const transitive = aLocalExtension2('pub.transitive', { browser: 'entry.js', extensionDependencies: ['pub.dependent'], capabilities: { agentsWindow: { supported: true } } });
+			const clean = aLocalExtension2('pub.clean', { browser: 'entry.js', capabilities: { agentsWindow: { supported: true } } });
+			const extensions = [denied, dependent, transitive, clean];
+			await createProductService(['PUB.DEPENDENT', 'pub.transitive', 'pub.clean'], extensions);
+			const descriptions = extensions.map(extension => ({ ...toExtensionDescription(extension), isUnderDevelopment: true }));
+			assert.deepStrictEqual({
+				states: testObject.getEnablementStates(extensions),
+				filtered: filterEnabledExtensions(new NullLogService(), testObject, descriptions, true).map(extension => extension.identifier.value)
+			}, { states: [EnablementState.DisabledByEnvironment, EnablementState.DisabledByExtensionDependency, EnablementState.DisabledByExtensionDependency, EnablementState.EnabledGlobally], filtered: ['pub.clean'] });
+		});
+
+		test('admission is a ceiling: declarative resources and audited code keep original enablement rules', async () => {
+			const theme = aLocalExtension2('pub.theme', { contributes: aContributes('themes') });
+			const allowed = aLocalExtension2('pub.allowed', { main: 'entry.js', capabilities: { agentsWindow: { supported: true } } });
+			await createProductService(['PUB.ALLOWED'], [theme, allowed]);
+			const enabled = testObject.getEnablementStates([theme, allowed]);
+			await testObject.setEnablement([allowed], EnablementState.DisabledGlobally);
+			assert.deepStrictEqual({ enabled, disabled: testObject.getEnablementState(allowed) }, { enabled: [EnablementState.EnabledGlobally, EnablementState.EnabledGlobally], disabled: EnablementState.DisabledGlobally });
+		});
+
+		for (const sessions of [false, true]) {
+			test(`development override preserves upstream behavior when ${sessions ? 'product policy is absent' : 'outside Sessions'}`, async () => {
+				const extension = aLocalExtension2('pub.dev', { main: 'entry.js' });
+				await createProductService(sessions ? undefined : [], [extension], sessions);
+				await testObject.setEnablement([extension], EnablementState.DisabledGlobally);
+				const description = { ...toExtensionDescription(extension), isUnderDevelopment: true };
+				assert.deepStrictEqual(filterEnabledExtensions(new NullLogService(), testObject, [description], false).map(extension => extension.identifier.value), ['pub.dev']);
+			});
+		}
 	});
 
 	test('test extensions are disabled in sessions window unless they only contribute themes', () => {

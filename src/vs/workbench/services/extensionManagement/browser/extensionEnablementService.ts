@@ -86,7 +86,7 @@ export class ExtensionEnablementService extends Disposable implements IWorkbench
 		@IChatEntitlementService private readonly chatEntitlementService: IChatEntitlementService,
 		@IInstantiationService instantiationService: IInstantiationService,
 		@ILogService private readonly logService: ILogService,
-		@IProductService productService: IProductService
+		@IProductService private readonly productService: IProductService
 	) {
 		super();
 		this.storageManager = this._register(new StorageManager(storageService));
@@ -317,6 +317,11 @@ export class ExtensionEnablementService extends Disposable implements IWorkbench
 
 		if (newState === EnablementState.EnabledGlobally || newState === EnablementState.EnabledWorkspace) {
 			extensions.push(...this.getExtensionsToEnableRecursively(extensions, this.extensionsManager.extensions, newState, { dependencies: true, pack: true }));
+			for (const extension of extensions) {
+				if (this._isDisabledByProduct(extension)) {
+					this.throwErrorIfEnablementStateCannotBeChanged(extension, EnablementState.DisabledByEnvironment);
+				}
+			}
 		}
 
 		const workspace = newState === EnablementState.DisabledWorkspace || newState === EnablementState.EnabledWorkspace;
@@ -450,7 +455,25 @@ export class ExtensionEnablementService extends Disposable implements IWorkbench
 		return this._isDisabledGlobally(extension.identifier);
 	}
 
+	private get hasSessionsWindowProductPolicy(): boolean {
+		return !!this.environmentService.isSessionsWindow && this.productService.agentFirstExecutableExtensions !== undefined;
+	}
+
+	private _isDisabledByProduct(extension: IExtension): boolean {
+		return this.hasSessionsWindowProductPolicy && !this.extensionManifestPropertiesService.isProductAdmittedOnSessionsWindow(extension.manifest);
+	}
+
+	isDevelopmentEnablementOverrideAllowed(): boolean {
+		return !this.hasSessionsWindowProductPolicy;
+	}
+
 	private _computeEnablementState(extension: IExtension, extensions: ReadonlyArray<IExtension>, workspaceType: WorkspaceType, computedEnablementStates?: Map<IExtension, EnablementState>): EnablementState {
+		// Enforce the immutable product ceiling before builtin chat, workspace enablement,
+		// auto-enable, capability overrides, environment enable flags and dependency traversal.
+		if (this._isDisabledByProduct(extension)) {
+			return EnablementState.DisabledByEnvironment;
+		}
+
 		computedEnablementStates = computedEnablementStates ?? new Map<IExtension, EnablementState>();
 		let enablementState = computedEnablementStates.get(extension);
 		if (enablementState !== undefined) {

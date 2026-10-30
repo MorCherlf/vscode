@@ -5,7 +5,11 @@
 
 ## 人工交付顺序（当前优先）
 
-遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。 2026-10-30 已进一步裁掉五组原编辑器贡献入口，原 Worker EH 准入/依赖探针和原只读 diff fixture 通过；同探针 A/B 为 4,993 → 4,901 JS 请求，worker 数未下降，仍非完整裁剪/真实任务/Mac 门禁。见 [本轮原始证据](evidence/AF/H1/2026-10-30/README.md)。 后续 [H1 迭代 3](evidence/AF/H1/2026-10-30-editor-routes/README.md) 已关闭通用编辑器窗口入口并加入原生路由边界，18 项纯决策测试及普通 Web 产品对照通过；原生窗口未运行。全量层次检查这次返回 0；本轮三类 Worker 已有来源取证。[H1 迭代 4](evidence/AF/H1/2026-10-30-review-policy/README.md) 已接入原文本视图审阅策略，保留原 Agent API 写入与 Profile 配置编辑；原 ChatWidget/InputPart 实际键盘输入、项目代码拒绝手改、原 BulkEdit 保存及普通产品对照通过，针对性测试 47 项通过。[H1 迭代 5](evidence/AF/H1/2026-10-30-file-commands/README.md) 已移除十个手工文件修改命令及相关快捷键/菜单，增加 Explorer 拖入与迟到 drop 防护；77 项测试与原工作台普通产品对照通过，原 FileService 创建/移动/复制/删除和 BulkEdit 保存保留。[H1 迭代 6](evidence/AF/H1/2026-10-30-multi-review/README.md) 已排除独立 Merge Editor 启动注册，并以真实原 Multi Diff 控件键盘对照验证只读策略。19 项针对性测试通过；新原生探针仍为 Linux/IPC EPERM。[当前人工介入项](evidence/AF/H1/2026-10-30-multi-review/MANUAL_INTERVENTION.md)：Mac arm64 原生复验、产品自有 OAuth 应用公开 client ID 与专用测试账户准备。原 VSC 认证尚未接通自有应用，不能把旧 Tauri 环境变量当作 H1 登录配置。H1 仍待原生/自定义资源/任务加载、真实任务和 Mac 候选产物，不标可人工验收。
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次交付；只有用户明确确认才标人工通过。当前先闭合 H1，DSH 保留且未启用。
+
+已整合 [Mac 原生报告](evidence/AF/H1/2026-10-30-mac-native/README.md)（文档提交 a40ddff，实际产品源码 0bec73f）：原构建、IPC、Sessions/native EH、中文多行 DOM paste 与一条文件只读路径通过，但空产品清单下 GitHub.copilot-chat 实际激活，准入失败。最新 [enablement 修复](evidence/AF/H1/2026-10-30-native-admission-fix/README.md) 已在原 service 的提前放行及开发扩展过滤前统一施加产品准入，并拒绝不合规启用请求；154 项真实 enablement service 测试、11 项 Extension Service 和 46 项 manifest 测试通过，原 Worker EH 加入 chat-participant 负向触发。当前修复后的 Mac native EH 仍待复验；该无账户回归不需要 OAuth。
+
+H1 仍为工程进行中，尚不可提交人工验收。真实账户/任务、完整任务加载归因、系统 IME、独立 Mac 应用包及其他原生门禁未完成；详见 [H1 证据索引](evidence/AF/H1/README.md) 和 [NEXT](evidence/AF/H1/NEXT.md)。Linux/browser/service fixture 不替代 Mac 或真实模型；历史测试范围保留。
 
 当前产品方向是 VSC Agent First：直接复用原 Agent/Sessions 组件和原扩展宿主，禁用编辑器专用插件，不主动加载 editor-only 组件；DSH 使用自有 VS Code 插件适配器，插件继续由原 DSH 运行时加载。双方独立保留同步上游的路径。方向已由用户确认，具体边界见 [ADR-001](ADR-001-agent-first-dsh-extension.md)，方案见 [SOLUTION](SOLUTION.md)。首版优先 macOS arm64；最终容器仍待验证。
 

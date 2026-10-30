@@ -99,7 +99,7 @@ server = createServer(async (req, res) => {
 			if (fixture[2] === 'package.json') {
 				fixtureManifests.add(name);
 				res.setHeader('Content-Type', 'application/json');
-				res.end(JSON.stringify({ name, publisher: 'h1-fixture', version: '0.0.1', engines: { vscode: '^1.145.0' }, browser: './extension.js', activationEvents: ['*', 'onStartupFinished', 'onLanguage:agent-first-fixture', 'onCommand:agentFirst.fixture.denied'], extensionDependencies: name === 'dependent' ? ['h1-fixture.editor-only'] : [], capabilities: { agentsWindow: { supported: true } }, contributes: name === 'mixed' ? { commands: [{ command: 'agentFirst.fixture.denied', title: 'Fixture denied' }], languageModelTools: [{ name: 'fixtureTool', displayName: 'Fixture tool', modelDescription: 'Fixture only' }] } : {} }));
+				res.end(JSON.stringify({ name, publisher: 'h1-fixture', version: '0.0.1', engines: { vscode: '^1.145.0' }, browser: './extension.js', activationEvents: ['*', 'onStartupFinished', 'onLanguage:agent-first-fixture', 'onCommand:agentFirst.fixture.denied', 'onChatParticipant:h1-fixture.mixed'], extensionDependencies: name === 'dependent' ? ['h1-fixture.editor-only'] : [], capabilities: { agentsWindow: { supported: true } }, contributes: name === 'mixed' ? { commands: [{ command: 'agentFirst.fixture.denied', title: 'Fixture denied' }], languageModelTools: [{ name: 'fixtureTool', displayName: 'Fixture tool', modelDescription: 'Fixture only' }] } : {} }));
 			} else if (fixture[2] === 'package.nls.json') {
 				res.setHeader('Content-Type', 'application/json'); res.end('{}');
 			} else {
