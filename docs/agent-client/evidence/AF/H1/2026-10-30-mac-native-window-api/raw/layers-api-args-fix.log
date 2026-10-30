@@ -7,4 +7,3 @@ npm warn Unknown project config "timeout". This will stop working in the next ma
 
 > code-oss-dev@1.145.0 valid-layers-check
 > node build/checker/layersChecker.ts && node build/checker/layersTypeCheck.ts
-
