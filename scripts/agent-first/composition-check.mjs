@@ -7,7 +7,7 @@ const editorLauncherModules = [
 	'/out/vs/sessions/electron-browser/actions/vscodeActions.js',
 	'/out/vs/sessions/browser/widget/openInVSCodeWidget.js'
 ];
-const productOnlyModules = [...editorLauncherModules, '/out/vs/workbench/contrib/mergeEditor/browser/mergeEditor.contribution.js', '/out/vs/workbench/contrib/mergeEditor/browser/view/mergeEditor.js'];
+const productOnlyModules = [...editorLauncherModules, '/out/vs/sessions/contrib/customViewTest/browser/customViewTest.contribution.js', '/out/vs/workbench/contrib/mergeEditor/browser/mergeEditor.contribution.js', '/out/vs/workbench/contrib/mergeEditor/browser/view/mergeEditor.js'];
 export const excludedStartupModules = [
 	...productOnlyModules,
 	'/out/vs/editor/editor.all.js',
@@ -31,6 +31,7 @@ export async function checkComposition(page, scripts, legacyEditorRoutes = false
 		return {
 			panes: Registry.as(EditorExtensions.EditorPane).getEditorPanes().map(pane => pane.typeId).sort(),
 			commands: ['notebook.cell.execute', 'interactive.open', 'repl.execute', 'search.action.openNewEditor'].filter(id => CommandsRegistry.getCommand(id)),
+			placeholderCustomViewCommands: ['sessions.customView.showTestView', 'sessions.customView.hideTestView', 'sessions.customView.testView.ping'].filter(id => CommandsRegistry.getCommand(id)),
 			editorLaunchers: ['sessions.openInVSCode', 'agents.openSessionInVSCode', 'agents.openVSCodeWindow', 'agents.returnToVSCodeEditor'].filter(id => CommandsRegistry.getCommand(id)),
 			sharedServices: getSingletonServiceDescriptors().filter(([id]) => /notebook|interactive|renameSymbol/i.test(id.toString())).map(([id, descriptor]) => ({ id: id.toString(), ctor: descriptor.ctor.name, delayed: descriptor.supportsDelayedInstantiation }))
 		};
@@ -41,6 +42,7 @@ export async function checkComposition(page, scripts, legacyEditorRoutes = false
 	assert.equal(await page.getByRole('button', { name: /Open in VS Code Editor Window/ }).count(), legacyEditorRoutes ? 1 : 0, 'Editor launcher remains in keyboard/accessibility surface');
 	assert.deepEqual(registry.panes.filter(id => /notebook|interactive|repl|searchEditor/i.test(id)), [], 'Editor-only pane registered');
 	assert.deepEqual(registry.commands, [], 'Editor-only command registered');
+	assert.equal(registry.placeholderCustomViewCommands.length, legacyEditorRoutes ? 3 : 0, 'Placeholder custom pane registrations do not match product composition');
 	assert.equal(registry.panes.includes('mergeEditor'), legacyEditorRoutes, 'Standalone merge pane does not match product composition');
 	assert.ok(registry.panes.includes('workbench.editors.textDiffEditor'), 'Original text diff pane missing');
 	assert.ok(registry.sharedServices.some(service => service.id === 'notebookService' && service.ctor === 'NotebookService' && service.delayed), 'Original shared notebook service missing');

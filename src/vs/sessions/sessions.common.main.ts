@@ -517,7 +517,10 @@ import './contrib/policyBlocked/browser/policyBlocked.contribution.js';
 import '../workbench/services/policies/browser/managedSettingsUpdate.contribution.js';
 import './contrib/automations/browser/automations.contribution.js';
 import './contrib/remoteSessions/browser/remoteSessions.contribution.js';
-import './contrib/customViewTest/browser/customViewTest.contribution.js';
+// The placeholder registers a restorable pane even when its developer action is hidden.
+if (!product.agentFirst) {
+	await import('./contrib/customViewTest/browser/customViewTest.contribution.js');
+}
 
 // Onboarding: the engine + spotlight presentation (from the workbench layer) and
 // the Agents window scenario data.

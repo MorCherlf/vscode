@@ -1,0 +1,43 @@
+{
+  "baseCommit": "988fbfd2a26f7efe7050c6145718a00989d34fb3",
+  "platform": "Linux x86_64",
+  "node": "v24.22.1",
+  "browser": "141.0.7390.37 (explicit existing executable; not pinned browser)",
+  "checks": {
+    "build-fast --client-only": 0,
+    "source-types": 0,
+    "test-types": 0,
+    "custom-editor-resolver": {
+      "exitCode": 0,
+      "passing": 6,
+      "new": 5
+    },
+    "original-component-suites": {
+      "exitCode": 0,
+      "passing": 47
+    },
+    "agent-first-original-browser": 0,
+    "ordinary-route-original-browser": 0,
+    "lint-four-ts-files": 0,
+    "layers": 0
+  },
+  "placeholderModule": {
+    "agentFirstRequested": false,
+    "ordinaryRequested": true
+  },
+  "failuresRetained": [
+    "initial-browser-missing-firefox.log",
+    "initial-browser-missing-chromium.log",
+    "initial-test-types.log"
+  ],
+  "notExecuted": [
+    "native Electron/Mac tests for this new source",
+    "real SDK/model/account task",
+    "physical OS/drop/restore matrix",
+    "IME/VoiceOver",
+    "independent Mac package"
+  ],
+  "humanAcceptance": "H1 engineering in progress; not ready for human acceptance",
+  "productionExecutableExtensions": [],
+  "dsh": "inactive"
+}

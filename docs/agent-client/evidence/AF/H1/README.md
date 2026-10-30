@@ -1,6 +1,6 @@
 # H1 engineering checkpoint — 2026-10-29
 
-Latest: [window intent/restore/resource-drop source work](2026-10-30-window-resource-drop/README.md), after the [successful Mac admission retest](2026-10-30-mac-admission-retest/README.md) of exact product09c0374. Native admission failure closure is retained; this source package has Linux pure routing/original drop service and browser evidence, not new Mac OS-window/drop results. The old native failure remains historical. H1 is not ready for human acceptance; external native VSIX negatives remain owned by the local work package.
+Latest: [original custom-editor restore/placeholder view work](2026-10-30-provider-resource/README.md) on integrated988fbfd2. Six original resolver tests,47 original component/auth gate tests and two original-browser route controls pass on Linux; no new Mac/model result. [Backend/auth audit](2026-10-30-provider-resource/BACKENDS.md) distinguishes original Copilot/Claude/Codex/BYOK/local-model paths and their actual gates. The imported [native external VSIX matrix](2026-10-30-mac-vsix-matrix/README.md) and [native window API fix](2026-10-30-mac-native-window-api/README.md) retain their exact checkout/product versions. H1 remains engineering in progress, not ready for human acceptance.
 
 Previous engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
 

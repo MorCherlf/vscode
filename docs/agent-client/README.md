@@ -7,11 +7,11 @@
 
 遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次交付；只有用户明确确认才标人工通过。当前先闭合 H1，DSH 保留且未启用。
 
-已整合 [Mac 准入复验](evidence/AF/H1/2026-10-30-mac-admission-retest/README.md)（文档 78b70f4、实际产品 09c0374）：原 native EH 正常启动/退出，实际请求并完成 chat-participant 激活，空清单下无可执行扩展激活；中文多行 paste 和一条文件只读路径通过。历史 0bec73f 失败保留。该结果是源码启动与限定准入证明，不是完整 H1 验收。
+已整合远端 `988fbfd2`：保留 [Mac 外部 VSIX 矩阵](evidence/AF/H1/2026-10-30-mac-vsix-matrix/README.md) 的 checkout78b70f4/product09c0374 实际安装、六次启用拒绝与重启对照；保留 [native 窗口 API 修复](evidence/AF/H1/2026-10-30-mac-native-window-api/README.md) product20c9dc7 的正常目录/canonical 两正向与六拒绝。历史 0bec73f、96fa875 失败按原版本保留，不把旧开发扫描结果归到更新后的入口策略。
 
-最新 [窗口/恢复/资源拖放工作包](evidence/AF/H1/2026-10-30-window-resource-drop/README.md) 已在 canonicalization 前校验原生打开意图，收紧 CLI 单文件夹结果与旧编辑器窗口恢复，防止资源拖放进入普通 workspace 或注入未保存编辑器内容。26 项纯函数路由/恢复测试、13 项原资源拖放 service 测试及原界面/Worker 加载探针通过；新的 Mac OS 打开、恢复和物理拖放矩阵仍待验证。
+最新 [原资源 resolver/占位视图工作包](evidence/AF/H1/2026-10-30-provider-resource/README.md) 防止无 owner 的旧 custom-editor cache 在 Sessions 产品准入前注册；Agent First 不再加载 Test Custom View 占位贡献，保留原服务和普通产品行为。6 项原 resolver 回归、47 项原 custom view/editor resolver/auth gate 测试、原界面两路对照、类型/构建/lint/layers 通过，属于 Linux/browser/fixture 证据。后端真实路径见 [backend/认证调查](evidence/AF/H1/2026-10-30-provider-resource/BACKENDS.md)：GitHub OAuth 不作为所有 backend、本地界面或裁剪工程的通用前置；本轮未启动真实 SDK/账户任务。
 
-H1 仍为工程进行中，尚不可提交人工验收。外部 VSIX 原生负向用例由本机推进；真实任务、完整加载归因、系统 IME/VoiceOver、独立 Mac 包及其他门禁未完成。见 [H1 证据索引](evidence/AF/H1/README.md) 与 [NEXT](evidence/AF/H1/NEXT.md)。OAuth 不阻塞独立源码工作，Linux/fixture 不替代 native/真实模型结果。
+H1 仍为工程进行中，尚不可提交人工验收。剩余原生 OS/CLI/旧恢复/custom pane、真实 provider 任务、完整任务时加载归因、IME/VoiceOver、独立 Mac 包等门禁保留。见 [H1 证据索引](evidence/AF/H1/README.md) 与 [NEXT](evidence/AF/H1/NEXT.md)。生产 executable 清单 []，DSH/H2–H4 未启用，不合并或发布。
 
 当前产品方向是 VSC Agent First：直接复用原 Agent/Sessions 组件和原扩展宿主，禁用编辑器专用插件，不主动加载 editor-only 组件；DSH 使用自有 VS Code 插件适配器，插件继续由原 DSH 运行时加载。双方独立保留同步上游的路径。方向已由用户确认，具体边界见 [ADR-001](ADR-001-agent-first-dsh-extension.md)，方案见 [SOLUTION](SOLUTION.md)。首版优先 macOS arm64；最终容器仍待验证。
 
