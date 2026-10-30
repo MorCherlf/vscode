@@ -37,6 +37,11 @@ export class TextEditorReviewPolicy {
 				}
 			}
 		}
-		return new MarkdownString(localize('agentFirst.readonlyReview', "Agent First file review is read-only. Use an Agent task to change project files. Profile settings and Agent instructions remain editable."));
+		return getAgentFirstReadonlyMessage();
 	}
+}
+
+/** Shared explanation for original text and embedded diff review controls. */
+export function getAgentFirstReadonlyMessage(): IMarkdownString {
+	return new MarkdownString(localize('agentFirst.readonlyReview', "Agent First file review is read-only. Use an Agent task to change project files. Profile settings and Agent instructions remain editable."));
 }

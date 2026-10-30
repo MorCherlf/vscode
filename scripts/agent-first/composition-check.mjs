@@ -7,8 +7,9 @@ const editorLauncherModules = [
 	'/out/vs/sessions/electron-browser/actions/vscodeActions.js',
 	'/out/vs/sessions/browser/widget/openInVSCodeWidget.js'
 ];
+const productOnlyModules = [...editorLauncherModules, '/out/vs/workbench/contrib/mergeEditor/browser/mergeEditor.contribution.js', '/out/vs/workbench/contrib/mergeEditor/browser/view/mergeEditor.js'];
 export const excludedStartupModules = [
-	...editorLauncherModules,
+	...productOnlyModules,
 	'/out/vs/editor/editor.all.js',
 	'/out/vs/workbench/contrib/notebook/browser/notebook.contribution.js',
 	'/out/vs/workbench/contrib/notebook/browser/controller/executeActions.js',
@@ -34,12 +35,13 @@ export async function checkComposition(page, scripts, legacyEditorRoutes = false
 			sharedServices: getSingletonServiceDescriptors().filter(([id]) => /notebook|interactive|renameSymbol/i.test(id.toString())).map(([id, descriptor]) => ({ id: id.toString(), ctor: descriptor.ctor.name, delayed: descriptor.supportsDelayedInstantiation }))
 		};
 	});
-	const excluded = legacyEditorRoutes ? excludedStartupModules.filter(path => !editorLauncherModules.includes(path)) : excludedStartupModules;
+	const excluded = legacyEditorRoutes ? excludedStartupModules.filter(path => !productOnlyModules.includes(path)) : excludedStartupModules;
 	assert.deepEqual(excluded.filter(path => scripts.has(path)), [], 'Excluded startup module requested');
 	assert.deepEqual(registry.editorLaunchers, legacyEditorRoutes ? ['sessions.openInVSCode'] : [], 'Editor launcher registration does not match product composition');
 	assert.equal(await page.getByRole('button', { name: /Open in VS Code Editor Window/ }).count(), legacyEditorRoutes ? 1 : 0, 'Editor launcher remains in keyboard/accessibility surface');
 	assert.deepEqual(registry.panes.filter(id => /notebook|interactive|repl|searchEditor/i.test(id)), [], 'Editor-only pane registered');
 	assert.deepEqual(registry.commands, [], 'Editor-only command registered');
+	assert.equal(registry.panes.includes('mergeEditor'), legacyEditorRoutes, 'Standalone merge pane does not match product composition');
 	assert.ok(registry.panes.includes('workbench.editors.textDiffEditor'), 'Original text diff pane missing');
 	assert.ok(registry.sharedServices.some(service => service.id === 'notebookService' && service.ctor === 'NotebookService' && service.delayed), 'Original shared notebook service missing');
 	return { excludedStartupModules, registry };

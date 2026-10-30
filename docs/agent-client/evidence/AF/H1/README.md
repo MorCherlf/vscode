@@ -1,6 +1,6 @@
 # H1 engineering checkpoint — 2026-10-29
 
-Latest: [iteration 5 — original manual mutation command/drag admission](2026-10-30-file-commands/README.md). Previous [file review, ChatInput typing and retained Agent API writes](2026-10-30-review-policy/README.md) stays historical. Previous [editor-window routes and worker attribution](2026-10-30-editor-routes/README.md) remains historical evidence. H1 remains engineering in progress, not ready for human acceptance.
+Latest: [iteration 6 — original multi-file review and required native/account handoff](2026-10-30-multi-review/README.md). [Manual input](2026-10-30-multi-review/MANUAL_INTERVENTION.md) is required for the next native/account gate; H1 is not ready. Previous [manual mutation command/drag admission](2026-10-30-file-commands/README.md) remains historical. Previous [file review, ChatInput typing and retained Agent API writes](2026-10-30-review-policy/README.md) stays historical. Previous [editor-window routes and worker attribution](2026-10-30-editor-routes/README.md) remains historical evidence. H1 remains engineering in progress, not ready for human acceptance.
 
 Previous engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
 

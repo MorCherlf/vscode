@@ -1,0 +1,31 @@
+Running the 3 browser test files of the 3 files listed in /tmp/h1f-tests.txt
+
+
+  MultiDiffEditorConfiguration - /CHROMIUM/
+    ✔ registers the experimental variant setting
+    ✔ registers the experimental file list setting as opt-in
+    ✔ registers original line number visibility as an inheritable setting
+    ✔ maps setting values to compact variants
+    ✔ updates the resolved variant when configuration changes
+    ✔ shows the file list while the setting is on and the shared toggle has not hidden it
+    ✔ shares the file list view mode between editors and defaults to a list
+    ✔ shares and remembers the file list position, defaulting to the right
+
+  MultiDiffEditorInput - /CHROMIUM/
+    ✔ updates its name from the resolved source label
+    ✔ disposes models that finish resolving after input disposal
+    ✔ ignores stale document resolutions after replace
+    ✔ ignores stale document resolutions after remove
+    ✔ ignores stale document resolutions after dispose
+    ✔ preserves explicit original line number setting values and updates
+    ✔ keeps binary resources in the multi diff model
+
+  Agent First text review policy - /CHROMIUM/
+    ✔ only exact Profile resources and normalized instructions descendants are editable
+    ✔ ordinary products retain their original editor decisions
+    ✔ diffs cannot inherit a Profile file editing exception
+    ✔ Profile switches revoke the old Profile exception and retain the default Profile
+
+
+  19 passing (129ms)
+

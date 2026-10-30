@@ -95,6 +95,21 @@ disposables.add(CommandsRegistry.registerCommand('agentFirst.test.review', async
 		reviewFixture.provider.setReadOnly(true);
 		return { readOnly: editor.activeTextEditorControl.getRawOptions().readOnly };
 	}
+	if (operation === 'multiDiff') {
+		const before = URI.parse('agent-first-fixture:/project/multi-before.js');
+		await files.writeFile(before, VSBuffer.fromString('// before\n'));
+		const pane = await editor.openEditor({ multiDiffSource: URI.parse('agent-first-fixture:/review/multi'), resources: [{ original: { resource: before }, modified: { resource } }], options: { pinned: true } });
+		pane.focus();
+		const control = pane.getControl();
+		if (!control) { throw new Error('Original multi diff has no active control'); }
+		await control.waitForDiff();
+		control.getModifiedEditor().focus();
+		return { pane: pane.getId(), readOnly: control.getModifiedEditor().getRawOptions().readOnly, value: control.getModel().modified.getValue() };
+	}
+	if (operation === 'multiDiffRead') {
+		const control = editor.activeEditorPane.getControl();
+		return { readOnly: control.getModifiedEditor().getRawOptions().readOnly, value: control.getModel().modified.getValue() };
+	}
 	if (operation === 'apiLifecycle') {
 		const created = URI.parse('agent-first-fixture:/project/api-created.txt');
 		const renamed = URI.parse('agent-first-fixture:/project/api-renamed.txt');

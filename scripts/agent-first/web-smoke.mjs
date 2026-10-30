@@ -70,6 +70,8 @@ if (probeExtensions) {
 	product.agentFirstExecutableExtensions = ['h1-fixture.control', 'h1-fixture.dependent'];
 	configurationDefaults['extensions.supportAgentsWindow'] = { 'h1-fixture.editor-only': true, 'h1-fixture.mixed': true };
 	configurationDefaults['diffEditor.renderSideBySide'] = false;
+	// Adversarial unknown configuration must not relax readonly models/product review.
+	configurationDefaults['diffEditor.readOnly'] = false;
 }
 const pkg = JSON.parse(await readFile(resolve(root, 'package.json'), 'utf8'));
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>html,body{height:100%;margin:0}</style><style id="css"></style></head><body><script>
@@ -184,6 +186,11 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 		}, mutations.commands);
 		if (!legacyEditorRoutes && rejectedMutations.length !== 10) { throw new Error('Stale manual mutation command was executable'); }
 		console.log(JSON.stringify({ originalManualMutationFixture: { mutations, rejectedMutations, apiLifecycle }, boundary: 'actual original command/menu/keybinding registries and ICommandService; not OS confinement or real model task' }));
+		const multiDiff = await review('multiDiff', 'project');
+		await page.keyboard.type('MULTIDIFF_KEYBOARD_MARKER');
+		const multiTyped = await review('multiDiffRead', 'project');
+		if (multiDiff.readOnly !== !legacyEditorRoutes || multiTyped.value.includes('MULTIDIFF_KEYBOARD_MARKER') !== legacyEditorRoutes) { throw new Error('Original multi diff typing policy failed: ' + JSON.stringify({ multiDiff, multiTyped })); }
+		console.log(JSON.stringify({ originalMultiDiffFixture: { multiDiff, multiTyped }, boundary: 'original embedded diff with writable FileService fixture; no task/account' }));
 		await review('open', 'project');
 		const providerReadonly = await review('providerReadonly');
 		const providerState = await review('read', 'project');

@@ -303,8 +303,11 @@ registerSingleton(IDebugVisualizerService, NullDebugVisualizerService, Instantia
 // Process Explorer
 import '../workbench/contrib/processExplorer/browser/processExplorer.contribution.js';
 
-// Merge Editor
-import '../workbench/contrib/mergeEditor/browser/mergeEditor.contribution.js';
+// Agent First retains read-only diff review rather than the standalone conflict editor.
+import product from '../platform/product/common/product.js';
+if (!product.agentFirst) {
+	await import('../workbench/contrib/mergeEditor/browser/mergeEditor.contribution.js');
+}
 
 // Multi Diff Editor
 import '../workbench/contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
