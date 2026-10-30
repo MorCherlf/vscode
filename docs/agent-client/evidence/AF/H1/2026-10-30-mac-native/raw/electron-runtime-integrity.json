@@ -1,0 +1,9 @@
+{
+  "file": "electron-v43.8.3-darwin-arm64.zip",
+  "bytes": 123952871,
+  "sha256": "08e693ae36cfd230105aabe70c626b1a243c13534a529c35a80c1b87cb8da7b4",
+  "expectedSha256": "08e693ae36cfd230105aabe70c626b1a243c13534a529c35a80c1b87cb8da7b4",
+  "matched": true,
+  "officialAssetId": 661174428,
+  "source": "https://api.github.com/repos/electron/electron/releases/assets/661174428"
+}
