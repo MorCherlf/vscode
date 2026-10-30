@@ -181,7 +181,9 @@ function fromLocalEsbuild(extensionPath: string, esbuildConfigFileName: string):
 		});
 	}).then(() => {
 		// After esbuild completes, collect all files using vsce
-		return vsce.listFiles({ cwd: extensionPath, packageManager: vsce.PackageManager.None });
+		// Copilot keeps its external SDK in production dependencies; its .vscodeignore
+		// selects the runtime assets that must survive the app-level module exclusions.
+		return vsce.listFiles({ cwd: extensionPath, packageManager: extensionName === 'copilot' ? vsce.PackageManager.Npm : vsce.PackageManager.None });
 	}).then(fileNames => {
 		if (packagedDependencies.length > 0) {
 			const packagedDependencyFileNames = packagedDependencies.flatMap(dependency =>
