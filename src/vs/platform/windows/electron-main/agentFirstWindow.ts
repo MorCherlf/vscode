@@ -10,8 +10,14 @@ import { URI } from '../../../base/common/uri.js';
 import { localize } from '../../../nls.js';
 import { isFileToOpen, isFolderToOpen, isWorkspaceToOpen } from '../../window/common/window.js';
 import type { IOpenConfiguration } from './windows.js';
+import type { NativeParsedArgs } from '../../environment/common/argv.js';
 
 export type AgentFirstWindowTarget = { readonly kind: 'agents' | 'new' | 'unsupported' } | { readonly kind: 'folder'; readonly folder: URI };
+
+/** Native UI requests carry their own openables; the process's startup paths are not new API intent. */
+export function getAgentFirstApiOpenArgs(agentFirst: boolean | undefined, startupArgs: NativeParsedArgs): NativeParsedArgs {
+	return agentFirst ? { ...startupArgs, _: [], 'file-uri': undefined, 'folder-uri': undefined } : startupArgs;
+}
 
 /** Route only unambiguous opens; unsupported editor intents must not silently lose their payload. */
 export function getAgentFirstWindowTarget(config: IOpenConfiguration, agentsWorkspace: URI): AgentFirstWindowTarget {

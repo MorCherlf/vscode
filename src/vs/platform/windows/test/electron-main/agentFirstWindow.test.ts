@@ -6,7 +6,8 @@
 import assert from 'assert';
 import { URI } from '../../../../base/common/uri.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../base/test/common/utils.js';
-import { assertAgentFirstOpenIntentAllowed, assertAgentFirstWindowAllowed, getAgentFirstResolvedFolder, getAgentFirstWindowTarget, isAgentFirstRestorableWindow } from '../../electron-main/agentFirstWindow.js';
+import { assertAgentFirstOpenIntentAllowed, assertAgentFirstWindowAllowed, getAgentFirstApiOpenArgs, getAgentFirstResolvedFolder, getAgentFirstWindowTarget, isAgentFirstRestorableWindow } from '../../electron-main/agentFirstWindow.js';
+import type { NativeParsedArgs } from '../../../environment/common/argv.js';
 import type { IOpenConfiguration } from '../../electron-main/windows.js';
 
 suite('Agent First window routing', () => {
@@ -40,6 +41,34 @@ suite('Agent First window routing', () => {
 	for (const [label, config, expected] of cases) {
 		test(label, () => assert.deepStrictEqual(getAgentFirstWindowTarget(config, workspace), expected));
 	}
+
+	test('native API folder and empty opens do not inherit startup paths', () => {
+		const startup: NativeParsedArgs = { _: ['/startup'], 'folder-uri': ['file:///startup'], 'file-uri': ['file:///old.ts'], locale: 'zh-cn' };
+		const before = structuredClone(startup);
+		const cli = getAgentFirstApiOpenArgs(true, startup);
+		assert.deepStrictEqual([
+			getAgentFirstWindowTarget({ ...base, cli, urisToOpen: [{ folderUri: folder }] }, workspace),
+			getAgentFirstWindowTarget({ ...base, cli, forceEmpty: true }, workspace),
+			cli.locale, startup
+		], [{ kind: 'folder', folder }, { kind: 'new' }, 'zh-cn', before]);
+	});
+
+	test('native API normalization retains explicit unsupported payloads and remote authority', () => {
+		const cli = getAgentFirstApiOpenArgs(true, { _: ['/startup'], 'folder-uri': ['file:///startup'] });
+		assert.deepStrictEqual([
+			getAgentFirstWindowTarget({ ...base, cli, urisToOpen: [{ fileUri: URI.file('/file') }] }, workspace),
+			getAgentFirstWindowTarget({ ...base, cli, urisToOpen: [{ workspaceUri: workspace }], remoteAuthority: 'ssh-remote+host' }, workspace),
+			getAgentFirstWindowTarget({ ...base, cli, diffMode: true }, workspace)
+		], [{ kind: 'unsupported' }, { kind: 'unsupported' }, { kind: 'unsupported' }]);
+	});
+
+	test('ordinary products keep the original native startup arguments', () => {
+		const cli: NativeParsedArgs = { _: ['/startup'], 'folder-uri': ['file:///startup'] };
+		for (const mode of [false, undefined]) {
+			assert.strictEqual(getAgentFirstApiOpenArgs(mode, cli), cli);
+		}
+		assert.deepStrictEqual(getAgentFirstWindowTarget({ ...base, cli }, workspace), { kind: 'unsupported' });
+	});
 	test('resolved CLI input must contain exactly one local folder', () => {
 		const valid = { workspace: { id: 'local', uri: folder } };
 		assert.deepStrictEqual([

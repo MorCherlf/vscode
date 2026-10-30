@@ -36,6 +36,7 @@ import { IThemeMainService } from '../../theme/electron-main/themeMainService.js
 import { defaultWindowState, ICodeWindow, LoadReason } from '../../window/electron-main/window.js';
 import { IColorScheme, IOpenedAuxiliaryWindow, IOpenedMainWindow, IOpenEmptyWindowOptions, IOpenWindowOptions, IPoint, IRectangle, IWindowOpenable } from '../../window/common/window.js';
 import { defaultBrowserWindowOptions, IWindowsMainService, OpenContext } from '../../windows/electron-main/windows.js';
+import { getAgentFirstApiOpenArgs } from '../../windows/electron-main/agentFirstWindow.js';
 import { isWorkspaceIdentifier, toWorkspaceIdentifier } from '../../workspace/common/workspace.js';
 import { IWorkspacesManagementMainService } from '../../workspaces/electron-main/workspacesManagementMainService.js';
 import { VSBuffer } from '../../../base/common/buffer.js';
@@ -338,7 +339,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 				context: OpenContext.API,
 				contextWindowId: windowId,
 				urisToOpen: toOpen,
-				cli: this.environmentMainService.args,
+				cli: getAgentFirstApiOpenArgs(this.productService.agentFirst, this.environmentMainService.args),
 				forceNewWindow: options.forceNewWindow,
 				forceReuseWindow: options.forceReuseWindow,
 				preferNewWindow: options.preferNewWindow,
@@ -376,7 +377,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 		const windows = await this.windowsMainService.openAgentsWindow({
 			context: OpenContext.API,
 			contextWindowId: windowId,
-			cli: this.environmentMainService.args,
+			cli: getAgentFirstApiOpenArgs(this.productService.agentFirst, this.environmentMainService.args),
 		}, options?.folderUri ? URI.revive(options.folderUri) : undefined, options?.reveal === 'new' ? 'new' : URI.revive(options?.reveal), options?.source, options?.folderUriIsDefault, options?.draft, options?.onboardingSessionResource ? URI.revive(options.onboardingSessionResource) : undefined);
 		if (windows.length > 0) {
 			// Transfer focus is a no-op on macOS while VS Code is hidden, e.g. when run from a system-wide keybinding
@@ -687,7 +688,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 		await this.windowsMainService.open({
 			context: OpenContext.DIALOG,
 			contextWindowId: windowId,
-			cli: this.environmentMainService.args,
+			cli: getAgentFirstApiOpenArgs(this.productService.agentFirst, this.environmentMainService.args),
 			urisToOpen: openable,
 			forceNewWindow: options.forceNewWindow,
 			/* remoteAuthority will be determined based on openable */
@@ -1139,7 +1140,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 	async newWindowTab(): Promise<void> {
 		await this.windowsMainService.open({
 			context: OpenContext.API,
-			cli: this.environmentMainService.args,
+			cli: getAgentFirstApiOpenArgs(this.productService.agentFirst, this.environmentMainService.args),
 			forceNewTabbedWindow: true,
 			forceEmpty: true,
 			remoteAuthority: this.environmentMainService.args.remote || undefined

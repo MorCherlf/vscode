@@ -60,7 +60,7 @@ import { ICSSDevelopmentService } from '../../cssDev/node/cssDevService.js';
 import { ResourceSet } from '../../../base/common/map.js';
 import { VSBuffer } from '../../../base/common/buffer.js';
 import { resolveAgentsWindowFolder, sendAgentsWindowOpenIntent } from './agentsWindow.js';
-import { assertAgentFirstOpenIntentAllowed, assertAgentFirstWindowAllowed, getAgentFirstWindowTarget, isAgentFirstRestorableWindow } from './agentFirstWindow.js';
+import { assertAgentFirstOpenIntentAllowed, assertAgentFirstWindowAllowed, getAgentFirstApiOpenArgs, getAgentFirstWindowTarget, isAgentFirstRestorableWindow } from './agentFirstWindow.js';
 
 //#region Helper Interfaces
 
@@ -273,7 +273,9 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 	}
 
 	openEmptyWindow(openConfig: IOpenEmptyConfiguration, options?: IOpenEmptyWindowOptions): Promise<ICodeWindow[]> {
-		const cli = this.environmentMainService.args;
+		const cli = openConfig.context === OpenContext.API || openConfig.context === OpenContext.DIALOG || openConfig.context === OpenContext.MENU
+			? getAgentFirstApiOpenArgs(product.agentFirst, this.environmentMainService.args)
+			: this.environmentMainService.args;
 		const remoteAuthority = options?.remoteAuthority || undefined;
 		const forceEmpty = true;
 		const forceReuseWindow = options?.forceReuseWindow;
