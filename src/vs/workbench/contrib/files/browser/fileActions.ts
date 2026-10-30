@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import product from '../../../../platform/product/common/product.js';
 import * as nls from '../../../../nls.js';
 import { isWindows, OperatingSystem, OS } from '../../../../base/common/platform.js';
 import { extname, basename, isAbsolute } from '../../../../base/common/path.js';
@@ -980,19 +981,23 @@ async function openExplorerAndCreate(accessor: ServicesAccessor, isFolder: boole
 	});
 }
 
-CommandsRegistry.registerCommand({
-	id: NEW_FILE_COMMAND_ID,
-	handler: async (accessor) => {
-		await openExplorerAndCreate(accessor, false);
-	}
-});
+if (!product.agentFirst) {
+	CommandsRegistry.registerCommand({
+		id: NEW_FILE_COMMAND_ID,
+		handler: async (accessor) => {
+			await openExplorerAndCreate(accessor, false);
+		}
+	});
+}
 
-CommandsRegistry.registerCommand({
-	id: NEW_FOLDER_COMMAND_ID,
-	handler: async (accessor) => {
-		await openExplorerAndCreate(accessor, true);
-	}
-});
+if (!product.agentFirst) {
+	CommandsRegistry.registerCommand({
+		id: NEW_FOLDER_COMMAND_ID,
+		handler: async (accessor) => {
+			await openExplorerAndCreate(accessor, true);
+		}
+	});
+}
 
 export const renameHandler = async (accessor: ServicesAccessor) => {
 	const explorerService = accessor.get(IExplorerService);
@@ -1114,10 +1119,12 @@ const uploadFileHandler = async (accessor: ServicesAccessor) => {
 	}
 };
 
-CommandsRegistry.registerCommand({
-	id: UPLOAD_COMMAND_ID,
-	handler: uploadFileHandler
-});
+if (!product.agentFirst) {
+	CommandsRegistry.registerCommand({
+		id: UPLOAD_COMMAND_ID,
+		handler: uploadFileHandler
+	});
+}
 
 export const pasteFileHandler = async (accessor: ServicesAccessor, fileList?: FileList) => {
 	const clipboardService = accessor.get(IClipboardService);

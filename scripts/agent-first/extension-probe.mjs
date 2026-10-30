@@ -95,6 +95,27 @@ disposables.add(CommandsRegistry.registerCommand('agentFirst.test.review', async
 		reviewFixture.provider.setReadOnly(true);
 		return { readOnly: editor.activeTextEditorControl.getRawOptions().readOnly };
 	}
+	if (operation === 'apiLifecycle') {
+		const created = URI.parse('agent-first-fixture:/project/api-created.txt');
+		const renamed = URI.parse('agent-first-fixture:/project/api-renamed.txt');
+		const copied = URI.parse('agent-first-fixture:/project/api-copied.txt');
+		await files.writeFile(created, VSBuffer.fromString('synthetic lifecycle'));
+		await files.move(created, renamed);
+		await files.copy(renamed, copied);
+		const copiedValue = (await files.readFile(copied)).value.toString();
+		await files.del(renamed);
+		await files.del(copied);
+		return { copiedValue, remaining: await Promise.all([created, renamed, copied].map(uri => files.exists(uri))) };
+	}
+	if (operation === 'mutationEntries') {
+		const { KeybindingsRegistry } = await import('/out/vs/platform/keybinding/common/keybindingsRegistry.js');
+		const commands = ['workbench.action.files.saveAs', 'workbench.action.files.newFile', 'explorer.newFile', 'explorer.newFolder', 'renameFile', 'moveFileToTrash', 'deleteFile', 'filesExplorer.cut', 'filesExplorer.paste', 'explorer.upload'];
+		const registered = commands.filter(id => CommandsRegistry.getCommand(id));
+		const bindings = KeybindingsRegistry.getDefaultKeybindings().filter(rule => commands.includes(rule.command?.replace(/^\^/, ''))).map(rule => rule.command);
+		const menuIds = [MenuId.CommandPalette, MenuId.EditorTitleContext, MenuId.ExplorerContext, MenuId.MenubarFileMenu, MenuId.ViewTitle, MenuId.OpenEditorsContext];
+		const menus = menuIds.flatMap(menu => MenuRegistry.getMenuItems(menu).filter(item => commands.includes(item.command?.id) || commands.includes(item.alt?.id)).map(item => ({ menu: menu.id, command: item.command?.id, alt: item.alt?.id })));
+		return { commands, registered, bindings, menus, retained: ['filesExplorer.copy', 'workbench.action.files.save', 'workbench.files.action.compareFileWith'].filter(id => CommandsRegistry.getCommand(id)) };
+	}
 	if (operation === 'entries') {
 		const commands = ['workbench.action.files.newUntitledFile', 'workbench.files.action.compareNewUntitledTextFiles', 'workbench.action.files.setActiveEditorWriteableInSession'];
 		return { registered: commands.filter(id => CommandsRegistry.getCommand(id)), newFileMenus: [MenuId.EmptyEditorGroupContext, MenuId.EditorTabsBarContext, MenuId.MenubarFileMenu].flatMap(menu => MenuRegistry.getMenuItems(menu).filter(item => item.command?.id === commands[0]).map(() => menu.id)) };

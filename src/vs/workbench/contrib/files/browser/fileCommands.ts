@@ -520,15 +520,17 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 	}
 });
 
-KeybindingsRegistry.registerCommandAndKeybindingRule({
-	id: SAVE_FILE_AS_COMMAND_ID,
-	weight: KeybindingWeight.WorkbenchContrib,
-	when: undefined,
-	primary: KeyMod.CtrlCmd | KeyMod.Shift | KeyCode.KeyS,
-	handler: (accessor, ...args: unknown[]) => {
-		return saveSelectedEditors(accessor, { reason: SaveReason.EXPLICIT, saveAs: true }, args);
-	}
-});
+if (!product.agentFirst) {
+	KeybindingsRegistry.registerCommandAndKeybindingRule({
+		id: SAVE_FILE_AS_COMMAND_ID,
+		weight: KeybindingWeight.WorkbenchContrib,
+		when: undefined,
+		primary: KeyMod.CtrlCmd | KeyMod.Shift | KeyCode.KeyS,
+		handler: (accessor, ...args: unknown[]) => {
+			return saveSelectedEditors(accessor, { reason: SaveReason.EXPLICIT, saveAs: true }, args);
+		}
+	});
+}
 
 KeybindingsRegistry.registerCommandAndKeybindingRule({
 	when: undefined,
@@ -740,31 +742,33 @@ if (!product.agentFirst) {
 	});
 }
 
-CommandsRegistry.registerCommand({
-	id: NEW_FILE_COMMAND_ID,
-	handler: async (accessor, args?: { languageId?: string; viewType?: string; fileName?: string }) => {
-		const editorService = accessor.get(IEditorService);
-		const dialogService = accessor.get(IFileDialogService);
-		const fileService = accessor.get(IFileService);
+if (!product.agentFirst) {
+	CommandsRegistry.registerCommand({
+		id: NEW_FILE_COMMAND_ID,
+		handler: async (accessor, args?: { languageId?: string; viewType?: string; fileName?: string }) => {
+			const editorService = accessor.get(IEditorService);
+			const dialogService = accessor.get(IFileDialogService);
+			const fileService = accessor.get(IFileService);
 
-		const createFileLocalized = nls.localize('newFileCommand.saveLabel', "Create File");
-		const defaultFileUri = joinPath(await dialogService.defaultFilePath(), args?.fileName ?? 'Untitled.txt');
+			const createFileLocalized = nls.localize('newFileCommand.saveLabel', "Create File");
+			const defaultFileUri = joinPath(await dialogService.defaultFilePath(), args?.fileName ?? 'Untitled.txt');
 
-		const saveUri = await dialogService.showSaveDialog({ saveLabel: createFileLocalized, title: createFileLocalized, defaultUri: defaultFileUri });
+			const saveUri = await dialogService.showSaveDialog({ saveLabel: createFileLocalized, title: createFileLocalized, defaultUri: defaultFileUri });
 
-		if (!saveUri) {
-			return;
+			if (!saveUri) {
+				return;
+			}
+
+			await fileService.createFile(saveUri, undefined, { overwrite: true });
+
+			await editorService.openEditor({
+				resource: saveUri,
+				options: {
+					override: args?.viewType,
+					pinned: true
+				},
+				languageId: args?.languageId,
+			});
 		}
-
-		await fileService.createFile(saveUri, undefined, { overwrite: true });
-
-		await editorService.openEditor({
-			resource: saveUri,
-			options: {
-				override: args?.viewType,
-				pinned: true
-			},
-			languageId: args?.languageId,
-		});
-	}
-});
+	});
+}

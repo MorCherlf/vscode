@@ -167,6 +167,23 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 		if (!profileTyping.value.includes('KEYBOARD_PROFILE_MARKER')) { throw new Error('Original profile instruction editor typing failed'); }
 		const entries = await review('entries');
 		if (entries.registered.length !== (legacyEditorRoutes ? 3 : 0) || entries.newFileMenus.length !== (legacyEditorRoutes ? 3 : 0)) { throw new Error('Manual new-file/writeable actions leaked: ' + JSON.stringify(entries)); }
+		const apiLifecycle = await review('apiLifecycle');
+		if (apiLifecycle.copiedValue !== 'synthetic lifecycle' || apiLifecycle.remaining.some(Boolean)) { throw new Error('Original programmatic create/move/copy/delete failed'); }
+		const mutations = await review('mutationEntries');
+		if (legacyEditorRoutes ? mutations.registered.length !== 10 || mutations.bindings.length === 0 || mutations.menus.length === 0 : mutations.registered.length || mutations.bindings.length || mutations.menus.length) { throw new Error('Manual mutation registrations differ from product policy: ' + JSON.stringify(mutations)); }
+		if (mutations.retained.length !== 3) { throw new Error('Read/copy/normal-save commands were lost'); }
+		const rejectedMutations = legacyEditorRoutes ? [] : await page.evaluate(async commands => {
+			const rejected = [];
+			for (const command of commands) {
+				try { await window.agentFirstWorkbench.commands.executeCommand(command); } catch (error) {
+					if (!String(error).includes("not found")) { throw error; }
+					rejected.push(command);
+				}
+			}
+			return rejected;
+		}, mutations.commands);
+		if (!legacyEditorRoutes && rejectedMutations.length !== 10) { throw new Error('Stale manual mutation command was executable'); }
+		console.log(JSON.stringify({ originalManualMutationFixture: { mutations, rejectedMutations, apiLifecycle }, boundary: 'actual original command/menu/keybinding registries and ICommandService; not OS confinement or real model task' }));
 		await review('open', 'project');
 		const providerReadonly = await review('providerReadonly');
 		const providerState = await review('read', 'project');

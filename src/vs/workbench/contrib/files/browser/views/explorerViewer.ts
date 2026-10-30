@@ -6,6 +6,7 @@
 import { IListAccessibilityProvider } from '../../../../../base/browser/ui/list/listWidget.js';
 import * as DOM from '../../../../../base/browser/dom.js';
 import * as glob from '../../../../../base/common/glob.js';
+import { IProductService } from '../../../../../platform/product/common/productService.js';
 import { IListVirtualDelegate, ListDragOverEffectPosition, ListDragOverEffectType } from '../../../../../base/browser/ui/list/list.js';
 import { IProgressService, ProgressLocation, } from '../../../../../platform/progress/common/progress.js';
 import { INotificationService } from '../../../../../platform/notification/common/notification.js';
@@ -1515,11 +1516,12 @@ export class FileDragAndDrop implements ITreeDragAndDrop<ExplorerItem> {
 		@IConfigurationService private configurationService: IConfigurationService,
 		@IInstantiationService private instantiationService: IInstantiationService,
 		@IWorkspaceEditingService private workspaceEditingService: IWorkspaceEditingService,
-		@IUriIdentityService private readonly uriIdentityService: IUriIdentityService
+		@IUriIdentityService private readonly uriIdentityService: IUriIdentityService,
+		@IProductService private readonly productService: IProductService
 	) {
 		const updateDropEnablement = (e: IConfigurationChangeEvent | undefined) => {
 			if (!e || e.affectsConfiguration('explorer.enableDragAndDrop')) {
-				this.dropEnabled = this.configurationService.getValue('explorer.enableDragAndDrop');
+				this.dropEnabled = !this.productService.agentFirst && this.configurationService.getValue('explorer.enableDragAndDrop');
 			}
 		};
 		updateDropEnablement(undefined);
@@ -1709,6 +1711,10 @@ export class FileDragAndDrop implements ITreeDragAndDrop<ExplorerItem> {
 	}
 
 	async drop(data: IDragAndDropData, target: ExplorerItem | undefined, targetIndex: number | undefined, targetSector: ListViewTargetSector | undefined, originalEvent: DragEvent): Promise<void> {
+		// A stale drop event must not bypass the product's review-only Explorer UI.
+		if (this.productService.agentFirst) {
+			return;
+		}
 		this.compressedDropTargetDisposable.dispose();
 
 		// Find compressed target
