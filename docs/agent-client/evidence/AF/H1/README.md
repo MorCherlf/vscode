@@ -1,5 +1,7 @@
 # H1 engineering checkpoint — 2026-10-29
 
+Latest engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
+
 **Status: engineering in progress; pending Mac build/verification. Not ready for human acceptance, not human accepted.** Rules and demos: [HUMAN_ACCEPTANCE](../../../HUMAN_ACCEPTANCE.md). H2–H4 remain separate; no DSH activation is required for H1.
 
 Source: implementation branch, parent `61586cca264f12c9676182618fb948d15d257103` (fast-forward integrated without resetting existing work). This checkpoint's exact commit is the commit adding this directory; subsequent inactive DSH preparation does not change its H1 source. Original source version 1.145.0. Electron 43.8.3 / Node 24.22.0 / ABI 148; standalone fixture Host uses ordinary Node 24.22.1. Linux x64; no Mac artifact produced here.

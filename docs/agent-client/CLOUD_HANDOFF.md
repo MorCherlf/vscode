@@ -5,11 +5,11 @@
 
 ## 人工交付顺序（当前优先）
 
-遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。
+遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次人工交付，不合并验收。当前先做 H1，不等 Bridge。见 [H1 工程证据](evidence/AF/H1/README.md) 与 [下一工作包](evidence/AF/H1/NEXT.md)：原组件浏览器测试和 mock Host 发现已有运行证据；原桌面云端 IPC 受限、完整加载排除/真实任务/Mac 版本仍待完成，尚不可提交人工验收。DSH 准备工作保留且未启用。只有用户明确确认才能标人工通过。 2026-10-30 已进一步裁掉五组原编辑器贡献入口，原 Worker EH 准入/依赖探针和原只读 diff fixture 通过；同探针 A/B 为 4,993 → 4,901 JS 请求，worker 数未下降，仍非完整裁剪/真实任务/Mac 门禁。见 [本轮原始证据](evidence/AF/H1/2026-10-30/README.md)。
 
 用户已经授权把 Agent 客户端路线转交 Codex 云端实施。目标仓库为 `MorCherlf/vscode`，初始交接分支为 `codex/agent-client-roadmap`。云端从该分支中的规划开始推进，不把本地未推送文件或其他聊天历史当作必要输入。
 
-## 当前接力（2026-10-29）
+## 当前接力（2026-10-30）
 
 当前权威方向是 [ADR-001](ADR-001-agent-first-dsh-extension.md)，用户已确认 VSC Agent First、禁用编辑器专用插件、不主动加载 editor-only 组件；DSH 尽量由一个自有 VS Code 插件适配，保留原 runtime/profile/插件行为和独立上游升级。SOLUTION/GOALS/ROADMAP/VALIDATION 已同步，原报告保留研究候选。不要恢复一般 IDE 兼容区；不要继续扩大仿写 React UI 或手写 vscode API 子集。
 

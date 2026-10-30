@@ -229,8 +229,9 @@ import '../workbench/contrib/preferences/browser/preferencesSearch.js';
 // Performance
 import '../workbench/contrib/performance/browser/performance.contribution.js';
 
-// Notebook
-import '../workbench/contrib/notebook/browser/notebook.contribution.js';
+// Shared notebook models/services required by chat and the original Extension Host API.
+// Notebook editors, execution/debug UI, interactive windows and REPL are not Agent startup contributions.
+import './services/notebook/browser/notebookServices.js';
 
 // Speech
 import '../workbench/contrib/speech/browser/speech.contribution.js';
@@ -246,12 +247,6 @@ import '../workbench/contrib/imageCarousel/browser/imageCarousel.contribution.js
 // Voice Mode (voice UI actions, settings and context keys)
 import '../workbench/contrib/agentsVoice/browser/agentsVoice.contribution.js';
 import './contrib/chat/browser/voiceBridge.contribution.js';
-
-// Interactive
-import '../workbench/contrib/interactive/browser/interactive.contribution.js';
-
-// repl
-import '../workbench/contrib/replNotebook/browser/repl.contribution.js';
 
 // Testing (service)
 import { NullTestProfileService, NullTestResultService, NullTestService } from '../workbench/contrib/testing/common/nullTestingService.js';
@@ -277,14 +272,14 @@ import '../workbench/contrib/files/browser/files.contribution.js';
 import '../workbench/contrib/bulkEdit/browser/bulkEditService.js';
 // import '../workbench/contrib/bulkEdit/browser/preview/bulkEdit.contribution.js';
 
-// Rename Symbol Tracker for Inline completions.
-import '../workbench/contrib/inlineCompletions/browser/renameSymbolTrackerService.js';
+// Inline-completion editor tracking is unnecessary in the Agent input/read-only review composition.
+import { IRenameSymbolTrackerService, NullRenameSymbolTrackerService } from '../editor/browser/services/renameSymbolTrackerService.js';
+registerSingleton(IRenameSymbolTrackerService, NullRenameSymbolTrackerService, InstantiationType.Delayed);
 
 // Search Quick Access (file picker only, not the full search contribution)
 import '../workbench/contrib/search/browser/searchQuickAccess.contribution.js';
 
-// Search Editor
-import '../workbench/contrib/searchEditor/browser/searchEditor.contribution.js';
+// Sessions search retains original search services, not an editable Search Editor pane.
 import '../workbench/contrib/search/browser/search.common.contribution.js';
 import './contrib/search/browser/search.contribution.js';
 
@@ -453,9 +448,6 @@ import '../workbench/contrib/share/browser/share.contribution.js';
 
 // Synchronized Scrolling
 import '../workbench/contrib/scrollLocking/browser/scrollLocking.contribution.js';
-
-// Inline Completions
-import '../workbench/contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
 
 // Drop or paste into
 import '../workbench/contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
