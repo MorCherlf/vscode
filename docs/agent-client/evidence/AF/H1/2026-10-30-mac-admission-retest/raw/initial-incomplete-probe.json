@@ -1,0 +1,18 @@
+{
+  "source": "09c03744303e2693251b4dd077851307b1b2d95a",
+  "explicitActivation": {
+    "exercised": false,
+    "commands": [],
+    "reason": "No real original ExtensionService captured from UI command path"
+  },
+  "fileReview": {
+    "attempted": true,
+    "error": "TimeoutError: locator.dblclick: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('treeitem', { name: /^sum\\.js(?:\\b|$)/ }).first()\u001b[22m\n"
+  },
+  "nativeEH": {
+    "logCount": 1,
+    "started": true,
+    "activationLines": []
+  },
+  "conclusion": "Inconclusive: no explicit activation exercised; not counted as product failure or admission success"
+}

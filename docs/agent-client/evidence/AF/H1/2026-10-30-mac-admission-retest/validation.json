@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "testedSource": "09c03744303e2693251b4dd077851307b1b2d95a",
+  "date": "2026-10-30",
+  "sourceCleanBeforeRun": true,
+  "platform": {
+    "os": "macOS",
+    "version": "27.2",
+    "build": "26B123",
+    "arch": "arm64"
+  },
+  "node": "24.22.1",
+  "electron": "43.8.3",
+  "chromium": "150.0.7871.250",
+  "build": {
+    "command": "npm run build-fast -- --client-only",
+    "exitCode": 0,
+    "changedInputPaths": 6,
+    "reused": "Original full builtin/Copilot/runtime output from previous Mac build; no extension/dependency/runtime input changes"
+  },
+  "scope": "Native source-launch admission regression for exact previously failed Copilot activation path; not a packaged product or real model task",
+  "nativeAdmission": {
+    "result": "PASS for exercised path",
+    "event": "onChatParticipant:github.copilot.editsAgent",
+    "realNativeServiceRequestCompleted": true,
+    "completeSameRunHostLog": true,
+    "hostStarted": true,
+    "hostExitedNormally": true,
+    "deniedActivationCount": 0,
+    "registeredExecutableCount": 0,
+    "registeredWithoutMainOrBrowserCount": 61
+  },
+  "originalUI": {
+    "workbench": true,
+    "chineseMultilinePaste": true,
+    "localFileBufferUnchangedAfterKeypressAndPaste": true,
+    "localFileDiskUnchanged": true
+  },
+  "resourceCount": 5445,
+  "rendererPageErrors": 0,
+  "account": "No interactive login, personal profile copy, token inspection/export or model request. Empty User profile does not isolate SDK global account/customization discovery; incidental account UI is excluded from published artifacts.",
+  "acceptancePass": false,
+  "unverified": [
+    "external VSIX saved-workspace/auto-enable/development/dependency native negatives",
+    "native window/restore/OS-open/drop matrix",
+    "real provider auth/model/tools/approval/cancel/recovery",
+    "full task-time module/service/worker attribution",
+    "system Chinese IME/VoiceOver",
+    "standalone Mac package/signing/notarization",
+    "human H1 acceptance"
+  ]
+}
