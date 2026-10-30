@@ -9,7 +9,7 @@
 
 ## 新发现与原调用链修复
 
-用原 launch skill 带一个本地 folder-uri 启动后，从实际 NativeHostService 调用 openWindow 打开另一个正常本地目录，被返回“does not open editor windows”。同轮 canonical Agents workspace 正向请求成功；该记录见 [修复前原生失败](raw/before-fix-native-failure.json)。这不是模型/账户或 Linux IPC 问题。
+用原 launch skill 带一个本地 folder-uri 启动后，从实际 NativeHostService 调用 openWindow 再次打开该正常本地目录，被返回“does not open editor windows”。同轮 canonical Agents workspace 正向请求成功；该记录见 [修复前原生失败](raw/before-fix-native-failure.json)。这不是模型/账户或 Linux IPC 问题。本轮正向目录请求沿用启动项目；切换到不同项目的完整交互仍需另验。
 
 原 `NativeHostMainService` 给每个 API 请求复用 `environmentMainService.args`，其中仍含进程启动时的 folder-uri/位置路径。新窗口分派因此把旧路径当成当前 API 的额外意图，拒绝了合法目录。Native UI 的空窗口请求也存在同类启动路径继承问题。
 
