@@ -1,0 +1,16 @@
+{
+  "documentationCommit": "78b70f43adc58e72ca832e2069bcabbde6371539",
+  "macProductCode": "09c03744303e2693251b4dd077851307b1b2d95a",
+  "verifiedUnchangedFiles": [
+    "README.md",
+    "raw/build-client.log",
+    "raw/initial-incomplete-probe.json",
+    "raw/native-eh-logs.json",
+    "raw/native-retest-controller.mjs",
+    "raw/native-smoke.json",
+    "screenshots/native-chinese-draft.png",
+    "screenshots/native-readonly-review.png",
+    "validation.json"
+  ],
+  "scope": "preserved evidence only; not new Mac execution"
+}

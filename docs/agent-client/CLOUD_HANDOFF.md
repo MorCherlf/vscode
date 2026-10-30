@@ -7,9 +7,11 @@
 
 遵循 [HUMAN_ACCEPTANCE](HUMAN_ACCEPTANCE.md)：H1 剪裁后的 VSC Agent → H2 最小 DSH Bridge → H3 导入 DSH 插件 → H4 完整 Agent，分四次交付；只有用户明确确认才标人工通过。当前先闭合 H1，DSH 保留且未启用。
 
-已整合 [Mac 原生报告](evidence/AF/H1/2026-10-30-mac-native/README.md)（文档提交 a40ddff，实际产品源码 0bec73f）：原构建、IPC、Sessions/native EH、中文多行 DOM paste 与一条文件只读路径通过，但空产品清单下 GitHub.copilot-chat 实际激活，准入失败。最新 [enablement 修复](evidence/AF/H1/2026-10-30-native-admission-fix/README.md) 已在原 service 的提前放行及开发扩展过滤前统一施加产品准入，并拒绝不合规启用请求；154 项真实 enablement service 测试、11 项 Extension Service 和 46 项 manifest 测试通过，原 Worker EH 加入 chat-participant 负向触发。当前修复后的 Mac native EH 仍待复验；该无账户回归不需要 OAuth。
+已整合 [Mac 准入复验](evidence/AF/H1/2026-10-30-mac-admission-retest/README.md)（文档 78b70f4、实际产品 09c0374）：原 native EH 正常启动/退出，实际请求并完成 chat-participant 激活，空清单下无可执行扩展激活；中文多行 paste 和一条文件只读路径通过。历史 0bec73f 失败保留。该结果是源码启动与限定准入证明，不是完整 H1 验收。
 
-H1 仍为工程进行中，尚不可提交人工验收。真实账户/任务、完整任务加载归因、系统 IME、独立 Mac 应用包及其他原生门禁未完成；详见 [H1 证据索引](evidence/AF/H1/README.md) 和 [NEXT](evidence/AF/H1/NEXT.md)。Linux/browser/service fixture 不替代 Mac 或真实模型；历史测试范围保留。
+最新 [窗口/恢复/资源拖放工作包](evidence/AF/H1/2026-10-30-window-resource-drop/README.md) 已在 canonicalization 前校验原生打开意图，收紧 CLI 单文件夹结果与旧编辑器窗口恢复，防止资源拖放进入普通 workspace 或注入未保存编辑器内容。26 项纯函数路由/恢复测试、13 项原资源拖放 service 测试及原界面/Worker 加载探针通过；新的 Mac OS 打开、恢复和物理拖放矩阵仍待验证。
+
+H1 仍为工程进行中，尚不可提交人工验收。外部 VSIX 原生负向用例由本机推进；真实任务、完整加载归因、系统 IME/VoiceOver、独立 Mac 包及其他门禁未完成。见 [H1 证据索引](evidence/AF/H1/README.md) 与 [NEXT](evidence/AF/H1/NEXT.md)。OAuth 不阻塞独立源码工作，Linux/fixture 不替代 native/真实模型结果。
 
 用户已经授权把 Agent 客户端路线转交 Codex 云端实施。目标仓库为 `MorCherlf/vscode`，初始交接分支为 `codex/agent-client-roadmap`。云端从该分支中的规划开始推进，不把本地未推送文件或其他聊天历史当作必要输入。
 

@@ -1,6 +1,6 @@
 # H1 engineering checkpoint — 2026-10-29
 
-Latest: [native enablement admission fix](2026-10-30-native-admission-fix/README.md), based on [actual Mac native validation and failure](2026-10-30-mac-native/README.md). The earlier Mac source launch/IPC/window/EH/draft/one file review path passed, but builtin Copilot activation violated the product list. Fixed source has service/runtime fixture evidence; corrected native EH is pending Mac rerun without an OAuth prerequisite. H1 remains not ready for human acceptance. Previous [multi-file review](2026-10-30-multi-review/README.md) and other reports retain original source/scope.
+Latest: [window intent/restore/resource-drop source work](2026-10-30-window-resource-drop/README.md), after the [successful Mac admission retest](2026-10-30-mac-admission-retest/README.md) of exact product09c0374. Native admission failure closure is retained; this source package has Linux pure routing/original drop service and browser evidence, not new Mac OS-window/drop results. The old native failure remains historical. H1 is not ready for human acceptance; external native VSIX negatives remain owned by the local work package.
 
 Previous engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
 
