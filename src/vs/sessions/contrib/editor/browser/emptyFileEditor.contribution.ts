@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import product from '../../../../platform/product/common/product.js';
 import { localize, localize2 } from '../../../../nls.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import { Codicon } from '../../../../base/common/codicons.js';
@@ -89,19 +90,21 @@ registerAction2(class extends Action2 {
 		}
 	}
 });
-MenuRegistry.appendMenuItem(Menus.EmptyFileEditorActions, {
-	command: {
+if (!product.agentFirst) {
+	MenuRegistry.appendMenuItem(Menus.EmptyFileEditorActions, {
+		command: {
+			id: NEW_UNTITLED_FILE_COMMAND_ID,
+			title: localize2('emptyFileEditor.newFile', "New File"),
+			icon: Codicon.newFile,
+		},
+		group: 'navigation',
+		order: 2,
+	});
+	// The search picker renders outside the editor area, where Cmd+N otherwise starts a new session.
+	KeybindingsRegistry.registerKeybindingRule({
 		id: NEW_UNTITLED_FILE_COMMAND_ID,
-		title: localize2('emptyFileEditor.newFile', "New File"),
-		icon: Codicon.newFile,
-	},
-	group: 'navigation',
-	order: 2,
-});
-// The search picker renders outside the editor area, where Cmd+N otherwise starts a new session.
-KeybindingsRegistry.registerKeybindingRule({
-	id: NEW_UNTITLED_FILE_COMMAND_ID,
-	weight: KeybindingWeight.SessionsContrib + 1,
-	when: EmptyFileEditorSearchPickerFocusedContext,
-	primary: KeyMod.CtrlCmd | KeyCode.KeyN,
-});
+		weight: KeybindingWeight.SessionsContrib + 1,
+		when: EmptyFileEditorSearchPickerFocusedContext,
+		primary: KeyMod.CtrlCmd | KeyCode.KeyN,
+	});
+}

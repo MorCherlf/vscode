@@ -1,6 +1,6 @@
 /* Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. */
 // Diagnostic embedder: original Sessions factory and DI, no replacement UI or mock services.
-// This does not exercise native Electron, Extension Host, a model, or human acceptance.
+// Optional probe exercises the original Worker EH with synthetic extensions, not native Electron/EH, a model, or human acceptance.
 import { createServer } from 'node:http';
 import { readFile, readdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { resolve, relative, extname } from 'node:path';
@@ -142,6 +142,36 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 		const control = await within(page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.fixture.control')), 'Original API command');
 		console.log(JSON.stringify({ extensionHostProbe: status, control, manifests: [...fixtureManifests].sort(), fixtureModules, activations }));
 		if (control !== 'control' || activations.length !== 1 || activations[0] !== 'control' || fixtureManifests.size !== 4 || fixtureModules.join() !== 'control' || status.enabled.join() !== 'h1-fixture.control') { throw new Error('Original Extension Host admission probe failed'); }
+		const review = async (operation, name) => within(page.evaluate(([operation, name]) => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.review', operation, name), [operation, name]), 'Original review ' + operation);
+		const chatInput = await within(page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.chatInput', 'open')), 'Original ChatWidget render');
+		await page.keyboard.type('CHAT_INPUT_MARKER');
+		const chatTyped = await page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.chatInput', 'read'));
+		if (chatInput.readOnly || !chatTyped.value.includes('CHAT_INPUT_MARKER')) { throw new Error('Original ChatInputPart typing failed'); }
+		console.log(JSON.stringify({ originalChatInputFixture: { chatInput, chatTyped }, boundary: 'actual original ChatWidget/InputPart DI and keyboard, no request/model/account' }));
+		await page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.chatInput', 'close'));
+		const project = await review('open', 'project');
+		if (project.pane !== 'workbench.editors.files.textFileEditor' || project.inputReadonly || project.readOnly !== !legacyEditorRoutes) { throw new Error('Review policy/file capability separation failed: ' + JSON.stringify(project)); }
+		await page.keyboard.type('KEYBOARD_PROJECT_MARKER');
+		const typed = await review('read', 'project');
+		if (typed.value.includes('KEYBOARD_PROJECT_MARKER') !== legacyEditorRoutes) { throw new Error('Original editor typing policy failed'); }
+		const write = await review('agentApiWrite', 'project');
+		if (!write.applied || !write.value.includes('synthetic Agent API write') || write.readOnly !== !legacyEditorRoutes) { throw new Error('Original bulk edit/save path was lost'); }
+		const resources = {};
+		for (const name of ['misleadingName', 'settings', 'keybindings', 'tasks', 'mcp', 'models', 'instructions']) {
+			resources[name] = await review('open', name);
+			const expectedReadonly = name === 'misleadingName' && !legacyEditorRoutes;
+			if (resources[name].readOnly !== expectedReadonly) { throw new Error('Profile scope failed for ' + name + ': ' + JSON.stringify(resources[name])); }
+		}
+		await page.keyboard.type('KEYBOARD_PROFILE_MARKER');
+		const profileTyping = await review('read', 'instructions');
+		if (!profileTyping.value.includes('KEYBOARD_PROFILE_MARKER')) { throw new Error('Original profile instruction editor typing failed'); }
+		const entries = await review('entries');
+		if (entries.registered.length !== (legacyEditorRoutes ? 3 : 0) || entries.newFileMenus.length !== (legacyEditorRoutes ? 3 : 0)) { throw new Error('Manual new-file/writeable actions leaked: ' + JSON.stringify(entries)); }
+		await review('open', 'project');
+		const providerReadonly = await review('providerReadonly');
+		const providerState = await review('read', 'project');
+		if (!providerState.readOnly) { throw new Error('Original provider readonly was lost'); }
+		console.log(JSON.stringify({ originalFileReviewFixture: { product: legacyEditorRoutes ? 'ordinary-control' : 'agent-first', project, typed, write, resources, profileTyping, entries, providerReadonly }, boundary: 'synthetic FileService/provider and original UI/bulk edit/save; no model task or account' }));
 		const diff = await within(page.evaluate(() => window.agentFirstWorkbench.commands.executeCommand('agentFirst.test.diff')), 'Original diff');
 		console.log(JSON.stringify({ originalDiffFixture: diff }));
 		if (diff.pane !== 'workbench.editors.textDiffEditor' || diff.readOnly !== true || !diff.modified?.includes('a + b')) { throw new Error('Original read-only diff fixture failed'); }

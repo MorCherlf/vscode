@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import product from '../../../../platform/product/common/product.js';
 import * as nls from '../../../../nls.js';
 import { ToggleAutoSaveAction, FocusFilesExplorer, GlobalCompareResourcesAction, ShowActiveFileInExplorer, CompareWithClipboardAction, NEW_FILE_COMMAND_ID, NEW_FILE_LABEL, NEW_FOLDER_COMMAND_ID, NEW_FOLDER_LABEL, TRIGGER_RENAME_LABEL, MOVE_FILE_TO_TRASH_LABEL, COPY_FILE_LABEL, PASTE_FILE_LABEL, FileCopiedContext, renameHandler, moveFileToTrashHandler, copyFileHandler, pasteFileHandler, deleteFileHandler, cutFileHandler, DOWNLOAD_COMMAND_ID, openFilePreserveFocusHandler, DOWNLOAD_LABEL, OpenActiveFileInEmptyWorkspace, UPLOAD_COMMAND_ID, UPLOAD_LABEL, CompareNewUntitledTextFilesAction, SetActiveEditorReadonlyInSession, SetActiveEditorWriteableInSession, ToggleActiveEditorReadonlyInSession, ResetActiveEditorReadonlyInSession } from './fileActions.js';
 import { revertLocalChangesCommand, acceptLocalChangesCommand, CONFLICT_RESOLUTION_CONTEXT } from './editors/textFileSaveErrorHandler.js';
@@ -34,13 +35,17 @@ registerAction2(GlobalCompareResourcesAction);
 registerAction2(FocusFilesExplorer);
 registerAction2(ShowActiveFileInExplorer);
 registerAction2(CompareWithClipboardAction);
-registerAction2(CompareNewUntitledTextFilesAction);
+if (!product.agentFirst) {
+	registerAction2(CompareNewUntitledTextFilesAction);
+}
 registerAction2(ToggleAutoSaveAction);
 registerAction2(OpenActiveFileInEmptyWorkspace);
-registerAction2(SetActiveEditorReadonlyInSession);
-registerAction2(SetActiveEditorWriteableInSession);
-registerAction2(ToggleActiveEditorReadonlyInSession);
-registerAction2(ResetActiveEditorReadonlyInSession);
+if (!product.agentFirst) {
+	registerAction2(SetActiveEditorReadonlyInSession);
+	registerAction2(SetActiveEditorWriteableInSession);
+	registerAction2(ToggleActiveEditorReadonlyInSession);
+	registerAction2(ResetActiveEditorReadonlyInSession);
+}
 
 // Commands
 CommandsRegistry.registerCommand('_files.windowOpen', openWindowCommand);
@@ -671,20 +676,24 @@ MenuRegistry.appendMenuItem(MenuId.ExplorerContext, {
 
 // Empty Editor Group / Editor Tabs Container Context Menu
 for (const menuId of [MenuId.EmptyEditorGroupContext, MenuId.EditorTabsBarContext]) {
-	MenuRegistry.appendMenuItem(menuId, { command: { id: NEW_UNTITLED_FILE_COMMAND_ID, title: nls.localize('newFile', "New Text File") }, group: '1_file', order: 10 });
+	if (!product.agentFirst) {
+		MenuRegistry.appendMenuItem(menuId, { command: { id: NEW_UNTITLED_FILE_COMMAND_ID, title: nls.localize('newFile', "New Text File") }, group: '1_file', order: 10 });
+	}
 	MenuRegistry.appendMenuItem(menuId, { command: { id: 'workbench.action.quickOpen', title: nls.localize('openFile', "Open File...") }, group: '1_file', order: 20 });
 }
 
 // File menu
 
-MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
-	group: '1_new',
-	command: {
-		id: NEW_UNTITLED_FILE_COMMAND_ID,
-		title: nls.localize({ key: 'miNewFile', comment: ['&& denotes a mnemonic'] }, "&&New Text File")
-	},
-	order: 1
-});
+if (!product.agentFirst) {
+	MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
+		group: '1_new',
+		command: {
+			id: NEW_UNTITLED_FILE_COMMAND_ID,
+			title: nls.localize({ key: 'miNewFile', comment: ['&& denotes a mnemonic'] }, "&&New Text File")
+		},
+		order: 1
+	});
+}
 
 MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
 	group: '4_save',

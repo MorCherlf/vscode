@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as nls from '../../../../nls.js';
+import product from '../../../../platform/product/common/product.js';
 import { URI } from '../../../../base/common/uri.js';
 import { EditorResourceAccessor, IEditorCommandsContext, isEditorCommandsContext, SideBySideEditor, IEditorIdentifier, SaveReason, EditorsOrder, EditorInputCapabilities } from '../../../common/editor.js';
 import { SideBySideEditorInput } from '../../../common/editor/sideBySideEditorInput.js';
@@ -696,46 +697,48 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 	}
 });
 
-KeybindingsRegistry.registerCommandAndKeybindingRule({
-	weight: KeybindingWeight.WorkbenchContrib,
-	when: null,
-	primary: isWeb ? (isWindows ? KeyChord(KeyMod.CtrlCmd | KeyCode.KeyK, KeyCode.KeyN) : KeyMod.CtrlCmd | KeyMod.Alt | KeyCode.KeyN) : KeyMod.CtrlCmd | KeyCode.KeyN,
-	secondary: isWeb ? [KeyMod.CtrlCmd | KeyCode.KeyN] : undefined,
-	id: NEW_UNTITLED_FILE_COMMAND_ID,
-	metadata: {
-		description: NEW_UNTITLED_FILE_LABEL,
-		args: [
-			{
-				isOptional: true,
-				name: 'New Untitled Text File arguments',
-				description: 'The editor view type or language ID if known',
-				schema: {
-					'type': 'object',
-					'properties': {
-						'viewType': {
-							'type': 'string'
-						},
-						'languageId': {
-							'type': 'string'
+if (!product.agentFirst) {
+	KeybindingsRegistry.registerCommandAndKeybindingRule({
+		weight: KeybindingWeight.WorkbenchContrib,
+		when: null,
+		primary: isWeb ? (isWindows ? KeyChord(KeyMod.CtrlCmd | KeyCode.KeyK, KeyCode.KeyN) : KeyMod.CtrlCmd | KeyMod.Alt | KeyCode.KeyN) : KeyMod.CtrlCmd | KeyCode.KeyN,
+		secondary: isWeb ? [KeyMod.CtrlCmd | KeyCode.KeyN] : undefined,
+		id: NEW_UNTITLED_FILE_COMMAND_ID,
+		metadata: {
+			description: NEW_UNTITLED_FILE_LABEL,
+			args: [
+				{
+					isOptional: true,
+					name: 'New Untitled Text File arguments',
+					description: 'The editor view type or language ID if known',
+					schema: {
+						'type': 'object',
+						'properties': {
+							'viewType': {
+								'type': 'string'
+							},
+							'languageId': {
+								'type': 'string'
+							}
 						}
 					}
 				}
-			}
-		]
-	},
-	handler: async (accessor, args?: { languageId?: string; viewType?: string }) => {
-		const editorService = accessor.get(IEditorService);
+			]
+		},
+		handler: async (accessor, args?: { languageId?: string; viewType?: string }) => {
+			const editorService = accessor.get(IEditorService);
 
-		await editorService.openEditor({
-			resource: undefined,
-			options: {
-				override: args?.viewType,
-				pinned: true
-			},
-			languageId: args?.languageId,
-		});
-	}
-});
+			await editorService.openEditor({
+				resource: undefined,
+				options: {
+					override: args?.viewType,
+					pinned: true
+				},
+				languageId: args?.languageId,
+			});
+		}
+	});
+}
 
 CommandsRegistry.registerCommand({
 	id: NEW_FILE_COMMAND_ID,

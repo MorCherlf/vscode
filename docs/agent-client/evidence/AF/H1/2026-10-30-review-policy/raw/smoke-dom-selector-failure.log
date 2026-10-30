@@ -1,0 +1,12 @@
+{"extensionHostProbe":{"enabled":["h1-fixture.control"],"status":{"h1-fixture.control":{"activated":true,"errors":0}}},"control":"control","manifests":["control","dependent","editor-only","mixed"],"fixtureModules":["control"],"activations":["control"]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 30000ms exceeded.
+    at /workspace/scratch/11910be6d76c/vscode-h1-continued/scripts/agent-first/web-smoke.mjs:166:14 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1
