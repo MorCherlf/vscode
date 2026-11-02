@@ -1,0 +1,22 @@
+{
+  "source": "1f43159b9471246d6fa34f9f22f05ddc4cada024",
+  "app": "/Applications/VSC Agent Preview.app",
+  "userDataDir": "/tmp/af-signin-hyVHAJ/user-data",
+  "rendererErrors": [],
+  "runs": [
+    {
+      "pid": 98054,
+      "port": 49928
+    }
+  ],
+  "modelRequestsSent": 0,
+  "firstLaunchNoDialog": true,
+  "initialDraft": {
+    "passed": true,
+    "lines": [
+      "无需登录测试",
+      "第二行草稿"
+    ]
+  },
+  "failure": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Sign in with GitHub', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <a tabindex=\"0\" role=\"button\" class=\"action-label\" aria-label=\"Sign in with GitHub\">Sign in with GitHub</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\n    at openDialog (/Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/check-ui.mjs:72:73)\n    at async file:///Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/check-ui.mjs:84:15"
+}

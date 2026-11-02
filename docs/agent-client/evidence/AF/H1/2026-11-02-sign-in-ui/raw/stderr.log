@@ -1,0 +1,20 @@
+
+DevTools listening on ws://127.0.0.1:50657/devtools/browser/a3482a23-fc42-4da3-84c1-d641508803ba
+Warning: 'remote-debugging-port' is not in the list of known options, but still passed to Electron/Chromium.
+[91m[main 2026-11-02T02:12:28.816Z][0m [AgentHost:stderr] (node:99781) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `VSC Agent Preview Helper --trace-deprecation ...` to show where the warning was created)
+
+Unknown channel: agentHostClientByokLm
+Unknown channel: agentHostClientProxy
+Unknown channel: agentHostClientProxy
+[93m[main 2026-11-02T02:28:01.411Z][0m No ptyHost heartbeat after 6 seconds
+
+DevTools listening on ws://127.0.0.1:50985/devtools/browser/3e9079d4-b9c4-439a-8faa-f387dcb4dd3b
+Warning: 'remote-debugging-port' is not in the list of known options, but still passed to Electron/Chromium.
+[91m[main 2026-11-02T02:29:33.248Z][0m [AgentHost:stderr] (node:544) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `VSC Agent Preview Helper --trace-deprecation ...` to show where the warning was created)
+
+Unknown channel: agentHostClientByokLm
+Unknown channel: agentHostClientProxy
+Unknown channel: agentHostClientProxy
+[93m[main 2026-11-02T02:45:21.561Z][0m No ptyHost heartbeat after 6 seconds

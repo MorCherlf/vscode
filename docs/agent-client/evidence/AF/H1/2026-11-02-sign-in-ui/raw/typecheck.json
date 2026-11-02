@@ -1,0 +1,8 @@
+{
+  "extends": "../../../../../../../src/vs/sessions/tsconfig.agent-first.json",
+  "include": [
+    "../../../../../../../src/vs/sessions/browser/sessionsSetUpService.ts",
+    "../../../../../../../src/vs/workbench/contrib/chat/browser/chatSetup/chatSetupRunner.ts",
+    "../../../../../../../src/**/*.d.ts"
+  ]
+}

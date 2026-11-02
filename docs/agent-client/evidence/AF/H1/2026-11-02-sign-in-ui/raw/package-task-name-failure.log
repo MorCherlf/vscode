@@ -1,0 +1,3 @@
+[09:50:54] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[09:50:54] Task never defined: esbuild-bundle-darwin-arm64
+[09:50:54] To list available tasks, try running: gulp --tasks

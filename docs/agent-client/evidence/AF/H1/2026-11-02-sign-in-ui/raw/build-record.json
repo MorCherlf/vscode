@@ -1,0 +1,33 @@
+{
+  "source": "1f43159b9471246d6fa34f9f22f05ddc4cada024",
+  "originalProductSha256": "86d8531a8bfd3ebea77b2c1724b0e77e9a046d5da16049a3ee9a39d5101aa4d8",
+  "packagingOverrides": {
+    "nameShort": "VSC Agent Preview",
+    "nameLong": "VSC Agent Preview",
+    "applicationName": "vsc-agent-preview",
+    "dataFolderName": ".vsc-agent-preview",
+    "sharedDataFolderName": ".vsc-agent-preview-shared",
+    "serverDataFolderName": ".vsc-agent-preview-server",
+    "darwinBundleIdentifier": "com.morcherlf.agentpreview",
+    "urlProtocol": "vsc-agent-preview"
+  },
+  "productSourceRestored": true,
+  "commands": [
+    [
+      "/Users/morcherlf/Developer/personal/VSCode/.build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+      "--experimental-strip-types",
+      "--max-old-space-size=8192",
+      "/Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/package-assets.mjs",
+      "bundle-desktop"
+    ],
+    [
+      "/Users/morcherlf/Developer/personal/VSCode/.build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+      "--experimental-strip-types",
+      "--max-old-space-size=8192",
+      "/Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/package-assets.mjs",
+      "vscode-darwin-arm64-ci"
+    ]
+  ],
+  "exitCode": 0,
+  "app": "/Users/morcherlf/Developer/personal/VSCode-darwin-arm64/VSC Agent Preview.app"
+}

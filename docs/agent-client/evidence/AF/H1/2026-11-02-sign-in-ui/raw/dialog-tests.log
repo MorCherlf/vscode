@@ -1,0 +1,34 @@
+Found --crash-reporter-directory argument. Setting crashDumps directory to be '/Users/morcherlf/Developer/personal/VSCode/.build/crashes'
+(node:96594) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `Code - OSS Helper (Renderer) --trace-deprecation ...` to show where the warning was created)
+(node:96594) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
+(node:96594) ExperimentalWarning: WASI is an experimental feature and might change at any time
+
+[0m[0m
+[0m  Tests are using suiteSetup and setup correctly[0m
+  [32m  ✔[0m[90m assertCleanState - check that registries are clean at the start of test running[0m
+
+[0m  Sessions - Auth Gate[0m
+  [32m  ✔[0m[90m blocking sign-in allows the opt-in or provider initialization without GitHub[0m
+  [32m  ✔[0m[90m GitHub workspace group offers sign-in only for signed-out opted-in users[0m
+  [32m  ✔[0m[90m conditionalAuthState treats an unresolved account as unknown, never signed out[0m
+
+[0m  Sessions - Sign-In Dialog[0m
+  [32m  ✔[0m[90m offers signed-out continuation only when allowed[0m
+
+[0m  Chat setup dialog external sign-in[0m
+  [32m  ✔[0m[90m completes setup after external sign-in (optional: false)[0m
+  [32m  ✔[0m[90m completes setup after external sign-in (optional: true)[0m
+  [32m  ✔[0m[90m reuses an account available before the dialog opens (enterprise: false)[0m
+  [32m  ✔[0m[90m reuses an account available before the dialog opens (enterprise: true)[0m
+  [32m  ✔[0m[90m does not start browser sign-in while finishing authenticated setup (already signed in: false)[0m
+  [32m  ✔[0m[90m does not start browser sign-in while finishing authenticated setup (already signed in: true)[0m
+  [32m  ✔[0m[90m still starts explicit provider authentication when an account is available[0m
+  [32m  ✔[0m[90m a signed-out update does not dismiss the dialog[0m
+  [32m  ✔[0m[90m cancellation wins over external sign-in[0m
+  [32m  ✔[0m[90m deliberate sign-in dialogs do not opt into external completion[0m
+  [32m  ✔[0m[90m stops observing accounts before the selected provider signs in[0m
+
+
+[92m [0m[32m 16 passing[0m[90m (6ms)[0m
+

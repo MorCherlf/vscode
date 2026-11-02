@@ -1,0 +1,15 @@
+{
+  "source": "1f43159b9471246d6fa34f9f22f05ddc4cada024",
+  "app": "/Applications/VSC Agent Preview.app",
+  "userDataDir": "/tmp/af-signin-JblTe2/user-data",
+  "rendererErrors": [],
+  "runs": [
+    {
+      "pid": 98993,
+      "port": 50295
+    }
+  ],
+  "modelRequestsSent": 0,
+  "firstLaunchNoDialog": true,
+  "failure": "locator.count: Target page, context or browser has been closed\n    at findVisibleChatInput (<anonymous>:19:49)\n    at eval (<anonymous>:56:20)\n    at draft (/Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/check-ui.mjs:58:8)\n    at /Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/check-ui.mjs:87:28"
+}
