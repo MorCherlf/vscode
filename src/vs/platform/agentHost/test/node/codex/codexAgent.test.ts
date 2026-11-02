@@ -27,6 +27,7 @@ import type { ICodexMcpServerConfigJson, ICodexMcpServerEntry } from '../../../n
 import type { ItemGuardianApprovalReviewCompletedNotification } from '../../../node/codex/protocol/generated/v2/ItemGuardianApprovalReviewCompletedNotification.js';
 import type { GuardianWarningNotification } from '../../../node/codex/protocol/generated/v2/GuardianWarningNotification.js';
 import { targetForMcpServer } from '../../../node/shared/customizationEnablementGate.js';
+import { nativeAgentResource, type INativeAgentConfiguration } from '../../../common/nativeAgentConfiguration.js';
 import { McpCustomizationController, type IMcpCustomizationControllerOptions } from '../../../node/shared/mcpCustomizationController.js';
 import { createGitHubMcpServerConfiguration, getGitHubMcpTools } from '../../../node/shared/githubMcpServer.js';
 import { requireMintedTestChatOwner } from '../../common/mintedChatUri.js';
@@ -569,6 +570,39 @@ suite('CodexAgent', () => {
 			modelRefreshes: 1,
 			reconciliations: 1,
 		});
+	});
+
+	test('rebinds initial ambient startup before replaying native configuration', async () => {
+		const configuration: INativeAgentConfiguration = { mode: 'apiKey', apiKey: 'test-key', baseUrl: 'https://example.test/v1', model: 'test-model', home: '/state', executable: undefined };
+		const results = [];
+		for (const kind of ['starting', 'ready'] as const) {
+			const transitions: string[] = [];
+			const harness = Object.assign(Object.create(CodexAgent.prototype), {
+				_productService: { agentFirst: true },
+				_connection: { kind },
+				_connectionGeneration: 1,
+				_sessions: new Map(),
+				_handleConnectionLost: () => { transitions.push('ready'); },
+				_disposeConnection: () => { transitions.push('starting'); },
+				_queueModelRefresh: async () => { },
+			}) as ICodexAuthenticateHarness & { _nativeConfiguration?: INativeAgentConfiguration };
+			const accepted = await harness.authenticate(nativeAgentResource('codex'), JSON.stringify(configuration));
+			await harness.authenticate(nativeAgentResource('codex'), JSON.stringify(configuration));
+			results.push({ kind, accepted, configuration: harness._nativeConfiguration, transitions });
+		}
+		assert.deepStrictEqual(results, ['starting', 'ready'].map(kind => ({ kind, accepted: true, configuration, transitions: [kind] })));
+	});
+
+	test('native replay does not replace an active turn or an already configured connection', async () => {
+		for (const configured of [false, true]) {
+			const harness = Object.assign(Object.create(CodexAgent.prototype), {
+				_productService: { agentFirst: true },
+				_nativeConfiguration: configured ? { mode: 'local' } : undefined,
+				_connection: { kind: 'ready' },
+				_sessions: new Map([['session', { currentTurnId: configured ? undefined : 'turn' }]]),
+			}) as ICodexAuthenticateHarness;
+			await assert.rejects(harness.authenticate(nativeAgentResource('codex'), JSON.stringify({ mode: 'local', executable: '/bin/codex' })), /Restart Agents/);
+		}
 	});
 
 	test('does not commit stale GitHub authentication after an endpoint change', async () => {

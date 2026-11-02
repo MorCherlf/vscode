@@ -1623,13 +1623,23 @@ export class CodexAgent extends Disposable implements IAgent {
 	}
 
 	async authenticate(resource: string, token: string): Promise<boolean> {
-		if (this._productService.agentFirst && resource === nativeAgentResource('codex')) {
+		if (resource === nativeAgentResource('codex') && this._productService.agentFirst) {
 			const configuration = parseNativeAgentConfiguration(token);
 			if (JSON.stringify(configuration) === JSON.stringify(this._nativeConfiguration)) {
 				return true;
 			}
 			if (this._connection.kind !== 'idle') {
-				throw new Error(localize('codex.native.restartRequired', "Restart Agents before changing the Codex connection."));
+				if (this._nativeConfiguration || [...this._sessions.values()].some(session => session.currentTurnId !== undefined)) {
+					throw new Error(localize('codex.native.restartRequired', "Restart Agents before changing the Codex connection."));
+				}
+				// Session/catalog restoration can start an ambient connection before the UI replays
+				// saved credentials. Rebind that first, inactive connection through the existing
+				// loss transition so restored threads resume against the configured home/provider.
+				if (this._connection.kind === 'ready') {
+					this._handleConnectionLost(this._connection, this._connectionGeneration);
+				} else {
+					this._disposeConnection();
+				}
 			}
 			this._nativeConfiguration = configuration;
 			if (this._nativeConfiguration?.mode === 'local') {

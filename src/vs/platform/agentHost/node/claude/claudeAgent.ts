@@ -793,7 +793,7 @@ export class ClaudeAgent extends Disposable implements IAgent {
 	}
 
 	async authenticate(resource: string, token: string): Promise<boolean> {
-		if (this._productService.agentFirst && resource === nativeAgentResource('claude')) {
+		if (resource === nativeAgentResource('claude') && this._productService.agentFirst) {
 			return this._nativeConfigurationSequencer.queue(async () => {
 				const configuration = parseNativeAgentConfiguration(token);
 				if (JSON.stringify(configuration) === JSON.stringify(this._nativeConfiguration)) {
