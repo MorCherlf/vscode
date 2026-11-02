@@ -1,0 +1,49 @@
+{
+  "source": "5e6a05674e193551a4d7ee49cc147b5c6059e368",
+  "installedApp": "/Applications/VSC Agent Preview.app",
+  "pid": 93299,
+  "userDataDir": "/tmp/vsc-agent-preview-cSKZM0/user-data",
+  "mode": "Installed standalone app, system-only PATH, development variables and API-key environment omitted, no --agents/root source argument",
+  "rendererErrors": [],
+  "configuration": {
+    "isSessionsWindow": true,
+    "name": "VSC Agent Preview",
+    "agentFirst": true,
+    "executableExtensions": [],
+    "commit": "5e6a05674e193551a4d7ee49cc147b5c6059e368"
+  },
+  "page": {
+    "url": "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/electron-browser/sessions.html",
+    "title": "Agents"
+  },
+  "signInGate": true,
+  "chinesePaste": {
+    "status": "blocked",
+    "reason": "Original mandatory sign-in dialog retains focus; no account action taken"
+  },
+  "placeholderSearch": {
+    "status": "blocked",
+    "reason": "Original mandatory sign-in dialog"
+  },
+  "resources": [
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar.unpacked/vscode-oniguruma/release/onig.wasm",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/@xterm/addon-clipboard/lib/addon-clipboard.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/@xterm/addon-progress/lib/addon-progress.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/@xterm/addon-unicode11/lib/addon-unicode11.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/@xterm/xterm/lib/xterm.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/vscode-oniguruma/release/main.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/node_modules.asar/vscode-textmate/release/main.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/media/apple-dark.svg",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/media/codicon.ttf",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/media/github.svg",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/media/google.svg",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/media/letterpress-dark.svg",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/electron-browser/sessions.html",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/electron-browser/sessions.js",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/sessions.desktop.main.css",
+    "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/sessions.desktop.main.js"
+  ],
+  "chromium": "150.0.7871.250",
+  "startupPassed": true,
+  "fullInteractionPassed": false
+}

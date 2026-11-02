@@ -1,0 +1,38 @@
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "force_process_config". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev-build@1.0.0 pretypecheck
+> npm run copy-policy-dto
+
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "force-process-config". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "force_process_config". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev-build@1.0.0 copy-policy-dto
+> node lib/policies/copyPolicyDto.ts
+
+
+> code-oss-dev-build@1.0.0 typecheck
+> cd .. && npx tsc --project build/tsconfig.json
+
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "force-process-config". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.

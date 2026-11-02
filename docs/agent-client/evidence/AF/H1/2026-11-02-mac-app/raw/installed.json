@@ -1,0 +1,14 @@
+{
+  "installedApp": "/Applications/VSC Agent Preview.app",
+  "source": "5e6a05674e193551a4d7ee49cc147b5c6059e368",
+  "version": "1.145.0",
+  "bundleIdentifier": "com.morcherlf.agentpreview",
+  "binary": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview",
+  "architecture": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview: Mach-O 64-bit executable arm64",
+  "productSha256": "278f6c82278427d44adb9ecdccbc9285900f4eaa8113b055e02fc93c1fc16ad1",
+  "binarySha256": "1a1215015b41fc00423884aac39b28b0820a4e340233673bf9d0b61bc44f2e21",
+  "adHocSignatureVerified": true,
+  "notarized": false,
+  "externalSymlinks": [],
+  "editorFileAssociationsRemoved": true
+}

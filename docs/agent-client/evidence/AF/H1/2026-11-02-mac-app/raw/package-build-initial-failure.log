@@ -1,0 +1,88 @@
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 gulp
+> node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js vscode-darwin-arm64
+
+[18:12:36] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[18:12:36] Starting 'vscode-darwin-arm64'...
+[18:12:36] Starting [36mcopy-codicons[39m ...
+[18:12:36] Finished [36mcopy-codicons[39m after [35m2 ms[39m
+[18:12:36] Starting [36mclean-extensions-build[39m ...
+[18:12:36] Finished [36mclean-extensions-build[39m after [35m1 ms[39m
+[18:12:36] Starting [36mbundle-marketplace-extensions-build[39m ...
+[18:12:36] [extensions] ms-vscode.js-debug-companion@1.1.3 up to date [32m✔︎[39m
+[18:12:36] [extensions] ms-vscode.js-debug@1.140.0 up to date [32m✔︎[39m
+[18:12:36] [extensions] ms-vscode.vscode-js-profile-table@1.0.11 up to date [32m✔︎[39m
+[18:12:36] Finished [36mbundle-marketplace-extensions-build[39m after [35m97 ms[39m
+[18:12:36] Starting [36mbundle-non-native-extensions-build[39m ...
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/configuration-editing/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/css-language-features/client/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/css-language-features/server/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/debug-auto-launch/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/debug-server-ready/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/emmet/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/extension-editing/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/git-base/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/github-authentication/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/github/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/grunt/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/gulp/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/html-language-features/client/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/html-language-features/server/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/ipynb/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/jake/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/json-language-features/client/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/json-language-features/server/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/markdown-language-features/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/markdown-math/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/merge-conflict/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/mermaid-markdown-features/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/npm/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/php-language-features/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/references-view/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/search-result/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/simple-browser/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/terminal-suggest/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/tunnel-forwarding/tsconfig.json with 0 errors.
+[18:12:45] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/typescript-language-features/tsconfig.json with 0 errors.
+[18:12:45] Bundled extension: [33mtypescript-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mtunnel-forwarding/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mterminal-suggest/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33msimple-browser/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33msearch-result/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mreferences-view/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mphp-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mnpm/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mmermaid-markdown-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mmerge-conflict/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mmarkdown-math/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mmarkdown-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mjson-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mjake/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mipynb/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mhtml-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mgulp/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mgrunt/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mgithub/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mgithub-authentication/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mgit-base/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mextension-editing/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33memmet/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mdebug-server-ready/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mdebug-auto-launch/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mcss-language-features/esbuild.mts[39m with 0 errors.
+[18:12:45] Bundled extension: [33mconfiguration-editing/esbuild.mts[39m with 0 errors.
+[18:12:52] Finished [36mbundle-non-native-extensions-build[39m after [35m16211 ms[39m
+[18:12:52] Starting [36mcompile-non-native-extensions-build[39m ...
+[18:12:52] Finished [36mcompile-non-native-extensions-build[39m after [35m0 ms[39m
+[18:12:52] Starting [36mcompile-copilot-extension-build[39m ...
+[18:13:05] [32mesbuilding[39m: Creating symlinks for Claude session storage and instructions...
+
+[18:13:13] Bundled extension: [33mcopilot/.esbuild.mts[39m with 0 errors.
+[18:13:49] 'vscode-darwin-arm64' errored after 1.22 min
+[18:13:49] Error: ENOENT: no such file or directory, lstat '/Users/morcherlf/Developer/personal/VSCode/extensions/copilot/node_modules/@github/copilot/shims.txt'

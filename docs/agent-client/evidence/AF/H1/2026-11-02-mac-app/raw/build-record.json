@@ -1,0 +1,45 @@
+{
+  "source": "5e6a05674e193551a4d7ee49cc147b5c6059e368",
+  "originalProductSha256": "86d8531a8bfd3ebea77b2c1724b0e77e9a046d5da16049a3ee9a39d5101aa4d8",
+  "previewProductSha256": "2e4cb7f277929b9fed196cc715f1b48453fa15d56ae3b745667f430fa0dd9a69",
+  "packagingOverrides": {
+    "nameShort": "VSC Agent Preview",
+    "nameLong": "VSC Agent Preview",
+    "applicationName": "vsc-agent-preview",
+    "dataFolderName": ".vsc-agent-preview",
+    "sharedDataFolderName": ".vsc-agent-preview-shared",
+    "serverDataFolderName": ".vsc-agent-preview-server",
+    "darwinBundleIdentifier": "com.morcherlf.agentpreview",
+    "urlProtocol": "vsc-agent-preview"
+  },
+  "agentFirst": true,
+  "executableExtensions": [],
+  "buildCommand": [
+    "/Users/morcherlf/Developer/personal/VSCode/.build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+    "--experimental-strip-types",
+    "--max-old-space-size=8192",
+    "/Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/package-offline.mjs",
+    "vscode-darwin-arm64-ci"
+  ],
+  "productSourceRestored": true,
+  "reusedCompiledOutput": true,
+  "localElectronAssetResolver": true,
+  "buildExitCode": 0,
+  "buildCommands": [
+    [
+      "/Users/morcherlf/Developer/personal/VSCode/.build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+      "--experimental-strip-types",
+      "--max-old-space-size=8192",
+      "/Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/package-offline.mjs",
+      "compile-copilot-extension-build"
+    ],
+    [
+      "/Users/morcherlf/Developer/personal/VSCode/.build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+      "--experimental-strip-types",
+      "--max-old-space-size=8192",
+      "/Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/package-offline.mjs",
+      "vscode-darwin-arm64-ci"
+    ]
+  ],
+  "builtApp": "/Users/morcherlf/Developer/personal/VSCode-darwin-arm64/VSC Agent Preview.app"
+}

@@ -1,5 +1,7 @@
 # H1 engineering checkpoint — 2026-10-29
 
+Latest Mac delivery: [2026-11-02 standalone arm64 application](2026-11-02-mac-app/README.md), product5e6a056, installed and opened as `/Applications/VSC Agent Preview.app`. Original packaging, ad hoc signature verification, exact product configuration and installed Sessions/resource checks pass. The mandatory original sign-in dialog blocks chat draft/command search; full interaction, real model tasks, IME and human acceptance remain pending. Historical evidence below retains its original source and scope.
+
 Latest: [original custom-editor restore/placeholder view work](2026-10-30-provider-resource/README.md) on integrated988fbfd2. Six original resolver tests,47 original component/auth gate tests and two original-browser route controls pass on Linux; no new Mac/model result. [Backend/auth audit](2026-10-30-provider-resource/BACKENDS.md) distinguishes original Copilot/Claude/Codex/BYOK/local-model paths and their actual gates. The imported [native external VSIX matrix](2026-10-30-mac-vsix-matrix/README.md) and [native window API fix](2026-10-30-mac-native-window-api/README.md) retain their exact checkout/product versions. H1 remains engineering in progress, not ready for human acceptance.
 
 Previous engineering iteration: [2026-10-30 — contribution trim, original Worker EH and diff](2026-10-30/README.md). Original reports below remain historical. H1 remains engineering in progress; no Mac/human acceptance is implied.
