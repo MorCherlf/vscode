@@ -80,7 +80,9 @@ export type ExtensionVirtualWorkspaceSupport = {
  */
 export interface IAgentSdkProductConfig {
 	readonly version: string;
-	readonly urlTemplate: string;
+	readonly urlTemplate?: string;
+	/** SDK root relative to the installed application, for products bundling their runtimes. */
+	readonly bundledPath?: string;
 }
 
 /**

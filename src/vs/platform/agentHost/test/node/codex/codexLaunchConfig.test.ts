@@ -11,6 +11,18 @@ import { buildCodexLaunchConfig, buildCodexResumeParams, codexPermissionProfile,
 suite('CodexLaunchConfig', () => {
 	ensureNoDisposablesAreLeakedInTestSuite();
 
+	test('native API keys use a separate environment key and never enter argv', () => {
+		const config = buildCodexLaunchConfig('/sdk/codex', { OPENAI_API_KEY: 'inherited' }, { baseUrl: 'http://127.0.0.1:1', nonce: 'proxy-nonce' }, [], undefined, {
+			mode: 'apiKey', apiKey: 'fixture-native-key', model: 'fixture-model', baseUrl: 'http://127.0.0.1:4321/v1', home: '/isolated/codex',
+		});
+		assert.deepStrictEqual({
+			proxy: config.env.OPENAI_API_KEY, native: config.env.VSC_AGENT_CODEX_API_KEY, home: config.env.CODEX_HOME,
+			leaked: config.args.some(arg => arg.includes('fixture-native-key')),
+			provider: config.args.includes('model_provider="agent-first-api"'),
+			endpoint: config.args.includes('model_providers.agent-first-api.base_url="http://127.0.0.1:4321/v1"'),
+		}, { proxy: 'proxy-nonce', native: 'fixture-native-key', home: '/isolated/codex', leaked: false, provider: true, endpoint: true });
+	});
+
 	test('adds the Copilot proxy and enforces telemetry overrides after extra arguments', () => {
 		const config = buildCodexLaunchConfig('/sdk/codex', { PATH: '/bin', OPENAI_API_KEY: 'personal' }, { baseUrl: 'http://127.0.0.1:1234', nonce: 'nonce' }, ['--log-level=debug', '-c', 'analytics.enabled=true']);
 		assert.deepStrictEqual(config.env, { PATH: '/bin', OPENAI_API_KEY: 'nonce', AI_AGENT: 'github_copilot_vscode_agent' });

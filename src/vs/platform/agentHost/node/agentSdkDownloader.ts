@@ -305,6 +305,16 @@ export class AgentSdkDownloader extends Disposable implements IAgentSdkDownloade
 		}, SDK_CACHE_CLEANUP_DELAY_MS)).schedule();
 	}
 
+	private _bundledSdkRoot(pkg: IAgentSdkPackage): string | undefined {
+		const relative = this._productService.agentSdks?.[pkg.id]?.bundledPath;
+		if (!relative || path.isAbsolute(relative)) {
+			return undefined;
+		}
+		const root = path.resolve(this._environmentService.appRoot, relative);
+		const child = path.relative(this._environmentService.appRoot, root);
+		return child && !child.startsWith(`..${path.sep}`) && child !== '..' ? root : undefined;
+	}
+
 	isAvailable(pkg: IAgentSdkPackage): boolean {
 		if (process.env[pkg.devOverrideEnvVar]) {
 			return true;
@@ -349,6 +359,10 @@ export class AgentSdkDownloader extends Disposable implements IAgentSdkDownloade
 		if (override) {
 			return override;
 		}
+		const bundled = this._bundledSdkRoot(pkg);
+		if (bundled) {
+			return await this._fileService.exists(URI.joinPath(URI.file(bundled), AGENT_SDK_CACHE_SENTINEL)) ? bundled : undefined;
+		}
 		const config = this._productService.agentSdks?.[pkg.id];
 		if (!config) {
 			return undefined;
@@ -367,6 +381,14 @@ export class AgentSdkDownloader extends Disposable implements IAgentSdkDownloade
 		if (override) {
 			this._logService.info(`[AgentSdkDownloader] ${pkg.id}: using dev override at ${override}`);
 			return override;
+		}
+
+		if (this._bundledSdkRoot(pkg)) {
+			const installed = await this.resolveInstalledSdkRoot(pkg);
+			if (!installed) {
+				throw new Error(`Bundled ${pkg.id} runtime is missing. Reinstall the application.`);
+			}
+			return installed;
 		}
 
 		// 2. Negative cache: a recent failure short-circuits without I/O. Not for a
@@ -402,6 +424,9 @@ export class AgentSdkDownloader extends Disposable implements IAgentSdkDownloade
 				`Cannot load ${pkg.id} SDK: no \`product.agentSdks.${pkg.id}\` configured and ` +
 				`no ${pkg.devOverrideEnvVar} dev override set.`,
 			);
+		}
+		if (!config.urlTemplate) {
+			throw new Error(`No download location configured for ${pkg.id}.`);
 		}
 		const sdkTarget = resolveSdkTarget(pkg);
 		if (!sdkTarget) {

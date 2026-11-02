@@ -11,6 +11,7 @@ import { SHOULD_SHOW_RETURN_TO_VSCODE_EDITOR_COMMAND_ID } from '../common/sessio
 
 // Actions
 if (product.agentFirst) {
+	await import('./nativeAgentSetup.contribution.js');
 	// The sign-in flow asks this capability query. No editor-launch command is registered.
 	CommandsRegistry.registerCommand(SHOULD_SHOW_RETURN_TO_VSCODE_EDITOR_COMMAND_ID, () => false);
 } else {

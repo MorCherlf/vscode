@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import type { INativeAgentConfiguration } from '../../common/nativeAgentConfiguration.js';
 import type Anthropic from '@anthropic-ai/sdk';
 import type { CCAModel } from '@vscode/copilot-api';
 import type * as http from 'http';
@@ -69,7 +70,7 @@ export interface IClaudeProxyHandle extends ILoopbackProxyHandle {
  */
 export type ClaudeTransport =
 	| { readonly kind: 'proxy'; readonly handle: IClaudeProxyHandle }
-	| { readonly kind: 'native' };
+	| { readonly kind: 'native'; readonly configuration?: INativeAgentConfiguration };
 
 /**
  * A per-request credits report. CAPI returns the actual billed credits

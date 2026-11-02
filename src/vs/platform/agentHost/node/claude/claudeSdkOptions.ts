@@ -123,6 +123,13 @@ export async function buildOptions(
 ): Promise<Options> {
 	const isProxy = transport.kind === 'proxy';
 	const subprocessEnv = buildSubprocessEnv(isProxy);
+	if (transport.kind === 'native' && transport.configuration?.mode === 'apiKey') {
+		delete subprocessEnv.ANTHROPIC_AUTH_TOKEN;
+		delete subprocessEnv.CLAUDE_CODE_OAUTH_TOKEN;
+		subprocessEnv.ANTHROPIC_API_KEY = transport.configuration.apiKey!;
+		subprocessEnv.ANTHROPIC_BASE_URL = transport.configuration.baseUrl!;
+		subprocessEnv.CLAUDE_CONFIG_DIR = transport.configuration.home!;
+	}
 	const telemetryEnv = buildClaudeTelemetryEnv(input.telemetry, input.traceContext);
 	Object.assign(subprocessEnv, telemetryEnv);
 	const resolvedRgDiskPath = await rgDiskPath();
@@ -175,6 +182,7 @@ export async function buildOptions(
 			? { additionalDirectories: input.additionalDirectories.map(d => d.fsPath) }
 			: {}),
 		executable: process.execPath as 'node',
+		...(transport.kind === 'native' && transport.configuration?.executable ? { pathToClaudeCodeExecutable: transport.configuration.executable } : {}),
 		env: subprocessEnv,
 		abortController: input.abortController,
 		allowDangerouslySkipPermissions: true,

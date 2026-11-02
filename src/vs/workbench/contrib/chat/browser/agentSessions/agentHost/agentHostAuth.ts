@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import { isNativeAgentResource } from '../../../../../../platform/agentHost/common/nativeAgentConfiguration.js';
 import { fetchAuthorizationServerMetadata } from '../../../../../../base/common/oauth.js';
 import { compareBy, numberComparator } from '../../../../../../base/common/arrays.js';
 import { findFirstMin } from '../../../../../../base/common/arraysFind.js';
@@ -678,6 +679,9 @@ export async function resolveProtectedResourceAuthentication(
 	resource: ProtectedResourceMetadata,
 	logPrefix: string,
 ): Promise<IAgentHostAuthenticateRequest | undefined> {
+	if (isNativeAgentResource(resource.resource)) {
+		return undefined;
+	}
 	const logService = accessor.get(ILogService);
 	const resolution = await resolveSessionForProtectedResource(accessor.get(IAuthenticationService), accessor.get(IDefaultAccountService), logService, resource, {
 		logPrefix,
@@ -739,6 +743,9 @@ export async function authenticateProtectedResourcesWithToken(
 	options: Pick<IAgentHostAuthenticationOptions, 'authTokenCache' | 'authenticate' | 'isCurrent'>,
 ): Promise<void> {
 	for (const resource of protectedResources) {
+		if (isNativeAgentResource(resource.resource)) {
+			continue;
+		}
 		await forwardAuthenticationToken(options, resource.resource, resource.scopes_supported, { accessToken: token });
 	}
 }
@@ -775,6 +782,9 @@ export async function revokeAuthenticationForRemovedSessions(
 	const reconciledResources = new Set<string>();
 	for (const agent of agents) {
 		for (const resource of agent.protectedResources ?? []) {
+			if (isNativeAgentResource(resource.resource)) {
+				continue;
+			}
 			const scopes = resource.scopes_supported ?? [];
 			const key = protectedResourceAuthenticationKey(resource);
 			if (reconciledResources.has(key)) {
@@ -865,6 +875,9 @@ async function authenticateProtectedResourceWithServices(
 	resource: ProtectedResourceMetadata,
 	options: IResolvedAgentHostAuthenticationOptions,
 ): Promise<boolean> {
+	if (isNativeAgentResource(resource.resource)) {
+		return false;
+	}
 	throwIfAuthenticationStale(options);
 	const resolution = await resolveSessionForProtectedResource(authenticationService, defaultAccountService, logService, resource, options);
 	throwIfAuthenticationStale(options);

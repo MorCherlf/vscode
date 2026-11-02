@@ -341,6 +341,16 @@ suite('claudeSdkOptions / buildOptions plugins projection', () => {
 		});
 	});
 
+	test('explicit native API credentials use the configured endpoint and private state', async () => {
+		const options = await buildOptions(input(undefined), { kind: 'native', configuration: {
+			mode: 'apiKey', apiKey: 'fixture-native-key', baseUrl: 'https://example.com', model: 'fixture-model', home: '/isolated/claude', executable: '/bin/claude',
+		} }, () => { });
+		assert.deepStrictEqual({
+			key: options.env?.ANTHROPIC_API_KEY, endpoint: options.env?.ANTHROPIC_BASE_URL, home: options.env?.CLAUDE_CONFIG_DIR,
+			oauth: options.env?.CLAUDE_CODE_OAUTH_TOKEN, authToken: options.env?.ANTHROPIC_AUTH_TOKEN, executable: options.pathToClaudeCodeExecutable,
+		}, { key: 'fixture-native-key', endpoint: 'https://example.com', home: '/isolated/claude', oauth: undefined, authToken: undefined, executable: '/bin/claude' });
+	});
+
 	test('proxy transport sets ANTHROPIC_BASE_URL + per-session ANTHROPIC_AUTH_TOKEN', async () => {
 		const opts = await buildOptions(input(undefined), proxyTransport, () => { });
 		const env = (opts.settings as { env?: Record<string, string> }).env ?? {};

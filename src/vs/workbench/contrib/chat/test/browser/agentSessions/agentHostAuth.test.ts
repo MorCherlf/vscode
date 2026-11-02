@@ -38,7 +38,7 @@ import { IAuthenticationMcpUsageService } from '../../../../../services/authenti
 import { IAuthenticationService, type AuthenticationSession, type IAuthenticationProvider, type IAuthenticationProviderSessionOptions } from '../../../../../services/authentication/common/authentication.js';
 import { IDynamicAuthenticationProviderStorageService } from '../../../../../services/authentication/common/dynamicAuthenticationProviderStorage.js';
 import { CHAT_SETUP_ACTION_ID } from '../../../browser/actions/chatActions.js';
-import { AgentHostAuthenticationRecovery, authenticateCopilotConnectorCredential, autoAuthenticateMcpServer, authenticateProtectedResources, resolveAuthenticationInteractively, resolveSessionForResource, AgentHostAuthTokenCache, agentHostMcpServerId, resolveMcpServerAuthentication, modelRequiresAgentAuthentication, revokeAuthenticationForRemovedSessions, selectAuthenticationSession, type AuthenticationSessionSelection, type IAgentHostAuthenticationOptions, type IAgentHostAuthenticateRequest, AgentHostInteractiveAuthentication } from '../../../browser/agentSessions/agentHost/agentHostAuth.js';
+import { AgentHostAuthenticationRecovery, authenticateCopilotConnectorCredential, autoAuthenticateMcpServer, authenticateProtectedResources, authenticateProtectedResourcesWithToken, resolveAuthenticationInteractively, resolveSessionForResource, AgentHostAuthTokenCache, agentHostMcpServerId, resolveMcpServerAuthentication, modelRequiresAgentAuthentication, revokeAuthenticationForRemovedSessions, selectAuthenticationSession, type AuthenticationSessionSelection, type IAgentHostAuthenticationOptions, type IAgentHostAuthenticateRequest, AgentHostInteractiveAuthentication } from '../../../browser/agentSessions/agentHost/agentHostAuth.js';
 import { createAgentModelByokMeta } from '../../../../../../platform/agentHost/common/agentModelByokMeta.js';
 
 const mcpAuthenticationTarget: McpServerAuthenticateTarget = {
@@ -2219,6 +2219,19 @@ suite('authenticateProtectedResources', () => {
 	});
 
 	const disposables = ensureNoDisposablesAreLeakedInTestSuite();
+
+	test('generic account forwarding and revocation leave native agent credentials untouched', async () => {
+		const authentication = createMockAuthService({ getOrActivateProviderIdForServer: async () => assert.fail('Native setup must not resolve OAuth providers') });
+		const instantiationService = createAuthInstantiationService(disposables, authentication);
+		const resources = [{ resource: 'vsc-agent-native://claude', required: false }, { resource: 'vsc-agent-native://codex', required: false }];
+		const agents = [new class extends mock<AgentInfo>() { override readonly protectedResources = resources; }()];
+		const requests: IAgentHostAuthenticateRequest[] = [];
+		const options = { logPrefix: '[Test]', authenticate: async (request: IAgentHostAuthenticateRequest) => { requests.push(request); } };
+		await instantiationService.invokeFunction(authenticateProtectedResources, agents, options);
+		await authenticateProtectedResourcesWithToken(resources, '{{SECRET_eqru2x8t}}', options);
+		await instantiationService.invokeFunction(revokeAuthenticationForRemovedSessions, agents, 'github', [removedSession([])], options);
+		assert.deepStrictEqual(requests, []);
+	});
 
 	test('provider-level protected resource authentication does not include an MCP target', async () => {
 		const authentication = createMockAuthService({
