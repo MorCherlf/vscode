@@ -1,0 +1,43 @@
+{
+	"name": "@morcherlf/agent-host",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"test": "node --test test/*.test.mjs",
+		"build:test": "node scripts/build.mjs --test"
+	},
+	"devDependencies": {
+		"esbuild": "0.28.2"
+	},
+	"dependencies": {
+		"@github/copilot-sdk": "1.0.27-unstable.40031404408.gba6c003",
+		"@hpke/core": "1.9.0",
+		"@microsoft/1ds-core-js": "3.2.13",
+		"@microsoft/1ds-post-js": "3.2.13",
+		"@vscode/copilot-api": "0.5.2",
+		"@vscode/deviceid": "0.1.5",
+		"@vscode/fs-copyfile": "2.0.0",
+		"@vscode/proxy-agent": "0.45.0",
+		"@vscode/ripgrep-universal": "1.18.0",
+		"@vscode/sqlite3": "5.1.12-vscode",
+		"@vscode/tree-sitter-wasm": "0.3.1",
+		"@xterm/headless": "6.1.0-beta.303",
+		"detect-libc": "2.1.2",
+		"http-proxy-agent": "7.0.2",
+		"https-proxy-agent": "7.0.6",
+		"libsodium-wrappers": "0.8.4",
+		"minimist": "1.2.8",
+		"node-pty": "1.2.0-beta.18",
+		"tar": "7.5.22",
+		"ws": "8.21.0",
+		"yauzl": "3.3.1",
+		"yazl": "2.4.3",
+		"zod": "4.4.3",
+		"@parcel/watcher": "2.5.6"
+	},
+	"engines": {
+		"node": "24.22.1"
+	}
+}

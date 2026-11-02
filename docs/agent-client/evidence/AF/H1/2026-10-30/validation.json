@@ -1,0 +1,26 @@
+{
+  "source_parent": "de85d95570b43e1dbd5fc0674817ef929804d243",
+  "platform": "Linux x64",
+  "node": "24.22.1",
+  "browser": "Chromium 141.0.7390.37 (explicit override, not upstream pinned Chromium149)",
+  "original_component_tests": {
+    "passed": 590,
+    "pending": 4
+  },
+  "manifest_unit_tests_passed": 46,
+  "worker_eh_probe": "original Worker EH with four synthetic extensions, one admitted control",
+  "model_task": false,
+  "mac_build": false,
+  "human_accepted": false,
+  "targeted_typecheck_exit": 0,
+  "global_layers_exit": 137,
+  "matched_ab_exits": {
+    "baseline": 1,
+    "current": 0
+  },
+  "matched_ab_scripts": {
+    "baseline": 4993,
+    "current": 4901
+  },
+  "screenshot_sha256": "2a76e6ec2ed1e5ad7d7e4a88fd2353d3225b435aaffe91fbdd4979851e3fffde"
+}

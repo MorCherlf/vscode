@@ -18,6 +18,7 @@ import { IResourceEditorInput } from '../../../../platform/editor/common/editor.
 import { FileOperation, IFileService } from '../../../../platform/files/common/files.js';
 import { IInstantiationService } from '../../../../platform/instantiation/common/instantiation.js';
 import { Registry } from '../../../../platform/registry/common/platform.js';
+import { IProductService } from '../../../../platform/product/common/productService.js';
 import { IStorageService } from '../../../../platform/storage/common/storage.js';
 import { IUriIdentityService } from '../../../../platform/uriIdentity/common/uriIdentity.js';
 import { DEFAULT_EDITOR_ASSOCIATION, EditorExtensions, GroupIdentifier, IEditorFactoryRegistry, IResourceDiffEditorInput } from '../../../common/editor.js';
@@ -31,6 +32,7 @@ import { IEditorGroup, IEditorGroupContextKeyProvider, IEditorGroupsService } fr
 import { IEditorResolverService, RegisteredEditorPriority } from '../../../services/editor/common/editorResolverService.js';
 import { IEditorService, IUntypedEditorReplacement } from '../../../services/editor/common/editorService.js';
 import { IExtensionService } from '../../../services/extensions/common/extensions.js';
+import { IWorkbenchEnvironmentService } from '../../../services/environment/common/environmentService.js';
 import { ContributedCustomEditors } from '../common/contributedCustomEditors.js';
 import { CustomEditorDiffInput, CustomEditorSideBySideDiffInput } from './customEditorDiffInput.js';
 import { CustomEditorInput } from './customEditorInput.js';
@@ -244,10 +246,12 @@ export class CustomEditorResolverContribution extends Disposable implements IWor
 		@ITextResourceConfigurationService private readonly textResourceConfigurationService: ITextResourceConfigurationService,
 		@IExtensionService private readonly extensionService: IExtensionService,
 		@ICustomEditorService private readonly customEditorService: ICustomEditorService,
+		@IProductService productService: IProductService,
+		@IWorkbenchEnvironmentService environmentService: IWorkbenchEnvironmentService,
 	) {
 		super();
 
-		this._contributedEditors = this._register(new ContributedCustomEditors(storageService));
+		this._contributedEditors = this._register(new ContributedCustomEditors(storageService, !environmentService.isSessionsWindow || productService.agentFirstExecutableExtensions === undefined));
 		// Register the contribution points only emitting one change from the resolver
 		this.editorResolverService.bufferChangeEvents(() => this.registerContributionPoints());
 

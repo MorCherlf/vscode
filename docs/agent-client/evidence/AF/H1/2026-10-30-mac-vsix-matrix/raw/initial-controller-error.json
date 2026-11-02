@@ -1,0 +1,11 @@
+{
+  "source": "78b70f43adc58e72ca832e2069bcabbde6371539",
+  "failure": "TypeError [ERR_INVALID_ARG_VALUE]: The argument 'stdio' is invalid. Received WriteStream {\n  fd: null,\n  path: '$REPO/.build/native-vsix-20261030/raw/restart.log',\n  fl...\n    at node:internal/child_process:1147:13\n    at Array.reduce (<anonymous>)\n    at getValidStdio (node:internal/child_process:1074:11)\n    at ChildProcess.spawn (node:internal/child_process:393:11)\n    at spawn (node:child_process:813:9)\n    at file://$REPO/.build/native-vsix-20261030/probe.mjs:213:16",
+  "completedBeforeControllerError": [
+    "real VSIX installation",
+    "empty-list global/workspace enable rejection and config/event negatives",
+    "admitted synthetic positive controls",
+    "restore product list and quit with storage flushed"
+  ],
+  "classification": "Controller stdio file handle timing error before restarting; not a product failure. Reused completed unchanged stages and resumed native restart."
+}

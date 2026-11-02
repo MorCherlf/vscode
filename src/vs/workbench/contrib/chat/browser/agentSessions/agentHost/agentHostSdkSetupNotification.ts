@@ -3,6 +3,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import product from '../../../../../../platform/product/common/product.js';
+import { isWeb } from '../../../../../../base/common/platform.js';
 import { Disposable, DisposableStore } from '../../../../../../base/common/lifecycle.js';
 import { Event } from '../../../../../../base/common/event.js';
 import { createCommandUri, escapeMarkdownSyntaxTokens, IMarkdownString, MarkdownString } from '../../../../../../base/common/htmlContent.js';
@@ -193,7 +195,7 @@ export function hasAgentSdkSetupForSessionType(setups: readonly IAgentSdkSetupIn
  * never tie the SDK to an account: it is the same SDK behind the Copilot proxy,
  * a subscription or a BYO key.
  */
-export function createAgentSdkSetupNotification(setup: IAgentSdkSetupInfo, displayName: string, state: AgentSdkSetupState | undefined, hasModels = false, includeGitHubSignIn = true): IChatInputNotification | undefined {
+export function createAgentSdkSetupNotification(setup: IAgentSdkSetupInfo, displayName: string, state: AgentSdkSetupState | undefined, hasModels = false, includeGitHubSignIn = true, configureNative = false): IChatInputNotification | undefined {
 	// Nothing to ask of a user who is already set up. An empty `displayName` means
 	// the host has not described this agent yet, and "Download the  Agent" is worse
 	// than none; the next root-state change is moments away.
@@ -232,10 +234,15 @@ export function createAgentSdkSetupNotification(setup: IAgentSdkSetupInfo, displ
 		// The widget styles the final action as primary, so GitHub stays last.
 		actions.push(action(localize('agentHost.sdkSetup.gitHubSignInAction', "Sign in to GitHub"), AGENT_SDK_SETUP_GITHUB_SIGN_IN_COMMAND_ID));
 	}
+	if (configureNative) {
+		actions.push(action(localize('agentHost.sdkSetup.configureNative', "Configure Connection..."), 'sessions.configureNativeAgent'));
+	}
 	return {
 		...base,
 		message: localize('agentHost.sdkSetup.noAccount', "Choose how you want to use {0}.", displayName),
-		description: noAccountDescription(setup, displayName, includeGitHubSignIn),
+		description: configureNative
+			? localize('agentHost.sdkSetup.nativeDescription', "Configure an API key and endpoint, or use the agent's existing local configuration.")
+			: noAccountDescription(setup, displayName, includeGitHubSignIn),
 		actions,
 	};
 }
@@ -346,7 +353,8 @@ export class AgentHostSdkSetupNotificationContribution extends Disposable implem
 					: codexAccount.status === 'signedIn'
 						? 'available'
 						: 'unresolved';
-			const state = getAgentSdkSetupState({
+			const nativeSetup = product.agentFirst && !isWeb;
+			const state = nativeSetup && setup.download === 'ready' ? (hasModels ? 'resolved' : 'noAccount') : getAgentSdkSetupState({
 				allowSignedOutWhenUsable,
 				signedIn,
 				entitlementResolved,
@@ -362,7 +370,7 @@ export class AgentHostSdkSetupNotificationContribution extends Disposable implem
 				this._lastReported.set(setup.agent, toReport);
 				this._agentSdkSetupService.reportSetupState(setup.agent, toReport);
 			}
-			const notification = createAgentSdkSetupNotification(setup, displayName, state, hasModels, !signedIn);
+			const notification = createAgentSdkSetupNotification(setup, displayName, state, hasModels, !signedIn && !nativeSetup, nativeSetup === true);
 			if (!notification) {
 				continue;
 			}

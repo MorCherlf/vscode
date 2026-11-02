@@ -3,7 +3,7 @@
 
 # M2 Tauri 客户端与 AHP 验证
 
-状态：待启动。前置：M1 可运行 Host；M0 已明确首版交互。对应目标：G02、G03、G06、G11。执行角色：Rust、前端和协议测试。
+状态：进行中（2026-10-29 已交付 Mac 开发包与首批 Sessions 界面迁移；真实账户、完整界面对照和 WKWebView 门禁未通过）。前置：M1 可运行 Host；M0 已明确首版交互。对应目标：G02、G03、G06、G11。执行角色：Rust、前端和协议测试。
 
 ## 目标
 
@@ -25,6 +25,7 @@
 | M2.4 | 对接真实登录与凭据存储，验证再次启动 | 无 VS Code 登录依赖的真实会话 |
 | M2.5 | 接入流式响应、取消和用户输入请求 | T03、T04 最小任务验证 |
 | M2.6 | 在 WKWebView 验证输入法、粘贴、拖放和富内容边界 | T02 记录和 Tauri 继续采用的决策 |
+| M2.7 | 沿用同源码 Agent/Sessions 布局、主题、图标与核心交互，逐组件拆除工作台依赖 | [界面迁移来源、分批计划和 UI01 至 UI06](../UI_MIGRATION.md)；实际可操作的界面及对照证据 |
 
 ## 接口与故障行为
 
@@ -37,10 +38,11 @@
 
 ## 交付物
 
-可运行的 Tauri 原型、协议 transport 与状态边界说明、凭据和进程管理实现、T01 至 T04 的阶段报告及 WKWebView 适配结论。证据计划存入 `evidence/M2/`。
+可运行的 Tauri 原型、协议 transport 与状态边界说明、凭据和进程管理实现、T01 至 T04 的阶段报告及 WKWebView 适配结论。证据已存入 `evidence/M2/`。
 
 ## 验收门禁
 
+- [ ] 界面符合 [UI01 至 UI06](../UI_MIGRATION.md)，同主题同任务与原版对照；不能仅以原型编译、空欢迎页或 mock 窗口证明完整迁移。
 - [ ] 在不运行 VS Code 的 Mac 上，由 Tauri 启动 M1 Host，使用真实 Copilot 账户完成一次对话。
 - [ ] 创建会话、流式输出、取消和输入请求均有真实服务证据，mock 回放覆盖错误和断线。
 - [ ] 两个客户端订阅同一会话后状态收敛；连接断开恢复不造成重复任务。
@@ -54,4 +56,6 @@
 
 ## 推进记录与下一步
 
-当前尚无执行证据。先完成 M2.1 至 M2.3，再接真实登录与真机交互。通过后进入 [M3](M3-agent-workflow.md)，并允许提前准备 M4 的插件适配。
+已实现 `apps/agent-client/`、`packages/agent-client-core/` 和 `packages/agent-host-supervisor/`。官方 AHP 1.0.0 SDK/reducer、轻量 React/TypeScript 界面、Tauri 2.12.4 外壳、凭据留在 native 的帧转发、有界队列、重连快照、取消/文本问题/工具审批、窗口隐藏与退出选择均有实际代码。Linux 完整 Rust check 与调试可执行文件构建通过，核心 6/6、supervisor 4/4、浏览器 2/2 通过；真实 Tauri 图形窗口因云端无显示环境未运行，Chromium 截图不算 WKWebView 验收。M2-B 已加入自有 OAuth device flow/refresh、原生凭据交接、credential-store/Keychain 后端、输入约束与故障工程，见 [本轮证据](../evidence/M2/M2-B/README.md)。真实账户、新版 Mac 编译/Keychain 与 M2.6 真机交互仍未验证；M2 不得标为已验收。详见 [M2 证据](../evidence/M2/README.md) 与 [M2-B](../evidence/M2/NEXT.md)。
+
+用户后续要求优先直接复用 VS Code 原组件与插件生态、持续合并上游，并探索 DSH。主聊天负责 `feasibility/`；本轮不扩大 React 视图或实现 vscode API 子集，也不提前决定双运行时或替换容器。已有资产/主题复用与表单适配不作为原组件复用证明。

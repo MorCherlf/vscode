@@ -98,10 +98,10 @@ function makeEnvService(userDataPath: string): INativeEnvironmentService {
 	// `force-disable-user-env: true` short-circuits before spawning a shell —
 	// without it `shellEnv.ts:140` registers a cancellation listener that
 	// leaks across tests and trips ensureNoDisposablesAreLeakedInTestSuite.
-	return { userDataPath, args: { 'force-disable-user-env': true } as never } as unknown as INativeEnvironmentService;
+	return { userDataPath, appRoot: userDataPath, args: { 'force-disable-user-env': true } as never } as unknown as INativeEnvironmentService;
 }
 
-function makeProductService(config: { version: string; urlTemplate: string } | undefined): IProductService {
+function makeProductService(config: { version: string; urlTemplate?: string; bundledPath?: string } | undefined): IProductService {
 	return {
 		agentSdks: config ? { claude: config } : undefined,
 	} as unknown as IProductService;
@@ -247,13 +247,14 @@ suite('AgentSdkDownloader', () => {
 	 * entirely (the "no product config" case).
 	 */
 	function makeDownloader(
-		productConfig?: { version?: string; urlTemplate?: string } | null,
+		productConfig?: { version?: string; urlTemplate?: string; bundledPath?: string } | null,
 		telemetryService: ITelemetryService = NullTelemetryService,
 		storageService?: IAgentHostStorageService,
 	) {
 		const config = productConfig === null ? undefined : {
 			version: productConfig?.version ?? '1.0.0',
-			urlTemplate: productConfig?.urlTemplate ?? `http://127.0.0.1:${server.port}/sdk-{sdkTarget}.tgz`,
+			urlTemplate: productConfig?.bundledPath ? undefined : productConfig?.urlTemplate ?? `http://127.0.0.1:${server.port}/sdk-{sdkTarget}.tgz`,
+			bundledPath: productConfig?.bundledPath,
 		};
 		const storage = storageService ?? disposables.add(new AgentHostStorageService(undefined, new NullLogService()));
 		return disposables.add(new AgentSdkDownloader(
@@ -266,6 +267,22 @@ suite('AgentSdkDownloader', () => {
 			storage,
 		));
 	}
+
+	test('bundled SDK resolution is offline and requires a completed installation', async () => {
+		const root = path.join(userDataPath, 'agent-sdks', 'claude');
+		await fsp.mkdir(root, { recursive: true });
+		const downloader = makeDownloader({ bundledPath: 'agent-sdks/claude' });
+		assert.strictEqual(await downloader.resolveInstalledSdkRoot(ClaudeSdkPackage), undefined);
+		await fsp.writeFile(path.join(root, '.complete'), 'fixture');
+		assert.strictEqual(await downloader.loadSdkRoot(ClaudeSdkPackage, newToken()), root);
+		assert.strictEqual(server.requestCount, 0);
+	});
+
+	test('bundled paths cannot escape the installed application', async () => {
+		const downloader = makeDownloader({ bundledPath: '../outside' });
+		await assert.rejects(downloader.loadSdkRoot(ClaudeSdkPackage, newToken()));
+		assert.strictEqual(server.requestCount, 0);
+	});
 
 	test('isAvailable: false when no env override and no product config', () => {
 		assert.strictEqual(makeDownloader(null).isAvailable(ClaudeSdkPackage), false);

@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import './media/emptyFileEditor.css';
+import product from '../../../../platform/product/common/product.js';
 import { $, addDisposableListener, append, Dimension, EventHelper, EventType, isHTMLElement } from '../../../../base/browser/dom.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { DisposableStore, MutableDisposable } from '../../../../base/common/lifecycle.js';
@@ -60,13 +61,15 @@ export class EmptyFileEditor extends EditorPane {
 		const content = append(container, $('.empty-file-editor-content'));
 
 		// Like an empty editor group, double-clicking empty space opens an untitled file.
-		this._register(addDisposableListener(container, EventType.DBLCLICK, event => {
-			if (isHTMLElement(event.target) && event.target.closest('.empty-file-editor-search, .empty-file-editor-actions')) {
-				return;
-			}
-			EventHelper.stop(event);
-			void this.commandService.executeCommand(NEW_UNTITLED_FILE_COMMAND_ID);
-		}));
+		if (!product.agentFirst) {
+			this._register(addDisposableListener(container, EventType.DBLCLICK, event => {
+				if (isHTMLElement(event.target) && event.target.closest('.empty-file-editor-search, .empty-file-editor-actions')) {
+					return;
+				}
+				EventHelper.stop(event);
+				void this.commandService.executeCommand(NEW_UNTITLED_FILE_COMMAND_ID);
+			}));
+		}
 		const searchContainer = append(content, $('.empty-file-editor-search'));
 		this.search = this._register(this.instantiationService.createInstance(EmptyFileEditorSearch, searchContainer));
 

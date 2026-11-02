@@ -28,6 +28,7 @@ import { compileNonNativeExtensionsBuildTask, compileNativeExtensionsBuildTask, 
 import { checkApiProposalNamesTask, copyCodiconsTask } from './lib/compilation.ts';
 import { ensureCopilotPlatformPackage, getCopilotExcludeFilter, getCopilotRuntimePrebuildFiles, getCopilotRuntimeVersion, getCopilotTgrepExcludeFilter, getRipgrepExcludeFilter, prepareBuiltInCopilotRipgrepShim, renderCopilotShimLauncher } from './lib/copilot.ts';
 import { ensureOSProxyResolverPlatformPackage, getOSProxyResolverExcludeFilter, getOSProxyResolverPlatformFiles } from './lib/osProxyResolver.ts';
+import { bundledAgentSdkConfiguration, prepareBundledAgentSdks } from './agent-sdk/bundled.ts';
 import { readAgentSdkResults } from './agent-sdk/common.ts';
 import { readDictationRuntimeResults } from './dictation-runtime/common.ts';
 import { promisify } from 'util';
@@ -213,7 +214,7 @@ function packageTask(platform: string, arch: string, sourceFolderName: string, d
 				// Stamp agentSdks from the per-platform results file produced
 				// by `build/agent-sdk/produce.ts` (an earlier pipeline step).
 				// Local dev: file absent → empty → not stamped.
-				const agentSdks = readAgentSdkResults();
+				const agentSdks = product.agentFirst ? bundledAgentSdkConfiguration(platform, arch) : readAgentSdkResults();
 				if (Object.keys(agentSdks).length > 0) {
 					json.agentSdks = agentSdks;
 				}
@@ -606,7 +607,15 @@ BUILD_TARGETS.forEach(buildTarget => {
 			compileNativeExtensionsBuildTask,
 			util.rimraf(path.join(buildRoot, destinationFolderName)),
 			packageTask(platform, arch, sourceFolderName, destinationFolderName, opts),
-			prepareCopilotRipgrepShimTask(platform, arch, destinationFolderName)
+			prepareCopilotRipgrepShimTask(platform, arch, destinationFolderName),
+			async () => {
+				if (product.agentFirst) {
+					const appRoot = platform === 'darwin'
+						? path.join(buildRoot, destinationFolderName, `${product.nameLong}.app`, 'Contents', 'Resources', 'app')
+						: path.join(buildRoot, destinationFolderName, util.getVersionedResourcesFolder(platform, commit!), 'resources', 'app');
+					await prepareBundledAgentSdks(platform, arch, appRoot);
+				}
+			}
 		];
 
 		if (platform === 'win32') {

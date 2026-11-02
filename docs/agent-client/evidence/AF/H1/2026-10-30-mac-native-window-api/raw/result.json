@@ -1,0 +1,79 @@
+{
+  "source": "20c9dc713855f47b708a7ae2a5e46f3923307096",
+  "cases": [
+    {
+      "name": "ordinary-file",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "ordinary-workspace",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "multiple-folders",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "diff-files",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "merge-files",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "canonical-with-remote-intent",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions.",
+      "windowIdsAfter": [
+        1
+      ]
+    },
+    {
+      "name": "canonical-agents-positive",
+      "accepted": true
+    },
+    {
+      "name": "local-folder-positive",
+      "accepted": true
+    }
+  ],
+  "rendererErrors": [],
+  "mode": {
+    "isSessionsWindow": true,
+    "agentFirst": true,
+    "executableExtensions": [],
+    "canonical": "/tmp/code-oss-dev-20261030-172417-69664-Rohc58/user-data/User/agent-sessions.code-workspace"
+  },
+  "beforeWindowIds": [
+    1
+  ],
+  "afterWindowIds": [
+    1
+  ],
+  "rendererPages": [
+    "vscode-file://vscode-app$REPO/out/vs/sessions/electron-browser/sessions-dev.html"
+  ],
+  "chromium": "150.0.7871.250",
+  "passed": true
+}

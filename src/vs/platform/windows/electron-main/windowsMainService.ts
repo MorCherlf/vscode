@@ -60,6 +60,7 @@ import { ICSSDevelopmentService } from '../../cssDev/node/cssDevService.js';
 import { ResourceSet } from '../../../base/common/map.js';
 import { VSBuffer } from '../../../base/common/buffer.js';
 import { resolveAgentsWindowFolder, sendAgentsWindowOpenIntent } from './agentsWindow.js';
+import { assertAgentFirstOpenIntentAllowed, assertAgentFirstWindowAllowed, getAgentFirstApiOpenArgs, getAgentFirstWindowTarget, isAgentFirstRestorableWindow } from './agentFirstWindow.js';
 
 //#region Helper Interfaces
 
@@ -272,7 +273,9 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 	}
 
 	openEmptyWindow(openConfig: IOpenEmptyConfiguration, options?: IOpenEmptyWindowOptions): Promise<ICodeWindow[]> {
-		const cli = this.environmentMainService.args;
+		const cli = openConfig.context === OpenContext.API || openConfig.context === OpenContext.DIALOG || openConfig.context === OpenContext.MENU
+			? getAgentFirstApiOpenArgs(product.agentFirst, this.environmentMainService.args)
+			: this.environmentMainService.args;
 		const remoteAuthority = options?.remoteAuthority || undefined;
 		const forceEmpty = true;
 		const forceReuseWindow = options?.forceReuseWindow;
@@ -295,9 +298,13 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 
 	async openAgentsWindow(openConfig: IOpenConfiguration, folderUri?: URI, reveal?: URI | 'new', source?: AgentsWindowOpenSource, folderUriIsDefault = false, draft?: IAgentsWindowDraft, onboardingSessionResource?: URI): Promise<ICodeWindow[]> {
 		this.logService.trace('windowsManager#openAgentsWindow');
+		assertAgentFirstOpenIntentAllowed(product.agentFirst, openConfig, this.environmentMainService.agentSessionsWorkspace);
 
 		const existingWindows = this.getWindows();
-		folderUri = await resolveAgentsWindowFolder(openConfig, folderUri, reveal === 'new' ? undefined : reveal, source, cli => this.doExtractPathsFromCLI(cli));
+		folderUri = await resolveAgentsWindowFolder(openConfig, folderUri, reveal === 'new' ? undefined : reveal, source, cli => this.doExtractPathsFromCLI(cli), !!product.agentFirst);
+		if (product.agentFirst && openConfig.context === OpenContext.CLI && !folderUri && !reveal && (openConfig.cli._.length > 0 || openConfig.cli['file-uri']?.length || openConfig.cli['folder-uri']?.length)) {
+			throw new Error(localize('agentFirst.unresolvedCliIntent', "Agent First could not resolve this CLI request to a project folder. Open a single project folder with --agents; editor file and workspace requests are not supported."));
+		}
 
 		// Open in a new browser window with the agent sessions workspace
 		const windows = await this.open(await this.ensureAgentsWindow(openConfig));
@@ -336,6 +343,16 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 
 	async open(openConfig: IOpenConfiguration): Promise<ICodeWindow[]> {
 		this.logService.trace('windowsManager#open');
+		if (product.agentFirst) {
+			const target = getAgentFirstWindowTarget(openConfig, this.environmentMainService.agentSessionsWorkspace);
+			if (target.kind === 'new') {
+				return this.openAgentsWindow(openConfig);
+			}
+			if (target.kind === 'folder') {
+				return this.openAgentsWindow(openConfig, target.folder, 'new');
+			}
+			assertAgentFirstWindowAllowed(true, target.kind === 'agents');
+		}
 
 		// Make sure addMode/removeMode is only enabled if we have an active window
 		if ((openConfig.addMode || openConfig.removeMode) && (openConfig.initialStartup || !this.getLastActiveWindow())) {
@@ -405,7 +422,8 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 		}
 
 		// These are windows to restore because of hot-exit or from previous session (only performed once on startup!)
-		if (openConfig.initialStartup) {
+		// Agent First keeps legacy workspace/backup data on disk but never launches its editor windows.
+		if (openConfig.initialStartup && !product.agentFirst) {
 
 			// Untitled workspaces are always restored
 			untitledWorkspacesToRestore.push(...this.workspacesManagementMainService.getUntitledWorkspaces());
@@ -1032,6 +1050,9 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 				}
 
 				const pathsToOpen = await Promise.all(lastSessionWindows.map(async lastSessionWindow => {
+					if (product.agentFirst && !isAgentFirstRestorableWindow(lastSessionWindow, this.environmentMainService.agentSessionsWorkspace)) {
+						return undefined;
+					}
 
 					// Workspaces
 					if (lastSessionWindow.workspace) {
@@ -1598,6 +1619,8 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 
 			isSessionsWindow: isWorkspaceIdentifier(options.workspace) && isEqual(options.workspace.configPath, this.environmentMainService.agentSessionsWorkspace),
 		};
+
+		assertAgentFirstWindowAllowed(product.agentFirst, configuration.isSessionsWindow === true);
 
 		// New window
 		if (!window) {

@@ -1,0 +1,21 @@
+{
+  "source": "96fa875aa51101cf1085382d0182d90aa7111c8d",
+  "cases": [
+    {
+      "name": "ordinary-file",
+      "accepted": false,
+      "error": "This Agent First product does not open editor windows. Open a project in the Agents window and use its review actions."
+    }
+  ],
+  "rendererErrors": [],
+  "mode": {
+    "isSessionsWindow": true,
+    "agentFirst": true,
+    "executableExtensions": [],
+    "canonical": "/tmp/code-oss-dev-20261030-171158-66830-4WKbHW/user-data/User/agent-sessions.code-workspace"
+  },
+  "beforeWindowIds": [
+    1
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Explicit original native intent error required\n    at file://$REPO/.build/native-window-20261030/probe.mjs:82:23"
+}

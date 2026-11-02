@@ -1,0 +1,23 @@
+
+> @morcherlf/agent-host@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ relocated mock host: token rejection, released AHP, auth, session, streaming, two clients, cancellation and stdin stop (13993.397125ms)
+✔ production Copilot provider boots and stops on SIGTERM without a real credential (1898.569125ms)
+✔ worker, native SQLite/PTY, WASM, recursive watcher and SDK assets load with shipped Node (1341.446459ms)
+ℹ {"worker":true,"sqlite":true,"pty":true,"wasm":true,"ripgrep":true,"sdkAssets":true,"runtimeVersion":"1.0.103-unstable.r40031404408.gba6c003","recursiveWatcher":true}
+✔ production manifest excludes development/test entry points and Electron (8.504125ms)
+✔ invalid options and port conflicts produce machine-readable failures and clean token files (570.445084ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18069.381833
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

@@ -1,0 +1,68 @@
+{
+	"baseCommit": "31906f393148626814c5945c810462e19183cc3a",
+	"platform": "linux",
+	"arch": "x64",
+	"node": "24.22.1",
+	"rust": "1.90.0",
+	"tauri": "2.12.4",
+	"tauriBuild": "2.7.4",
+	"ahpSdk": "1.0.0",
+	"frontendAssets": [
+		{
+			"path": "apps/agent-client/dist/index.html",
+			"bytes": 527,
+			"sha256": "1e5fe3d11d19726b402d4e85c7bccc6860189a2cf63a9192c874de83b34b4479"
+		},
+		{
+			"path": "apps/agent-client/dist/assets/index-B8DEc3kp.js",
+			"bytes": 257127,
+			"sha256": "f366d143e29d8855e9d7832550c5c64129ae7ede7e928e143bb46a84d8ecf0fb"
+		},
+		{
+			"path": "apps/agent-client/dist/assets/index-Cf0UYmmt.js",
+			"bytes": 257198,
+			"sha256": "12bd8e6954971606fff4a4e8aceea031a0de7d9cebf3393484444075835405f5"
+		},
+		{
+			"path": "apps/agent-client/dist/assets/index-DOfuSClt.css",
+			"bytes": 4094,
+			"sha256": "e2afeaa043cb5a4d10fef711e86ecf8bf14ff6219b51858dea0d158b71f66af2"
+		},
+		{
+			"path": "apps/agent-client/dist/assets/index-COAo001L.js",
+			"bytes": 257229,
+			"sha256": "3ebe53e9346505301588dcaead35c9f7d3385770d8e8b9dc11fdfb6e33ddcb24"
+		},
+		{
+			"path": "apps/agent-client/dist/assets/index-DGHoNZ2O.js",
+			"bytes": 257067,
+			"sha256": "da728cfd52e223f78e50caa67ccd89ad5494882155b4f9b5e871947f6354208a"
+		}
+	],
+	"nativeDebugExecutable": {
+		"bytes": 187569888,
+		"sha256": "afa210107c9e0c20a04edbf39eedc6f17fbc589a65fc65c302235717d30b71bb",
+		"built": true,
+		"guiLaunchPassed": false,
+		"launchLimitation": "No display server; GTK initialization failed"
+	},
+	"tests": {
+		"core": {
+			"passed": 6,
+			"failed": 0
+		},
+		"supervisor": {
+			"passed": 4,
+			"failed": 0,
+			"ignored": 0,
+			"M1ArtifactConfigured": true
+		},
+		"browser": {
+			"passed": 2,
+			"failed": 0
+		}
+	},
+	"realCopilotTaskRun": false,
+	"macOSAcceptanceRun": false,
+	"installerPublished": false
+}

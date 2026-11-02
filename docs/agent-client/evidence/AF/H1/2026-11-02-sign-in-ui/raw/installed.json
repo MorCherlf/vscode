@@ -1,0 +1,11 @@
+{
+  "installedApp": "/Applications/VSC Agent Preview.app",
+  "source": "1f43159b9471246d6fa34f9f22f05ddc4cada024",
+  "binary": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview",
+  "architecture": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview: Mach-O 64-bit executable arm64",
+  "productSha256": "23e9d35f45184b57fb89f0976e7a739a0038dcabe19a51e2647aa65d96219310",
+  "adHocSignatureVerified": true,
+  "notarized": false,
+  "externalSymlinks": [],
+  "previousApp": "/Users/morcherlf/Developer/personal/VSCode/.build/session-login-20261102/previous/VSC Agent Preview.app"
+}

@@ -17,7 +17,10 @@ import { IProductService } from '../../../../../platform/product/common/productS
 import { Registry } from '../../../../../platform/registry/common/platform.js';
 import { IWorkspaceTrustEnablementService } from '../../../../../platform/workspace/common/workspaceTrust.js';
 import { EXTENSIONS_SUPPORT_AGENTS_WINDOW, ExtensionManifestPropertiesService, getSessionsWindowMissingFeatures, getSessionsWindowSuggestedContributions, SessionsWindowMissingFeature } from '../../common/extensionManifestPropertiesService.js';
-import { TestProductService, TestWorkspaceTrustEnablementService } from '../../../../test/common/workbenchTestServices.js';
+import { TestProductService as BaseTestProductService, TestWorkspaceTrustEnablementService } from '../../../../test/common/workbenchTestServices.js';
+
+// Legacy cases exercise an ordinary upstream product; admission is tested explicitly below.
+const TestProductService = { ...BaseTestProductService, agentFirstExecutableExtensions: undefined };
 
 suite('ExtensionManifestPropertiesService - ExtensionKind', () => {
 
@@ -209,6 +212,15 @@ suite('ExtensionManifestPropertiesService - SessionsWindowSupport', () => {
 			testObject.canExecuteOnSessionsWindow(getExtensionManifest({ main: './out/extension.js', capabilities: { agentsWindow: { supported: false } }, contributes: { views: {} } }), true),
 			testObject.canExecuteOnSessionsWindow(getExtensionManifest({ name: 'b', main: './out/extension.js' })),
 		], [true, true, false]);
+	});
+
+	test('Agent First product admission precedes built-in, capability and user overrides', async () => {
+		await testConfigurationService.setUserConfiguration(EXTENSIONS_SUPPORT_AGENTS_WINDOW, { 'Pub.a': true });
+		testObject = disposables.add(new ExtensionManifestPropertiesService({ ...TestProductService, agentFirstExecutableExtensions: ['Pub.audited'], sessionsWindowAllowedExtensions: ['Pub.a', 'Pub.audited'] }, testConfigurationService, new TestWorkspaceTrustEnablementService(), new NullLogService()));
+		const executable = getExtensionManifest({ main: './out/extension.js', activationEvents: ['*', 'onStartupFinished', 'onLanguage:typescript', 'onCommand:editor.test'], capabilities: { agentsWindow: { supported: true } }, extensionDependencies: ['Pub.editor'], contributes: { languageModelTools: [{ name: 'mixed', toolReferenceName: 'mixed', displayName: 'Mixed', modelDescription: 'Mixed' }] } });
+		assert.deepStrictEqual({ user: testObject.canExecuteOnSessionsWindow(executable), builtin: testObject.canExecuteOnSessionsWindow(executable, true), auto: testObject.canAutoEnableOnSessionsWindow(executable), declared: testObject.shouldAutoEnableOnSessionsWindow(executable) }, { user: false, builtin: false, auto: false, declared: false });
+		assert.strictEqual(testObject.canExecuteOnSessionsWindow({ ...executable, name: 'audited', extensionDependencies: undefined }), true);
+		assert.strictEqual(testObject.canExecuteOnSessionsWindow(getExtensionManifest({ contributes: { themes: [{ label: 'Theme', uiTheme: 'vs-dark', path: './theme.json' }] } })), true);
 	});
 
 	for (const supported of [false, true]) {

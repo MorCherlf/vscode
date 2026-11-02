@@ -1,0 +1,14 @@
+{
+  "README.md": "158e4002187a95e83b3c0db282ed68951cef1bec5dfe1d72ced3353b11c32748",
+  "raw/build-product-native.log": "7580a5cc18d68bdbc78c8b86dd5106b5990b7f8604c23ad145ed4adda5efdcd4",
+  "raw/electron-runtime-integrity.json": "27ba78a3e0810c9fff1f3fcdbd88d18c37f006e5f6b90fa4ab5f6ea1adcd745d",
+  "raw/electron-types-integrity.json": "7e8862eb53b7ef5569c1c13bde05626856a5549c296b13f39ea73ca7f27f2760",
+  "raw/exthost-activation-excerpt.log": "3749c8c7890454e6bb0fe5842aa95659c3a871d4f08f258cdc79958239ce6ef7",
+  "raw/native-smoke-controller.mjs": "796a4988656f5c3e17fae0c52cf8844ecd983e894aa19616e32590d9c2bde4e3",
+  "raw/native-smoke.json": "825b4524696230bd9335fff507eb101771ab6768490e2c5325719a2510f9bff9",
+  "raw/preflight-native.json": "67dc650517314421777cbfee6746761efa553a3103cb6b48574fb83a2869c196",
+  "screenshots/native-chinese-draft.png": "f569002a7bd4a663144b7b827c85b3b9ac3636f36b9faf68113abc39ad46419a",
+  "screenshots/native-command-palette.png": "fefa2cc8a44e4b9cf362869b205dd53678abaabc7eb051f6de9abf6bb054e110",
+  "screenshots/native-readonly-review.png": "bc1271f39b308c3fa2483c00beee7e2d4e4248b7cdac3bbfaa8c2b4c6f293c17",
+  "validation.json": "202f969752ff8435c779add67974fd3023d35b8e252604b096f73a9be1ed96aa"
+}

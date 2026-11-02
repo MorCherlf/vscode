@@ -1,0 +1,657 @@
+Running the 3 browser test files of the 3 files listed in /tmp/h1b-browser-tests.txt
+
+
+  Sessions - SessionsList - /CHROMIUM/
+    ✔ uses the large radius token for list hovers even when pointer styles load later
+    ✔ created session hover includes its creator action
+    ✔ remote session hover shows the remote name after the session type
+    ✔ external session hover without application provenance omits external status
+    ✔ session and chat hovers show non-VS Code applications without external status and open application filters
+    ✔ session hover links each pull request and opens it externally
+    catalogue refresh scheduling - /CHROMIUM/
+      ✔ coalesces provider, catalogue and host invalidations while preserving focus and selection (99ms)
+      ✔ keeps concrete session added synchronous and cancels a redundant queued refresh
+      ✔ keeps concrete session removed synchronous and cancels a redundant queued refresh
+      ✔ keeps concrete session changed synchronous and cancels a redundant queued refresh
+      ✔ an explicit refresh reads the latest pending catalogue synchronously
+      ✔ an explicit update reads the latest pending catalogue synchronously
+      ✔ does not render a hidden list and refreshes its latest catalogue when shown (48ms)
+      ✔ cancels pending work when the list is disposed
+      ✔ does not lose catalogue changes raised while rendering (51ms)
+    SessionSectionRenderer - /CHROMIUM/
+      ✔ selects the rendered section before the toolbar handles its context menu
+      ✔ shows migration guidance in the Customizations hover
+      ✔ signals extension suggestions on the Customizations entry unless migrations need attention
+      ✔ renders in-progress automation status in the leading icon slot
+      ✔ keeps New Session inactive when Automations opens
+      ✔ spotlights the New Session navigation row and completes via click activation (38ms)
+      ✔ spotlights the New Session navigation row and completes via keyboard activation
+      ✔ opens migrations from Customizations only while migration attention is active
+      ✔ switches the navigation treatment without disturbing Find focus (384ms)
+      ✔ notifies the owner when runtime navigation rows change (42ms)
+      ✔ filters only sessions while retaining navigation and Find focus (438ms)
+      ✔ filters sessions by workspace and artifact pull request numbers (428ms)
+      ✔ keeps navigation and the Sessions header outside the session tree (438ms)
+      ✔ derives terminal automation status from the supplied session snapshot
+      ✔ needs-input automation status takes priority over other running runs
+      ✔ ignores runs whose session the Sessions list shows while that row reflects the run
+    sticky header collapse state - /CHROMIUM/
+      ✔ updates the section chevron after its sticky copy is removed (68ms)
+      ✔ updates the group chevron after its sticky copy is removed (61ms)
+    row feedback - /CHROMIUM/
+      ✔ keeps custom group toolbar at the trailing edge
+      ✔ aligns workspace and custom group rows with session rows
+    collapsed section status indicators - /CHROMIUM/
+      ✔ derives collapsed section unread state from its chats
+      ✔ custom group appearance yields to unread status and returns when read
+      ✔ workspace appearance yields to unread status and returns when read
+      ✔ reports the experiment trigger where a header could show a status, whether or not the setting shows it (161ms)
+      ✔ keeps normal section icons and labels when the setting is unset
+      ✔ marks the group containing an unread session, not the session workspace
+      ✔ shows needs-input only in the containing section and respects filters and pins
+      ✔ shows CI failures only in their containing sections and respects filters and pins (39ms)
+      ✔ prioritizes input, inactive CI failures, then unread in a workspace (39ms)
+      ✔ prioritizes needs-input behind show more and reacts to status changes in a workspace (46ms)
+      ✔ reacts to collapse, read, and archive changes in a workspace
+      ✔ includes unread sessions behind show more in a collapsed workspace
+      ✔ prioritizes input, inactive CI failures, then unread in a group
+      ✔ prioritizes needs-input behind show more and reacts to status changes in a group (38ms)
+      ✔ reacts to collapse, read, and archive changes in a group
+      ✔ includes unread sessions behind show more in a collapsed group
+      ✔ updates membership and does not retain unread state when headers are reused
+      ✔ respects pinned, archived, and automation placement before aggregating unread sessions
+      ✔ does not count unread sessions excluded by list filters
+      ✔ uses the report-question icon for needs-attention with reduced motion
+      ✔ never shows status indicators for archived sessions
+      ✔ reacts to setting changes while a session has failing CI
+      ✔ reacts to setting changes while a session needs input
+      ✔ reacts to setting changes without refreshing the list
+    application badges - /CHROMIUM/
+      ✔ renders off application badges based on the creating application independently of the external flag
+      ✔ renders title application badges based on the creating application independently of the external flag
+      ✔ renders details application badges based on the creating application independently of the external flag
+    experiment triggers - /CHROMIUM/
+      ✔ reports the Done default trigger when the Filter Sessions dropdown shows, until an archived filter is chosen (57ms)
+      ✔ reports the External section trigger for listed external sessions, whether or not they are grouped (85ms)
+      ✔ renders each external application badge mode and triggers only relevant experiments (86ms)
+      ✔ triggers external application badge experiments only while their values come from defaults (44ms)
+      ✔ reports the Done default trigger for archived sessions until an archived filter is chosen (71ms)
+    groupByWorkspace - /CHROMIUM/
+      ✔ groups are sorted alphabetically regardless of insertion order
+      ✔ sessions without workspace are grouped under "Unknown"
+      ✔ multiple sessions in same workspace are grouped together
+      ✔ "No Workspace" appears after workspaces that sort alphabetically later
+      ✔ empty workspace label is treated as "Unknown"
+      ✔ uses the display label for the group id and the resource for collapse state
+      ✔ uses the display label for collapse state when grouped resources differ
+      ✔ restores collapse state after a workspace display label changes
+    groupByRepository - /CHROMIUM/
+      ✔ groups a repository across environments, names sections by repository, and keeps sessions without one in their workspace
+    migrateCloudSandboxRepositorySections - /CHROMIUM/
+      ✔ gives repository sections the state recorded for their cloud sandbox sessions' workspace sections, once
+    groupByEnvironment - /CHROMIUM/
+      ✔ groups across agents and workspaces by stable environment identity, including disconnected and unknown hosts
+      ✔ uses built-in labels without an environment catalog
+    groupByDate - /CHROMIUM/
+      ✔ sessions within the last 7 days go to "Recent", older ones to "Older"
+      ✔ sessions updated within the last 24 hours stay in "Recent" when sorting by creation time
+      ✔ "Recent" is capped at 10 sessions that were not updated within the last 24 hours
+      ✔ "Recent" expands from 10 to 15 only for additional recently updated sessions
+      ✔ empty sections are omitted
+    sortSessions - /CHROMIUM/
+      ✔ sorts by createdAt descending when sorting is Created
+      ✔ sorts by updatedAt descending when sorting is Updated
+    limitSessionsForList - /CHROMIUM/
+      ✔ caps sessions and returns a show more item
+      ✔ returns all sessions and a show less item when expanded
+      ✔ does not cap when disabled
+      ✔ includes only the revealed session beyond the cap (1)
+      ✔ includes only the revealed session beyond the cap (3)
+      ✔ includes only the revealed session beyond the cap (5)
+      ✔ includes only the revealed session beyond the cap (missing)
+      ✔ omits show more when the revealed session is the only hidden session
+    show more state - /CHROMIUM/
+      ✔ lists custom groups in full and caps workspaces until the user chooses otherwise, also after a reload (220ms)
+      ✔ caps the Chats section like a workspace until the user chooses otherwise (workspace) (114ms)
+      ✔ caps the Chats section like a workspace until the user chooses otherwise (repository) (113ms)
+    sticky show more and less - /CHROMIUM/
+      ✔ keeps compact rows above sticky more during repeated list.focusDown (39ms)
+      ✔ keeps compact rows above sticky less during repeated list.focusDown (105ms)
+      ✔ keeps compact rows above sticky more during repeated list.focusPageDown (58ms)
+      ✔ keeps compact rows above sticky less during repeated list.focusPageDown (94ms)
+      ✔ keeps compact nested chats above the sticky footer without constraining manual scrolling (85ms)
+      ✔ pins an expanded workspace section and hands off to its normal footer (114ms)
+      ✔ pins an expanded repository section and hands off to its normal footer (129ms)
+      ✔ shows immediately after expanding a project via show more, with another section above it (80ms)
+      ✔ shows immediately after expanding a project via section header, with another section above it (92ms)
+      ✔ shows the themed list hover background for sticky more and clears it on mouse out (41ms)
+      ✔ uses the original row's markup, typography, separators and insets for more (43ms)
+      ✔ shows the themed list hover background for sticky less and clears it on mouse out (54ms)
+      ✔ uses the original row's markup, typography, separators and insets for less (69ms)
+      ✔ keeps more in its normal row when it fits and pins it again after resizing (61ms)
+      ✔ expands a capped project with click without jumping to its header (85ms)
+      ✔ expands a capped project with Enter without jumping to its header (80ms)
+      ✔ expands a capped project with Space without jumping to its header (83ms)
+      ✔ uses one footer for the current section, switching between more and less (71ms)
+      ✔ preserves the viewport when expansion restores a previously hidden selection (93ms)
+      ✔ updates the remaining count and removes the footer when the project no longer needs capping (47ms)
+      ✔ caps only its own project with click and returns focus to its header (46ms)
+      ✔ caps only its own project with Enter and returns focus to its header (45ms)
+      ✔ caps only its own project with Space and returns focus to its header (48ms)
+      ✔ updates on section collapse, capping, and empty or very small layouts (77ms)
+      ✔ follows the section being browsed and releases focus when scrolled away (51ms)
+    reset filters - /CHROMIUM/
+      ✔ undoing a reset restores the filters, archived visibility, and how much of each section is shown (137ms)
+      ✔ undoing a reset restores Show All and an archived filter that follows its default setting
+    repository and environment grouping - /CHROMIUM/
+      ✔ does not offer an empty Move to Group submenu when no custom groups exist
+      ✔ workspace headers support independent appearance and reset while nested
+      ✔ repository headers support independent appearance and reset while nested
+      ✔ environment headers support independent appearance and reset while nested
+      ✔ groups a repository across environments and names the environment of each row except this computer
+      ✔ groups environments across workspaces and shows workspace badges on their rows
+      ✔ caps environment sections and their sessions, with environment-specific show more labels (63ms)
+      ✔ environment filtering removes only that environment section
+      ✔ New Session offers each available environment of a repository section that spans several (host connected) (61ms)
+      ✔ New Session offers each available environment of a repository section that spans several (host disconnected) (56ms)
+      ✔ reorders repository sections and accepts only their own sessions (45ms)
+      ✔ reorders environment sections and accepts only their own sessions (40ms)
+    session hover diff stats - /CHROMIUM/
+      ✔ does not read or observe detailed changes when the summary is available
+      ✔ uses the main chat changes only while the summary is absent
+      ✔ prefers the list summary and falls back to detailed changes only when absent
+      ✔ shows matching row and hover summaries without selecting sessions in the main list
+      ✔ shows matching row and hover summaries without selecting sessions in the flat list
+    groupSessionsForList - /CHROMIUM/
+      ✔ groups external sessions before Done while preserving pins (workspace)
+      ✔ preserves ordinary placement when external grouping is unset (workspace)
+      ✔ preserves ordinary placement when external grouping is disabled (workspace)
+      ✔ groups external sessions before Done while preserving pins (repository)
+      ✔ preserves ordinary placement when external grouping is unset (repository)
+      ✔ preserves ordinary placement when external grouping is disabled (repository)
+      ✔ groups external sessions before Done while preserving pins (environment)
+      ✔ preserves ordinary placement when external grouping is unset (environment)
+      ✔ preserves ordinary placement when external grouping is disabled (environment)
+      ✔ groups external sessions before Done while preserving pins (date)
+      ✔ preserves ordinary placement when external grouping is unset (date)
+      ✔ preserves ordinary placement when external grouping is disabled (date)
+      ✔ shows pinned sessions in a dedicated top section
+      ✔ keeps archived sessions in Done even when pinned
+      ✔ sorts pinned sessions using supplied sort keys
+      ✔ workspace-less sessions form a Chats section directly below Pinned (above groups)
+      ✔ cloud quick chats appear in Chats rather than the Unknown workspace group
+      ✔ pinned quick chat stays in Pinned, not Quick Chats
+      ✔ quick chats join the other sessions when grouping by date or environment
+    Application session hover - /CHROMIUM/
+      ✔ updates grouped application session hovers while visible and when reopened
+      ✔ updates flat application session hovers while visible and when reopened
+    External section - /CHROMIUM/
+      ✔ renders between ordinary groups and Done and preserves custom groups (workspace)
+      ✔ renders between ordinary groups and Done and preserves custom groups (date)
+      ✔ reacts to external identity and hides the section when its sessions are filtered out
+      ✔ defaults to ordinary placement and switches grouping and row context live
+      ✔ offers the existing external visibility menu and Mark All as Done without New Session
+    automation sessions - /CHROMIUM/
+      ✔ lists automation sessions only while they are shown, with ordinary placement and filters
+    workspace badge on custom-group rows - /CHROMIUM/
+      ✔ custom-group rows preserve status icons and comparison styling
+      ✔ workspace grouping shows a badge only under a custom group
+      ✔ date grouping keeps workspace badges on grouped and ordinary rows (47ms)
+      ✔ pin and archive take precedence over group membership and retain their badges
+      ✔ quick chats never show a workspace badge
+      ✔ in-progress and needs-input grouped rows suppress the workspace badge
+      ✔ accessible names include workspace exactly when the badge is visible (66ms)
+    archived filter default - /CHROMIUM/
+      ✔ uses the setting only until the user has changed the filter (41ms)
+    empty group filter - /CHROMIUM/
+      ✔ migrates removed filters and keeps empty groups visible
+      ✔ keeps an empty group visible while it is being renamed
+      ✔ preserves the group rename draft, focus, and selection across rerenders
+    nested custom groups - /CHROMIUM/
+      ✔ nests a workspace section with correct totals and depth, only in its grouping mode (52ms)
+      ✔ drags a workspace section into a custom group and back out, without moving individual sessions (69ms)
+      ✔ nests a repository section with correct totals and depth, only in its grouping mode (47ms)
+      ✔ drags a repository section into a custom group and back out, without moving individual sessions (62ms)
+      ✔ nests a environment section with correct totals and depth, only in its grouping mode (48ms)
+      ✔ drags a environment section into a custom group and back out, without moving individual sessions (65ms)
+      ✔ remembers workspace fallback nesting independently in Workspace and Repository modes (54ms)
+      ✔ reorders grouping sections and subgroups together and moves a section between parents (64ms)
+      ✔ context-menu section moves expand their destination and keep old sections visible when removed (72ms)
+      ✔ a stale section-removal action does not reorder when no top-level headers remain (48ms)
+      ✔ group Mark All as Read includes active nested sections but not another group's members (53ms)
+      ✔ new sessions automatically follow a nested workspace while explicit group membership keeps precedence (44ms)
+      ✔ lists subgroups above their parent group's sessions, stepping in one level per nesting depth (75ms)
+      ✔ drops a group inside another group, next to a nested group, or back at the top level, but never inside itself (43ms)
+      ✔ moving a header keeps the order of every other group's subgroups, even with a stored order that mixes the levels
+      ✔ drops a group between and below the date sections, drawing the line below an expanded section's rows (44ms)
+      ✔ keeps Recent above Older when a reorder in another grouping mode swapped them in the stored order
+    section collapse persistence - /CHROMIUM/
+      ✔ keeps a collapsed custom group collapsed after a grouping change and a restart
+      ✔ Collapse All persists custom groups without dropping state it does not render
+    comparison groups - /CHROMIUM/
+      ✔ group Mark All as Done confetti: success (143ms)
+      ✔ group Mark All as Done confetti: cancelled (140ms)
+      ✔ group Mark All as Done confetti: disabled (141ms)
+      ✔ group Mark All as Done confetti: reduced motion (138ms)
+      ✔ group Mark All as Done confetti: failure (139ms)
+      ✔ includes comparison sessions once in a nested workspace section and its parent's bulk actions
+      ✔ includes comparison sessions once in a nested environment section and its parent's bulk actions
+      ✔ keeps comparison groups visible under their environment without any ungrouped sessions
+      ✔ uses attention wording for blocked comparison participants
+      ✔ renders synthesis and Judge before connected compact attempts (41ms)
+      ✔ aligns disclosure controls for every comparison participant (compact: false, phone: false) (61ms)
+      ✔ keeps comparison connectors clear of participant status icons (compact: false, phone: false) (41ms)
+      ✔ continues the comparison trunk through an expanded middle participant's chats (compact: false, phone: false) (49ms)
+      ✔ keeps an expanded participant's incoming connector separate from its chat guide (compact: false, phone: false) (48ms)
+      ✔ aligns disclosure controls for every comparison participant (compact: true, phone: false) (56ms)
+      ✔ keeps comparison connectors clear of participant status icons (compact: true, phone: false)
+      ✔ continues the comparison trunk through an expanded middle participant's chats (compact: true, phone: false) (46ms)
+      ✔ keeps an expanded participant's incoming connector separate from its chat guide (compact: true, phone: false) (39ms)
+      ✔ keeps comparison connectors clear of participant status icons (compact: false, phone: true)
+      ✔ continues the comparison trunk through an expanded middle participant's chats (compact: false, phone: true) (44ms)
+      ✔ keeps an expanded participant's incoming connector separate from its chat guide (compact: false, phone: true) (52ms)
+      ✔ keeps comparison connectors clear of participant status icons (compact: true, phone: true) (45ms)
+      ✔ continues the comparison trunk through an expanded middle participant's chats (compact: true, phone: true) (50ms)
+      ✔ keeps an expanded participant's incoming connector separate from its chat guide (compact: true, phone: true) (51ms)
+      ✔ keeps harness names when attempts use different harnesses
+      ✔ keeps the comparison icon quiet at rest and aligned with the title (38ms)
+      ✔ hides the parent connector when the comparison is collapsed
+      ✔ does not render comparison attempt connectors before sessions hydrate
+      ✔ sorts comparison-only workspaces with ordinary workspace sections
+      ✔ keeps folderless and same-named workspace comparisons in separate Chats sections
+      ✔ allows comparison headers to be dragged in workspace and date grouping (65ms)
+      ✔ sorts comparisons alongside sessions: workspace, created
+      ✔ drags a comparison next to a session: workspace, created (42ms)
+      ✔ sorts comparisons alongside sessions: workspace, updated
+      ✔ drags a comparison next to a session: workspace, updated (47ms)
+      ✔ reorders a whole comparison by dragging its header: workspace (43ms)
+      ✔ sorts comparisons alongside sessions: repository, created
+      ✔ drags a comparison next to a session: repository, created (42ms)
+      ✔ sorts comparisons alongside sessions: repository, updated
+      ✔ drags a comparison next to a session: repository, updated (40ms)
+      ✔ reorders a whole comparison by dragging its header: repository (40ms)
+      ✔ sorts comparisons alongside sessions: environment, created
+      ✔ drags a comparison next to a session: environment, created (45ms)
+      ✔ sorts comparisons alongside sessions: environment, updated
+      ✔ drags a comparison next to a session: environment, updated (53ms)
+      ✔ reorders a whole comparison by dragging its header: environment (57ms)
+      ✔ sorts comparisons alongside sessions: date, created
+      ✔ drags a comparison next to a session: date, created (56ms)
+      ✔ sorts comparisons alongside sessions: date, updated (43ms)
+      ✔ drags a comparison next to a session: date, updated (57ms)
+      ✔ reorders a whole comparison by dragging its header: date (61ms)
+      ✔ sorts comparisons with ordinary sessions inside a custom group (52ms)
+      ✔ moves a comparison into and out of a custom group without changing participants (53ms)
+      ✔ drags a whole comparison into a custom group (45ms)
+      ✔ offers context-menu moves into and out of custom groups but not into another comparison (38ms)
+      ✔ counts a comparison once toward Recent and rejects drops that would remain in Recent (64ms)
+      ✔ shows a pending group without partial attempt rows while attempts launch
+      ✔ connects a single hydrated attempt and the other participants to the parent
+      ✔ uses the group toolbar instead of a custom comparison archive button
+      ✔ allows regrouping sessions from archived comparisons while retaining history lookup
+      ✔ opens from the parent and reserves disclosure for the chevron
+      ✔ marks a judged comparison as ready to review
+    drag and drop - /CHROMIUM/
+      dragging a grouped session out of its group - /CHROMIUM/
+        ✔ drops onto its own workspace section header and leaves the group
+        ✔ drops between the sessions of its own workspace section
+        ✔ refuses an unrelated workspace section and its sessions
+        ✔ returns grouped external sessions to External instead of their workspace
+        ✔ reorders external sessions across workspaces without crossing into regular sessions
+        ✔ drops into the date sections when grouping by date (38ms)
+        ✔ returns grouped quick chats to Chats and refuses other sections when grouping by workspace
+        ✔ returns grouped quick chats to the date sections when grouping by date
+        ✔ returns the only quick chat to the empty Chats section
+      moving between placements - /CHROMIUM/
+        ✔ unpins sessions dropped into their own section
+        ✔ archives sessions dropped on Done and restores archived sessions dropped elsewhere
+        ✔ renders sessions dropped on a date section header at the top of that section, unless grouping rules place them elsewhere (44ms)
+        ✔ anchors drops below the last row in an earlier date section when the selection empties the last one
+        ✔ keeps the display order of dragged sessions from different sections
+        ✔ moves sessions dropped below the last row to the end of the date sections, except archived ones (38ms)
+    session pull request icon - /CHROMIUM/
+      ✔ shows an open pull request while Agent Merge handles CI failures and review comments
+    session row spacing - /CHROMIUM/
+      ✔ flat-list active metadata matches its accessible label when enabled (1)
+      ✔ flat-list active metadata matches its accessible label when enabled (2)
+      ✔ reserves spacing only in the main sessions list
+    session title animations - /CHROMIUM/
+      ✔ needs-input rows stay static after running
+      ✔ needs-input rows stay static after running with reduced motion
+      ✔ session titles stay static with reduced motion disabled
+      ✔ session titles stay static with reduced motion enabled
+    session toolbar keyboard focus - /CHROMIUM/
+      ✔ keeps the unpinned archive action visible only for the onboarding lifetime
+      ✔ keeps the pinned archive action visible only for the onboarding lifetime
+      ✔ scopes New Nested Session visibility to reactive and recycled session rows
+      ✔ temporarily reveals a filtered session without changing its filters
+      ✔ spotlights a filtered session row without revealing its archive action or retaining recycled targets
+      ✔ releasing an older onboarding reveal does not clear its replacement
+      ✔ spotlights the workspace section of a session, or its row when the list is grouped by date (50ms)
+      ✔ reveals only the onboarding target beyond the workspace cap (41ms)
+      ✔ reveals only the onboarding target beyond the custom group cap (40ms)
+      ✔ tabs into the selected unpinned session toolbar without hover
+      ✔ tabs into the selected pinned session toolbar without hover
+    item references - /CHROMIUM/
+      ✔ focuses, selects, collapses, and locates rows by model identity
+      ✔ reveals row actions for a .hovered row like pointer hover
+    session chat rows - /CHROMIUM/
+      ✔ orders nested sessions by updated time when updated ordering is selected
+      ✔ reorders nested chat rows when the session reorders its chats, without a session change event
+      ✔ observes updated ordering after archived nested sessions are shown
+      ✔ renders the exact main chat read state whether collapsed or expanded
+      ✔ matches the main chat row vertical layout in compact and regular views (39ms)
+      ✔ shows each resolved chat modified time independently and omits unresolved times
+      ✔ renders catalog-backed chat change counts without loading chat details
+      ✔ hides the main chat modified time while it is in progress
+      ✔ keeps the sticky session hierarchy opaque and actions trailing aligned while nested chats scroll beneath it (56ms)
+      ✔ reserves the folder row of a chat row that renders after it was sized offscreen (103ms)
+      ✔ does not resolve timestamps while chat rows are virtualized offscreen (49ms)
+      ✔ shows the folder of a chat scoped to one project of a multi-project session (87ms)
+      ✔ shows the own folder of a chat in a quick chat and no folder for its scratch chats
+      ✔ shows each chat pull request from its workspace folder only in multi-folder sessions (48ms)
+      ✔ shows main chat diff stats on the parent row only in multi-folder sessions (40ms)
+      ✔ the main chat section of a multi-folder session hover matches its row while the main chat is open, reading only what the row observes (compact: false)
+      ✔ the main chat section of a multi-folder session hover matches its row while the main chat is open, reading only what the row observes (compact: true)
+      ✔ shows the rich chat-scoped hover for peer chats
+      ✔ shows no folder when the session folders are checkouts of the same project
+      ✔ peer chat hover ignores the session pending worktree flag
+      ✔ hover counts come from catalog summaries without reading chat changes or changesets
+      ✔ hover counts of a provider without catalog summaries come from the main chat changes, not its default changeset
+      ✔ shows non-main chats including side chats and excludes subagents and hidden chats
+      ✔ updates nested chat rows when the session chat catalog changes
+      ✔ does not leave overlapping rows when rendering a chat updates the catalog (59ms)
+      ✔ shows archived nested chats when archived items are included
+      ✔ shows archived chats for every session through the archived filter
+      ✔ lists done nested chats of a session that is not done as standalone rows in the Done section
+      ✔ steps in the chat rows of a session in a nested group, but not its done chats listed in the Done section
+      ✔ steps in the twistie of a session in a nested group with the session row
+      ✔ switches the primary action from delete to done when a nested session is committed (50ms)
+      ✔ shows New Session for an untitled nested session row
+      ✔ hides the main chat even when its title matches the session title
+      ✔ shows progress for active chats and a dot for inactive chats
+      ✔ shows each chat activity instead of modified time while in progress (42ms)
+      ✔ shows child progress on the parent row only while the child is collapsed
+      ✔ collapsed parent progress does not observe child status
+      ✔ collapsed parent uses aggregate status 1 without inspecting peer status
+      ✔ collapsed parent uses aggregate status 2 without inspecting peer status
+      ✔ collapsed parent uses aggregate status 4 without inspecting peer status
+      ✔ keeps child progress on the parent when a filtered session is reinserted collapsed
+      ✔ needs-input session and chat rows have static icons and warning backgrounds
+      ✔ needs-input chat row keeps its attention indicator without looping animations
+      ✔ collapsed parent shows aggregate input and restores its own status when expanded (3)
+      ✔ collapsed parent shows aggregate input and restores its own status when expanded (1)
+      ✔ collapsed parent shows aggregate input and restores its own status when expanded (2)
+      ✔ parent session row reflects the main chat status, not a non-main chat NeedsInput that drives the aggregate session status
+      ✔ side chat activity has its own row when expanded and aggregates when collapsed with peers (expanded=true)
+      ✔ side chat activity has its own row when expanded and aggregates when collapsed with peers (expanded=false)
+      ✔ side chat activity has its own row when expanded and aggregates when collapsed without peers (expanded=true)
+      ✔ collapsed parent uses aggregate progress including an archived side chat
+      ✔ collapsed parent uses aggregate progress including an hidden side chat
+      ✔ parent session row still shows NeedsInput when the main chat needs input while a hidden child is in progress
+      ✔ parent session row updates reactively when the main chat status changes independently of a non-main chat
+      ✔ failed non-main chat shows an error icon on its own row
+      ✔ does not repeat the fallback needs input message in a chat row aria label
+      ✔ updates rendered chat row heights across phone layout changes
+      ✔ opens the selected nested chat
+      ✔ reports a focused nested chat only while the Sessions list owns focus
+      ✔ opens a nested chat to the side with the session row modifier gesture
+      ✔ coalesces restored active chat selection without flashing the parent session (63ms)
+      ✔ does not reposition an already visible chat when it becomes active
+      ✔ ordinary list updates preserve a collapsed active session and user selection
+      ✔ drags a nested chat with the chat-group payload instead of a session payload
+      ✔ drops a session onto a nested chat row below the chat's session
+      ✔ starts nested chats expanded and uses the native twistie only for sessions with nested chats
+      ✔ persists a user-collapsed nested session across list recreation (50ms)
+      ✔ reveals the twistie only on real pointer hover, never on keyboard focus or selection alone
+      ✔ keeps 1-line approval height bounded while its compact session is sticky (273ms)
+      ✔ keeps 3-line approval height bounded while its compact session is sticky (274ms)
+      ✔ keeps 1-line approval height bounded while its normal session is sticky (285ms)
+      ✔ keeps 3-line approval height bounded while its normal session is sticky (354ms)
+      ✔ keeps the static warning tint on a sticky needs-input session row (84ms)
+      ✔ renders a pending approval on the owning chat row only, not on its siblings
+      ✔ renders the main chat approval on the session row, not on any chat row
+      ✔ renders and confirms out-of-band subagent approvals on the owning session row
+      ✔ reserves extra row height for a chat with a pending approval
+      ✔ reserves approval rounding slack in phone chat rows
+      ✔ confirms the chat approval when its Allow button is clicked
+      ✔ grows a chat row height when its approval is replaced with a taller one
+      ✔ reconciles a chat row height for an approval that changed while virtualized offscreen (52ms)
+      session hover pull requests - /CHROMIUM/
+        ✔ multi-folder session summary lists only pull requests the main chat section does not show
+        ✔ multi-folder session summary omits its pull request list when the main chat section shows them all
+        ✔ single-folder session lists its pull requests without a session summary
+      hierarchy indent/connector guides - /CHROMIUM/
+        ✔ guides are hidden at rest
+        ✔ hovering the pane keeps the twistie and row actions to the row under the pointer
+        ✔ hovering the pane reveals all guides without revealing row controls (normal)
+        ✔ hovering the pane reveals all guides without revealing row controls (compact)
+        ✔ moving between rows does not hide pane-wide guides
+        ✔ moving the pointer away hides the guides again
+        ✔ pane hover applies to newly rendered rows after collapsing and expanding a session
+        ✔ pane hover preserves collapsed parents and last-child guide termination
+        ✔ pane hover does not add guides to standalone completed chats
+        ✔ leaving the pane retains only the selected and focused hierarchy guides
+        ✔ selecting the parent session keeps guides visible without hover
+        ✔ selecting a chat child keeps only its parent session guides visible
+        ✔ active chat synchronization focuses and selects the child row
+        ✔ keyboard/focus-only navigation to the parent session row reveals its own guides only
+        ✔ keyboard/focus-only navigation to a chat child reveals its parent session hierarchy guides only
+        ✔ moving focus-only navigation away hides the previous guides
+        ✔ blurring the list hides focus-only guides
+    SessionsFlatList quick-chat presentation - /CHROMIUM/
+      ✔ renders compact and regular quick-chat rows consistently
+      ✔ shows the details external application badge next to the title of compact quick-chat rows, which have no details row (41ms)
+      ✔ keeps compact quick-chat rows the same height whether or not the title application badge is shown
+      ✔ aggregates a non-main chat approval onto the flat session row and reserves height
+    compact presentation - /CHROMIUM/
+      ✔ uses a title-only row with workspace context on hover and preserves the accessible label
+      ✔ keeps hover context hidden outside active keyboard focus
+      ✔ expands a compact row while the session needs input
+      ✔ shows an approval instead of the generic input-needed callout
+      ✔ refreshes compact presentation across phone layout transitions
+    computeReorderSortChanges - /CHROMIUM/
+      ✔ single drop between two neighbours uses the midpoint
+      ✔ drop above the first session uses the current time
+      ✔ drop below the last session steps below the last key
+      ✔ drops the fake value when the natural key already fits the slot
+      ✔ multi-block gets strictly descending keys inside the gap
+      ✔ multi-block clears overrides when all natural keys already fit in order
+      ✔ multi-block assigns synthetic keys when natural order does not fit
+    opening sessions - /CHROMIUM/
+      ✔ reports the exact session only after a revealed row finishes opening (external: false)
+      ✔ reports the exact session only after a revealed row finishes opening (external: true)
+      ✔ opens and marks read when no trust gate is configured
+      ✔ opening an expanded main chat does not mark the parent session read
+      ✔ main list marks an inactive session read when opening a row
+      ✔ main list preserves an active session unread mark when opening a row
+      ✔ flat list marks an inactive session read when opening a row
+      ✔ flat list preserves an active session unread mark when opening a row
+      ✔ refuses to open when the trust gate returns false: no mark-read, no open
+      ✔ marks read and opens only after the trust gate resolves true
+
+  ChatWidget - /CHROMIUM/
+    ✔ history failure updates the existing read-only banner without repeating announcements or retaining hovers
+    ✔ records the first visible transcript refresh once on the correlated local trace
+    - request tools preserve their original input source across GC and release it on widget disposal
+    - a live widget does not retain the tools source of a collected request
+    ✔ disposal freezes the last tools snapshot (unobserved)
+    ✔ request tools release their widget on disposal (unobserved)
+    - request tools allow a disposed widget to be collected (unobserved)
+    ✔ disposal freezes the last tools snapshot (observed)
+    ✔ request tools release their widget on disposal (observed)
+    - request tools allow a disposed widget to be collected (observed)
+    ✔ only preparation disables input and completion or cancellation re-enables it
+    ✔ disabled input blocks editing and attachment controls but leaves Stop focusable
+    ✔ transcript progress shows a keyboard-accessible detail action outside the live region
+    ✔ transcript progress cancellation uses the latest callback without a separate button
+    ✔ transcript progress updates preserve detail focus and use the latest action
+    ✔ progress rendered by the transcript supplies an inline action without a duplicate overlay
+    ✔ transcript preparation blocks submissions without a model or touching the draft
+    ✔ a host that sends through its submit handler decides whether input is blocked, not the bound chat model
+    ✔ transcript progress context is independent of request context and clears with its callback
+    ✔ transcript progress clearing hides the detail action and preserves the message-only API
+    ✔ forwards sticky scroll DOM state from the list widget
+    ✔ does not send a picker fallback over an existing agent host conversation model
+    ✔ saves non-untitled editors before sending by default
+    ✔ editing a steering request passes its model and configuration to the input
+    ✔ releases the inline request edit input and its subscriptions (finished edit)
+    ✔ releases the inline request edit input and its subscriptions (consumed steering)
+    ✔ confirms before cancelling changed request edits
+    ✔ confirmed cancellation discards changed request edits
+    ✔ transcript overlays suppress the welcome state
+    ✔ agent-host harnesses share the local welcome content in each chat mode
+    ✔ switching to an agent-host harness preserves the signed-out welcome and instructions hint
+    ✔ loading suppresses the getting-started tip
+    ✔ tracks unvisited completions and needs-input precedence
+    ✔ keeps queued work active unless an error or cancellation strands it
+    ✔ coalesces a queued request handoff without an idle completion state
+    ✔ sticky request click survives synchronous template disposal during reveal
+    ✔ only unlocks request revision for edited user submissions
+    ✔ only unlocks queue or steering for queued user submissions
+    ✔ identifies only leading silent execute-immediately slash commands
+    ✔ input height changes update the budget without re-laying out the input
+    ✔ host can lift the default chat width cap
+    ✔ passes read-only transitions to the renderer independently of request editing
+    ✔ keeps the sandbox composer visible while live content is unavailable
+    ✔ offline subagent composers inherit parent archive state without losing child restrictions
+    ✔ history recovery remains visible beside a blocked composer
+    ✔ applies read-only to rendered rows on the first layout after the list is attached
+    ✔ does not rerender a connected list that measures 0px when shown again until it is laid out
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (local)
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (remote)
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (unsupported)
+    ✔ read-only banner disables its action while it is running
+    ✔ automatically migrates displayed policy-disabled claude history after the active request settles
+    ✔ automatically migrates displayed policy-disabled codex history after the active request settles
+    ✔ starts automatic recovery when provider policy and history arrive in the Editor window
+    ✔ starts automatic recovery when provider policy and history arrive in the Agents window
+    ✔ waits while the policy-disabled source is hidden
+    ✔ waits while the policy-disabled source is busy
+    ✔ waits while the policy-disabled source is unmanaged
+    ✔ waits while the policy-disabled source is provider-available
+    ✔ waits while the policy-disabled source is writable
+    ✔ waits while the policy-disabled source is history-not-ready
+    ✔ waits while the policy-disabled source is archived
+    ✔ a failed Agent Host automatic continuation retains the manual banner action
+    ✔ automatically migrates a chat that started empty when policy arrives after its request
+    ✔ automatically migrates a chat that started empty when policy arrives during its request
+    ✔ automatically migrates displayed Local history once after policy and the active request settle
+    ✔ does not automatically continue Local history when the host cannot import it, and migrates once import support arrives
+    ✔ Local migration starts on deny rules, not other permission settings
+    ✔ Local migration starts on explicit Local prohibition, not other permission settings
+    ✔ does not automatically migrate inline chats
+    ✔ does not automatically migrate terminal chats
+    ✔ does not automatically migrate empty chats
+    ✔ does not automatically migrate copilot chats
+    ✔ does not automatically migrate archived chats
+    ✔ does not automatically migrate unmanaged chats
+    ✔ cancels scheduled automatic migration when hidden
+    ✔ cancels scheduled automatic migration when disposed
+    ✔ cancels scheduled automatic migration when policy-removed
+    ✔ cancels scheduled automatic migration when archived
+    ✔ cancels scheduled automatic migration when moved
+    ✔ failed automatic migration keeps an enabled manual retry without automatically retrying
+    ✔ cancelled automatic migration restores the ordinary banner without reporting an error
+    ✔ draft input events include IME and exclude focus, restored content, and restored attachments
+    ✔ a visible read-only composer refuses send and queue operations
+    ✔ re-lays out embedded editors when chat item padding changes
+    ✔ captures and restores transcript scroll state
+    ✔ prompt timeline width follows explicit widget layout
+
+  ChatWidget - acceptInput submission - /CHROMIUM/
+    ✔ cancelCurrentRequest waits before a preserved-input continuation when waitingForApproval=false
+    ✔ cancelCurrentRequest waits before a preserved-input continuation when waitingForApproval=true
+    ✔ updates side-chat visibility from the loaded session capability
+    ✔ uses the host side-chat capability and disposes its observation when unbound
+    ✔ binds a history session to its late live contribution with matching model selection
+    ✔ binds a history session to its late live contribution with stale model selection
+    ✔ binds an already available session contribution and retains its routing while unavailable
+    ✔ disposes the old session binding before following another conversation
+    ✔ late contributions do not lock local conversations or replace an explicit agent
+    ✔ submits an extension participant in a new Local chat without changing the agent-host request (sidebar)
+    ✔ submits an extension participant in a new Local chat without changing the agent-host request (editor)
+    ✔ participant redirection does not attach an unrelated preserved draft
+    ✔ managed policy prevents participant redirection to Local
+    ✔ releases the new Local session if opening it fails without sending to the agent host
+    ✔ does not submit into a different Local chat if navigation wins the open
+    ✔ a second submit during the redirect cannot create another Local chat
+    ✔ can submit when the sidebar reuses the source widget for the Local chat
+    ✔ cancels the redirect if the source session changes during dictation finalization
+    ✔ transfers inline file references with the Local draft
+    ✔ real parser only redirects an explicit registered participant: @unknown Explain
+    ✔ real parser only redirects an explicit registered participant: Explain @participant
+    ✔ real parser only redirects an explicit registered participant: Contact someone@example.com
+    ✔ real parser only redirects an explicit registered participant: @participant.md Explain
+    ✔ real parser only redirects an explicit registered participant:   @participant Explain
+    ✔ real parser only redirects an explicit registered participant: @participant Explain
+    ✔ a host file reference named after an extension participant is not a participant invocation
+    ✔ core participants keep using the agent-host session
+    ✔ does not redirect a participant for a contributed session
+    ✔ does not redirect a participant for a Agents window
+    ✔ blocks submission without accepting input and allows sending after the lock clears
+    ✔ blocks submissions during managed settings refresh without touching the draft
+    ✔ blocks in-flight custom-agent submission when refresh begins during save
+    ✔ blocks in-flight custom-agent submission when refresh begins during attachments
+    ✔ blocks in-flight custom-agent submission when refresh begins during submit handler
+    ✔ excludes implicitly queued submissions without cancelling the request
+    ✔ excludes explicitly queued submissions without cancelling the request
+
+  ChatWidget - first visible progress lifecycle - /CHROMIUM/
+    ✔ removes per-interaction stores and listeners after every completed turn
+    ✔ navigation cancels even after the first render callback has been scheduled
+    ✔ initially hidden ends measurement without stopping submission or installing late listeners
+    ✔ preparation ends measurement without stopping submission or installing late listeners
+    ✔ before progress ends measurement without stopping submission or installing late listeners
+    ✔ during render ends measurement without stopping submission or installing late listeners
+    ✔ disposed ends measurement without stopping submission or installing late listeners
+    ✔ uses the committed response session for attribution after preparation
+    ✔ cleans up when submission is not dispatched
+    ✔ cleans up when submission throws Canceled
+    ✔ cleans up when submission throws Error
+
+  ChatWidget - acceptAndAwaitSentRequest - /CHROMIUM/
+    ✔ an immediately sent request is accepted and returned
+    ✔ a queued request is accepted before the queued request settles
+    ✔ a rejected request is never accepted
+    ✔ a queued request that is rejected when it runs stays accepted but is not sent
+    ✔ accepting is optional
+
+  ChatInputPart - /CHROMIUM/
+    ✔ labeled submit shares a primary button background across its label and arrow in dark
+    ✔ labeled submit shares a primary button background across its label and arrow in light
+    ✔ labeled submit shares a primary button background across its label and arrow in high contrast dark
+    ✔ labeled submit shares a primary button background across its label and arrow in high contrast light
+    ✔ uses only visible platform bounds beneath the pet
+    ✔ refreshes model picker visibility when a live contribution arrives after history
+    ✔ lets a host that submits for itself decide whether its session options are valid
+    ✔ switches the session working set on and off without reloading the chat
+    ✔ hides an empty working set and updates when session changes arrive or disappear (99ms)
+    ✔ reports whether the session working set offers Undo
+    ✔ leaves Local controls, pending files, and live-editor opening unchanged when enabled
+    ✔ does not enable the editor working set in the Agents window (its chat)
+    ✔ does not enable the editor working set in the Agents window (a chat editor)
+    ✔ leaves metadata-backed providers on their existing working-set presentation
+    ✔ does not replace authoritative empty provider changes with session metadata
+    ✔ keeps the file list and focus while editing-session state is refreshed
+    ✔ preserves regular-editor opening for other providers without original metadata
+    ✔ leaves the new presentation when the registered source becomes ineligible
+    ✔ hides files kept in the current session until they change again, and offers the registered Undo
+    ✔ keeps files with the session's Keep when it registers one, instead of hiding them in the workbench
+    ✔ waits for the session's Keep result before announcing it (success: false)
+    ✔ waits for the session's Keep result before announcing it (success: true)
+    ✔ preserves legacy disclosure state without an editing session (Agents window: false)
+    ✔ preserves legacy disclosure state without an editing session (Agents window: true)
+    ✔ starts each session's working set collapsed, like the editing session's
+    ✔ disposing an old source does not remove the current session changes
+    ✔ session-cost listener updates the usage widget without another turn and detaches on chat switches
+    ✔ renders contributed attachment widgets for the session of the input model that holds the attachments, else the widget session
+    ✔ uses the Sessions content gutter for composer layout
+    ✔ working borders rotate fixed gradients inside masks at any input aspect ratio
+    ✔ decorative input borders do not increase ancestor scroll overflow
+    ✔ routes model commands to a host-owned model selection and lets the host gate and add sendable content
+
+
+  590 passing (21s)
+  4 pending
+

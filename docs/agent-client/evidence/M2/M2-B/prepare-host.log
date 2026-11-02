@@ -1,0 +1,7 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-client@0.1.0 prepare:host
+> node scripts/prepare-host.mjs && node scripts/prepare-notices.mjs
+
+{"platform":"linux","arch":"x64","modules":1032,"resourcesPrepared":true}
+{"frontendNotices":109,"missingLicenseFiles":["@microsoft/agent-host-protocol@1.0.0"]}

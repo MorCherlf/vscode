@@ -1,0 +1,18 @@
+{
+	"name": "@morcherlf/agent-client-core",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"dependencies": {
+		"@microsoft/agent-host-protocol": "1.0.0"
+	},
+	"devDependencies": {
+		"typescript": "6.0.2"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"test": "node --test test/*.test.mjs"
+	},
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.ts"
+}

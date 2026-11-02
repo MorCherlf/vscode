@@ -1,0 +1,9 @@
+{
+  "scripts/agent-first/extension-probe.mjs": "73523cc5461106f3dc7f09596e448a06d60fcd45e5465ed870283d03b845b76c",
+  "scripts/agent-first/web-smoke.mjs": "b64c2f617a82fae7bfec9becddfb439e9591823f0bea0646a14a03038a24ead2",
+  "src/vs/workbench/contrib/files/browser/fileActions.contribution.ts": "a5c03321803c72fd249891b4a8df8912024ac5b82f9002e2aa1dd27a1509915e",
+  "src/vs/workbench/contrib/files/browser/fileActions.ts": "7ea7ae8ebf2fad095a0b51207630da819645ed716147e3cdd2f93c5ec74e0cad",
+  "src/vs/workbench/contrib/files/browser/fileCommands.ts": "3a4947d099b28a51b446a9be1abaaee5441a20a85d51be74841529c0f4b445d8",
+  "src/vs/workbench/contrib/files/browser/views/explorerViewer.ts": "27a546f4ed504faa79d6b5b1811813ac8e1216ca54a220074f868833df5cb06e",
+  "src/vs/workbench/contrib/files/test/browser/explorerView.test.ts": "242f7618b251a5b3d641d3e2ae0964c4ca7b1f047c44b700f698bbcf17015905"
+}

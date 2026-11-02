@@ -1,0 +1,18 @@
+{
+	"system": "Linux",
+	"machine": "x86_64",
+	"kernel": "6.18.55",
+	"node": "v24.22.1",
+	"npm": "11.9.0",
+	"sourceCommit": "5d89fa5583233f7aefd2ad65db8296e775d1099b",
+	"branch": "codex/agent-client-roadmap",
+	"copilotTestCredentialConfigured": false,
+	"macOSAvailable": false,
+	"cargoAvailable": false,
+	"dataset": {
+		"version": "agent-client-fixture-v1",
+		"files": 107,
+		"bytes": 344913,
+		"repeatManifestIdentical": true
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"baseCommit": "e9e25186b016b9e0704cefb953fdfb07c0304ef0",
+	"hashes": {
+		"apps/agent-client/package-lock.json": "762797f9787b33637aa2c1e138250525b3a3d980ab421211018719bd92c78f6f",
+		"apps/agent-client/package.json": "3db1d8a61e2e8f8a16ad97968ab9b70ae28a4888d7876af75d4ba79cf2d00c57",
+		"apps/agent-client/scripts/prepare-host.mjs": "efa8c2b36a4cb61972dc516e6aeb28a73fe7badb670d3095ef377218bc4bf392",
+		"apps/agent-client/scripts/prepare-notices.mjs": "332017a5e44fcacab40c74581664ad099d1fb049d19dbc68e9bcf314b6e0de44",
+		"apps/agent-client/scripts/sync-vscode-theme.mjs": "244a445481ad5a673473ec9442e14692b706685de0f2a455d7bde31619582ec2",
+		"apps/agent-client/src-tauri/capabilities/main.json": "5370bcff399afb0f3d3127550ff810c2b0c2307dfd139f30bbbd3662b05d5809",
+		"apps/agent-client/src-tauri/tauri.conf.json": "f8d57eeab416089973488c02a570e2c47c2972ea6c547c4343eceab0854c169b",
+		"apps/agent-client/src/App.tsx": "2e1e407c2c0bee76253990c4feb64539681df2c5e01ad6ab656b7f9ad5640699",
+		"apps/agent-client/src/Icon.tsx": "0f55504a65a5172ac51a57d3addf6a372bae24937ab075e8a04a2fafdab7f360",
+		"apps/agent-client/src/Modal.tsx": "66d2e676adebde2ae80e87ba43b22c3fa23e87723d284f7177daca78b7f7765d",
+		"apps/agent-client/src/Transcript.tsx": "45b6258a0bdcb130cb26244f91f75cf617e5d19bf7efec66c818a0ccbb545b7a",
+		"apps/agent-client/src/bridge.ts": "c37a05a40591213897d6c2a929eb7d16ed2b122a437da164a2b6f0de28eb8272",
+		"apps/agent-client/src/env.d.ts": "2b8f2c0b200c06d60cde50445fa7aecc4973542388bb99c12edb878e7f49616e",
+		"apps/agent-client/src/i18n.ts": "4a40389fdd2473c7b0d7b747c72838fd8a4757d4ec10895dd09694962a4b5b1b",
+		"apps/agent-client/src/main.tsx": "42527a1ea42d46e55083c97e72d052854aeedbbddfea8881513a939aee90b4bb",
+		"apps/agent-client/src/runtime.ts": "2d2ad0d9409eadd9ce47bdf92331743fed9b1d229358a919d89aee7f424187da",
+		"apps/agent-client/src/style.css": "e8e19df2b092581609e4c8077804453d946e2d555ee18fb7c0196e05e7502c5e",
+		"apps/agent-client/src/theme-colors.css": "0761caf2953ccbd0b3946e9c7b52f66bfc232560ba166a19210499e629cffb3c",
+		"apps/agent-client/test/fixture.html": "7cb5871c69b54ce67429f4567692a7168b214fed04f85aae3860ddb632ef6545",
+		"apps/agent-client/test/fixture.tsx": "4a7435edaa072567e69f86b5ffe8a11ba600927f89534dfd49cabcc087e42f3e",
+		"apps/agent-client/test/ui.test.mjs": "caf2093ba8f3018ea2fdb0a4a791ee14361c346ef5391bf041316ad4e62fc98f"
+	},
+	"binarySha256": "85cf4c90e1fc333ef318c6e69d9e472bdd27f0b3386596c364b43f45119a9c60"
+}

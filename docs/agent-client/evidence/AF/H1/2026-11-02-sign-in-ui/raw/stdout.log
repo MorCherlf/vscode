@@ -1,0 +1,18 @@
+[90m[main 2026-11-02T02:12:26.498Z][0m [node-compile-cache] main: packaged cache inactive (status: missing, configured: /Applications/VSC Agent Preview.app/Contents/Resources/app/node-compile-cache/main, active: none)
+[90m[main 2026-11-02T02:12:26.530Z][0m StorageMainService: creating application shared storage
+[90m[main 2026-11-02T02:12:26.869Z][0m [shared storage] Creating shared storage database at '/tmp/af-signin-lHOUYi/shared-data/sharedStorage/state.vscdb' (wasCreated: true)
+[90m[main 2026-11-02T02:12:26.870Z][0m [shared storage] Initializing fallback application storage (path: /tmp/af-signin-lHOUYi/user-data/User/globalStorage/state.vscdb)
+[90m[main 2026-11-02T02:12:26.872Z][0m [shared storage] Fallback application storage initialized with 3 items
+[90m[main 2026-11-02T02:12:26.873Z][0m update#setState disabled
+[90m[main 2026-11-02T02:12:26.873Z][0m update#ctor - updates are disabled as there is no update URL
+[90m[main 2026-11-02T02:12:28.293Z][0m AgentHostProcessManager: agent host started
+[90m[main 2026-11-02T02:29:29.826Z][0m Extension host with pid 99784 exited with code: 0, signal: unknown.
+[90m[main 2026-11-02T02:29:31.016Z][0m [node-compile-cache] main: packaged cache inactive (status: missing, configured: /Applications/VSC Agent Preview.app/Contents/Resources/app/node-compile-cache/main, active: none)
+[90m[main 2026-11-02T02:29:31.027Z][0m StorageMainService: creating application shared storage
+[90m[main 2026-11-02T02:29:31.341Z][0m [shared storage] Creating shared storage database at '/tmp/af-signin-lHOUYi/shared-data/sharedStorage/state.vscdb' (wasCreated: false)
+[90m[main 2026-11-02T02:29:31.341Z][0m [shared storage] Initializing fallback application storage (path: /tmp/af-signin-lHOUYi/user-data/User/globalStorage/state.vscdb)
+[90m[main 2026-11-02T02:29:31.362Z][0m [shared storage] Fallback application storage initialized with 19 items
+[90m[main 2026-11-02T02:29:31.363Z][0m update#setState disabled
+[90m[main 2026-11-02T02:29:31.363Z][0m update#ctor - updates are disabled as there is no update URL
+[90m[main 2026-11-02T02:29:32.882Z][0m AgentHostProcessManager: agent host started
+[90m[main 2026-11-02T02:46:28.553Z][0m Extension host with pid 547 exited with code: 0, signal: unknown.

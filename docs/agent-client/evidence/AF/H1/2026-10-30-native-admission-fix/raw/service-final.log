@@ -1,0 +1,162 @@
+
+
+  ExtensionEnablementService Test - /CHROMIUM/
+    ✔ test disable an extension globally
+    ✔ test disable an extension globally should return truthy promise
+    ✔ test disable an extension globally triggers the change event
+    ✔ test disable an extension globally again should return a falsy promise
+    ✔ test state of globally disabled extension
+    ✔ test state of globally enabled extension
+    ✔ test disable an extension for workspace
+    ✔ test disable an extension for workspace returns a truthy promise
+    ✔ test disable an extension for workspace again should return a falsy promise
+    ✔ test state of workspace disabled extension
+    ✔ test state of workspace and globally disabled extension
+    ✔ test state of workspace enabled extension
+    ✔ test state of globally disabled and workspace enabled extension
+    ✔ test state of an extension when disabled for workspace from workspace enabled
+    ✔ test state of an extension when disabled globally from workspace enabled
+    ✔ test state of an extension when disabled globally from workspace disabled
+    ✔ test state of an extension when enabled globally from workspace enabled
+    ✔ test state of an extension when enabled globally from workspace disabled
+    ✔ test disable an extension for workspace and then globally
+    ✔ test disable an extension for workspace and then globally return a truthy promise
+    ✔ test disable an extension for workspace and then globally trigger the change event
+    ✔ test disable an extension globally and then for workspace
+    ✔ test disable an extension globally and then for workspace return a truthy promise
+    ✔ test disable an extension globally and then for workspace triggers the change event
+    ✔ test disable an extension for workspace when there is no workspace throws error
+    ✔ test enable an extension globally
+    ✔ test enable an extension globally return truthy promise
+    ✔ test enable an extension globally triggers change event
+    ✔ test enable an extension globally when already enabled return falsy promise
+    ✔ test enable an extension for workspace
+    ✔ test enable an extension for workspace return truthy promise
+    ✔ test enable an extension for workspace triggers change event
+    ✔ test enable an extension for workspace when already enabled return truthy promise
+    ✔ test enable an extension for workspace when disabled in workspace and gloablly
+    ✔ test enable an extension globally when disabled in workspace and gloablly
+    ✔ test enable an extension also enables dependencies
+    ✔ test enable an extension in workspace with a dependency extension that has auth providers
+    ✔ test enable an extension with a dependency extension that cannot be enabled
+    ✔ test enable an extension also enables packed extensions
+    ✔ test remove an extension from disablement list when uninstalled
+    ✔ test isEnabled return false extension is disabled globally
+    ✔ test isEnabled return false extension is disabled in workspace
+    ✔ test isEnabled return true extension is not disabled
+    ✔ test canChangeEnablement return false for language packs
+    ✔ test canChangeEnablement return true for auth extension
+    ✔ test canChangeEnablement return true for auth extension when user data sync account does not depends on it
+    ✔ test canChangeEnablement return true for auth extension when user data sync account depends on it but auto sync is off
+    ✔ test canChangeEnablement return false for auth extension and user data sync account depends on it and auto sync is on
+    ✔ test canChangeWorkspaceEnablement return true
+    ✔ test canChangeWorkspaceEnablement return false if there is no workspace
+    ✔ test canChangeWorkspaceEnablement return true for auth extension when it is not used by settings sync
+    ✔ test canChangeWorkspaceEnablement return false for auth extension when settings sync depends on it
+    ✔ test canChangeEnablement return false when extensions are disabled in environment
+    ✔ test canChangeEnablement return false when the extension is disabled in environment
+    ✔ test canChangeEnablement return true for system extensions when extensions are disabled in environment
+    ✔ test canChangeEnablement return false for system extension when extension is disabled in environment
+    ✔ test extension is disabled when disabled in environment
+    ✔ test extension is enabled globally when enabled in environment
+    ✔ test extension is enabled workspace when enabled in environment
+    ✔ test extension is enabled by environment when disabled globally
+    ✔ test extension is enabled by environment when disabled workspace
+    ✔ test extension is disabled by environment when also enabled in environment
+    ✔ test canChangeEnablement return false when the extension is enabled in environment
+    ✔ test extension does not support vitrual workspace is not enabled in virtual workspace
+    ✔ test web extension from web extension management server and does not support vitrual workspace is enabled in virtual workspace
+    ✔ test web extension from remote extension management server and does not support vitrual workspace is disabled in virtual workspace
+    ✔ test enable a remote workspace extension and local ui extension that is a dependency of remote
+    ✔ test enable a remote workspace extension also enables its dependency in local
+    ✔ test canChangeEnablement return false when extension is disabled in virtual workspace
+    ✔ test extension does not support vitrual workspace is enabled in normal workspace
+    ✔ test extension supports virtual workspace is enabled in virtual workspace
+    ✔ test extension does not support untrusted workspaces is disabled in untrusted workspace
+    ✔ test canChangeEnablement return true when extension is disabled by workspace trust
+    ✔ test extension supports untrusted workspaces is enabled in untrusted workspace
+    ✔ test extension does not support untrusted workspaces is enabled in trusted workspace
+    ✔ test extension supports untrusted workspaces is enabled in trusted workspace
+    ✔ test extension without any value for virtual workspace is enabled in virtual workspace
+    ✔ test local workspace extension is disabled by kind
+    ✔ test local workspace + ui extension is enabled by kind
+    ✔ test local ui extension is not disabled by kind
+    ✔ test canChangeEnablement return true when the local workspace extension is disabled by kind
+    ✔ test canChangeEnablement return true for local ui extension
+    ✔ test remote ui extension is disabled by kind
+    ✔ test remote ui+workspace extension is disabled by kind
+    ✔ test remote ui extension is disabled by kind when there is no local server
+    ✔ test remote workspace extension is not disabled by kind
+    ✔ test canChangeEnablement return true when the remote ui extension is disabled by kind
+    ✔ test canChangeEnablement return true for remote workspace extension
+    ✔ test web extension on local server is disabled by kind when web worker is not enabled
+    ✔ test web extension on local server is not disabled by kind when web worker is enabled
+    ✔ test web extension on remote server is disabled by kind when web worker is not enabled
+    ✔ test web extension on remote server is disabled by kind when web worker is enabled
+    ✔ test web extension on remote server is enabled in web
+    ✔ test web extension on web server is not disabled by kind
+    ✔ test state of multipe extensions
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled by virtual workspace
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled by virtual workspace
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled by workspace trust
+    ✔ test extension is not disabled by dependency if it has a dependency that is disabled by extension kind
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled by workspace trust
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled globally
+    ✔ test canChangeEnablement return false when extension is disabled by dependency if it has a dependency that is disabled workspace
+    ✔ test extension is not disabled by dependency even if it has a dependency that is disabled when installed extensions are not set
+    ✔ test extension is disabled by dependency if it has a dependency that is disabled when all extensions are passed
+    ✔ test extension is not disabled when it has a missing dependency
+    ✔ test extension is not disabled when it has a dependency in another server
+    ✔ test extension is enabled when it has a dependency in another server which is disabled
+    ✔ test extension is enabled when it has a dependency in another server which is disabled and with no exports and no main and no browser entrypoints
+    ✔ test extension is disabled by dependency when it has a dependency in another server  which is disabled and with no exports and has main entry point
+    ✔ test extension is disabled by dependency when it has a dependency in another server  which is disabled and with no exports and has browser entry point
+    ✔ test extension is disabled by invalidity
+    ✔ test extension is disabled by dependency when it has a dependency that is invalid
+    ✔ test extension is enabled when its dependency becomes valid
+    ✔ test override workspace to trusted when getting extensions enablements
+    ✔ test override workspace to not trusted when getting extensions enablements
+    ✔ test update extensions enablements on trust change triggers change events for extensions depending on workspace trust
+    ✔ test adding an extension that was disabled
+    ✔ test chat extension is disabled on profile switch when setup is not completed
+    ✔ test extension is disabled by allowed list
+    ✔ test extension is disabled by malicious
+    ✔ test installed malicious extension triggers change event
+    ✔ test extensions are disabled in sessions window unless they only contribute themes
+    ✔ test unsupported extensions can be enabled for the sessions window workspace
+    ✔ test unsupported built-in extensions cannot be enabled for the sessions window workspace
+    ✔ test turning off agents window management ignores saved choices and restores them when turned on
+    ✔ test sessions window automatically enables useful extensions unless users disabled them
+    ✔ test automatic enablement in the sessions window follows its setting and requires extension management
+    ✔ test automatic enablement in the sessions window notifies the extensions that depend on affected extensions
+    ✔ test automatic enablement in the sessions window enables only listed extensions and disables them again when they are no longer listed
+    ✔ test built-in npm tasks are parsed in editor window
+    ✔ test built-in npm tasks are parsed in sessions window
+    ✔ test built-in npm can be disabled globally in sessions window
+    ✔ test built-in npm can be disabled for workspace in sessions window
+    ✔ test agents window declarations without the proposal with capability setting disabled
+    ✔ test agents window declarations without the proposal with capability setting enabled
+    ✔ test configured extensions are enabled in sessions window
+    ✔ test product allow-listed opt-out in editor window with extension management disabled
+    ✔ test product allow-listed opt-out in editor window with extension management enabled
+    ✔ test product allow-listed opt-out in sessions window with extension management disabled
+    ✔ test product allow-listed opt-out in sessions window with extension management enabled
+    ✔ test extensions declaring agents window support can still be disabled by the user
+    ✔ test extensions are not disabled in non-sessions window
+    Agent First product admission - /CHROMIUM/
+      ✔ builtin chat main: unconfigured product preserves upstream special case
+      ✔ builtin chat main: empty product policy blocks
+      ✔ builtin chat browser: unconfigured product preserves upstream special case
+      ✔ builtin chat browser: empty product policy blocks
+      ✔ saved workspace enable, overrides and auto-enable true cannot bypass product admission
+      ✔ saved workspace enable, overrides and auto-enable ["pub.mixed"] cannot bypass product admission
+      ✔ environment enable flags cannot re-enable a denied executable
+      ✔ admitted dependents, cycles and development filtering cannot pull in denied code
+      ✔ admission is a ceiling: declarative resources and audited code keep original enablement rules
+      ✔ development override preserves upstream behavior when outside Sessions
+      ✔ development override preserves upstream behavior when product policy is absent
+
+
+  154 passing (986ms)
+

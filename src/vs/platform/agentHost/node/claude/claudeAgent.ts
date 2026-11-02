@@ -7,7 +7,7 @@ import type { CCAModel } from '@vscode/copilot-api';
 import type { ModelInfo, OnElicitation, Options, SDKSessionInfo, SDKUserMessage } from '@anthropic-ai/claude-agent-sdk';
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import * as fs from 'fs/promises';
-import { Limiter, retry, SequencerByKey } from '../../../../base/common/async.js';
+import { Limiter, retry, Sequencer, SequencerByKey } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { CancellationError } from '../../../../base/common/errors.js';
 import { Emitter, Event } from '../../../../base/common/event.js';
@@ -21,6 +21,7 @@ import { IInstantiationService } from '../../../instantiation/common/instantiati
 import { INativeEnvironmentService } from '../../../environment/common/environment.js';
 import { ILogService } from '../../../log/common/log.js';
 import { IAgentHostStartupPerformance } from '../agentHostStartupPerformance.js';
+import { INativeAgentConfiguration, nativeAgentResource, parseNativeAgentConfiguration } from '../../common/nativeAgentConfiguration.js';
 import { IProductService } from '../../../product/common/productService.js';
 import { IAgentPluginManager, ISyncedCustomization } from '../../common/agentPluginManager.js';
 import { IAgentSdkDownloader } from '../agentSdkDownloader.js';
@@ -745,6 +746,9 @@ export class ClaudeAgent extends Disposable implements IAgent {
 		throw new Error('Claude does not support changing the working directory of an existing session.');
 	}
 
+	private _nativeConfiguration: INativeAgentConfiguration | undefined;
+	private readonly _nativeConfigurationSequencer = new Sequencer();
+
 	getProtectedResources(): ProtectedResourceMetadata[] {
 		// Always listed, always optional. Listing it is what lets the host forward a
 		// token to an already-signed-in user (matching ignores `required`); the
@@ -753,6 +757,7 @@ export class ClaudeAgent extends Disposable implements IAgent {
 		// could explain itself.
 		const copilotResource = this._gitHubEndpointService.getCopilotResource();
 		return [
+			...(this._productService.agentFirst ? [{ resource: nativeAgentResource('claude'), required: false }] : []),
 			{ ...copilotResource, required: false },
 			this._gitHubEndpointService.getRepoResource(),
 		];
@@ -774,7 +779,7 @@ export class ClaudeAgent extends Disposable implements IAgent {
 			defaultMode: this._defaultTransportMode(),
 		});
 		if (transport !== 'proxy') {
-			return { kind: 'native' };
+			return { kind: 'native', configuration: this._nativeConfiguration };
 		}
 		const handle = this._proxyHandle;
 		if (!handle) {
@@ -788,6 +793,18 @@ export class ClaudeAgent extends Disposable implements IAgent {
 	}
 
 	async authenticate(resource: string, token: string): Promise<boolean> {
+		if (resource === nativeAgentResource('claude') && this._productService.agentFirst) {
+			return this._nativeConfigurationSequencer.queue(async () => {
+				const configuration = parseNativeAgentConfiguration(token);
+				if (JSON.stringify(configuration) === JSON.stringify(this._nativeConfiguration)) {
+					return true;
+				}
+				await this._modelRefreshInFlight;
+				this._nativeConfiguration = configuration;
+				await this._startModelRefresh();
+				return true;
+			});
+		}
 		if (resource === this._gitHubEndpointService.getRepoResource().resource) {
 			return true;
 		}
@@ -950,7 +967,7 @@ export class ClaudeAgent extends Disposable implements IAgent {
 	private async _refreshModels(): Promise<void> {
 		const tokenAtStart = this._githubToken;
 		// True only for a dev override, a dev bare import, or an already-cached SDK.
-		const canAttemptNative = await this._sdkService.canLoadWithoutDownload();
+		const canAttemptNative = (!this._productService.agentFirst || this._nativeConfiguration !== undefined) && await this._sdkService.canLoadWithoutDownload();
 		if (!canAttemptNative) {
 			// No SDK, so no evidence of an account — say so rather than retaining a stale `true`.
 			this._nativeAccountSetUp = false;
@@ -1008,12 +1025,20 @@ export class ClaudeAgent extends Disposable implements IAgent {
 	 * filesystem can see it. When it says no, the catalog is published empty.
 	 */
 	private async _fetchNativeModels(): Promise<readonly IAgentModelInfo[]> {
+		const configuration = this._nativeConfiguration;
+		if (configuration?.mode === 'apiKey') {
+			this._nativeAccountSetUp = true;
+			return [fromSdkModelInfo({ value: configuration.model!, displayName: configuration.model!, description: 'API' }, this.id)];
+		}
 		// A prompt iterable that never yields: enumeration only needs the
 		// control-request channel (`Query.supportedModels()`), not a real turn.
 		const neverYieldingPrompt: AsyncIterable<SDKUserMessage> = {
 			[Symbol.asyncIterator]: () => ({ next: () => new Promise<IteratorResult<SDKUserMessage>>(() => { /* never resolves */ }) }),
 		};
 		const options = buildModelEnumerationOptions();
+		if (configuration?.executable) {
+			options.pathToClaudeCodeExecutable = configuration.executable;
+		}
 		const query = await this._sdkService.query({ prompt: neverYieldingPrompt, options });
 		try {
 			const [account, models] = await Promise.all([query.accountInfo(), query.supportedModels()]);

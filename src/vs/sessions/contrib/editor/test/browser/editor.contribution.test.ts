@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import assert from 'assert';
+import product from '../../../../../platform/product/common/product.js';
 import { Dimension } from '../../../../../base/browser/dom.js';
 import { mainWindow } from '../../../../../base/browser/window.js';
 import { Codicon } from '../../../../../base/common/codicons.js';
@@ -604,7 +605,7 @@ suite('Sessions - Editor Contribution', () => {
 		}]);
 	});
 
-	test('empty file editor opens an untitled file on double-click in empty space by default', () => {
+	test('empty file editor double-click follows the product file creation policy', () => {
 		const instantiationService = workbenchInstantiationService(undefined, store);
 		store.add(registerEmptyFileEditorActions());
 		instantiationService.stub(IMenuService, store.add(instantiationService.createInstance(MenuService)));
@@ -632,7 +633,7 @@ suite('Sessions - Editor Contribution', () => {
 			actionLabel: doubleClick('.sessions-add-tab-watermark-label'),
 			actions: doubleClick('.empty-file-editor-actions'),
 		}, {
-			emptySpace: ['workbench.action.files.newUntitledFile'],
+			emptySpace: product.agentFirst ? [] : ['workbench.action.files.newUntitledFile'],
 			searchInput: [],
 			actionLabel: [],
 			actions: [],
@@ -726,7 +727,7 @@ suite('Sessions - Editor Contribution', () => {
 		store.add({ dispose: () => container.remove() });
 
 		editor.create(container);
-		// Keyboard focus must be inside the editor part so `editorAreaFocus` keeps Cmd+N on New File.
+		// Keyboard focus must stay inside the editor part for file-search shortcuts.
 		editor.focus();
 
 		const editorContainer = container.querySelector('.empty-file-editor');
@@ -873,7 +874,7 @@ suite('Sessions - Editor Contribution', () => {
 		});
 	});
 
-	test('empty file editor search picker keeps Cmd+N on New File', () => {
+	test('empty file editor search picker Cmd+N follows the product file creation policy', () => {
 		const ctrlCmdN = decodeKeybinding(KeyMod.CtrlCmd | KeyCode.KeyN, OS)!.getHashCode();
 		const rule = KeybindingsRegistry.getDefaultKeybindings()
 			.find(item => item.command === 'workbench.action.files.newUntitledFile' && item.keybinding?.getHashCode() === ctrlCmdN && item.weight1 > KeybindingWeight.SessionsContrib);
@@ -885,9 +886,9 @@ suite('Sessions - Editor Contribution', () => {
 			pickerFocused: evaluate({ [EmptyFileEditorSearchPickerFocusedContext.key]: true }),
 			elsewhere: evaluate({}),
 		}, {
-			registered: true,
+			registered: !product.agentFirst,
 			pickerFocused: true,
-			elsewhere: false,
+			elsewhere: !!product.agentFirst,
 		});
 	});
 

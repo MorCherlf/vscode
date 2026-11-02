@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "date": "2026-10-30",
+  "testedSource": "20c9dc713855f47b708a7ae2a5e46f3923307096",
+  "failedSource": "96fa875aa51101cf1085382d0182d90aa7111c8d",
+  "platform": {
+    "os": "macOS",
+    "version": "27.2",
+    "build": "26B123",
+    "arch": "arm64"
+  },
+  "node": "24.22.1",
+  "electron": "43.8.3",
+  "chromium": "150.0.7871.250",
+  "sourceFix": "Normalize only startup path fields for trusted Agent First native API/dialog/menu open requests. Preserve explicit API payload/options, raw CLI rejection and ordinary-product identity. Reuse original NativeHostMainService/WindowsMainService.",
+  "nativeRequests": {
+    "realNativeIPC": true,
+    "total": 8,
+    "rejected": 6,
+    "positive": 2,
+    "noNewWindowsForRejectedRequests": true,
+    "onlyOriginalSessionsRenderers": true
+  },
+  "checks": {
+    "nodeRoutingTests": 29,
+    "targetedTypesExitCode": 0,
+    "fourFileLintExitCode": 0,
+    "incrementalClientBuildExitCode": 0,
+    "nativeControllerExitCode": 0,
+    "fullLayersCheckExitCode": 0
+  },
+  "typecheckScope": {
+    "extends": "src/vs/sessions/tsconfig.agent-first.json",
+    "additionalRoot": "src/vs/platform/native/electron-main/nativeHostMainService.ts"
+  },
+  "acceptancePass": false,
+  "unverified": [
+    "OS/CLI/deep-link intent combinations including development/test-host initial entry",
+    "physical drag/drop and custom resolver/group flows",
+    "legacy editor/hot-exit restore and backup recovery",
+    "real model/provider/auth/tool/approval task",
+    "full task-time module/worker/service exclusion",
+    "system IME/VoiceOver",
+    "independent Mac application package/signing/notarization",
+    "human H1 acceptance"
+  ]
+}

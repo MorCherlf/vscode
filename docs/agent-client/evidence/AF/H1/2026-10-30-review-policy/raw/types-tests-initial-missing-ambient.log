@@ -1,0 +1,449 @@
+src/vs/base/browser/dnd.ts(15,19): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/browser/dom.ts(2594,138): error TS2339: Property 'editContext' does not exist on type 'HTMLElement'.
+src/vs/base/browser/ui/actionbar/actionViewItems.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of './actionbar.css'.
+src/vs/base/browser/ui/actionbar/actionbar.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './actionbar.css'.
+src/vs/base/browser/ui/aria/aria.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './aria.css'.
+src/vs/base/browser/ui/breadcrumbs/breadcrumbsWidget.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './breadcrumbsWidget.css'.
+src/vs/base/browser/ui/button/button.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './button.css'.
+src/vs/base/browser/ui/codicons/codiconStyles.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './codicon/codicon.css'.
+src/vs/base/browser/ui/codicons/codiconStyles.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './codicon/codicon-modifiers.css'.
+src/vs/base/browser/ui/contextview/contextview.ts(14,8): error TS2882: Cannot find module or type declarations for side-effect import of './contextview.css'.
+src/vs/base/browser/ui/countBadge/countBadge.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './countBadge.css'.
+src/vs/base/browser/ui/dialog/dialog.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './dialog.css'.
+src/vs/base/browser/ui/dnd/dnd.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './dnd.css'.
+src/vs/base/browser/ui/dropdown/dropdown.ts(19,8): error TS2882: Cannot find module or type declarations for side-effect import of './dropdown.css'.
+src/vs/base/browser/ui/dropdown/dropdownActionViewItem.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './dropdown.css'.
+src/vs/base/browser/ui/findinput/findInput.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './findInput.css'.
+src/vs/base/browser/ui/findinput/replaceInput.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './findInput.css'.
+src/vs/base/browser/ui/grid/grid.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './gridview.css'.
+src/vs/base/browser/ui/grid/gridview.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './gridview.css'.
+src/vs/base/browser/ui/hover/hoverWidget.ts(11,8): error TS2882: Cannot find module or type declarations for side-effect import of './hoverWidget.css'.
+src/vs/base/browser/ui/iconLabel/iconLabel.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './iconlabel.css'.
+src/vs/base/browser/ui/inputbox/inputBox.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './inputBox.css'.
+src/vs/base/browser/ui/keybindingLabel/keybindingLabel.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './keybindingLabel.css'.
+src/vs/base/browser/ui/list/listPaging.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './list.css'.
+src/vs/base/browser/ui/list/listWidget.ts(29,8): error TS2882: Cannot find module or type declarations for side-effect import of './list.css'.
+src/vs/base/browser/ui/menu/menubar.ts(23,8): error TS2882: Cannot find module or type declarations for side-effect import of './menubar.css'.
+src/vs/base/browser/ui/mouseCursor/mouseCursor.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './mouseCursor.css'.
+src/vs/base/browser/ui/pixelSpinner/pixelSpinner.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './pixelSpinner.css'.
+src/vs/base/browser/ui/progressbar/progressbar.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './progressbar.css'.
+src/vs/base/browser/ui/radio/radio.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './radio.css'.
+src/vs/base/browser/ui/sash/sash.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './sash.css'.
+src/vs/base/browser/ui/sash/sash.ts(459,25): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/browser/ui/scrollbar/scrollableElement.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/scrollbars.css'.
+src/vs/base/browser/ui/selectBox/selectBox.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './selectBox.css'.
+src/vs/base/browser/ui/selectBox/selectBoxCustom.ts(27,8): error TS2882: Cannot find module or type declarations for side-effect import of './selectBoxCustom.css'.
+src/vs/base/browser/ui/severityIcon/severityIcon.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/severityIcon.css'.
+src/vs/base/browser/ui/splitview/paneview.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './paneview.css'.
+src/vs/base/browser/ui/splitview/splitview.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './splitview.css'.
+src/vs/base/browser/ui/table/tableWidget.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './table.css'.
+src/vs/base/browser/ui/toggle/switch.ts(11,8): error TS2882: Cannot find module or type declarations for side-effect import of './switch.css'.
+src/vs/base/browser/ui/toggle/toggle.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of './toggle.css'.
+src/vs/base/browser/ui/toolbar/toolbar.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './toolbar.css'.
+src/vs/base/browser/ui/tree/abstractTree.ts(35,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/tree.css'.
+src/vs/base/common/async.ts(170,50): error TS2304: Cannot find name 'Thenable'.
+src/vs/base/common/async.ts(566,29): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/async.ts(653,13): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/async.ts(1105,18): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/async.ts(1194,24): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/async.ts(1279,25): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/dataTransfer.ts(20,14): error TS2304: Cannot find name 'Thenable'.
+src/vs/base/common/event.ts(272,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/event.ts(378,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/event.ts(409,33): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/event.ts(1598,19): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/network.ts(408,18): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/base/common/network.ts(409,37): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/base/common/observableInternal/logging/debugger/utils.ts(9,20): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/observableInternal/logging/debugger/utils.ts(29,20): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/observableInternal/utils/utils.ts(41,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/observableInternal/utils/utils.ts(91,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/observableInternal/utils/utils.ts(136,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/common/observableInternal/utils/utils.ts(173,15): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/parts/ipc/common/ipc.net.ts(506,28): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/parts/ipc/common/ipc.net.ts(824,31): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/parts/ipc/common/ipc.net.ts(829,31): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/parts/ipc/common/ipc.net.ts(831,30): error TS2304: Cannot find name 'Timeout'.
+src/vs/base/parts/ipc/common/ipc.ts(329,16): error TS2304: Cannot find name 'Timeout'.
+src/vs/editor/browser/controller/editContext/native/editContextFactory.ts(12,51): error TS2304: Cannot find name 'EditContextInit'.
+src/vs/editor/browser/controller/editContext/native/editContextFactory.ts(12,69): error TS2709: Cannot use namespace 'EditContext' as a type.
+src/vs/editor/browser/controller/editContext/native/editContextFactory.ts(13,66): error TS2304: Cannot find name 'EditContextInit'.
+src/vs/editor/browser/controller/editContext/native/editContextFactory.ts(13,86): error TS2709: Cannot use namespace 'EditContext' as a type.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './nativeEditContext.css'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(58,33): error TS2709: Cannot use namespace 'EditContext' as a type.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(272,24): error TS2339: Property 'editContext' does not exist on type 'HTMLDivElement'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(389,25): error TS2339: Property 'editContext' does not exist on type 'HTMLDivElement'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(504,37): error TS2552: Cannot find name 'TextFormatUpdateEvent'. Did you mean 'ITextUpdateEvent'?
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(511,19): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/vs/editor/browser/controller/editContext/native/nativeEditContext.ts(579,36): error TS2304: Cannot find name 'CharacterBoundsUpdateEvent'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContextUtils.ts(80,66): error TS2304: Cannot find name 'EditContextEventHandlersEventMap'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContextUtils.ts(80,172): error TS2304: Cannot find name 'EditContextEventHandlersEventMap'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContextUtils.ts(82,26): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/vs/editor/browser/controller/editContext/native/nativeEditContextUtils.ts(86,31): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/vs/editor/browser/controller/editContext/textArea/textAreaEditContext.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './textAreaEditContext.css'.
+src/vs/editor/browser/gpu/css/decorationCssRuleExtractor.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/decorationCssRuleExtractor.css'.
+src/vs/editor/browser/viewParts/blockDecorations/blockDecorations.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './blockDecorations.css'.
+src/vs/editor/browser/viewParts/currentLineHighlight/currentLineHighlight.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './currentLineHighlight.css'.
+src/vs/editor/browser/viewParts/decorations/decorations.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './decorations.css'.
+src/vs/editor/browser/viewParts/glyphMargin/glyphMargin.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './glyphMargin.css'.
+src/vs/editor/browser/viewParts/gpuMark/gpuMark.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './gpuMark.css'.
+src/vs/editor/browser/viewParts/indentGuides/indentGuides.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './indentGuides.css'.
+src/vs/editor/browser/viewParts/lineNumbers/lineNumbers.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './lineNumbers.css'.
+src/vs/editor/browser/viewParts/linesDecorations/linesDecorations.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './linesDecorations.css'.
+src/vs/editor/browser/viewParts/margin/margin.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './margin.css'.
+src/vs/editor/browser/viewParts/marginDecorations/marginDecorations.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './marginDecorations.css'.
+src/vs/editor/browser/viewParts/minimap/minimap.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './minimap.css'.
+src/vs/editor/browser/viewParts/overlayWidgets/overlayWidgets.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './overlayWidgets.css'.
+src/vs/editor/browser/viewParts/rulers/rulers.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './rulers.css'.
+src/vs/editor/browser/viewParts/scrollDecoration/scrollDecoration.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './scrollDecoration.css'.
+src/vs/editor/browser/viewParts/selections/selections.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './selections.css'.
+src/vs/editor/browser/viewParts/viewCursors/viewCursors.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './viewCursors.css'.
+src/vs/editor/browser/viewParts/viewLines/viewLines.ts(11,8): error TS2882: Cannot find module or type declarations for side-effect import of './viewLines.css'.
+src/vs/editor/browser/viewParts/whitespace/whitespace.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './whitespace.css'.
+src/vs/editor/browser/viewParts/wordWrapIndicator/wordWrapIndicator.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './wordWrapIndicator.css'.
+src/vs/editor/browser/widget/codeEditor/codeEditorWidget.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './editor.css'.
+src/vs/editor/browser/widget/diffEditor/components/accessibleDiffViewer.ts(34,8): error TS2882: Cannot find module or type declarations for side-effect import of './accessibleDiffViewer.css'.
+src/vs/editor/browser/widget/diffEditor/diffEditorWidget.ts(50,8): error TS2882: Cannot find module or type declarations for side-effect import of './style.css'.
+src/vs/editor/browser/widget/markdownRenderer/browser/editorMarkdownCodeBlockRenderer.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './renderedMarkdown.css'.
+src/vs/editor/browser/widget/multiDiffEditor/multiDiffEditorWidgetImpl.ts(34,8): error TS2882: Cannot find module or type declarations for side-effect import of './style.css'.
+src/vs/editor/common/languages.ts(183,56): error TS2304: Cannot find name 'Thenable'.
+src/vs/editor/contrib/bracketMatching/browser/bracketMatching.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './bracketMatching.css'.
+src/vs/editor/contrib/codeAction/browser/codeAction.ts(138,72): error TS7006: Parameter 'action' implicitly has an 'any' type.
+src/vs/editor/contrib/codeAction/browser/codeAction.ts(141,34): error TS7006: Parameter 'action' implicitly has an 'any' type.
+src/vs/editor/contrib/codeAction/browser/lightBulbWidget.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './lightBulbWidget.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerBody.ts(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerCloseButton.ts(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerHeader.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerInsertButton.ts(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerSaturationBox.ts(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerParts/colorPickerStrip.ts(5,8): error TS2882: Cannot find module or type declarations for side-effect import of '../colorPicker.css'.
+src/vs/editor/contrib/colorPicker/browser/colorPickerWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './colorPicker.css'.
+src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController.ts(134,68): error TS2345: Argument of type '{ readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }[]' is not assignable to parameter of type 'readonly DocumentDropEdit[]'.
+  Type '{ readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }' is missing the following properties from type 'DocumentDropEdit': title, insertText
+src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController.ts(137,117): error TS2322: Type '{ readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }[]' is not assignable to type 'readonly DocumentDropEdit[]'.
+  Type '{ readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }' is missing the following properties from type 'DocumentDropEdit': title, insertText
+src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController.ts(160,29): error TS7006: Parameter 'edit' implicitly has an 'any' type.
+src/vs/editor/contrib/dropOrPasteInto/browser/dropIntoEditorController.ts(172,30): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type 'readonly { readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }[]'.
+  Type 'unknown' is not assignable to type '{ readonly kind: HierarchicalKind | undefined; readonly handledMimeType?: string | undefined; readonly yieldTo?: readonly DropYieldTo[] | undefined; }'.
+src/vs/editor/contrib/dropOrPasteInto/browser/postEditWidget.ts(32,8): error TS2882: Cannot find module or type declarations for side-effect import of './postEditWidget.css'.
+src/vs/editor/contrib/find/browser/findOptionsWidget.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './findOptionsWidget.css'.
+src/vs/editor/contrib/find/browser/findWidget.ts(24,8): error TS2882: Cannot find module or type declarations for side-effect import of './findWidget.css'.
+src/vs/editor/contrib/find/browser/findWidget.ts(549,27): error TS2304: Cannot find name 'Timeout'.
+src/vs/editor/contrib/folding/browser/folding.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './folding.css'.
+src/vs/editor/contrib/gotoError/browser/gotoErrorWidget.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/gotoErrorWidget.css'.
+src/vs/editor/contrib/gotoSymbol/browser/goToSymbol.ts(79,115): error TS7006: Parameter 'ref' implicitly has an 'any' type.
+src/vs/editor/contrib/gotoSymbol/browser/goToSymbol.ts(83,134): error TS7006: Parameter 'ref' implicitly has an 'any' type.
+src/vs/editor/contrib/gotoSymbol/browser/link/goToDefinitionAtPosition.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './goToDefinitionAtPosition.css'.
+src/vs/editor/contrib/gotoSymbol/browser/peek/referencesWidget.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './referencesWidget.css'.
+src/vs/editor/contrib/hover/browser/contentHoverController.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './hover.css'.
+src/vs/editor/contrib/hover/browser/glyphHoverController.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './hover.css'.
+src/vs/editor/contrib/inlineCompletions/browser/hintsWidget/inlineCompletionsHintsWidget.ts(37,8): error TS2882: Cannot find module or type declarations for side-effect import of './inlineCompletionsHintsWidget.css'.
+src/vs/editor/contrib/inlineCompletions/browser/view/ghostText/ghostTextView.ts(31,8): error TS2882: Cannot find module or type declarations for side-effect import of './ghostTextView.css'.
+src/vs/editor/contrib/inlineCompletions/browser/view/inlineEdits/inlineEditsView.ts(40,8): error TS2882: Cannot find module or type declarations for side-effect import of './view.css'.
+src/vs/editor/contrib/inlineProgress/browser/inlineProgress.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './inlineProgressWidget.css'.
+src/vs/editor/contrib/links/browser/links.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './links.css'.
+src/vs/editor/contrib/message/browser/messageController.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './messageController.css'.
+src/vs/editor/contrib/parameterHints/browser/parameterHintsWidget.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './parameterHints.css'.
+src/vs/editor/contrib/peekView/browser/peekView.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/peekViewWidget.css'.
+src/vs/editor/contrib/rename/browser/renameWidget.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './renameWidget.css'.
+src/vs/editor/contrib/smartSelect/browser/smartSelect.ts(233,38): error TS2571: Object is of type 'unknown'.
+src/vs/editor/contrib/smartSelect/browser/smartSelect.ts(235,29): error TS2345: Argument of type 'null' is not assignable to parameter of type 'Range'.
+src/vs/editor/contrib/snippet/browser/snippetSession.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './snippetSession.css'.
+src/vs/editor/contrib/stickyScroll/browser/stickyScrollWidget.ts(11,8): error TS2882: Cannot find module or type declarations for side-effect import of './stickyScroll.css'.
+src/vs/editor/contrib/suggest/browser/suggestWidget.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/suggest.css'.
+src/vs/editor/contrib/symbolIcons/browser/symbolIcons.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './symbolIcons.css'.
+src/vs/editor/contrib/wordHighlighter/browser/highlightDecorations.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './highlightDecorations.css'.
+src/vs/editor/contrib/wordHighlighter/browser/wordHighlighter.ts(60,40): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type 'DocumentHighlight[][]'.
+  Type 'unknown' is not assignable to type 'DocumentHighlight[]'.
+src/vs/editor/contrib/wordHighlighter/browser/wordHighlighter.ts(258,34): error TS2304: Cannot find name 'Timeout'.
+src/vs/editor/contrib/zoneWidget/browser/zoneWidget.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './zoneWidget.css'.
+src/vs/nls.ts(7,20): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/nls.ts(11,20): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/platform/actionWidget/browser/actionList.ts(34,8): error TS2882: Cannot find module or type declarations for side-effect import of './actionWidget.css'.
+src/vs/platform/actionWidget/browser/actionWidget.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './actionWidget.css'.
+src/vs/platform/actionWidget/browser/tabbedActionListWidget.ts(35,8): error TS2882: Cannot find module or type declarations for side-effect import of './tabbedActionListWidget.css'.
+src/vs/platform/actions/browser/buttonbar.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './buttonbar.css'.
+src/vs/platform/actions/browser/menuEntryActionViewItem.ts(40,8): error TS2882: Cannot find module or type declarations for side-effect import of './menuEntryActionViewItem.css'.
+src/vs/platform/agentHost/browser/codexApprovalsPicker.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/codexApprovalsPicker.css'.
+src/vs/platform/artifactIntegrations/browser/artifactDetailsList.ts(23,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/artifactDetailsList.css'.
+src/vs/platform/files/common/inMemoryFilesystemProvider.ts(333,28): error TS2304: Cannot find name 'Timeout'.
+src/vs/platform/hover/browser/hoverWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './hover.css'.
+src/vs/platform/opener/browser/link.ts(14,8): error TS2882: Cannot find module or type declarations for side-effect import of './link.css'.
+src/vs/platform/product/common/product.ts(38,21): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/platform/product/common/product.ts(38,56): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/platform/product/common/product.ts(40,23): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/platform/product/common/product.ts(41,42): error TS7017: Element implicitly has an 'any' type because type 'typeof globalThis' has no index signature.
+src/vs/platform/progress/common/progress.ts(183,34): error TS2304: Cannot find name 'Timeout'.
+src/vs/platform/quickinput/browser/quickInput.ts(26,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/quickInput.css'.
+src/vs/platform/quickinput/browser/quickInputBox.ts(14,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/quickInput.css'.
+src/vs/platform/quickinput/browser/quickInputUtils.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/quickInput.css'.
+src/vs/platform/telemetry/common/errorTelemetry.ts(87,24): error TS2304: Cannot find name 'Timeout'.
+src/vs/platform/terminal/common/xterm/shellIntegrationAddon.ts(334,30): error TS2304: Cannot find name 'Timeout'.
+src/vs/sessions/browser/parts/chatCompositeBar.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCompositeBar.css'.
+src/vs/sessions/browser/parts/chatGroupDropTarget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatGroupDropTarget.css'.
+src/vs/sessions/browser/parts/chatGroupsView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatGroupsView.css'.
+src/vs/sessions/browser/parts/emptyEditorGroupAddTab.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionsEmptyState.css'.
+src/vs/sessions/browser/parts/mobile/contributions/mobileChangesView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/mobileOverlayViews.css'.
+src/vs/sessions/browser/parts/mobile/contributions/mobileDiffView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/mobileOverlayViews.css'.
+src/vs/sessions/browser/parts/mobile/mobileTitlebarPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './mobileChatShell.css'.
+src/vs/sessions/browser/parts/remoteHostUnavailableEmptyState.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/remoteHostUnavailableEmptyState.css'.
+src/vs/sessions/browser/parts/sessionActivityBar.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionActivityBar.css'.
+src/vs/sessions/browser/parts/sessionHeaderBar.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCompositeBar.css'.
+src/vs/sessions/browser/parts/sessionReadOnlyBanner.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionReadOnlyBanner.css'.
+src/vs/sessions/browser/parts/sessionView.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionView.css'.
+src/vs/sessions/browser/parts/sessionsEmptyStateActions.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionsEmptyState.css'.
+src/vs/sessions/browser/parts/titlebarPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../workbench/browser/parts/titlebar/media/titlebarpart.css'.
+src/vs/sessions/browser/parts/titlebarPart.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/titlebarpart.css'.
+src/vs/sessions/browser/sessionsSignInDialog.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionsSetUp.css'.
+src/vs/sessions/browser/workbench.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/style.css'.
+src/vs/sessions/browser/workbench.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/workbench.css'.
+src/vs/sessions/browser/workbench.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/phoneLayout.css'.
+src/vs/sessions/browser/workbench.ts(537,10): error TS2339: Property 'stackTraceLimit' does not exist on type 'ErrorConstructor'.
+src/vs/sessions/contrib/changes/browser/changesSummaryWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/changesSummaryWidget.css'.
+src/vs/sessions/contrib/changes/browser/changesView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/changesView.css'.
+src/vs/sessions/contrib/changes/browser/checksWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/checksWidget.css'.
+src/vs/sessions/contrib/changes/browser/createPullRequestWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/createPullRequest.css'.
+src/vs/sessions/contrib/changes/browser/sessionChangesEditor.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionChangesEditor.css'.
+src/vs/sessions/contrib/changes/browser/sessionChangesEditorInput.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionChangesEditorInput.css'.
+src/vs/sessions/contrib/editor/browser/editor.contribution.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../../workbench/contrib/modernUI/browser/media/tabs.css'.
+src/vs/sessions/contrib/editor/browser/editor.contribution.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editorBreadcrumbs.css'.
+src/vs/sessions/contrib/editor/browser/editor.contribution.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editorHeader.css'.
+src/vs/sessions/contrib/editor/browser/emptyFileEditor.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/emptyFileEditor.css'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(6,20): error TS2591: Cannot find name 'assert'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(84,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../../browser/media/workbench.css'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(85,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../../browser/parts/media/chatCompositeBar.css'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(86,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../../browser/parts/media/editorPart.css'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(674,23): error TS18047: 'panel' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(687,25): error TS18047: 'search' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(820,3): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(824,32): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(859,18): error TS18048: 'menuItem' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(860,20): error TS18048: 'menuItem' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(860,29): error TS2339: Property 'command' does not exist on type 'IMenuItem | ISubmenuItem'.
+  Property 'command' does not exist on type 'ISubmenuItem'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(945,32): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(946,27): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(949,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(951,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(953,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(955,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(956,34): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(971,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(973,4): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(978,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(980,4): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1068,3): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1070,23): error TS18047: 'inputBox' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1072,4): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1073,4): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1079,32): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1080,29): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1083,14): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,20): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,49): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,79): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,112): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1090,25): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1091,3): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1095,11): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1103,11): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1468,4): error TS2322: Type 'ContextKeyExpression | undefined' is not assignable to type 'ContextKeyExpression'.
+  Type 'undefined' is not assignable to type 'ContextKeyExpression'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1468,11): error TS18048: 'item' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1899,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1941,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1986,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1987,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(2031,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(2032,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/workbench/browser/animatedCounterWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/animatedCounterWidget.css'.
+src/vs/workbench/browser/changesStatsWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/changesStatsWidget.css'.
+src/vs/workbench/browser/chatImagePreview.ts(14,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatImagePreview.css'.
+src/vs/workbench/browser/chatPillHover.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPills.css'.
+src/vs/workbench/browser/chatPills.ts(39,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPills.css'.
+src/vs/workbench/browser/part.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/part.css'.
+src/vs/workbench/browser/part.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/floatingPanels.css'.
+src/vs/workbench/browser/parts/compositeBarActions.ts(164,26): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/compositePart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/compositepart.css'.
+src/vs/workbench/browser/parts/editor/breadcrumbsControl.ts(58,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/breadcrumbscontrol.css'.
+src/vs/workbench/browser/parts/editor/breadcrumbsPicker.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/breadcrumbscontrol.css'.
+src/vs/workbench/browser/parts/editor/editorDropTarget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editordroptarget.css'.
+src/vs/workbench/browser/parts/editor/editorGroupView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editorgroupview.css'.
+src/vs/workbench/browser/parts/editor/editorPart.ts(1193,32): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/editor/editorPart.ts(1194,30): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/editor/editorPlaceholder.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editorplaceholder.css'.
+src/vs/workbench/browser/parts/editor/editorQuickAccess.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editorquickaccess.css'.
+src/vs/workbench/browser/parts/editor/editorTabsControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editortabscontrol.css'.
+src/vs/workbench/browser/parts/editor/editorTitleControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/editortitlecontrol.css'.
+src/vs/workbench/browser/parts/editor/modalEditorPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/modalEditorPart.css'.
+src/vs/workbench/browser/parts/editor/multiEditorTabsControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/multieditortabscontrol.css'.
+src/vs/workbench/browser/parts/editor/noEditorTabsControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/singleeditortabscontrol.css'.
+src/vs/workbench/browser/parts/editor/sideBySideEditor.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sidebysideeditor.css'.
+src/vs/workbench/browser/parts/editor/singleEditorTabsControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/singleeditortabscontrol.css'.
+src/vs/workbench/browser/parts/globalCompositeBar.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/globalCompositeBar.css'.
+src/vs/workbench/browser/parts/notifications/notificationsActions.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notificationsActions.css'.
+src/vs/workbench/browser/parts/notifications/notificationsCenter.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notificationsCenter.css'.
+src/vs/workbench/browser/parts/notifications/notificationsCenter.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notificationsActions.css'.
+src/vs/workbench/browser/parts/notifications/notificationsList.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notificationsList.css'.
+src/vs/workbench/browser/parts/notifications/notificationsStatus.ts(240,19): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/notifications/notificationsStatus.ts(255,19): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/notifications/notificationsToasts.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notificationsToasts.css'.
+src/vs/workbench/browser/parts/notifications/notificationsToasts.ts(380,27): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/browser/parts/paneCompositePart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/paneCompositePart.css'.
+src/vs/workbench/browser/parts/panel/panelActions.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/panelpart.css'.
+src/vs/workbench/browser/parts/statusbar/statusbarPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/statusbarpart.css'.
+src/vs/workbench/browser/parts/titlebar/menubarControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/menubarControl.css'.
+src/vs/workbench/browser/parts/titlebar/titlebarPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/titlebarpart.css'.
+src/vs/workbench/browser/parts/views/viewPane.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/paneviewlet.css'.
+src/vs/workbench/browser/parts/views/viewPaneContainer.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/paneviewlet.css'.
+src/vs/workbench/browser/style.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/style.css'.
+src/vs/workbench/contrib/agentsVoice/browser/voiceModeOnboarding.ts(34,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/voiceModeOnboarding.css'.
+src/vs/workbench/contrib/chat/browser/actions/chatModelFeedbackSurveyActions.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of '../feedbackSurvey/media/chatModelFeedbackSurvey.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/agentHost/agentHostChatInputPicker.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/agentHostChatInputPicker.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/agentHost/agentHostModePickerPresentation.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/agentHostModePicker.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/agentHost/computerUseSetupDialog.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/computerUseSetup.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/agentSessionHoverWidget.ts(28,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/agentSessionHoverWidget.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/agentSessionsViewer.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/agentsessionsviewer.css'.
+src/vs/workbench/contrib/chat/browser/agentSessions/sessionSummaryHover.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionSummaryHover.css'.
+src/vs/workbench/contrib/chat/browser/aiCustomization/chatCustomizationMigrationNotice.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCustomizationMigrationNotice.css'.
+src/vs/workbench/contrib/chat/browser/attachments/chatImageReveal.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './chatImageReveal.css'.
+src/vs/workbench/contrib/chat/browser/chatEditing/chatEditingCodeEditorIntegration.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatEditorController.css'.
+src/vs/workbench/contrib/chat/browser/chatEditing/chatEditingExplanationWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatEditingExplanationWidget.css'.
+src/vs/workbench/contrib/chat/browser/chatSessions/chatSessionPickerActionItem.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatSessionPickerActionItem.css'.
+src/vs/workbench/contrib/chat/browser/feedbackSurvey/chatModelFeedbackSurveyWidget.ts(24,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatModelFeedbackSurvey.css'.
+src/vs/workbench/contrib/chat/browser/sessionBackgroundShellOutputView.ts(29,8): error TS2882: Cannot find module or type declarations for side-effect import of './widget/chatContentParts/media/chatTerminalToolProgressPart.css'.
+src/vs/workbench/contrib/chat/browser/sessionBackgroundShellsControl.ts(23,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/sessionBackgroundShells.css'.
+src/vs/workbench/contrib/chat/browser/speechToText/dictationMicGlow.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/dictationMicGlow.css'.
+src/vs/workbench/contrib/chat/browser/speechToText/dictationOnboarding.ts(29,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/dictationOnboarding.css'.
+src/vs/workbench/contrib/chat/browser/speechToText/dictationSession.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/dictationSession.css'.
+src/vs/workbench/contrib/chat/browser/voiceClient/voiceGlowController.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/voiceGlow.css'.
+src/vs/workbench/contrib/chat/browser/voiceInputMode/voiceInputModeActionViewItem.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../../../base/browser/ui/segmentedIconToggle/segmentedIconToggle.css'.
+src/vs/workbench/contrib/chat/browser/voiceInputMode/voiceInputModeActionViewItem.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/voiceInputMode.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatCard.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCard.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatActionRequestContentPart.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatActionRequestContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatActivityLabelTransition.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatActivityLabelTransition.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatAgentMergeContentPart.ts(27,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatAgentMergeContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatArtifactActionContentPart.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatArtifactActionContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatCollapsibleContentPart.ts(28,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCollapsibleContentPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatConfirmationWidget.ts(30,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatConfirmationWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatDisabledClaudeHooksContentPart.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatDisabledClaudeHooksContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatEditPillElement.ts(24,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCodeBlockPill.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatEditPillElement.ts(25,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInlineAnchorWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatEditStatsButton.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatEditStatsButton.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatExtensionsContentPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatExtensionsContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatHookContentPart.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatHookContentPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatImageGenerationBatchPart.ts(47,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatImageGenerationBatchPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatImageGenerationBatchPart.ts(48,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../attachments/chatImageReveal.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatIncrementalRendering/chatIncrementalRendering.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatIncrementalRendering.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatInlineAnchorWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInlineAnchorWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatMarkdownContentPart.ts(69,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatCodeBlockPill.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatMarkdownContentPart.ts(78,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatMarkdownPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatMcpAuthenticationContentPart.ts(28,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatMcpServersInteractionContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatMcpServersInteractionContentPart.ts(26,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatMcpServersInteractionContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatMcpServersStartingContentPart.ts(19,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatMcpServersInteractionContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatPlanReviewPart.ts(46,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPlanReview.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatPullRequestContentPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPullRequestContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatQuestionCarouselPart.ts(49,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatQuestionCarousel.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatRequestOriginPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatRequestOrigin.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatRichLink.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatRichLink.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatSubagentContentPart.ts(47,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatSubagentContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatSubagentOpenChat.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatSubagentOpenChat.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatSystemNotificationContentPart.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatSystemNotificationContentPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatThinkingContentPart.ts(42,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatThinkingContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/chatTipContentPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatTipContent.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/codeBlockPart.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/codeBlockPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatAgentFeedbackReviewConfirmationSubPart.ts(37,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatAgentFeedbackReviewConfirmation.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatAutomationConfiguredResultSubPart.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatSessionCreatedResult.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatImageGenerationProgressPart.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatImageGenerationProgressPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatImageGenerationProgressPart.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of '../../../attachments/chatImageReveal.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatSessionTargetResultPillSubPart.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatSessionCreatedResult.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatTerminalToolProgressPart.ts(27,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatTerminalToolProgressPart.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/chatToolConfirmationCarouselPart.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/chatToolConfirmationCarousel.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatContentParts/toolInvocationParts/toolRiskBadgeWidget.ts(19,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/toolRiskBadge.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatFind/chatFindWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './chatFindWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatPetWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPet.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatReadOnlyBanner.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatReadOnlyBanner.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chat.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatWidget.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatAgentHover.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatWidget.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatViewWelcome.css'.
+src/vs/workbench/contrib/chat/browser/widget/chatWorkingLogo.ts(22,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatWorkingLogo.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatGoalBannerWidget.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatGoalBannerWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatInputNoticeWidget.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInputNotice.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatInputNotificationWidget.ts(33,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInputNotificationWidget.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatInputPickerActionItem.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInputPicker.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatInputStack.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatInputStack.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatPhoneInputPresenter.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatPhoneInputPresenter.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/chatSessionArchiveNudge.ts(33,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatSessionArchiveNudge.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/editor/chatPasteProviders.ts(170,59): error TS2345: Argument of type 'Uint8Array<ArrayBufferLike>' is not assignable to parameter of type 'BufferSource'.
+  Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'ArrayBufferView<ArrayBuffer>'.
+    Types of property 'buffer' are incompatible.
+      Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+        Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength
+src/vs/workbench/contrib/chat/browser/widget/input/modelPicker/modelPickerHover.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/modelPicker.css'.
+src/vs/workbench/contrib/chat/browser/widget/input/modelPicker/modelPickerWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/modelPicker.css'.
+src/vs/workbench/contrib/chat/browser/widgetHosts/editor/chatEditor.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatEditor.css'.
+src/vs/workbench/contrib/chat/browser/widgetHosts/viewPane/chatContextUsageDetails.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatContextUsageDetails.css'.
+src/vs/workbench/contrib/chat/browser/widgetHosts/viewPane/chatContextUsageWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatContextUsageWidget.css'.
+src/vs/workbench/contrib/chat/browser/widgetHosts/viewPane/chatViewPane.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatViewPane.css'.
+src/vs/workbench/contrib/chat/browser/widgetHosts/viewPane/chatViewTitleControl.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/chatViewTitleControl.css'.
+src/vs/workbench/contrib/codeEditor/browser/dictation/editorDictation.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './editorDictation.css'.
+src/vs/workbench/contrib/codeEditor/browser/find/simpleFindWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './simpleFindWidget.css'.
+src/vs/workbench/contrib/codeEditor/browser/inspectEditorTokens/inspectEditorTokens.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './inspectEditorTokens.css'.
+src/vs/workbench/contrib/comments/browser/commentThreadWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/review.css'.
+src/vs/workbench/contrib/debug/common/debugUtils.ts(150,29): error TS2571: Object is of type 'unknown'.
+src/vs/workbench/contrib/debug/common/debugUtils.ts(151,18): error TS2571: Object is of type 'unknown'.
+src/vs/workbench/contrib/extensions/browser/extensionsActions.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/extensionActions.css'.
+src/vs/workbench/contrib/extensions/browser/extensionsList.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/extension.css'.
+src/vs/workbench/contrib/extensions/browser/extensionsWidgets.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/extensionsWidgets.css'.
+src/vs/workbench/contrib/files/browser/explorerViewlet.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/explorerviewlet.css'.
+src/vs/workbench/contrib/files/browser/views/openEditorsView.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/openeditors.css'.
+src/vs/workbench/contrib/github/browser/githubResourceHover.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/githubResourceHover.css'.
+src/vs/workbench/contrib/mediaPreview/browser/imageViewer.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/imageViewer.css'.
+src/vs/workbench/contrib/modernUI/browser/connectedEditorTabs.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/connectedEditorTabs.css'.
+src/vs/workbench/contrib/multiDiffEditor/browser/multiDiffEditorWithFileListWidget.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/multiDiffEditorWithFileList.css'.
+src/vs/workbench/contrib/notebook/browser/contrib/find/notebookFindReplaceWidget.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './notebookFindReplaceWidget.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebook.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(7,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellChat.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellEditorHint.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellInsertToolbar.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(10,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellStatusBar.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(11,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellTitleToolbar.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(12,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookFocusIndicator.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(13,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookToolbar.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(14,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookDnd.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookFolding.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(16,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookCellOutput.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(17,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookEditorStickyScroll.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(18,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookKernelActionViewItem.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(19,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookOutline.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(20,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookChatEditController.css'.
+src/vs/workbench/contrib/notebook/browser/notebookEditorWidget.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/notebookChatEditorOverlay.css'.
+src/vs/workbench/contrib/notebook/browser/view/cellParts/cellOutput.ts(444,30): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/contrib/notebook/browser/view/cellParts/cellOutput.ts(625,30): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/contrib/notebook/browser/view/renderers/webviewPreloads.ts(509,31): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/contrib/notebook/browser/view/renderers/webviewPreloads.ts(593,21): error TS2304: Cannot find name 'Timeout'.
+src/vs/workbench/contrib/onboarding/browser/spotlight/onboardingTarget.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of '../media/onboardingTarget.css'.
+src/vs/workbench/contrib/search/browser/anythingQuickAccess.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/anythingQuickAccess.css'.
+src/vs/workbench/contrib/search/browser/searchView.ts(21,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/searchview.css'.
+src/vs/workbench/contrib/search/browser/searchView.ts(1974,182): error TS2304: Cannot find name 'Thenable'.
+src/vs/workbench/contrib/searchEditor/browser/searchEditor.ts(15,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/searchEditor.css'.
+src/vs/workbench/contrib/searchEditor/browser/searchEditorActions.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/searchEditor.css'.
+src/vs/workbench/contrib/searchEditor/browser/searchEditorInput.ts(6,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/searchEditor.css'.
+src/vs/workbench/contrib/searchEditor/browser/searchEditorSerialization.ts(8,8): error TS2882: Cannot find module or type declarations for side-effect import of './media/searchEditor.css'.
+src/vs/workbench/contrib/terminal/browser/xterm/terminalFontRendering.ts(9,8): error TS2882: Cannot find module or type declarations for side-effect import of './terminalFontRendering.css'.
+src/vs/workbench/services/driver/browser/driver.ts(142,32): error TS2339: Property 'editContext' does not exist on type 'HTMLDivElement'.
+src/vs/workbench/services/driver/browser/driver.ts(148,22): error TS2304: Cannot find name 'TextUpdateEvent'.
+src/vs/workbench/services/driver/browser/driver.ts(179,32): error TS2339: Property 'editContext' does not exist on type 'HTMLDivElement'.
+src/vs/workbench/services/search/common/searchExtTypes.ts(48,56): error TS2304: Cannot find name 'Thenable'.
+src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts(6,20): error TS2591: Cannot find name 'assert'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.

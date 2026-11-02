@@ -1,0 +1,10 @@
+
+DevTools listening on ws://127.0.0.1:50295/devtools/browser/4a3624ac-da00-4a72-9415-1a7999e14ab1
+Warning: 'remote-debugging-port' is not in the list of known options, but still passed to Electron/Chromium.
+[91m[main 2026-11-02T01:59:36.767Z][0m [AgentHost:stderr] (node:99058) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `VSC Agent Preview Helper --trace-deprecation ...` to show where the warning was created)
+
+Unknown channel: agentHostClientByokLm
+Unknown channel: agentHostClientProxy
+Unknown channel: agentHostClientProxy
+[93m[main 2026-11-02T02:10:01.723Z][0m No ptyHost heartbeat after 6 seconds

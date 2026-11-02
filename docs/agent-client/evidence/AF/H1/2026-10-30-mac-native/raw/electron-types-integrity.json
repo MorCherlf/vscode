@@ -1,0 +1,8 @@
+{
+  "source": "https://registry.npmjs.org/electron/-/electron-43.8.3.tgz",
+  "member": "package/electron.d.ts",
+  "sha256": "782f47bd6013fa7d0c9640f2ce38b54759ba999ca3f5070711e5cd46e726869d",
+  "expectedSha256": "782f47bd6013fa7d0c9640f2ce38b54759ba999ca3f5070711e5cd46e726869d",
+  "matched": true,
+  "bytes": 1138450
+}

@@ -2038,6 +2038,7 @@ export class TestRemoteExtensionsScannerService implements IRemoteExtensionsScan
 
 export class TestWorkbenchExtensionEnablementService implements IWorkbenchExtensionEnablementService {
 	_serviceBrand: undefined;
+	isDevelopmentEnablementOverrideAllowed(): boolean { return true; }
 	onEnablementChanged = Event.None;
 	getEnablementState(extension: IExtension): EnablementState { return EnablementState.EnabledGlobally; }
 	getEnablementStates(extensions: IExtension[], workspaceTypeOverrides?: { trusted?: boolean | undefined } | undefined): EnablementState[] { return []; }

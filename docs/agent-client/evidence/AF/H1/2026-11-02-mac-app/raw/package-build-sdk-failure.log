@@ -1,0 +1,25 @@
+[18:31:19] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[18:31:19] Starting 'vscode-darwin-arm64-ci'...
+[18:31:19] Starting [36mcompile-native-extensions-build[39m ...
+[18:31:20] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/git/tsconfig.json with 0 errors.
+[18:31:20] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/microsoft-authentication/tsconfig.json with 0 errors.
+[18:31:20] Bundled extension: [33mmicrosoft-authentication/esbuild.mts[39m with 0 errors.
+[18:31:20] Bundled extension: [33mgit/esbuild.mts[39m with 0 errors.
+[18:31:21] Finished [36mcompile-native-extensions-build[39m after [35m1449 ms[39m
+[18:31:21] Starting [36mclean-vscode-darwin-arm64[39m ...
+[18:31:22] Finished [36mclean-vscode-darwin-arm64[39m after [35m1256 ms[39m
+[18:31:22] Starting [36mpackage-darwin-arm64[39m ...
+(node:79144) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[18:31:51] Finished [36mpackage-darwin-arm64[39m after [35m28874 ms[39m
+[18:31:51] Starting [36mvscode-darwin-arm64-ci[39m ...
+[18:31:51] 'vscode-darwin-arm64-ci' errored after 32 s
+[18:31:51] Error: [prepareBuiltInCopilotRipgrepShim] Copilot SDK directory not found at /Users/morcherlf/Developer/personal/VSCode-darwin-arm64/VSC Agent Preview.app/Contents/Resources/app/extensions/copilot/node_modules/@github/copilot/sdk
+    at prepareBuiltInCopilotRipgrepShim (file:///Users/morcherlf/Developer/personal/VSCode/build/lib/copilot.ts:277:9)
+    at file:///Users/morcherlf/Developer/personal/VSCode/build/gulpfile.vscode.ts:569:3
+    at file:///Users/morcherlf/Developer/personal/VSCode/build/lib/gulp/task.ts:121:22
+    at new Promise (<anonymous>)
+    at _doExecute (file:///Users/morcherlf/Developer/personal/VSCode/build/lib/gulp/task.ts:109:9)
+    at _execute (file:///Users/morcherlf/Developer/personal/VSCode/build/lib/gulp/task.ts:99:8)
+    at result (file:///Users/morcherlf/Developer/personal/VSCode/build/lib/gulp/task.ts:55:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

@@ -1,0 +1,1 @@
+{"command": "GOMEMLIMIT=1000MiB npm run valid-layers-check", "exit_code": 0, "timeout": false}

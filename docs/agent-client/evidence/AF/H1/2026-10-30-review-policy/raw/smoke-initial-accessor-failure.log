@@ -1,0 +1,16 @@
+{"extensionHostProbe":{"enabled":["h1-fixture.control"],"status":{"h1-fixture.control":{"activated":true,"errors":0}}},"control":"control","manifests":["control","dependent","editor-only","mixed"],"fixtureModules":["control"],"activations":["control"]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Error: Illegal state: service accessor is only valid during the invocation of its target method
+    at illegalState (http://127.0.0.1:45853/out/vs/base/common/errors.js:155:12)
+    at Object.get (http://127.0.0.1:45853/out/vs/platform/instantiation/common/instantiationService.js:69:19)
+    at http://127.0.0.1:45853/scripts/agent-first/extension-probe.mjs:86:18
+    at async <anonymous>:329:30
+    at review (/workspace/scratch/11910be6d76c/vscode-h1-continued/scripts/agent-first/web-smoke.mjs:145:57)
+    at /workspace/scratch/11910be6d76c/vscode-h1-continued/scripts/agent-first/web-smoke.mjs:151:23 {
+  log: []
+}
+
+Node.js v24.22.1

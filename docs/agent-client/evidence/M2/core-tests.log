@@ -1,0 +1,19 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-client-core@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ official client negotiates released protocol, preserves opaque identities and resubscribes without replaying mutations (28.501701ms)
+✔ Tauri transport ignores old generations, acknowledges consumed frames and fails closed on overflow (0.799945ms)
+✔ outbound failure is an unknown outcome; transport never retries a side effect (4.77403ms)
+✔ snapshot/action race is reconciled with the official chat reducer (11.93787ms)
+✔ input requests and tool denials use the official action contract without an execution bypass (12.65809ms)
+✔ official SDK and bounded Tauri transport drive the existing M1 mock Host and converge after reconnect (1673.892764ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1824.361275

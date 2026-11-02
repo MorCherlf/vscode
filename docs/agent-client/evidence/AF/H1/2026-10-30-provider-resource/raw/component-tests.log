@@ -1,0 +1,58 @@
+
+
+  Sessions - CustomViewService - /CHROMIUM/
+    ✔ shows, replaces and hides registered views
+    ✔ hides a custom view atomically with its replacement destination
+    ✔ reopening a view publishes intent without replacing its rendered descriptor
+    ✔ ignores an unknown id and drops the active view when it is unregistered
+    ✔ rejects a duplicate registration
+    ✔ restores the active custom view after reload
+    ✔ explicit hide prevents a pending view from restoring
+    ✔ ineligible registration clears only its matching restoration intent
+    ✔ unregistering clears the effective view but preserves restoration intent
+    ✔ showing an unknown view preserves the last valid restoration intent
+
+  EditorResolverService - /CHROMIUM/
+    ✔ Agents window editor defaults use the Integrated Browser for HTML when available and follow the Markdown editor setting
+    ✔ Agents window diff editor default follows the Markdown editor setting
+    ✔ Simple Resolve (47ms)
+    ✔ singlePerResource finds editors by preferred resource
+    ✔ Untitled Resolve
+    ✔ Side by side Resolve
+    ✔ Diff editor Resolve
+    ✔ Diff editor Resolve - Falls back to editor associations
+    ✔ Diff editor Resolve - Diff associations override editor associations
+    ✔ Editor Resolve - editorAssociations only select an `explicit` editor in the associated mode
+    ✔ Diff editor Resolve - diffEditorAssociations select an `explicit` diff editor
+    ✔ getBinaryDiffFallbackEditor returns a diff-capable `explicit` editor and ignores non-diff editors
+    ✔ Diff editor Resolve - Different Types
+    ✔ Registry & Events
+    ✔ getEditors excludes exclusive registrations before deduplicating editor IDs
+    ✔ getEditors excludes registrations without diff support when requested
+    ✔ editor associations only apply where the registered editor supports the resource
+    ✔ getEditors excludes inactive universal optional editors when requested
+    ✔ getEditorMatches derives the default rule from the complete match set
+    ✔ getEditorMatches reports the user association that selected the default
+    ✔ getEditorMatches matches untitled resources by the extension of their language
+    ✔ setDefaultEditor removes the association when restoring the natural registered default
+    ✔ setDefaultEditor retains the association when a broader rule masks the natural default
+    ✔ setDefaultEditor retains the diff association when the inherited rule masks the natural default
+    ✔ setDefaultEditor retains the association supplied by the default configuration layer
+    ✔ setDefaultEditor pins the selected editor when natural defaults conflict
+    ✔ setDefaultEditor ignores a more specific association for an unregistered editor
+    ✔ getEditors uses the effective diff priority
+    ✔ getEditors preserves configured universal optional editors
+    ✔ Multiple registrations to same glob and id #155859
+    ✔ User-configured editor association resolves on first startup with empty cache #244597
+    ✔ Editor registered while waiting for extensions on startup is resolved #325506
+    ✔ Diff editor Resolve - priority.diff overrides priority.editor for diffs
+    ✔ Diff editor Resolve - string priority expands to diff priority
+
+  Sessions - Auth Gate - /CHROMIUM/
+    ✔ blocking sign-in allows the opt-in or provider initialization without GitHub
+    ✔ GitHub workspace group offers sign-in only for signed-out opted-in users
+    ✔ conditionalAuthState treats an unresolved account as unknown, never signed out
+
+
+  47 passing (580ms)
+

@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import { INativeAgentConfiguration, NATIVE_CODEX_API_KEY_ENV, NATIVE_CODEX_MODEL_PROVIDER } from '../../common/nativeAgentConfiguration.js';
 import { AiAgentEnvValue, AiAgentEnvVar } from '../../../chat/common/aiAgentEnv.js';
 import { CODEX_COPILOT_MODEL_PROVIDER } from '../../common/codexModelSelection.js';
 import type { IAgentHostNativeOTelConfig } from '../../common/otel/agentHostOTelService.js';
@@ -131,6 +132,7 @@ export function buildCodexLaunchConfig(
 	proxy: ICodexLaunchProxy,
 	extraArgs: readonly string[],
 	telemetry?: IAgentHostNativeOTelConfig,
+	native?: INativeAgentConfiguration,
 ): ICodexLaunchConfig {
 	const env: NodeJS.ProcessEnv = { ...inheritedEnv, [AiAgentEnvVar]: AiAgentEnvValue };
 	if (telemetry) {
@@ -138,6 +140,16 @@ export function buildCodexLaunchConfig(
 		env.OTEL_RESOURCE_ATTRIBUTES = serializeResourceAttributes(telemetry.resourceAttributes);
 	}
 	env.OPENAI_API_KEY = proxy.nonce;
+	const nativeOverrides: string[] = [];
+	if (native?.mode === 'apiKey') {
+		env[NATIVE_CODEX_API_KEY_ENV] = native.apiKey;
+		env.CODEX_HOME = native.home;
+		const provider = `model_providers.${NATIVE_CODEX_MODEL_PROVIDER}`;
+		nativeOverrides.push(`model_provider=${JSON.stringify(NATIVE_CODEX_MODEL_PROVIDER)}`,
+			`${provider}.name="API Key"`, `${provider}.base_url=${JSON.stringify(native.baseUrl)}`,
+			`${provider}.wire_api="responses"`, `${provider}.env_key=${JSON.stringify(NATIVE_CODEX_API_KEY_ENV)}`,
+			`${provider}.requires_openai_auth=false`, `${provider}.supports_websockets=false`);
+	}
 	const overrides = [
 		`model_providers.${CODEX_COPILOT_MODEL_PROVIDER}.name="VS Code Proxy"`,
 		`model_providers.${CODEX_COPILOT_MODEL_PROVIDER}.base_url="${proxy.baseUrl}/v1"`,
@@ -159,7 +171,7 @@ export function buildCodexLaunchConfig(
 	return {
 		env,
 		// The snapshot parser resolves paths against the runtime cwd. Codex otherwise emits repository-relative paths.
-		args: ['app-server', ...overrides.flatMap(value => ['-c', value]), ...extraArgs, '-c', 'features.cwd_relative_turn_diffs=true', ...permissionOverrides.flatMap(value => ['-c', value]), ...telemetryOverrides.flatMap(value => ['-c', value])],
+		args: ['app-server', ...overrides.flatMap(value => ['-c', value]), ...extraArgs, ...nativeOverrides.flatMap(value => ['-c', value]), '-c', 'features.cwd_relative_turn_diffs=true', ...permissionOverrides.flatMap(value => ['-c', value]), ...telemetryOverrides.flatMap(value => ['-c', value])],
 	};
 }
 

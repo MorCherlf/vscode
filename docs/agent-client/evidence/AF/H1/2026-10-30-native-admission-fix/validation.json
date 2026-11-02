@@ -1,0 +1,51 @@
+{
+  "parent": "a40ddffacee049ed650bde1d77ec782b345af270",
+  "source": "commit adding this directory",
+  "importedMacProductSource": "0bec73fa99db00cb1bcccadf71326f5c72adc8b2",
+  "nativeFailurePreserved": true,
+  "platform": "Linux x64",
+  "node": "24.22.1",
+  "browser": "Chromium141.0.7390.37 explicit fallback",
+  "checks": {
+    "clientIncrementalBuild": 0,
+    "targetedSourceTypes": 0,
+    "focusedTestTypes": 0,
+    "actualEnablementServiceSuite": {
+      "exit": 0,
+      "passing": 154,
+      "newServiceCases": 11
+    },
+    "originalExtensionServiceSuite": {
+      "exit": 0,
+      "passing": 11
+    },
+    "manifestSuite": {
+      "exit": 0,
+      "passing": 46
+    },
+    "originalWorkerEhAndWindowFixture": 0,
+    "originalBrowserRouteControl": 0,
+    "lintSixTsFiles": 0,
+    "layers": 0,
+    "scriptSyntax": 0
+  },
+  "realNativePostFix": "pending Mac rerun; do not infer from Linux service/browser tests",
+  "productionExecutableList": "unchanged empty",
+  "fixtures": [
+    "ILocalExtension manifests and original management/config/storage test services",
+    "original Browser Worker EH with admitted synthetic control only",
+    "no real Copilot/model/task/account"
+  ],
+  "pending": [
+    "corrected native EH activation and same-run log verification",
+    "external VSIX workspace/auto-enable negative test",
+    "full task-time module/service/worker exclusion",
+    "native window/restore/group/resource/drop completion",
+    "original product-owned OAuth and dedicated real tasks",
+    "system IME",
+    "independent source-matched Mac arm64 package",
+    "H1-H4 human acceptance",
+    "M1/M2 outstanding native/account gates",
+    "signing/notarization/publication"
+  ]
+}

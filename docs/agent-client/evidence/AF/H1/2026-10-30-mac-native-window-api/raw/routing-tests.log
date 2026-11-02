@@ -1,0 +1,37 @@
+
+
+  Agent First window routing
+    ✔ canonical Agents workspace
+    ✔ new window
+    ✔ empty window
+    ✔ local folder
+    ✔ file
+    ✔ ordinary workspace
+    ✔ multiple folders
+    ✔ unresolved CLI payload
+    ✔ file URI CLI payload
+    ✔ file URI cannot hide behind a canonical workspace
+    ✔ remote authority
+    ✔ canonical workspace cannot hide remote authority
+    ✔ canonical workspace cannot hide CLI remote
+    ✔ canonical workspace cannot hide extension development
+    ✔ canonical workspace cannot hide extension test runner
+    ✔ canonical workspace retains resolved local folder handoff
+    ✔ diff
+    ✔ merge
+    ✔ CLI diff
+    ✔ folder mutation
+    ✔ contradictory empty window with file payload
+    ✔ native API folder and empty opens do not inherit startup paths
+    ✔ native API normalization retains explicit unsupported payloads and remote authority
+    ✔ ordinary products keep the original native startup arguments
+    ✔ resolved CLI input must contain exactly one local folder
+    ✔ restore admits only the canonical local Agents workspace and leaves legacy history intact
+    ✔ direct Agents entry rejects unsupported payload before canonicalization, preserving ordinary products
+    ✔ ordinary products retain editor windows; Agent First rejects them at the final boundary
+
+  Errors
+    ✔ should not have unexpected errors in tests
+
+
+  29 passing (8ms)

@@ -5,6 +5,7 @@
 
 import { getActiveElement, isHTMLElement } from '../../../../base/browser/dom.js';
 import { ServicesAccessor } from '../../../../editor/browser/editorExtensions.js';
+import product from '../../../../platform/product/common/product.js';
 import { localize } from '../../../../nls.js';
 import { AccessibleContentProvider, AccessibleViewProviderId, AccessibleViewType } from '../../../../platform/accessibility/browser/accessibleView.js';
 import { IAccessibleViewImplementation } from '../../../../platform/accessibility/browser/accessibleViewRegistry.js';
@@ -25,7 +26,9 @@ export class EmptyFileEditorAccessibilityHelp implements IAccessibleViewImplemen
 			AccessibleViewProviderId.EmptyFileEditorSearch,
 			{ type: AccessibleViewType.Help },
 			() => [
-				localize('emptyFileEditor.searchHelp.overview', "The Files editor offers a search field, followed by Open File and New File actions. Use Tab to reach the search field and actions. Use Up Arrow or Down Arrow to move between actions and Enter or Space to run one."),
+				product.agentFirst
+					? localize('emptyFileEditor.searchHelp.reviewOverview', "The Files editor offers a search field and an Open File action. Use Tab to reach them. Project files open for read-only review; use an Agent task to change them. Profile settings and Agent instructions remain editable.")
+					: localize('emptyFileEditor.searchHelp.overview', "The Files editor offers a search field, followed by Open File and New File actions. Use Tab to reach the search field and actions. Use Up Arrow or Down Arrow to move between actions and Enter or Space to run one."),
 				localize('emptyFileEditor.searchHelp.inlineSearch', "Type part of a file name in the search field to search the active session workspace. Use Up Arrow and Down Arrow to choose a result, and Enter to open it. Press Escape to clear the search and return to the search field."),
 				localize('emptyFileEditor.searchHelp.open', "Open File searches the active session workspace. Type part of a file name, use Up Arrow and Down Arrow to choose a result, and press Enter to open it."),
 				localize('emptyFileEditor.searchHelp.dismiss', "Press Escape to close the search results and return to the Files editor."),

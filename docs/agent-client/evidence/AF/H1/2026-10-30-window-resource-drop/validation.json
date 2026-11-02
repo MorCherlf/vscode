@@ -1,0 +1,37 @@
+{
+  "parent": "78b70f43adc58e72ca832e2069bcabbde6371539",
+  "source": "commit adding this directory",
+  "importedNativePassedProduct": "09c03744303e2693251b4dd077851307b1b2d95a",
+  "platform": "Linux x64",
+  "browser": "Chromium141.0.7390.37 explicit fallback",
+  "checks": {
+    "clientIncrementalBuild": 0,
+    "targetedSourceTypes": 0,
+    "targetedTestTypes": 0,
+    "pureRoutingRestore": {
+      "exit": 0,
+      "passing": 26
+    },
+    "originalResourceDropHandler": {
+      "exit": 0,
+      "passing": 13,
+      "gatewayScope": "original parser/FileService + test window/workspace/editor/notification gateways",
+      "lateMetadataChangeNoWorkspaceMutation": true
+    },
+    "originalBrowserUiWorkerFixture": 0,
+    "targetedLintSixFiles": 0,
+    "layers": 0
+  },
+  "notExecuted": [
+    "new native WindowsMainService OS/window/restore/drop matrix",
+    "physical OS drag or workspace switching",
+    "external native VSIX negatives (user-owned work)",
+    "new real account/model/task/approval run",
+    "system IME/VoiceOver",
+    "independent Mac artifact",
+    "H1 human acceptance"
+  ],
+  "productExecutableList": "unchanged empty",
+  "DSH": "inactive",
+  "publication": "none"
+}

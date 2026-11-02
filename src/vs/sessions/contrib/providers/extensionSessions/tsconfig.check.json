@@ -1,0 +1,10 @@
+{
+	"extends": "../../../../../tsconfig.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"incremental": false,
+		"rootDir": "../../../../..",
+		"typeRoots": ["../../../../../../node_modules/@types", "../../../../../../node_modules"]
+	},
+	"include": ["browser/**/*.ts", "../../../../../typings/**/*.d.ts", "../../../../../vscode-dts/*.d.ts"]
+}

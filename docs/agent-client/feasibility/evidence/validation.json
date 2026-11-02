@@ -1,0 +1,13 @@
+{
+	"date": "2026-10-29",
+	"inputCommit": "c58fae13e220bb2f9f75c8fcd7afa78480f4f6e4",
+	"scope": "Documentation and read-only source evidence only; not runtime/plugin compatibility acceptance.",
+	"sourceAuditRerun": "Passed; all output except sourceCommit identical between 28eb53a537f541dcc45fc69ebda9af276e783257 and c58fae13e220bb2f9f75c8fcd7afa78480f4f6e4.",
+	"markdownFilesChecked": 5,
+	"localLinksChecked": 60,
+	"localSourceHashesChecked": 14,
+	"pinnedDshSourceFiles": 34,
+	"manifestSamples": 5,
+	"errors": [],
+	"runtimeCompatibilityTestsExecuted": false
+}

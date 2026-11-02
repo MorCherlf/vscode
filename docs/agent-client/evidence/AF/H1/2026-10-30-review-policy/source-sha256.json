@@ -1,0 +1,13 @@
+{
+  "scripts/agent-first/extension-probe.mjs": "36b55a8fd4a4aa977b48946f1f43836d604a7348adba733feda91d3630abd6ed",
+  "scripts/agent-first/web-smoke.mjs": "6239aab83c966d626df73b81bfbe247f1d860cc6242f5ab1385698824db52b9e",
+  "src/vs/sessions/contrib/editor/browser/emptyFileEditor.contribution.ts": "7774811c727a8a43538c5fae4e716cbefdaead6893896a69b40af9c0d480e35c",
+  "src/vs/sessions/contrib/editor/browser/emptyFileEditor.ts": "b9f1be080c291eaa6d76ce74bb291dd1df5f6c960a2e1414fdf7603aa1f8f82d",
+  "src/vs/sessions/contrib/editor/browser/emptyFileEditorAccessibility.ts": "206351575aa0d0e7cf2e2953569d29a949c9c5ad7c203d79c880991700843bed",
+  "src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts": "2384a5496bff8c312b3634790af3349d9de7491505754266e1d041322aee9ff9",
+  "src/vs/workbench/browser/parts/editor/textEditor.ts": "0ee8b85680bc070319cfd895943fc58c0847e71ae464a4cde177b1e24fd9cd37",
+  "src/vs/workbench/contrib/files/browser/fileActions.contribution.ts": "edb2812ae5b63f45d84af3ecd07e1fbc13f6f57467000b7da28c6fff47e8319c",
+  "src/vs/workbench/contrib/files/browser/fileCommands.ts": "eb5b1ea6ff11ebf9cf75eb23176d7e742ce154403464e096fe69bf989c0e735b",
+  "src/vs/workbench/browser/parts/editor/textEditorReviewPolicy.ts": "3123a39c4317fdbd30ec3630d98aa4472bf5f76483b8b5066830c1e83200a083",
+  "src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts": "4d1cb2c0740703441d483b78104b380adac52a5985b643f4bf3d38aba9329d04"
+}

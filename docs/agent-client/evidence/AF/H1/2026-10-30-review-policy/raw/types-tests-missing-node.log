@@ -1,0 +1,54 @@
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(6,20): error TS2591: Cannot find name 'assert'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(674,23): error TS18047: 'panel' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(687,25): error TS18047: 'search' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(820,3): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(824,32): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(859,18): error TS18048: 'menuItem' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(860,20): error TS18048: 'menuItem' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(860,29): error TS2339: Property 'command' does not exist on type 'IMenuItem | ISubmenuItem'.
+  Property 'command' does not exist on type 'ISubmenuItem'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(945,32): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(946,27): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(948,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(949,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(950,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(951,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,37): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(952,74): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(953,3): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(955,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(956,34): error TS18047: 'pickerTextInput' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(971,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(973,4): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(978,7): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(980,4): error TS18049: 'picker' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1068,3): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1070,23): error TS18047: 'inputBox' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1072,4): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1073,4): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1079,32): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1080,29): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1083,14): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,20): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,49): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,79): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1086,112): error TS18048: 'pickerInputBounds' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1090,25): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1091,3): error TS18049: 'pickerContainer' is possibly 'null' or 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1095,11): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1103,11): error TS18047: 'input' is possibly 'null'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1468,4): error TS2322: Type 'ContextKeyExpression | undefined' is not assignable to type 'ContextKeyExpression'.
+  Type 'undefined' is not assignable to type 'ContextKeyExpression'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1468,11): error TS18048: 'item' is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1899,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1941,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1986,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(1987,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(2031,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts(2032,9): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts(6,20): error TS2591: Cannot find name 'assert'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig.

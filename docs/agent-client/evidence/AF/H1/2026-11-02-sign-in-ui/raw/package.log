@@ -1,0 +1,31 @@
+[clean] out-vscode
+[bundle] src → out-vscode (target: desktop) (nls)
+[nls] Extracted 30740 messages from 2354 modules
+[bundle] Syntax check passed for 17 post-processed JS files
+[resources] Copying to /Users/morcherlf/Developer/personal/VSCode/out-vscode for target 'desktop'...
+[resources] Copied 247 files
+[standalone] Compiling 3 standalone files...
+[standalone] Done
+[bundle] Done in 208619ms (26 bundles)
+
+✓ Total: 208653ms
+[09:55:17] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[09:55:17] Starting 'vscode-darwin-arm64-ci'...
+[09:55:17] Starting [36mcompile-native-extensions-build[39m ...
+[09:55:18] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/git/tsconfig.json with 0 errors.
+[09:55:18] Finished [32mtypechecking extension (tsgo)[39m /Users/morcherlf/Developer/personal/VSCode/extensions/microsoft-authentication/tsconfig.json with 0 errors.
+[09:55:18] Bundled extension: [33mmicrosoft-authentication/esbuild.mts[39m with 0 errors.
+[09:55:18] Bundled extension: [33mgit/esbuild.mts[39m with 0 errors.
+[09:55:19] Finished [36mcompile-native-extensions-build[39m after [35m1753 ms[39m
+[09:55:19] Starting [36mclean-vscode-darwin-arm64[39m ...
+[09:55:20] Finished [36mclean-vscode-darwin-arm64[39m after [35m1532 ms[39m
+[09:55:20] Starting [36mpackage-darwin-arm64[39m ...
+(node:97793) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[09:55:48] Finished [36mpackage-darwin-arm64[39m after [35m28352 ms[39m
+[09:55:48] Starting [36mvscode-darwin-arm64-ci[39m ...
+[materializeNpmPackageVersion] Materialized @github/copilot-darwin-arm64@1.0.73 in /var/folders/tj/86bqzzcn1dbc16l_hknp9mjw0000gn/T/vscode-copilot-native-edka5D/copilot-darwin-arm64
+[prepareBuiltInCopilotRipgrepShim] @github/copilot-darwin-arm64 in app-root does not match the built-in extension's @github/copilot@1.0.73; using the version-matched package instead.
+[prepareBuiltInCopilotRipgrepShim] Materialized ripgrep shim for darwin-arm64 in /Users/morcherlf/Developer/personal/VSCode-darwin-arm64/VSC Agent Preview.app/Contents/Resources/app/extensions/copilot
+[09:55:54] Finished [36mvscode-darwin-arm64-ci[39m after [35m5933 ms[39m
+[09:55:54] Finished 'vscode-darwin-arm64-ci' after 38 s

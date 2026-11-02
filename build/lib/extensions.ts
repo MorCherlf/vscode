@@ -181,7 +181,9 @@ function fromLocalEsbuild(extensionPath: string, esbuildConfigFileName: string):
 		});
 	}).then(() => {
 		// After esbuild completes, collect all files using vsce
-		return vsce.listFiles({ cwd: extensionPath, packageManager: vsce.PackageManager.None });
+		// Copilot keeps its external SDK in production dependencies; its .vscodeignore
+		// selects the runtime assets that must survive the app-level module exclusions.
+		return vsce.listFiles({ cwd: extensionPath, packageManager: extensionName === 'copilot' ? vsce.PackageManager.Npm : vsce.PackageManager.None });
 	}).then(fileNames => {
 		if (packagedDependencies.length > 0) {
 			const packagedDependencyFileNames = packagedDependencies.flatMap(dependency =>
@@ -476,15 +478,25 @@ export function packageCopilotExtensionStream(): Stream {
 			.pipe(rename(p => p.dirname = `extensions/copilot/${p.dirname}`))
 	);
 
-	const productionDependencies = getProductionDependencies('extensions/copilot');
-	const dependenciesSrc = productionDependencies.map(d => path.relative(root, d)).map(d => [`${d}/**`, `!${d}/**/{test,tests}/**`]).flat();
-
-	return es.merge(
-		localExtensionsStream,
-		gulp.src(dependenciesSrc, { base: '.' })
-			.pipe(util2.cleanNodeModules(path.join(root, 'build', '.moduleignore')))
-			.pipe(util2.cleanNodeModules(path.join(root, 'build', `.moduleignore.${process.platform}`)))
-	).pipe(util2.setExecutableBit(['**/*.sh']));
+	const result = es.through();
+	localExtensionsStream.on('error', error => result.emit('error', error));
+	localExtensionsStream.on('end', () => {
+		// Copilot's build rematerializes its SDK and removes shim markers. Enumerate
+		// dependencies only after that work and the extension stream have completed.
+		try {
+			const productionDependencies = getProductionDependencies('extensions/copilot');
+			const dependenciesSrc = productionDependencies.map(d => path.relative(root, d)).map(d => [`${d}/**`, `!${d}/**/{test,tests}/**`]).flat();
+			gulp.src(dependenciesSrc, { base: '.' })
+				.pipe(util2.cleanNodeModules(path.join(root, 'build', '.moduleignore')))
+				.pipe(util2.cleanNodeModules(path.join(root, 'build', `.moduleignore.${process.platform}`)))
+				.on('error', error => result.emit('error', error))
+				.pipe(result);
+		} catch (error) {
+			result.emit('error', error);
+		}
+	});
+	localExtensionsStream.pipe(result, { end: false });
+	return result.pipe(util2.setExecutableBit(['**/*.sh']));
 }
 
 export function packageMarketplaceExtensionsStream(forWeb: boolean): Stream {

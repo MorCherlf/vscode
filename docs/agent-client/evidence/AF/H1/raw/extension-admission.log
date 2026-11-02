@@ -1,0 +1,59 @@
+
+
+  ExtensionManifestPropertiesService - ExtensionKind
+    ✔ declarative with extension dependencies
+    ✔ declarative extension pack
+    ✔ declarative extension pack and extension dependencies
+    ✔ declarative with unknown contribution point => workspace, web in web and => workspace in desktop
+    ✔ declarative extension pack with unknown contribution point
+    ✔ simple declarative => ui, workspace, web
+    ✔ only browser => web
+    ✔ only main => workspace
+    ✔ main and browser => workspace, web in web and workspace in desktop
+    ✔ browser entry point with workspace extensionKind => workspace, web in web and workspace in desktop
+    ✔ only browser entry point with out extensionKind => web
+    ✔ simple descriptive with workspace, ui extensionKind => workspace, ui, web in web and workspace, ui in desktop
+    ✔ opt out from web through settings even if it can run in web
+    ✔ opt out from web and include only workspace through settings even if it can run in web
+    ✔ extension cannot opt out from web
+    ✔ extension cannot opt into web
+    ✔ extension cannot opt into web only
+
+  ExtensionManifestPropertiesService - SessionsWindowSupport
+    ✔ defaults to declarative extensions without executable code and supported contributions
+    ✔ preserves built-in defaults when no agents window support is declared
+    ✔ uses configured sessions window support override for user extensions
+    ✔ uses declared agents window support for user extensions without the proposal
+    ✔ uses configured sessions window support override for built-in extensions
+    ✔ uses declared agents window support for built-in extensions without the proposal
+    ✔ registers sessions window support configuration without editor window contributions
+    ✔ supports product allow-listed extensions regardless of declarations when not configured
+    ✔ Agent First product admission precedes built-in, capability and user overrides
+    ✔ configured false overrides product allow-listed extensions
+    ✔ configured true overrides product allow-listed extensions
+    ✔ ignores declared agents window support for user extensions when the capability setting is disabled
+    ✔ automatically enables extensions that contribute something useful and nothing that relies on missing features
+    ✔ enables useful extensions automatically when the setting is true, and only listed extensions when it is a list
+    ✔ lists the features that the sessions window lacks and that contributions rely on
+
+  ExtensionManifestPropertiesService - ExtensionUntrustedWorkspaceSupportType
+    ✔ test extension workspace trust request when main entry point is missing
+    ✔ test extension workspace trust request when workspace trust is disabled
+    ✔ test extension workspace trust request when "true" override exists in settings.json
+    ✔ test extension workspace trust request when override (false) exists in settings.json
+    ✔ test extension workspace trust request when override (true) for the version exists in settings.json
+    ✔ test extension workspace trust request when override (false) for the version exists in settings.json
+    ✔ test extension workspace trust request when override for a different version exists in settings.json
+    ✔ test extension workspace trust request when default (true) exists in product.json
+    ✔ test extension workspace trust request when default (false) exists in product.json
+    ✔ test extension workspace trust request when override (limited) exists in product.json
+    ✔ test extension workspace trust request when override (false) exists in product.json
+    ✔ test extension workspace trust request when value exists in package.json
+    ✔ test extension workspace trust request when no value exists in package.json
+
+  Errors
+    ✔ should not have unexpected errors in tests
+
+
+  46 passing (18ms)
+

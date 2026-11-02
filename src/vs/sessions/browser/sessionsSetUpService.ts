@@ -153,6 +153,13 @@ class SessionsSetUpWidget extends Disposable {
 	}
 
 	private _start(): void {
+		// Agent First opens the local UI without onboarding. Each provider still
+		// owns its authentication requirements when the user chooses to use it.
+		if (this.productService.agentFirst) {
+			this.onCompleted();
+			return;
+		}
+
 		if (!this.productService.defaultChatAgent?.chatExtensionId) {
 			this.onCompleted();
 			return;

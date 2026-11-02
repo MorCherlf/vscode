@@ -1,0 +1,38 @@
+{
+  "name": "development-only",
+  "publisher": "h1-native-fixture",
+  "version": "0.0.1",
+  "displayName": "H1 native development fixture",
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "*",
+    "onStartupFinished",
+    "onLanguage:h1-native-fixture",
+    "onCommand:h1.native.editor-only",
+    "onChatParticipant:h1-native-fixture.mixed"
+  ],
+  "capabilities": {
+    "agentsWindow": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "h1.native.development-only",
+        "title": "H1 native fixture editor-only"
+      }
+    ],
+    "languages": [
+      {
+        "id": "h1-native-fixture",
+        "extensions": [
+          ".h1native"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "parent": "e55b60dbe342229cd26ce942d3204b00915d4a46",
+  "platform": "Linux x64",
+  "node": "24.22.1",
+  "browser": "Chromium 141.0.7390.37 explicit override",
+  "window_policy_unit_tests": 18,
+  "original_web_route_tests": 2,
+  "agent_first_browser_probe": "pass",
+  "ordinary_product_browser_control": "pass",
+  "layers_check": {
+    "command": "GOMEMLIMIT=1000MiB npm run valid-layers-check",
+    "exit_code": 0,
+    "timeout": false
+  },
+  "targeted_typescript_check_exit": 0,
+  "worker_names": [
+    "editorWorkerService",
+    "ExtensionHostWorker",
+    "perfBaseline"
+  ],
+  "worker_lifetimes": [
+    {
+      "url": "http://127.0.0.1:35573/35e3c739-22b2-4678-9465-2ee4df25e52e",
+      "name": "editorWorkerService",
+      "closed": false,
+      "attributionUnavailable": false
+    },
+    {
+      "url": "http://127.0.0.1:35573/369635f9-a5c4-439c-8296-d49361573aa9",
+      "name": "ExtensionHostWorker",
+      "closed": false,
+      "attributionUnavailable": false
+    },
+    {
+      "url": "http://127.0.0.1:35573/b555daa1-55dd-4b18-9c30-7b3c04ffac90",
+      "name": "perfBaseline",
+      "closed": true,
+      "attributionUnavailable": false
+    }
+  ],
+  "real_model_task": false,
+  "native_electron_window_run": false,
+  "mac_build_or_acceptance": false,
+  "human_acceptance": false,
+  "screenshot_sha256": "e704cf43a3b46705a04f09919f1c506fcf533163004ffb0cc4dc69e0203ba624"
+}

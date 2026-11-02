@@ -35,13 +35,15 @@ export class ContributedCustomEditors extends Disposable {
 	private readonly _editors = new Map<string, CustomEditorInfo>();
 	private readonly _memento: Memento<CustomEditorsMemento>;
 
-	constructor(storageService: IStorageService) {
+	constructor(storageService: IStorageService, restoreCachedEditors = true) {
 		super();
 
 		this._memento = new Memento(ContributedCustomEditors.CUSTOM_EDITORS_STORAGE_ID, storageService);
 
 		const mementoObject = this._memento.getMemento(StorageScope.PROFILE, StorageTarget.MACHINE);
-		for (const info of mementoObject[ContributedCustomEditors.CUSTOM_EDITORS_ENTRY_ID] || []) {
+		// Cached descriptors predate extension admission and contain no owner identity.
+		// Policy-controlled windows wait for the live, filtered extension contributions.
+		for (const info of (restoreCachedEditors ? mementoObject[ContributedCustomEditors.CUSTOM_EDITORS_ENTRY_ID] : undefined) || []) {
 			this.add(new CustomEditorInfo(normalizeStoredCustomEditorDescriptor(info)));
 		}
 

@@ -1,0 +1,20 @@
+{
+  "source": "5e6a05674e193551a4d7ee49cc147b5c6059e368",
+  "installedApp": "/Applications/VSC Agent Preview.app",
+  "pid": 91892,
+  "userDataDir": "/tmp/vsc-agent-preview-byg3Pl/user-data",
+  "mode": "Installed standalone app, system-only PATH, development variables and API-key environment omitted, no --agents/root source argument",
+  "rendererErrors": [],
+  "configuration": {
+    "isSessionsWindow": true,
+    "name": "VSC Agent Preview",
+    "agentFirst": true,
+    "executableExtensions": [],
+    "commit": "5e6a05674e193551a4d7ee49cc147b5c6059e368"
+  },
+  "page": {
+    "url": "vscode-file://vscode-app/Applications/VSC%20Agent%20Preview.app/Contents/Resources/app/out/vs/sessions/electron-browser/sessions.html",
+    "title": "Agents"
+  },
+  "failure": "Error: Chat input did not retain focus\n    at focusIfNeeded (eval at <anonymous> (file:///Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/smoke-installed.mjs:62:22), <anonymous>:41:10)\n    at async eval (eval at <anonymous> (file:///Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/smoke-installed.mjs:62:22), <anonymous>:58:24)\n    at async file:///Users/morcherlf/Developer/personal/VSCode/.build/app-preview-20261030/smoke-installed.mjs:63:19"
+}

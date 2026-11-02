@@ -1,0 +1,32 @@
+{
+  "sourceParent": "183ae252f1d422520e9cbf50cb5b5488e06758f7",
+  "sourceIdentity": "commit adding this evidence directory",
+  "platform": "Linux x64",
+  "node": "24.22.1",
+  "browser": "Chromium 141.0.7390.37 explicit fallback, not pinned149",
+  "checks": {
+    "incrementalClientBuild": 0,
+    "targetedCommonWebDesktopTypes": 0,
+    "targetedTestTypesWithOriginalAssertDeclarationsOnly": 0,
+    "browserUnitTests": {
+      "exit": 0,
+      "passing": 47,
+      "policy": 4,
+      "originalSessionsEditor": 43
+    },
+    "originalCurrentRuntimeFixture": 0,
+    "originalOrdinaryProductControl": 0,
+    "targetedLint9Files": 0,
+    "layers": 0
+  },
+  "notValidated": [
+    "real account/model/tool/approval task",
+    "native Electron window and native EH/VSIX",
+    "complete editor-only load/service/worker exclusion",
+    "Mac arm64 build/IME/VoiceOver",
+    "WKWebView/Keychain",
+    "human acceptance H1-H4",
+    "DSH runtime/plugin compatibility"
+  ],
+  "humanStatus": "engineering in progress; not ready for H1 human acceptance"
+}

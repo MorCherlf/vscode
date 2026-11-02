@@ -1,0 +1,41 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-client-core@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ official client negotiates released protocol, preserves opaque identities and resubscribes without replaying mutations (27.730756ms)
+✔ Tauri transport ignores old generations, acknowledges consumed frames and fails closed on overflow (0.996152ms)
+✔ outbound failure is an unknown outcome; transport never retries a side effect (0.336317ms)
+✔ snapshot/action race is reconciled with the official chat reducer (12.582508ms)
+✔ input requests and tool denials use the official action contract without an execution bypass (13.632572ms)
+✔ input cancellation, duplicate/stale responses and reconnect preserve unknown outcomes without replay (44.666489ms)
+✖ official SDK and bounded Tauri transport drive the existing M1 mock Host and converge after reconnect (11127.681779ms)
+✔ all released question types produce official answer values including false, zero and defaults (1.589588ms)
+✔ required, bounds, finite integer, text formats, unknown types and invalid selection fail closed (1.035241ms)
+✔ URL capability excludes executable schemes, userinfo and oversized addresses (0.1726ms)
+✔ freeform selection preserves option identity and protocol freeformValues (0.172491ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11246.73368
+
+✖ failing tests:
+
+test at test/host.integration.test.mjs:17:1
+✖ official SDK and bounded Tauri transport drive the existing M1 mock Host and converge after reconnect (11127.681779ms)
+  AssertionError [ERR_ASSERTION]: Timed out
+      at until (file:///workspace/scratch/11910be6d76c/vscode-restored/packages/agent-client-core/test/host.integration.test.mjs:15:197)
+      at async TestContext.<anonymous> (file:///workspace/scratch/11910be6d76c/vscode-restored/packages/agent-client-core/test/host.integration.test.mjs:66:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'fail',
+    diff: 'simple'
+  }

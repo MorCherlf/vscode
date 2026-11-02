@@ -1,0 +1,8 @@
+{
+  "src/vs/platform/windows/electron-main/agentFirstWindow.ts": "c978346664397fa3f15d772c50e756406360064703214f0e4fe7d24a8a46e9ac",
+  "src/vs/platform/windows/electron-main/agentsWindow.ts": "07458ac01fa1519cba4ccf936ad1079b0143f0adec16a6b9fbc8b583b8e201a7",
+  "src/vs/platform/windows/electron-main/windowsMainService.ts": "e7a0c74c5c98e1fcab4f07793acf4f3c16a115afff4b016e78d7c36d4819de89",
+  "src/vs/platform/windows/test/electron-main/agentFirstWindow.test.ts": "352dd559ee3c79de52983ea026db1b6a2d6be0a5b94ff8777ba516eed3f159d4",
+  "src/vs/workbench/browser/dnd.ts": "1742fe9cf92c9b28732191f46be31f5586ad13c9604054c7263eabd6b0f5d903",
+  "src/vs/workbench/test/browser/resourcesDropHandler.test.ts": "d5090c836c0363d7f46980603793738484ce66cc255bfa1ea65b3f4ec27533ba"
+}

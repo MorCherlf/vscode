@@ -1,0 +1,20 @@
+
+
+  ResourcesDropHandler product workspace boundary - /CHROMIUM/
+    ✔ Agent First rejects the whole workspace drop batch /one
+    ✔ Agent First rejects the whole workspace drop batch /one,/two
+    ✔ Agent First rejects the whole workspace drop batch /project.code-workspace
+    ✔ Agent First rejects the whole workspace drop batch /review.txt,/one,/two
+    ✔ late file-to-directory change cannot reach workspace mutation after preflight
+    ✔ full-batch validation precedes contributed resource handlers
+    ✔ folder drop cannot fall through when the caller disables workspace opening
+    ✔ unsaved or embedded dirty transfer cannot create dirty review state
+    ✔ unsaved or embedded untitled transfer cannot create dirty review state
+    ✔ unsaved or embedded embedded transfer cannot create dirty review state
+    ✔ ordinary product false keeps single-folder/workspace opening and multi-folder entry
+    ✔ ordinary product undefined keeps single-folder/workspace opening and multi-folder entry
+    ✔ ordinary file review and explicit workspace-file text review retain original editor route
+
+
+  13 passing (185ms)
+

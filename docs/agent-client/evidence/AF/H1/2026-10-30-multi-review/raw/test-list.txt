@@ -1,0 +1,3 @@
+src/vs/workbench/contrib/multiDiffEditor/test/browser/multiDiffEditorInput.test.ts
+src/vs/workbench/contrib/multiDiffEditor/test/browser/multiDiffEditorConfiguration.test.ts
+src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts

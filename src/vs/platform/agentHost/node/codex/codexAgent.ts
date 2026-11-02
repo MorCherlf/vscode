@@ -25,6 +25,7 @@ import { generateUuid } from '../../../../base/common/uuid.js';
 import { IInstantiationService } from '../../../instantiation/common/instantiation.js';
 import { localize } from '../../../../nls.js';
 import { ILogService } from '../../../log/common/log.js';
+import { INativeAgentConfiguration, NATIVE_CODEX_MODEL_PROVIDER, nativeAgentResource, parseNativeAgentConfiguration } from '../../common/nativeAgentConfiguration.js';
 import { IProductService } from '../../../product/common/productService.js';
 import { ITelemetryService } from '../../../telemetry/common/telemetry.js';
 import { IAgentHostStartupPerformance } from '../agentHostStartupPerformance.js';
@@ -1605,6 +1606,8 @@ export class CodexAgent extends Disposable implements IAgent {
 			() => generation === this._telemetryAuthenticationGeneration && this._githubToken === token && !this._store.isDisposed);
 	}
 
+	private _nativeConfiguration: INativeAgentConfiguration | undefined;
+
 	getProtectedResources(): ProtectedResourceMetadata[] {
 		// Always listed, always optional — matching Claude. Listing it is what lets
 		// the host forward a token to an already-signed-in user (matching ignores
@@ -1613,12 +1616,38 @@ export class CodexAgent extends Disposable implements IAgent {
 		// the user reaches a surface that could explain itself.
 		const copilotResource = this._gitHubEndpointService.getCopilotResource();
 		return [
+			...(this._productService.agentFirst ? [{ resource: nativeAgentResource('codex'), required: false }] : []),
 			{ ...copilotResource, required: false },
 			this._gitHubEndpointService.getRepoResource(),
 		];
 	}
 
 	async authenticate(resource: string, token: string): Promise<boolean> {
+		if (resource === nativeAgentResource('codex') && this._productService.agentFirst) {
+			const configuration = parseNativeAgentConfiguration(token);
+			if (JSON.stringify(configuration) === JSON.stringify(this._nativeConfiguration)) {
+				return true;
+			}
+			if (this._connection.kind !== 'idle') {
+				if (this._nativeConfiguration || [...this._sessions.values()].some(session => session.currentTurnId !== undefined)) {
+					throw new Error(localize('codex.native.restartRequired', "Restart Agents before changing the Codex connection."));
+				}
+				// Session/catalog restoration can start an ambient connection before the UI replays
+				// saved credentials. Rebind that first, inactive connection through the existing
+				// loss transition so restored threads resume against the configured home/provider.
+				if (this._connection.kind === 'ready') {
+					this._handleConnectionLost(this._connection, this._connectionGeneration);
+				} else {
+					this._disposeConnection();
+				}
+			}
+			this._nativeConfiguration = configuration;
+			if (this._nativeConfiguration?.mode === 'local') {
+				this._activate();
+			}
+			await this._queueModelRefresh();
+			return true;
+		}
 		if (resource === this._gitHubEndpointService.getRepoResource().resource) {
 			return true;
 		}
@@ -2399,6 +2428,11 @@ export class CodexAgent extends Disposable implements IAgent {
 	}
 
 	private async _refreshCodexModels(): Promise<void> {
+		if (this._nativeConfiguration?.mode === 'apiKey') {
+			const model = this._nativeConfiguration.model!;
+			this._codexModels = [{ provider: this.id, id: toCodexModelSelectionId(NATIVE_CODEX_MODEL_PROVIDER, model), name: model, supportsVision: false }];
+			return;
+		}
 		try {
 			// A refresh must never be what pulls the SDK down — the download is an
 			// explicit gesture now — so with no local SDK this reports the honest
@@ -2655,7 +2689,7 @@ export class CodexAgent extends Disposable implements IAgent {
 			throw new Error(`Codex: no binary triple known for sdkTarget '${codexTarget}'`);
 		}
 		const binaryName = process.platform === 'win32' ? 'codex.exe' : 'codex';
-		const binaryPath = join(root, 'node_modules', `@openai/codex-${codexTarget}`, 'vendor', triple, 'bin', binaryName);
+		const binaryPath = this._nativeConfiguration?.executable ?? join(root, 'node_modules', `@openai/codex-${codexTarget}`, 'vendor', triple, 'bin', binaryName);
 		try {
 			await fs.promises.access(binaryPath, fs.constants.X_OK);
 		} catch (err) {
@@ -2680,16 +2714,17 @@ export class CodexAgent extends Disposable implements IAgent {
 				throw new CancellationError();
 			}
 			const extraArgs = parseBinaryArgs(process.env[AgentHostCodexAgentBinaryArgsEnvVar]);
+			const native = this._nativeConfiguration;
 			const telemetry = await this._otelService.getNativeSdkTelemetryConfig();
 			const runtimeBinaryPath = process.platform === 'linux' ? await fs.promises.realpath(binaryPath) : binaryPath;
-			const launchConfig = buildCodexLaunchConfig(runtimeBinaryPath, process.env, proxyHandle, extraArgs, telemetry);
+			const launchConfig = buildCodexLaunchConfig(runtimeBinaryPath, process.env, proxyHandle, extraArgs, telemetry, native);
 			const env = launchConfig.env;
 			sandboxTempDirectory = await fs.promises.mkdtemp(join(os.tmpdir(), 'vscode-agent-codex-sandbox-'));
 			env.TMPDIR = sandboxTempDirectory;
 			env.TMP = sandboxTempDirectory;
 			env.TEMP = sandboxTempDirectory;
 			const userCodexHome = process.env[AgentHostCodexAgentCodexHomeEnvVar];
-			if (userCodexHome) {
+			if (userCodexHome && native?.mode !== 'apiKey') {
 				env.CODEX_HOME = userCodexHome;
 			}
 

@@ -1,0 +1,9 @@
+{
+  "scripts/agent-first/composition-check.mjs": "6377508fbb1c79d432eb9886cde5f4fe791d2cbb7268902930929f1d1fbd58ed",
+  "scripts/agent-first/extension-probe.mjs": "739a5be4c1200b5eaafc67e594b00e2034d2c980b36b6ac5cec574a9d09917ea",
+  "scripts/agent-first/web-smoke.mjs": "1cf2e684868cd8e45e3e6fbe08f42e3f6626a6b123729bc19cdc29bc462a7469",
+  "src/vs/sessions/sessions.common.main.ts": "2badfa7c30a13b2c33aff4fbffdb1b3faad747fe9c6d00db4f8d2cff810e9ab7",
+  "src/vs/workbench/browser/parts/editor/textEditorReviewPolicy.ts": "bd23b1673b9baf1383f6b1dec8be32b8f11fd15d19ba00abb5ca12ae9eb92b29",
+  "src/vs/workbench/contrib/multiDiffEditor/browser/multiDiffEditorInput.ts": "99b5dff16a998742bdb571adfc09eeb2cfc20cca29136fe763f9fb966b444b3b",
+  "scripts/agent-first/preflight.mjs": "4e4b035303f985d1215a40f8420bc68e382f01e7d7ed94f985b241d4a29b3d94"
+}

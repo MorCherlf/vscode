@@ -1,0 +1,49 @@
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 build-fast
+> node build/next/build-fast.ts --client-only
+
+[build-fast] build configuration or dependencies changed
+[build-fast] client=full, extensions=skip, copilot=skip
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "ms-build-id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 gulp
+> node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js copy-codicons compile-api-proposal-names compile-extension-point-names
+
+[09:48:49] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[09:48:49] Starting 'copy-codicons'...
+[09:48:49] Starting 'compile-api-proposal-names'...
+[09:48:49] Starting 'compile-extension-point-names'...
+[09:48:49] Starting [32mcompilation[39m[34m api-proposal-names[39m...
+[09:48:49] Starting [32mcompilation[39m[34m extension-point-names[39m...
+[09:48:49] Finished 'copy-codicons' after 9.45 ms
+[09:48:49] Finished [32mcompilation[39m[34m api-proposal-names[39m with 0 errors after [35m216 ms[39m
+[09:48:49] Finished 'compile-api-proposal-names' after 223 ms
+[09:48:50] Finished [32mcompilation[39m[34m extension-point-names[39m with 0 errors after [35m1455 ms[39m
+[09:48:50] Finished 'compile-extension-point-names' after 1.46 s
+[build-fast] prerequisites finished in 3375ms
+[clean] out
+[transpile] src → out
+[transpile] Found 10868 files
+[resources] Copying all non-TS files to out...
+[resources] Copied 2364 files
+[transpile] Done in 6566ms
+
+✓ Total: 7636ms
+[build-fast] client finished in 8121ms

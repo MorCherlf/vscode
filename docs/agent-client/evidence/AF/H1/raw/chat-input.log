@@ -1,0 +1,39 @@
+
+
+  ChatInputPart - /CHROMIUM/
+    ✔ labeled submit shares a primary button background across its label and arrow in dark
+    ✔ labeled submit shares a primary button background across its label and arrow in light
+    ✔ labeled submit shares a primary button background across its label and arrow in high contrast dark
+    ✔ labeled submit shares a primary button background across its label and arrow in high contrast light
+    ✔ uses only visible platform bounds beneath the pet
+    ✔ refreshes model picker visibility when a live contribution arrives after history
+    ✔ lets a host that submits for itself decide whether its session options are valid
+    ✔ switches the session working set on and off without reloading the chat (40ms)
+    ✔ hides an empty working set and updates when session changes arrive or disappear
+    ✔ reports whether the session working set offers Undo
+    ✔ leaves Local controls, pending files, and live-editor opening unchanged when enabled
+    ✔ does not enable the editor working set in the Agents window (its chat)
+    ✔ does not enable the editor working set in the Agents window (a chat editor)
+    ✔ leaves metadata-backed providers on their existing working-set presentation
+    ✔ does not replace authoritative empty provider changes with session metadata
+    ✔ keeps the file list and focus while editing-session state is refreshed
+    ✔ preserves regular-editor opening for other providers without original metadata
+    ✔ leaves the new presentation when the registered source becomes ineligible
+    ✔ hides files kept in the current session until they change again, and offers the registered Undo
+    ✔ keeps files with the session's Keep when it registers one, instead of hiding them in the workbench
+    ✔ waits for the session's Keep result before announcing it (success: false)
+    ✔ waits for the session's Keep result before announcing it (success: true)
+    ✔ preserves legacy disclosure state without an editing session (Agents window: false)
+    ✔ preserves legacy disclosure state without an editing session (Agents window: true)
+    ✔ starts each session's working set collapsed, like the editing session's
+    ✔ disposing an old source does not remove the current session changes
+    ✔ session-cost listener updates the usage widget without another turn and detaches on chat switches
+    ✔ renders contributed attachment widgets for the session of the input model that holds the attachments, else the widget session
+    ✔ uses the Sessions content gutter for composer layout
+    ✔ working borders rotate fixed gradients inside masks at any input aspect ratio
+    ✔ decorative input borders do not increase ancestor scroll overflow
+    ✔ routes model commands to a host-owned model selection and lets the host gate and add sendable content
+
+
+  32 passing (465ms)
+

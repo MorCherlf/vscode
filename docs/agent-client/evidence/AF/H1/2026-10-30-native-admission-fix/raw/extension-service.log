@@ -1,0 +1,20 @@
+
+
+  BrowserExtensionService - /CHROMIUM/
+    ✔ pickRunningLocation
+
+  ExtensionService - /CHROMIUM/
+    ✔ issue #152204: Remote extension host not disposed after closing vscode client
+    ✔ Extension host disposed when awaited
+    ✔ Extension host not disposed when vetoed (sync)
+    ✔ Extension host not disposed when vetoed (async)
+    ✔ onWillActivateByEvent includes activationKind for Normal activation
+    ✔ onWillActivateByEvent includes activationKind for Immediate activation
+    ✔ Immediate activation includes ready remote extension hosts (issue #297019)
+    ✔ Immediate activation excludes not-ready remote extension hosts
+    ✔ Immediate activation still activates local extension hosts even when not ready
+    ✔ Normal activation activates all extension hosts
+
+
+  11 passing (87ms)
+

@@ -1,0 +1,121 @@
+   Compiling agent-host-supervisor v0.1.0 (/workspace/scratch/11910be6d76c/vscode-restored/packages/agent-host-supervisor)
+error[E0277]: the trait bound `std::sync::Arc<Fixture>: credentials::CredentialStore` is not satisfied
+  --> src/account_tests.rs:14:125
+   |
+14 | ...::new(store), Box::new(oauth)) }
+   |                  ^^^^^^^^^^^^^^^ the trait `credentials::CredentialStore` is not implemented for `std::sync::Arc<Fixture>`
+   |
+   = help: the following other types implement trait `credentials::CredentialStore`:
+             MemoryStore
+             SystemStore
+   = note: required for the cast from `Box<std::sync::Arc<Fixture>>` to `Box<(dyn credentials::CredentialStore + 'static)>`
+
+error[E0061]: this function takes 4 arguments but 3 arguments were supplied
+  --> src/account_tests.rs:14:66
+   |
+14 | ... Arc<Fixture>) -> Account { Account::new(Some("own-test-app".into()), Box::new(store), Box::new(oauth)) }
+   |                                ^^^^^^^^^^^^ --------------------------- argument #1 of type `u64` is missing
+   |
+note: expected `Box<dyn OAuth>`, found `Box<MemoryStore>`
+  --> src/account_tests.rs:14:108
+   |
+14 | fn account(store: MemoryStore, oauth: Arc<Fixture>) -> Account { Account::new(Some("own-test-app".into()), Box::new(store), Box::new(oaut...
+   |                                                                                                            ^^^^^^^^^^^^^^^
+   = note: expected struct `Box<(dyn account::OAuth + 'static)>`
+              found struct `Box<MemoryStore>`
+note: associated function defined here
+  --> src/account.rs:50:9
+   |
+50 |     pub fn new(revision: u64, client_id: Option<String>, store: Box<dyn CredentialStore>, oauth: Box<dyn OAuth>) -> Self {
+   |            ^^^ -------------                                                              ---------------------
+help: provide the argument
+   |
+14 - fn account(store: MemoryStore, oauth: Arc<Fixture>) -> Account { Account::new(Some("own-test-app".into()), Box::new(store), Box::new(oauth)) }
+14 + fn account(store: MemoryStore, oauth: Arc<Fixture>) -> Account { Account::new(/* u64 */, Some("own-test-app".into()), Box::new(oauth), /* Box<(dyn account::OAuth + 'static)> */) }
+   |
+
+error[E0277]: the trait bound `std::sync::Arc<Fixture>: credentials::CredentialStore` is not satisfied
+  --> src/account_tests.rs:17:114
+   |
+17 |     let fixture = Arc::new(Fixture::default()); let mut missing = Account::new(None, Box::<MemoryStore>::default(), Box::new(fixture.clone()));
+   |                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `credentials::CredentialStore` is not implemented for `std::sync::Arc<Fixture>`
+   |
+   = help: the following other types implement trait `credentials::CredentialStore`:
+             MemoryStore
+             SystemStore
+   = note: required for the cast from `Box<std::sync::Arc<Fixture>>` to `Box<(dyn credentials::CredentialStore + 'static)>`
+
+error[E0061]: this function takes 4 arguments but 3 arguments were supplied
+  --> src/account_tests.rs:17:64
+   |
+17 |     let fixture = Arc::new(Fixture::default()); let mut missing = Account::new(None, Box::<MemoryStore>::default(), Box::new(fixture.clone()));
+   |                                                                   ^^^^^^^^^^^^ ---- argument #1 of type `u64` is missing
+   |
+note: expected `Box<dyn OAuth>`, found `Box<MemoryStore>`
+  --> src/account_tests.rs:17:83
+   |
+17 |     let fixture = Arc::new(Fixture::default()); let mut missing = Account::new(None, Box::<MemoryStore>::default(), Box::new(fixture.clone()));
+   |                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: expected struct `Box<(dyn account::OAuth + 'static)>`
+              found struct `Box<MemoryStore>`
+note: associated function defined here
+  --> src/account.rs:50:9
+   |
+50 |     pub fn new(revision: u64, client_id: Option<String>, store: Box<dyn CredentialStore>, oauth: Box<dyn OAuth>) -> Self {
+   |            ^^^ -------------                                                              ---------------------
+help: provide the argument
+   |
+17 -     let fixture = Arc::new(Fixture::default()); let mut missing = Account::new(None, Box::<MemoryStore>::default(), Box::new(fixture.clone()));
+17 +     let fixture = Arc::new(Fixture::default()); let mut missing = Account::new(/* u64 */, None, Box::new(fixture.clone()), /* Box<(dyn account::OAuth + 'static)> */);
+   |
+
+warning: unused variable: `revision`
+  --> src/account.rs:50:13
+   |
+50 |     pub fn new(revision: u64, client_id: Option<String>, store: Box<dyn CredentialStore>, oauth: Box<dyn OAuth>) -> Self {
+   |                ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_revision`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+error[E0509]: cannot move out of type `account::TokenReply`, which implements the `Drop` trait
+  --> src/account_tests.rs:13:28
+   |
+13 | ... { TokenReply { access_token: Some("account-fixture".into()), refresh_token: Some("refresh-fixture".into()), expires_in: Some(120), refresh_token_expires_in: Some(600), ..Default::default() } }
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |       |
+   |       cannot move out of here
+   |       move occurs because value has type `std::option::Option<std::string::String>`, which does not implement the `Copy` trait
+
+error[E0509]: cannot move out of type `account::TokenReply`, which implements the `Drop` trait
+  --> src/account_tests.rs:28:42
+   |
+28 | ...k().unwrap().extend([TokenReply { error: Some("authorization_pending".into()), ..Default::default() }, TokenReply { error: Some("slow_...
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |                         |
+   |                         cannot move out of here
+   |                         move occurs because value has type `std::option::Option<std::string::String>`, which does not implement the `Copy` trait
+
+error[E0509]: cannot move out of type `account::TokenReply`, which implements the `Drop` trait
+  --> src/account_tests.rs:28:124
+   |
+28 | ...), ..Default::default() }, TokenReply { error: Some("slow_down".into()), ..Default::default() }, token(), token()]);
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |                               |
+   |                               cannot move out of here
+   |                               move occurs because value has type `std::option::Option<std::string::String>`, which does not implement the `Copy` trait
+
+error[E0509]: cannot move out of type `account::TokenReply`, which implements the `Drop` trait
+  --> src/account_tests.rs:50:89
+   |
+50 | ...es.lock().unwrap().push_back(TokenReply { error: Some(error.into()), ..Default::default() });
+   |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |                                 |
+   |                                 cannot move out of here
+   |                                 move occurs because value has type `std::option::Option<std::string::String>`, which does not implement the `Copy` trait
+
+Some errors have detailed explanations: E0061, E0277, E0509.
+For more information about an error, try `rustc --explain E0061`.
+warning: `agent-host-supervisor` (lib test) generated 1 warning
+error: could not compile `agent-host-supervisor` (lib test) due to 8 previous errors; 1 warning emitted
+warning: build failed, waiting for other jobs to finish...
+warning: `agent-host-supervisor` (lib) generated 1 warning (1 duplicate)

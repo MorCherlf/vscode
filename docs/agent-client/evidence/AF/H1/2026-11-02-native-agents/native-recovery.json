@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "agent": "claude",
+      "model": "@provider=anthropic:fixture-claude",
+      "response": "CLAUDE_NATIVE_OK",
+      "requests": [
+        {
+          "url": "/anthropic/v1/messages?beta=true",
+          "model": "fixture-claude",
+          "authenticated": true,
+          "toolResults": false
+        }
+      ]
+    },
+    {
+      "agent": "codex",
+      "model": "@provider=agent-first-api:fixture-codex",
+      "response": "CODEX_NATIVE_OK",
+      "requests": [
+        {
+          "url": "/openai/v1/responses",
+          "model": "fixture-codex",
+          "authenticated": true,
+          "toolResults": false
+        }
+      ]
+    }
+  ]
+}

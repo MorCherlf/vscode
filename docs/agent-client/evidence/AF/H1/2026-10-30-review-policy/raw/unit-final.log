@@ -1,0 +1,57 @@
+Running the 2 browser test files of the 2 files listed in /tmp/h1d-tests.txt
+
+
+  Sessions - Editor Contribution - /CHROMIUM/
+    ✔ shares the connected tab setting across Agents windows independently of Modern UI
+    ✔ registers legacy Modern UI tab color customizations
+    ✔ centers both side-panel action bars within the tab row at either height
+    ✔ uses one connected group frame with or without docked details
+    ✔ matches the chat separator with and without the theme border class
+    ✔ preserves pill side-panel tab outlines without a duplicate docked-details divider
+    ✔ preserves connected side-panel tab outlines without a duplicate docked-details divider
+    ✔ add tab actions use the icon of the tab they open
+    ✔ new file tab action opens pinned empty file editor
+    ✔ empty file editor double-click follows the product file creation policy
+    ✔ empty file editor shows search and action rows by default without repeated copy or experiment triggers
+    ✔ empty file editor focuses its container without opening the file picker
+    ✔ empty file editor updates shortcut hints and accessible names when keybindings change
+    ✔ empty file editor Open File command searches its own session workspace (239ms)
+    ✔ empty file editor always offers Open File and scopes its shortcut to editor focus
+    ✔ empty file editor search picker Cmd+N follows the product file creation policy
+    ✔ empty file editor search shows and opens matching files (663ms)
+    ✔ empty file editor inline search anchors results and restores the field on Escape (232ms)
+    ✔ empty file editor search combines session working directories before native ranking (217ms)
+    ✔ empty file editor search announces its accessibility help hint once
+    ✔ empty file editor search traverses virtual session workspaces (435ms)
+    ✔ empty file editor search preserves provider results and retries failed virtual indexes (427ms)
+    ✔ new browser tab action opens a pinned browser editor
+    ✔ session activity bar browser action activates an existing browser tab or opens a new preview tab
+    ✔ Add Tab menu stays available in dock-only mode
+    ✔ the empty editor group list offers the Add Tab entries except Search
+    ✔ the session activity bar offers each tab whenever it is available
+    ✔ the session activity bar checks the entry whose editor the side pane shows
+    ✔ new changes tab action is enabled for an uncreated workspace session with Changes available
+    ✔ new search tab action is unavailable for Quick Chats
+    ✔ empty file editor updates its workspace
+    ✔ empty file editor updates managed Files capabilities with editor area visibility
+    ✔ empty file editor never exposes a resource for breadcrumbs
+    ✔ empty file editor serializer preserves the workspace folders
+    ✔ new search tab action opens a new search editor
+    ✔ new changes tab action opens the changes editor for the active session
+    ✔ new changes tab action opens the changes editor for an uncreated session
+    ✔ new changes tab action is a no-op when there is no active session
+    ✔ changes and files tab actions activate an existing tab in place instead of moving it
+    ✔ maximize editor hides the terminal panel before maximizing
+    ✔ maximize editor keeps non-terminal panels visible
+    ✔ restore editor reopens the terminal panel when maximize hid it
+    ✔ restore editor does not reopen the panel when maximize left it visible
+
+  Agent First text review policy - /CHROMIUM/
+    ✔ only exact Profile resources and normalized instructions descendants are editable
+    ✔ ordinary products retain their original editor decisions
+    ✔ diffs cannot inherit a Profile file editing exception
+    ✔ Profile switches revoke the old Profile exception and retain the default Profile
+
+
+  47 passing (2s)
+

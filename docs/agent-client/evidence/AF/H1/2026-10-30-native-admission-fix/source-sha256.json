@@ -1,0 +1,10 @@
+{
+  "scripts/agent-first/extension-probe.mjs": "c69cca85adbff1bfc0cfc70f28b2740ea934ef766ddd7dba47c9459aa17feca0",
+  "scripts/agent-first/web-smoke.mjs": "3f79f18ba94caf6a94d1f08bfb8e6b34ddbae63d3d7e4393ab0a28ee5bd495c5",
+  "src/vs/workbench/services/extensionManagement/browser/extensionEnablementService.ts": "4650f9e1057d884e3906651b68dfc1b730555cf54da497499348b29aec6ddce9",
+  "src/vs/workbench/services/extensionManagement/common/extensionManagement.ts": "d1cb63aea9c97bc5df9e0f9eb09f23f10e70700cf7c1ad47e4cb3e78d1cc3848",
+  "src/vs/workbench/services/extensionManagement/test/browser/extensionEnablementService.test.ts": "d6bd34200849f5384d4d3e124edd2a1b0aafe8087a21ecf2e51bc925fdd0dfff",
+  "src/vs/workbench/services/extensions/common/abstractExtensionService.ts": "6b08c123bf82523574fa7e49fd16bbb2ba3f9d9791e62bb55088ea6f557c8663",
+  "src/vs/workbench/services/extensions/common/extensionManifestPropertiesService.ts": "e2b231ca44d7efcd52e45dc29da0ba241db46c3d76b42f98240de0b017cd3ff1",
+  "src/vs/workbench/test/browser/workbenchTestServices.ts": "408b41fddb6d79edcfab3aac7c562024f983c6867fc9b8937d3898a2d5c1f49f"
+}

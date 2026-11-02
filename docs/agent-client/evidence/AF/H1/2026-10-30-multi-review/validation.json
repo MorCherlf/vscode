@@ -1,0 +1,40 @@
+{
+  "parent": "e6927023c49b0c4c8573a2145a0490a73b16a01e",
+  "source": "commit adding this directory",
+  "platform": "Linux x64",
+  "browser": "Chromium141.0.7390.37 explicit fallback",
+  "checks": {
+    "clientIncrementalBuild": 0,
+    "targetedSourceTypes": 0,
+    "unit": {
+      "exit": 0,
+      "passing": 19
+    },
+    "originalMultiDiffAgentFirstKeyboard": 0,
+    "originalMultiDiffOrdinaryKeyboardControl": 0,
+    "standaloneMergeCompositionExclusionAndOrdinaryControl": 0,
+    "priorRuntimeFileApiChatInputProfileEhAndCommandChecks": 0,
+    "targetedLintThreeFiles": 0,
+    "layers": 0
+  },
+  "nativePreflight": {
+    "exit": 2,
+    "ipc": "EPERM",
+    "macArm64": false,
+    "sourceDirtyWhenProbed": true
+  },
+  "requiredUserInput": [
+    "Mac arm64 preflight/source-launch result",
+    "product-owned OAuth app public client ID and dedicated test-account readiness; no secrets"
+  ],
+  "humanStatus": "H1 not ready, not accepted; native/account input required",
+  "unverified": [
+    "real account/model/tool/approval task",
+    "native Electron window/EH/VSIX/resource/group/OS drop and restore",
+    "full task-time module/service/worker exclusion",
+    "remaining custom resources",
+    "source-matched Mac package/IME/VoiceOver",
+    "Keychain/WKWebView/signing/notarization/publication",
+    "H1-H4 human acceptance"
+  ]
+}

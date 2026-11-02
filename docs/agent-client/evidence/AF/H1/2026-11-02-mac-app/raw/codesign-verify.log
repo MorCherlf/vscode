@@ -1,0 +1,20 @@
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper.app
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper.app
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (Renderer).app
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (GPU).app
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (Plugin).app
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (Renderer).app
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (Plugin).app
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/VSC Agent Preview Helper (GPU).app
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/Applications/VSC Agent Preview.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Applications/VSC Agent Preview.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+/Applications/VSC Agent Preview.app: valid on disk
+/Applications/VSC Agent Preview.app: satisfies its Designated Requirement

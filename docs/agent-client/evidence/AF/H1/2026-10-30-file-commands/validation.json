@@ -1,0 +1,51 @@
+{
+  "parent": "04337e455b2a53abbcdc695220c6c49e972e2dc5",
+  "source": "commit adding this directory",
+  "platform": "Linux x64",
+  "node": "24.22.1",
+  "browser": "Chromium141.0.7390.37 explicit fallback",
+  "checks": {
+    "incrementalClientBuild": 0,
+    "targetedSourceTypes": 0,
+    "focusedTestTypes": 0,
+    "unit": {
+      "exit": 0,
+      "passing": 77,
+      "pending": 0,
+      "newProductDndTest": 1
+    },
+    "currentOriginalRuntime": {
+      "exit": 0,
+      "mutationCommands": 0,
+      "bindings": 0,
+      "menuRows": 0,
+      "staleCommandRejections": 10
+    },
+    "ordinaryOriginalRuntime": {
+      "exit": 0,
+      "mutationCommands": 10,
+      "bindings": 7,
+      "menuRows": 13
+    },
+    "originalFileServiceLifecycleBothModes": 0,
+    "lintFiveFiles": 0,
+    "layers": 0,
+    "scriptSyntax": 0
+  },
+  "fixturesOnly": [
+    "FileService lifecycle operations",
+    "BulkEdit save",
+    "Worker EH admitted control",
+    "ChatWidget/InputPart typing without request"
+  ],
+  "notPassed": [
+    "real model/tool/approval/account task",
+    "native window/EH/VSIX and OS drop",
+    "merge/multiDiff/custom pane review audit",
+    "complete editor-only module/service/worker exclusion",
+    "source-matched Mac arm64 candidate/IME/VoiceOver",
+    "H1-H4 human acceptance",
+    "DSH runtime/plugin compatibility",
+    "Mac Keychain/WKWebView/signing/notarization/publication"
+  ]
+}

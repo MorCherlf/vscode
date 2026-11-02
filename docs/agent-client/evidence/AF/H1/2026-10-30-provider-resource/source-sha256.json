@@ -1,0 +1,7 @@
+{
+  "scripts/agent-first/composition-check.mjs": "b8d7a6849d24bd49e4f332ae9ed1e24559e4e7721ad5d11bcd16e8f1a151d1d3",
+  "src/vs/sessions/sessions.common.main.ts": "8d72325896bc2715e8116db8e1f30bc47e6aac372848576e0fabd99e29ce1e58",
+  "src/vs/workbench/contrib/customEditor/browser/customEditors.ts": "e88bf609a332a91ab9ffdc6d3376255b56f03beaffeb545bf33181774a11974c",
+  "src/vs/workbench/contrib/customEditor/common/contributedCustomEditors.ts": "33e7acffcf05e1affe9986a55d486fad2f081c925530c6534d54c633695a0e84",
+  "src/vs/workbench/contrib/customEditor/test/browser/customEditorResolverContribution.test.ts": "21026c1f1adea1335257d9754ea011901aa9d8cc9a8f78a11d69e13181f4ee16"
+}

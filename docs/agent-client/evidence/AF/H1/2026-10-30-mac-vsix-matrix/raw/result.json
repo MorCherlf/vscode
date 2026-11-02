@@ -1,0 +1,444 @@
+{
+  "source": "78b70f43adc58e72ca832e2069bcabbde6371539",
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "v24.22.1",
+  "fixtureIds": [
+    "h1-native-fixture.editor-only",
+    "h1-native-fixture.mixed",
+    "h1-native-fixture.dependent"
+  ],
+  "checks": {
+    "nativeVSIXInstallation": true,
+    "globalAndWorkspaceEnableDenied": true,
+    "autoEnableAndCapabilityOverrideDenied": true,
+    "admittedSyntheticPositiveControlExecuted": true,
+    "savedWorkspacePolicySurvivedRestart": true
+  },
+  "installation": [
+    {
+      "id": "h1-native-fixture.editor-only",
+      "valid": true
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "valid": true
+    },
+    {
+      "id": "h1-native-fixture.dependent",
+      "valid": true
+    }
+  ],
+  "fresh": {
+    "mode": {
+      "isSessionsWindow": true,
+      "agentFirst": true,
+      "executableExtensions": [],
+      "development": false
+    },
+    "workspaceId": "-3e15e451",
+    "serviceClass": "NativeExtensionService",
+    "installed": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.dependent-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.editor-only-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.mixed-0.0.1"
+      }
+    ],
+    "registeredExecutableIds": []
+  },
+  "enableAttempts": [
+    {
+      "id": "h1-native-fixture.dependent",
+      "requestedState": 12,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture dependent extension because it is disabled in environment"
+    },
+    {
+      "id": "h1-native-fixture.dependent",
+      "requestedState": 13,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture dependent extension because it is disabled in environment"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "requestedState": 12,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture editor-only extension because it is disabled in environment"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "requestedState": 13,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture editor-only extension because it is disabled in environment"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "requestedState": 12,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture mixed extension because it is disabled in environment"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "requestedState": 13,
+      "rejected": true,
+      "message": "Cannot change enablement of H1 native fixture mixed extension because it is disabled in environment"
+    }
+  ],
+  "freshTrigger": {
+    "serviceClass": "NativeExtensionService",
+    "completed": [
+      "*",
+      "onStartupFinished",
+      "onLanguage:h1-native-fixture",
+      "onCommand:h1.native.editor-only",
+      "onCommand:h1.native.mixed",
+      "onChatParticipant:h1-native-fixture.mixed",
+      "onChatParticipant:github.copilot.editsAgent"
+    ]
+  },
+  "freshAfterOverrides": {
+    "mode": {
+      "isSessionsWindow": true,
+      "agentFirst": true,
+      "executableExtensions": [],
+      "development": false
+    },
+    "workspaceId": "-3e15e451",
+    "serviceClass": "NativeExtensionService",
+    "installed": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.dependent-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.editor-only-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.mixed-0.0.1"
+      }
+    ],
+    "registeredExecutableIds": []
+  },
+  "freshMarkers": [
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-module.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-activation.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-module.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-activation.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-module.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-activation.jsonl",
+      "lines": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "freshLogsBeforeControl": [
+    {
+      "relativePath": "20261030T164634/window1/exthost/exthost.log",
+      "body": "2026-10-30 16:46:41.558 [info] Extension host with pid 62096 started\n2026-10-30 16:46:41.558 [info] Skipping acquiring lock for /tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/User/workspaceStorage/-3e15e451.\n2026-10-30 16:46:41.558 [info] Eager extensions activated\n2026-10-30 16:46:41.558 [info] [node-compile-cache] extension-host: packaged cache inactive (status: development, configured: $REPO/out/vs/base/node-compile-cache/extension-host, active: none)\n"
+    }
+  ],
+  "control": {
+    "testOnlyProductOverlay": [
+      "h1-native-fixture.editor-only",
+      "h1-native-fixture.mixed",
+      "h1-native-fixture.dependent"
+    ],
+    "originalPolicy": [],
+    "states": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "state": 13
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "state": 13
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "state": 13
+      }
+    ]
+  },
+  "controlTrigger": {
+    "serviceClass": "NativeExtensionService",
+    "completed": [
+      "*",
+      "onStartupFinished",
+      "onLanguage:h1-native-fixture",
+      "onCommand:h1.native.editor-only",
+      "onCommand:h1.native.mixed",
+      "onChatParticipant:h1-native-fixture.mixed",
+      "onChatParticipant:github.copilot.editsAgent"
+    ]
+  },
+  "controlState": {
+    "mode": {
+      "isSessionsWindow": true,
+      "agentFirst": true,
+      "executableExtensions": [
+        "h1-native-fixture.editor-only",
+        "h1-native-fixture.mixed",
+        "h1-native-fixture.dependent"
+      ],
+      "development": false
+    },
+    "workspaceId": "-3e15e451",
+    "serviceClass": "NativeExtensionService",
+    "installed": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "valid": true,
+        "state": 13,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.dependent-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "valid": true,
+        "state": 13,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.editor-only-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "valid": true,
+        "state": 13,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.mixed-0.0.1"
+      }
+    ],
+    "registeredExecutableIds": [
+      "h1-native-fixture.dependent",
+      "h1-native-fixture.editor-only",
+      "h1-native-fixture.mixed"
+    ]
+  },
+  "controlMarkers": [
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "d603dbf979766b546f13772b8fa881f9c51141f57dac4c86a2f2adcb54b6e421"
+    },
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "f29cfa42ad9e3195599d725640ac17696b0256bbbb21e7d6bb996d50d2251a43"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "0bd68f68a7af590982e3940e1c66c2417aa2f4146d6a819fe668806677b70334"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "e2d276ef415c288ca5d7b36273ce32c8f8fdb6d828a73ba7723600a56095535b"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "7f0a2a2a749ce5f0b753a5c1e8c110e56b690f765a3d30197c2f8492554fbe17"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "acf212b2ae5ef612b9fd4fbd67f7bb7b4e727818d82fcbf0bf6a1cef8bff0533"
+    }
+  ],
+  "restoredBeforeQuit": {
+    "mode": {
+      "isSessionsWindow": true,
+      "agentFirst": true,
+      "executableExtensions": [],
+      "development": false
+    },
+    "workspaceId": "-3e15e451",
+    "serviceClass": "NativeExtensionService",
+    "installed": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.dependent-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.editor-only-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.mixed-0.0.1"
+      }
+    ],
+    "registeredExecutableIds": [
+      "h1-native-fixture.dependent",
+      "h1-native-fixture.editor-only",
+      "h1-native-fixture.mixed"
+    ]
+  },
+  "controlLogs": [
+    {
+      "relativePath": "20261030T164634/window1/exthost/exthost.log",
+      "body": "2026-10-30 16:46:41.558 [info] Extension host with pid 62096 started\n2026-10-30 16:46:41.558 [info] Skipping acquiring lock for /tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/User/workspaceStorage/-3e15e451.\n2026-10-30 16:46:41.558 [info] Eager extensions activated\n2026-10-30 16:46:41.558 [info] [node-compile-cache] extension-host: packaged cache inactive (status: development, configured: $REPO/out/vs/base/node-compile-cache/extension-host, active: none)\n2026-10-30 16:46:51.644 [info] ExtensionService#_doActivateExtension h1-native-fixture.editor-only, startup: false, activationEvent: '*', root cause: h1-native-fixture.dependent\n2026-10-30 16:46:51.652 [info] ExtensionService#_doActivateExtension h1-native-fixture.mixed, startup: false, activationEvent: '*'\n2026-10-30 16:46:51.665 [info] ExtensionService#_doActivateExtension h1-native-fixture.dependent, startup: false, activationEvent: '*'\n2026-10-30 16:46:53.476 [info] Extension host terminating: received terminate message from renderer\n2026-10-30 16:46:53.478 [info] Extension host with pid 62096 exiting with code 0\n"
+    }
+  ],
+  "restarted": {
+    "mode": {
+      "isSessionsWindow": true,
+      "agentFirst": true,
+      "executableExtensions": [],
+      "development": false
+    },
+    "workspaceId": "-3e15e451",
+    "serviceClass": "NativeExtensionService",
+    "installed": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.dependent-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.editor-only-0.0.1"
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "valid": true,
+        "state": 2,
+        "location": "/tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/extensions/h1-native-fixture.mixed-0.0.1"
+      }
+    ],
+    "registeredExecutableIds": []
+  },
+  "savedWorkspaceReadback": {
+    "synchronousTestOnlyInspection": true,
+    "states": [
+      {
+        "id": "h1-native-fixture.dependent",
+        "state": 13
+      },
+      {
+        "id": "h1-native-fixture.editor-only",
+        "state": 13
+      },
+      {
+        "id": "h1-native-fixture.mixed",
+        "state": 13
+      }
+    ]
+  },
+  "restartTrigger": {
+    "serviceClass": "NativeExtensionService",
+    "completed": [
+      "*",
+      "onStartupFinished",
+      "onLanguage:h1-native-fixture",
+      "onCommand:h1.native.editor-only",
+      "onCommand:h1.native.mixed",
+      "onChatParticipant:h1-native-fixture.mixed",
+      "onChatParticipant:github.copilot.editsAgent"
+    ]
+  },
+  "restartMarkers": [
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "d603dbf979766b546f13772b8fa881f9c51141f57dac4c86a2f2adcb54b6e421"
+    },
+    {
+      "id": "h1-native-fixture.dependent",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "f29cfa42ad9e3195599d725640ac17696b0256bbbb21e7d6bb996d50d2251a43"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "0bd68f68a7af590982e3940e1c66c2417aa2f4146d6a819fe668806677b70334"
+    },
+    {
+      "id": "h1-native-fixture.editor-only",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "e2d276ef415c288ca5d7b36273ce32c8f8fdb6d828a73ba7723600a56095535b"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-module.jsonl",
+      "lines": 1,
+      "sha256": "7f0a2a2a749ce5f0b753a5c1e8c110e56b690f765a3d30197c2f8492554fbe17"
+    },
+    {
+      "id": "h1-native-fixture.mixed",
+      "marker": ".h1-activation.jsonl",
+      "lines": 1,
+      "sha256": "acf212b2ae5ef612b9fd4fbd67f7bb7b4e727818d82fcbf0bf6a1cef8bff0533"
+    }
+  ],
+  "restartLogs": [
+    {
+      "relativePath": "20261030T164912/window1/exthost/exthost.log",
+      "body": "2026-10-30 16:49:18.662 [info] Extension host with pid 62899 started\n2026-10-30 16:49:18.662 [info] Skipping acquiring lock for /tmp/code-oss-dev-20261030-164633-62021-cx1U3B/user-data/User/workspaceStorage/-3e15e451.\n2026-10-30 16:49:18.662 [info] Eager extensions activated\n2026-10-30 16:49:18.662 [info] [node-compile-cache] extension-host: packaged cache inactive (status: development, configured: $REPO/out/vs/base/node-compile-cache/extension-host, active: none)\n2026-10-30 16:49:28.040 [info] Extension host terminating: received terminate message from renderer\n2026-10-30 16:49:28.041 [info] Extension host with pid 62899 exiting with code 0\n"
+    }
+  ]
+}

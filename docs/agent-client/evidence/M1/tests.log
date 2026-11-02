@@ -1,0 +1,19 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-host@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ relocated mock host: token rejection, released AHP, auth, session, streaming, two clients, cancellation and stdin stop (11025.240073ms)
+✔ production Copilot provider boots and stops on SIGTERM without a real credential (941.522098ms)
+✔ worker, native SQLite/PTY, WASM, recursive watcher and SDK assets load with shipped Node (587.131877ms)
+ℹ {"worker":true,"sqlite":true,"pty":true,"wasm":true,"ripgrep":true,"sdkAssets":true,"runtimeVersion":"1.0.103-unstable.r40031404408.gba6c003","recursiveWatcher":true}
+✔ production manifest excludes development/test entry points and Electron (7.06672ms)
+✔ invalid options and port conflicts produce machine-readable failures and clean token files (843.897003ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13650.311699

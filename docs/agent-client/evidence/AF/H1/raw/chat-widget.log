@@ -1,0 +1,153 @@
+
+
+  ChatWidget - /CHROMIUM/
+    ✔ history failure updates the existing read-only banner without repeating announcements or retaining hovers
+    ✔ records the first visible transcript refresh once on the correlated local trace
+    - request tools preserve their original input source across GC and release it on widget disposal
+    - a live widget does not retain the tools source of a collected request
+    ✔ disposal freezes the last tools snapshot (unobserved)
+    ✔ request tools release their widget on disposal (unobserved)
+    - request tools allow a disposed widget to be collected (unobserved)
+    ✔ disposal freezes the last tools snapshot (observed)
+    ✔ request tools release their widget on disposal (observed)
+    - request tools allow a disposed widget to be collected (observed)
+    ✔ only preparation disables input and completion or cancellation re-enables it
+    ✔ disabled input blocks editing and attachment controls but leaves Stop focusable
+    ✔ transcript progress shows a keyboard-accessible detail action outside the live region
+    ✔ transcript progress cancellation uses the latest callback without a separate button
+    ✔ transcript progress updates preserve detail focus and use the latest action
+    ✔ progress rendered by the transcript supplies an inline action without a duplicate overlay
+    ✔ transcript preparation blocks submissions without a model or touching the draft
+    ✔ a host that sends through its submit handler decides whether input is blocked, not the bound chat model
+    ✔ transcript progress context is independent of request context and clears with its callback
+    ✔ transcript progress clearing hides the detail action and preserves the message-only API
+    ✔ forwards sticky scroll DOM state from the list widget
+    ✔ does not send a picker fallback over an existing agent host conversation model
+    ✔ saves non-untitled editors before sending by default
+    ✔ editing a steering request passes its model and configuration to the input
+    ✔ releases the inline request edit input and its subscriptions (finished edit)
+    ✔ releases the inline request edit input and its subscriptions (consumed steering)
+    ✔ confirms before cancelling changed request edits
+    ✔ confirmed cancellation discards changed request edits
+    ✔ transcript overlays suppress the welcome state
+    ✔ agent-host harnesses share the local welcome content in each chat mode
+    ✔ switching to an agent-host harness preserves the signed-out welcome and instructions hint
+    ✔ loading suppresses the getting-started tip
+    ✔ tracks unvisited completions and needs-input precedence
+    ✔ keeps queued work active unless an error or cancellation strands it
+    ✔ coalesces a queued request handoff without an idle completion state
+    ✔ sticky request click survives synchronous template disposal during reveal
+    ✔ only unlocks request revision for edited user submissions
+    ✔ only unlocks queue or steering for queued user submissions
+    ✔ identifies only leading silent execute-immediately slash commands
+    ✔ input height changes update the budget without re-laying out the input
+    ✔ host can lift the default chat width cap
+    ✔ passes read-only transitions to the renderer independently of request editing
+    ✔ keeps the sandbox composer visible while live content is unavailable
+    ✔ offline subagent composers inherit parent archive state without losing child restrictions
+    ✔ history recovery remains visible beside a blocked composer
+    ✔ applies read-only to rendered rows on the first layout after the list is attached
+    ✔ does not rerender a connected list that measures 0px when shown again until it is laid out
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (local)
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (remote)
+    ✔ policy read-only banner follows history switches and does not relabel other read-only states (unsupported)
+    ✔ read-only banner disables its action while it is running
+    ✔ automatically migrates displayed policy-disabled claude history after the active request settles
+    ✔ automatically migrates displayed policy-disabled codex history after the active request settles
+    ✔ starts automatic recovery when provider policy and history arrive in the Editor window
+    ✔ starts automatic recovery when provider policy and history arrive in the Agents window
+    ✔ waits while the policy-disabled source is hidden
+    ✔ waits while the policy-disabled source is busy
+    ✔ waits while the policy-disabled source is unmanaged
+    ✔ waits while the policy-disabled source is provider-available
+    ✔ waits while the policy-disabled source is writable
+    ✔ waits while the policy-disabled source is history-not-ready
+    ✔ waits while the policy-disabled source is archived
+    ✔ a failed Agent Host automatic continuation retains the manual banner action
+    ✔ automatically migrates a chat that started empty when policy arrives after its request
+    ✔ automatically migrates a chat that started empty when policy arrives during its request
+    ✔ automatically migrates displayed Local history once after policy and the active request settle
+    ✔ does not automatically continue Local history when the host cannot import it, and migrates once import support arrives
+    ✔ Local migration starts on deny rules, not other permission settings
+    ✔ Local migration starts on explicit Local prohibition, not other permission settings
+    ✔ does not automatically migrate inline chats
+    ✔ does not automatically migrate terminal chats
+    ✔ does not automatically migrate empty chats
+    ✔ does not automatically migrate copilot chats
+    ✔ does not automatically migrate archived chats
+    ✔ does not automatically migrate unmanaged chats
+    ✔ cancels scheduled automatic migration when hidden
+    ✔ cancels scheduled automatic migration when disposed
+    ✔ cancels scheduled automatic migration when policy-removed
+    ✔ cancels scheduled automatic migration when archived
+    ✔ cancels scheduled automatic migration when moved
+    ✔ failed automatic migration keeps an enabled manual retry without automatically retrying
+    ✔ cancelled automatic migration restores the ordinary banner without reporting an error
+    ✔ draft input events include IME and exclude focus, restored content, and restored attachments
+    ✔ a visible read-only composer refuses send and queue operations
+    ✔ re-lays out embedded editors when chat item padding changes
+    ✔ captures and restores transcript scroll state
+    ✔ prompt timeline width follows explicit widget layout
+
+  ChatWidget - acceptInput submission - /CHROMIUM/
+    ✔ cancelCurrentRequest waits before a preserved-input continuation when waitingForApproval=false
+    ✔ cancelCurrentRequest waits before a preserved-input continuation when waitingForApproval=true
+    ✔ updates side-chat visibility from the loaded session capability
+    ✔ uses the host side-chat capability and disposes its observation when unbound
+    ✔ binds a history session to its late live contribution with matching model selection
+    ✔ binds a history session to its late live contribution with stale model selection
+    ✔ binds an already available session contribution and retains its routing while unavailable
+    ✔ disposes the old session binding before following another conversation
+    ✔ late contributions do not lock local conversations or replace an explicit agent
+    ✔ submits an extension participant in a new Local chat without changing the agent-host request (sidebar)
+    ✔ submits an extension participant in a new Local chat without changing the agent-host request (editor)
+    ✔ participant redirection does not attach an unrelated preserved draft
+    ✔ managed policy prevents participant redirection to Local
+    ✔ releases the new Local session if opening it fails without sending to the agent host
+    ✔ does not submit into a different Local chat if navigation wins the open
+    ✔ a second submit during the redirect cannot create another Local chat
+    ✔ can submit when the sidebar reuses the source widget for the Local chat
+    ✔ cancels the redirect if the source session changes during dictation finalization
+    ✔ transfers inline file references with the Local draft
+    ✔ real parser only redirects an explicit registered participant: @unknown Explain
+    ✔ real parser only redirects an explicit registered participant: Explain @participant
+    ✔ real parser only redirects an explicit registered participant: Contact someone@example.com
+    ✔ real parser only redirects an explicit registered participant: @participant.md Explain
+    ✔ real parser only redirects an explicit registered participant:   @participant Explain
+    ✔ real parser only redirects an explicit registered participant: @participant Explain
+    ✔ a host file reference named after an extension participant is not a participant invocation
+    ✔ core participants keep using the agent-host session
+    ✔ does not redirect a participant for a contributed session
+    ✔ does not redirect a participant for a Agents window
+    ✔ blocks submission without accepting input and allows sending after the lock clears
+    ✔ blocks submissions during managed settings refresh without touching the draft
+    ✔ blocks in-flight custom-agent submission when refresh begins during save
+    ✔ blocks in-flight custom-agent submission when refresh begins during attachments
+    ✔ blocks in-flight custom-agent submission when refresh begins during submit handler
+    ✔ excludes implicitly queued submissions without cancelling the request
+    ✔ excludes explicitly queued submissions without cancelling the request
+
+  ChatWidget - first visible progress lifecycle - /CHROMIUM/
+    ✔ removes per-interaction stores and listeners after every completed turn
+    ✔ navigation cancels even after the first render callback has been scheduled
+    ✔ initially hidden ends measurement without stopping submission or installing late listeners
+    ✔ preparation ends measurement without stopping submission or installing late listeners
+    ✔ before progress ends measurement without stopping submission or installing late listeners
+    ✔ during render ends measurement without stopping submission or installing late listeners
+    ✔ disposed ends measurement without stopping submission or installing late listeners
+    ✔ uses the committed response session for attribution after preparation
+    ✔ cleans up when submission is not dispatched
+    ✔ cleans up when submission throws Canceled
+    ✔ cleans up when submission throws Error
+
+  ChatWidget - acceptAndAwaitSentRequest - /CHROMIUM/
+    ✔ an immediately sent request is accepted and returned
+    ✔ a queued request is accepted before the queued request settles
+    ✔ a rejected request is never accepted
+    ✔ a queued request that is rejected when it runs stays accepted but is not sent
+    ✔ accepting is optional
+
+
+  135 passing (413ms)
+  4 pending
+

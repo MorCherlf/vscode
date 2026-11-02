@@ -161,7 +161,7 @@ export class ChatSetupDialog extends Disposable {
 				icon: options.icon,
 				alignment: DialogContentsAlignment.Vertical,
 				cancelId: options.buttons.length,
-				disableCloseButton: options.disableCloseButton,
+				disableCloseButton: product.agentFirst ? false : options.disableCloseButton,
 				renderFooter: footer => {
 					const element = footer.appendChild($('.chat-setup-dialog-footer'));
 					const renderedFooter = this._register(markdownRendererService.render(new MarkdownString(options.footer, { isTrusted: true })));

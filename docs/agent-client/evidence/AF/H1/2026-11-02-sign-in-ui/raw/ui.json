@@ -1,0 +1,44 @@
+{
+  "source": "1f43159b9471246d6fa34f9f22f05ddc4cada024",
+  "app": "/Applications/VSC Agent Preview.app",
+  "userDataDir": "/tmp/af-signin-lHOUYi/user-data",
+  "rendererErrors": [],
+  "runs": [
+    {
+      "pid": 99719,
+      "port": 50657
+    },
+    {
+      "pid": 481,
+      "port": 50985
+    }
+  ],
+  "modelRequestsSent": 0,
+  "firstLaunchNoDialog": true,
+  "initialDraft": {
+    "passed": true,
+    "lines": [
+      "无需登录测试",
+      "第二行草稿"
+    ]
+  },
+  "explicitDialogCloseVisible": true,
+  "closeButtonDismissed": true,
+  "draftAfterClose": {
+    "passed": true,
+    "lines": [
+      "无需登录测试",
+      "第二行草稿"
+    ]
+  },
+  "reopenAndEscapeDismissed": true,
+  "restartNoDialog": true,
+  "restartDraft": {
+    "passed": true,
+    "lines": [
+      "无需登录测试",
+      "第二行草稿"
+    ]
+  },
+  "passed": true
+}

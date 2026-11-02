@@ -4,6 +4,8 @@ Per-platform agent SDK production. Each VS Code build (`darwin-arm64`, `linux-x6
 
 The runtime side (`src/vs/platform/agentHost/`) downloads and caches the SDK tarball at first use. See `IAgentSdkProductConfig` in `src/vs/base/common/product.ts` for the contract.
 
+Agent First desktop products instead use `bundled.ts`: the same pinned `buildOne` producers supply offline SDK roots under `agent-sdks/`, stamped as `{version, bundledPath}` in the packaged product. Completed roots carry the original `.complete` sentinel. The loader resolves `bundledPath` relative to the installed application and rejects paths outside it; ordinary products retain the CDN path. The local producer cache is keyed by the SDK lockfile and target so lockfile changes cannot silently reuse a prior SDK tree.
+
 ## How the pipeline uses this
 
 The platform packaging jobs (Linux, macOS, Windows, Alpine) each include the shared template `build/azure-pipelines/common/agent-sdk-produce.yml` before the existing `gulp vscode-<platform>-<arch>-min-ci` step:

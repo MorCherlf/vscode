@@ -1,0 +1,21 @@
+✖ input controls submit typed values once; URL opening never implicitly approves (7523.513778ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8283.874974
+
+✖ failing tests:
+
+test at apps/agent-client/test/ui.test.mjs:220:1
+✖ input controls submit typed values once; URL opening never implicitly approves (7523.513778ms)
+  locator.selectOption: Timeout 5000ms exceeded.
+  Call log:
+  [2m  - waiting for getByLabel('Flag', { exact: true })[22m
+  
+      at TestContext.<anonymous> (/workspace/scratch/11910be6d76c/vscode-restored/apps/agent-client/test/ui.test.mjs:227:50) {
+    name: 'TimeoutError'
+  }

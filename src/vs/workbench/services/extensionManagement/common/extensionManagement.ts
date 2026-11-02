@@ -130,6 +130,9 @@ export interface IWorkbenchExtensionEnablementService {
 	 */
 	getEnablementState(extension: IExtension): EnablementState;
 
+	/** Whether development extensions may bypass ordinary enablement (never a configured Sessions product boundary). */
+	isDevelopmentEnablementOverrideAllowed(): boolean;
+
 	/**
 	 * Returns the enablement states for the given extensions
 	 * @param extensions list of extensions

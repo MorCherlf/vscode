@@ -1,0 +1,4 @@
+   Compiling agent-host-supervisor v0.1.0 (/workspace/scratch/11910be6d76c/vscode-restored/packages/agent-host-supervisor)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.67s
+     Running `packages/agent-host-supervisor/target/debug/examples/account_probe`
+PROBE_NOT_OPTED_IN

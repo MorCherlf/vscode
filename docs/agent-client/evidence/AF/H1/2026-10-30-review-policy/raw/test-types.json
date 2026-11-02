@@ -1,0 +1,21 @@
+{
+  "extends": "../../../../../../../src/vs/sessions/tsconfig.agent-first.json",
+  "include": [
+    "../../../../../../../src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts",
+    "../../../../../../../src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts",
+    "../../../../../../../src/**/*.d.ts",
+    "../../../../../../../node_modules/@types/node/assert.d.ts",
+    "../../../../../../../node_modules/@types/node/assert/strict.d.ts"
+  ],
+  "compilerOptions": {
+    "types": [
+      "@webgpu/types",
+      "mocha",
+      "semver",
+      "sinon",
+      "trusted-types",
+      "winreg",
+      "wicg-file-system-access"
+    ]
+  }
+}

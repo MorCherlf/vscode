@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-29",
+  "sourceCommit": "e9e25186b016b9e0704cefb953fdfb07c0304ef0",
+  "architecture": "arm64",
+  "platform": "darwin",
+  "macOS": "ProductName:\t\tmacOS\nProductVersion:\t\t27.2\nBuildVersion:\t\t26B123",
+  "sdk": "27.0",
+  "node": "24.22.1",
+  "abi": "137",
+  "rust": "1.90.0",
+  "host": {
+    "testing": false,
+    "modules": 1032,
+    "dependencies": 62,
+    "fileBytes": 467166241
+  }
+}

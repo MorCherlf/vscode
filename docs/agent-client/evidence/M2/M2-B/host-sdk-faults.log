@@ -1,0 +1,10 @@
+✔ parent SIGKILL closes owned stdin; active and pending-approval mock Hosts stop and remove connection credentials (3243.518089ms)
+✔ actual pinned SDK/runtime crash rejects the next request and stops without a model task or credential (255.044338ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3588.701884

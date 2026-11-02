@@ -1,0 +1,17 @@
+
+> @morcherlf/agent-client@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ production has narrow native capability, safe fonts and no IDE/test fixture entry (2587.430917ms)
+✔ production preview: themes, persisted preference, project validation, dialog focus and keyboard navigation (659.411583ms)
+✔ actual M1 mock Host drives UI: create/send, drafts, session switching, search, IME guard, cancel, approvals and reconnect (2194.298875ms)
+✔ Markdown renders code/tables while blocking raw HTML, remote images and executable links (128.604834ms)
+✔ Chinese compact window keeps the welcome/composer visible without horizontal overflow (246.188292ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6297.67525

@@ -1,0 +1,2 @@
+src/vs/workbench/test/browser/parts/editor/textEditorReviewPolicy.test.ts
+src/vs/sessions/contrib/editor/test/browser/editor.contribution.test.ts

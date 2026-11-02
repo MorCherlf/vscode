@@ -4,6 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 
 import assert from 'assert';
+import { IProductService } from '../../../../../platform/product/common/productService.js';
+import { NativeDragAndDropData } from '../../../../../base/browser/ui/list/listView.js';
 import { DeferredPromise, timeout } from '../../../../../base/common/async.js';
 import { Emitter, Event } from '../../../../../base/common/event.js';
 import { ensureNoDisposablesAreLeakedInTestSuite, toResource } from '../../../../../base/test/common/utils.js';
@@ -52,6 +54,18 @@ suite('Files - ExplorerView', () => {
 	function createStat(this: any, path: string, name: string, isFolder: boolean, hasChildren: boolean, size: number, mtime: number, isSymLink = false, isUnknown = false): ExplorerItem {
 		return new ExplorerItem(toResource.call(this, path), fileService, configService, NullFilesConfigurationService, undefined, isFolder, isSymLink, false, false, name, mtime, isUnknown);
 	}
+
+	test('Agent First rejects Explorer drag-over and stale native drops before resolving a target', async () => {
+		const configurationService = new TestConfigurationService({ explorer: { enableDragAndDrop: true } });
+		const instantiation = workbenchInstantiationService({ configurationService: () => configurationService }, ds);
+		instantiation.stub(IExplorerService, { roots: [] });
+		instantiation.stub(IProductService, { agentFirst: true });
+		const drag = ds.add(instantiation.createInstance(FileDragAndDrop, () => false));
+		const data = new NativeDragAndDropData();
+		const event = new DragEvent('drop');
+		assert.strictEqual(drag.onDragOver(data, undefined, undefined, undefined, event), false);
+		await drag.drop(data, undefined, undefined, undefined, event);
+	});
 
 	test('getContext', async function () {
 		const d = new Date().getTime();

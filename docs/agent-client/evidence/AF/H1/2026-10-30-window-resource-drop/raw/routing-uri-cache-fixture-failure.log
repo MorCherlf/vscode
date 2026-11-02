@@ -1,0 +1,54 @@
+
+
+  Agent First window routing
+    ✔ canonical Agents workspace
+    ✔ new window
+    ✔ empty window
+    ✔ local folder
+    ✔ file
+    ✔ ordinary workspace
+    ✔ multiple folders
+    ✔ unresolved CLI payload
+    ✔ file URI CLI payload
+    ✔ file URI cannot hide behind a canonical workspace
+    ✔ remote authority
+    ✔ canonical workspace cannot hide remote authority
+    ✔ canonical workspace cannot hide CLI remote
+    ✔ canonical workspace cannot hide extension development
+    ✔ canonical workspace cannot hide extension test runner
+    ✔ canonical workspace retains resolved local folder handoff
+    ✔ diff
+    ✔ merge
+    ✔ CLI diff
+    ✔ folder mutation
+    ✔ contradictory empty window with file payload
+    ✔ resolved CLI input must contain exactly one local folder
+    1) restore admits only the canonical local Agents workspace and leaves legacy history intact
+    ✔ direct Agents entry rejects unsupported payload before canonicalization, preserving ordinary products
+    ✔ ordinary products retain editor windows; Agent First rejects them at the final boundary
+
+  Errors
+    ✔ should not have unexpected errors in tests
+
+
+  25 passing (16ms)
+  1 failing
+
+  1) Agent First window routing
+       restore admits only the canonical local Agents workspace and leaves legacy history intact:
+
+      AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ '[{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}}},{"workspace":{"configPath":{"$mid":1,"external":"file:///old.code-workspace","path":"/old.code-workspace","scheme":"file"}}},{"folderUri":{"$mid":1,"external":"file:///project","path":"/project","scheme":"file"}},{"backupPath":"/backup"},{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}},"remoteAuthority":"ssh-remote+host"}]'
+- '[{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}}},{"workspace":{"configPath":{"$mid":1,"path":"/old.code-workspace","scheme":"file"}}},{"folderUri":{"$mid":1,"external":"file:///project","path":"/project","scheme":"file"}},{"backupPath":"/backup"},{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}},"remoteAuthority":"ssh-remote+host"}]'
+
+      + expected - actual
+
+      -[{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}}},{"workspace":{"configPath":{"$mid":1,"external":"file:///old.code-workspace","path":"/old.code-workspace","scheme":"file"}}},{"folderUri":{"$mid":1,"external":"file:///project","path":"/project","scheme":"file"}},{"backupPath":"/backup"},{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}},"remoteAuthority":"ssh-remote+host"}]
+      +[{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}}},{"workspace":{"configPath":{"$mid":1,"path":"/old.code-workspace","scheme":"file"}}},{"folderUri":{"$mid":1,"external":"file:///project","path":"/project","scheme":"file"}},{"backupPath":"/backup"},{"workspace":{"configPath":{"$mid":1,"external":"file:///profile/agents.code-workspace","path":"/profile/agents.code-workspace","scheme":"file"}},"remoteAuthority":"ssh-remote+host"}]
+      
+      at Context.<anonymous> (file:///workspace/scratch/11910be6d76c/vscode-h1-continued/out/vs/platform/windows/test/electron-main/agentFirstWindow.test.js:53:12)
+
+
+

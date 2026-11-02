@@ -1,0 +1,52 @@
+# H1 — window intent, restore and resource/group drop
+
+**Engineering checkpoint, not H1 acceptance.** Integrated documentation commit `78b70f43adc58e72ca832e2069bcabbde6371539` by fast-forward, preserving the successful [Mac admission retest](../2026-10-30-mac-admission-retest/README.md) of actual product `09c03744303e2693251b4dd077851307b1b2d95a`. Its normal native EH startup/eager/exit0, completed real chat-participant activation request, 61 non-executable registry descriptions, draft paste and one readonly-file path remain passed in their exact scope. The older `0bec73f` failure is not rewritten. [Checksum verification](imported-mac-integrity.json) is import integrity, not a new native test.
+
+Exact new source is the commit adding this directory, on the same implementation branch/draft PR #2. Production executable list is unchanged/empty; DSH inactive. No OAuth, personal cache/token, mixed-extension admission, merge or publication. External synthetic VSIX/native workspace enablement is being handled on the user's Mac; this package does not duplicate or claim those results.
+
+## Problems and original-component fixes
+
+| Path | Finding | Change |
+| --- | --- | --- |
+| Native canonical workspace dispatch | The canonical Agents workspace returned before rejecting remote/development intent. Direct `openAgentsWindow` could canonicalize away unsupported diff/merge/add/remove/remote/API file/workspace payload before the ordinary dispatcher saw it. | One shared intent predicate rejects those requests before canonicalization and before the canonical workspace exception. Original known local folder handoff/metadata remains. Final renderer guard remains. |
+| Original CLI folder resolver | It selected the first folder from a mixed/multiple resolved path list, discarding the rest. | Agent First requests exactly one original-resolver result, a local folder. Ordinary callers retain the original first-folder behavior by default. No duplicate path resolver. |
+| Last-session/hot-exit restore | Legacy editor workspaces/folders/backups could enter window creation and hit the final Agent First guard; untitled and empty backups were unconditionally restored even with an explicit Agents workspace. | Only canonical local Agents history entries are considered. Generic untitled/empty editor-window hot-exit launches are skipped in Agent First. No backup/workspace reset, deletion or migration calls added; original data/persistence lifecycle remains otherwise untouched. Canonical Agents workspace uses its original opening/backup route. |
+| Original ResourcesDropHandler, reached from editor group, tabs, Open Editors and empty view | With native workspace-open enabled, multiple folders can call original `createAndEnterWorkspace` directly; this does not pass the new-window boundary. | Product-aware full-batch validation occurs before contributed drop handlers, recent-items writes, group callbacks or workspace/window APIs. Folder/workspace-open intent is refused with an original localized warning; the actual workspace mutation helper is also gated so a later file-to-directory change cannot bypass the preflight. Merely switching allowWorkspaceOpen off was insufficient because folders would fall through as editor inputs. |
+| Cross-instance dirty/embedded drop payload | Original CodeEditors transfer can carry unsaved `contents`, an untitled URI or a structured editor input. Even a readonly control can receive a dirty model from an input payload. | Agent First resource-drop path explicitly rejects unsaved/untitled/embedded payloads before editor opening; it does not silently discard text or turn off source readonly. Ordinary saved-resource review and explicit workspace-file **text** review remain available. |
+
+Original group/editor transfers inside the workbench still use their original move/copy services; they are not new file writes or a replacement reducer. Original Agent FileService/BulkEdit/model APIs remain unchanged. This is a scoped UI/window intent boundary, not an OS sandbox, extension approval bypass or arbitrary filesystem confinement. Required Profile/customization workflows and original Chat input are retained. The warning uses the existing notification service; screen-reader/OS interaction still needs native verification.
+
+## Reproduction and actual results
+
+Linux x64 / Node24.22.1. Browser override Chromium **141.0.7390.37**, not Mac Electron Chromium150 or pinned149. No original native window/OS drag executed in this executor.
+
+```sh
+npm run build-fast -- --client-only
+node node_modules/@typescript/native/bin/tsc -p src/vs/sessions/tsconfig.agent-first.json
+node node_modules/@typescript/native/bin/tsc -p docs/agent-client/evidence/AF/H1/2026-10-30-window-resource-drop/raw/test-types.json
+node test/unit/node/index.js --run src/vs/platform/windows/test/electron-main/agentFirstWindow.test.ts
+export AGENT_FIRST_CHROMIUM=/path/to/headless_shell
+node scripts/agent-first/browser-tests.cjs --browser chromium --run src/vs/workbench/test/browser/resourcesDropHandler.test.ts --stall-timeout 45
+node scripts/agent-first/web-smoke.mjs --probe-extensions
+GOMEMLIMIT=1000MiB npm run valid-layers-check
+```
+
+| Raw evidence | Actual scope |
+| --- | --- |
+| `raw/window-routing.log` | **26 passing** Node runner: canonical remote/CLI remote/dev/tests rejection, direct pre-canonical intent checks, positive local/canonical handoff, single-result folder selection, restore-state filtering and unchanged semantic history values, existing final renderer guard/ordinary-product controls. Pure functions, **not instantiated WindowsMainService/native windows**. |
+| `raw/resource-drop.log` | **13 passing**: actual original ResourcesDropHandler, original CodeFiles/ResourceURLs/CodeEditors extraction and FileService/InMemoryFileSystemProvider; test gateways record notification/window/workspace/editor calls. Covers single/multiple folders, workspace, mixed batch, caller workspace-open=false, contributed-handler ordering, late file-to-directory change, dirty/untitled/embedded data and false/undefined product controls. Legacy multiple-folder control reaches `createAndEnterWorkspace`; Agent First warns before any such gateway call. **Not physical OS drop or actual workspace switching.** |
+| `raw/original-browser.log` | Original Sessions UI/DI/Worker EH, chat-participant negative activation fixture and positive control, actual original ChatInput/Profile typing, file/multi-diff review, file API/BulkEdit writes and existing command/composition checks pass. It is a synthetic provider/file workload, no account/model task. |
+| `raw/build.log`, source/test types, lint reports, `raw/layers.log` | Incremental original client output, targeted common/web/desktop source and tests types, six-file lint, full layer check pass; empty type logs mean exit0. Native manager glue and hot-exit branch are typechecked/source audited, not runtime native restore tests. |
+
+An attempt to run upstream `agentsWindow.test.ts` in plain Node failed importing Electron (`raw/electron-module-node-blocked.log`); it is not a native or successful test run. No fake Electron package or window implementation was introduced. Its original file remains unchanged. The strict selector is extracted as a small pure validator called by the original resolver, and covered in the Node suite. An early restore immutability assertion failed because URI equality warms serialization caches; the final test compares semantic history fields rather than cache internals. Weak history-fixture typing and required deletion options in the metadata-race fixture were corrected; initial reports are retained. These failures are not counted as product regressions or passes.
+
+## Audit boundary and next native matrix
+
+- `NativeHostMainService.openAgentsWindow`, app startup/deep-link entry and normal dispatcher converge on original `WindowsMainService.openAgentsWindow`; validation now runs before workspace materialization. Explicit session/folder reveal paths still belong to original Agents intent service. URI-only/raw CLI combinations outside the covered matrix remain native follow-up; no broad claim that every OS intent is verified.
+- Original restore decisions still honor upstream settings for ordinary products. Agent First filters the dedicated canonical workspace and does not launch generic hot-exit windows. Normal lifecycle state saving is not replaced; the helper's no-mutation test is not a full persistence/backup recovery test.
+- Original `EditorDropTarget` group/editor branches call original group move/copy services; tree items use original editor service; URI branches instantiate ResourcesDropHandler. Saved resources retain original editor routing and readonly policy. Native group/auxiliary-window movement and custom pane/resolver outcomes remain unverified.
+- The registered original profile-file drop handler (`userDataProfile.ts`) remains; it opens the original profile workflow. Product executable-extension admission is still authoritative across profiles. This audit is not proof every customization or SDK-global discovery path is isolated.
+
+On Mac use the delivered fixed SHA and original existing checkout/output workflow (preserve local work), rebuild client output with `npm run build-fast`, then use the original isolated launch skill/profile/project method. This needs no OAuth. Check: normal empty/local-folder/canonical Agents launch; reject file/ordinary-workspace/diff/merge/remote/dev intents explicitly; restart/restore with old editor history, untitled and empty backups without data deletion; OS single/multi-folder/workspace drops into groups/tabs/empty view warn without switching workspace; saved file drop opens readonly review; dirty cross-window/untitled/embedded transfer is refused; normal group moves and Profile editing still work. Collect actual source SHA, flags, same-run errors/state changes and disk evidence. Do not treat these Linux unit tests as those native results.
+
+Do not repeat the already closed `09c0374` builtin admission reproduction as if it were new testing. Its relevant enablement inputs are unchanged here; user-owned native external VSIX negative tests stay separate. H1 remains engineering in progress, not ready/human passed. Real provider-owned auth/tasks, full task-time loading attribution, system IME/VoiceOver, independent Mac arm64 package and remaining native matrix still pending. H2–H4/DSH and M1/M2 outstanding gates remain separate; no signing/notarization/publication.

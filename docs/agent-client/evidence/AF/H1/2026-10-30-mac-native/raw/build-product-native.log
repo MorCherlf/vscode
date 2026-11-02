@@ -1,0 +1,323 @@
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 build-fast
+> node build/next/build-fast.ts
+
+[build-fast] incremental state is missing
+[build-fast] client=full, extensions=full, copilot=full
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "ms-build-id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 gulp
+> node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js copy-codicons compile-api-proposal-names compile-extension-point-names
+
+[14:17:25] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[14:17:25] Starting 'copy-codicons'...
+[14:17:25] Starting 'compile-api-proposal-names'...
+[14:17:25] Starting 'compile-extension-point-names'...
+[14:17:25] Starting [32mcompilation[39m[34m api-proposal-names[39m...
+[14:17:25] Starting [32mcompilation[39m[34m extension-point-names[39m...
+[14:17:25] Finished 'copy-codicons' after 10 ms
+[14:17:25] Finished [32mcompilation[39m[34m api-proposal-names[39m with 0 errors after [35m244 ms[39m
+[14:17:25] Finished 'compile-api-proposal-names' after 251 ms
+[14:17:28] Finished [32mcompilation[39m[34m extension-point-names[39m with 0 errors after [35m3610 ms[39m
+[14:17:28] Finished 'compile-extension-point-names' after 3.62 s
+[build-fast] prerequisites finished in 6461ms
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "ms-build-id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "ms-build-id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "target". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> code-oss-dev@1.145.0 gulp
+> node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js transpile-extensions compile-extension-media
+
+
+> copilot-chat@0.73.0 compile
+> node .esbuild.mts --dev
+
+
+  .vscode/extensions/test-extension/dist/simulation-extension.js      372.7kb
+  .vscode/extensions/test-extension/dist/simulation-extension.js.map  240.7kb
+
+⚡ Done in 307ms
+
+  node_modules/@vscode/copilot-typescript-server-plugin/dist/main.js   269.0kb
+  ...odules/@vscode/copilot-typescript-server-plugin/dist/main.js.map  158.0kb
+
+⚡ Done in 333ms
+
+  dist/suggestionsPanelWebview.js      204.0kb
+  dist/suggestionsPanelWebview.js.map  109.7kb
+
+⚡ Done in 829ms
+
+  dist/web.js      1.9mb ⚠️
+  dist/web.js.map  1.0mb
+
+⚡ Done in 831ms
+
+  dist/simulationWorkbench.js      2.9mb ⚠️
+  dist/simulationWorkbench.js.map  1.6mb
+
+⚡ Done in 4305ms
+[clean] out
+[transpile] src → out
+[14:17:40] Using gulpfile ~/Developer/personal/VSCode/gulpfile.mjs
+[14:17:41] Starting 'transpile-extensions'...
+[14:17:41] Starting 'compile-extension-media'...
+[14:17:41] Starting [36mclean-extension-configuration-editing[39m ...
+[14:17:41] Starting [36mclean-extension-css-language-features-client[39m ...
+[14:17:41] Starting [36mclean-extension-css-language-features-server[39m ...
+[14:17:41] Starting [36mclean-extension-debug-auto-launch[39m ...
+[14:17:41] Starting [36mclean-extension-debug-server-ready[39m ...
+[14:17:41] Starting [36mclean-extension-emmet[39m ...
+[14:17:41] Starting [36mclean-extension-extension-editing[39m ...
+[14:17:41] Starting [36mclean-extension-git[39m ...
+[14:17:41] Starting [36mclean-extension-git-base[39m ...
+[14:17:41] Starting [36mclean-extension-github[39m ...
+[14:17:41] Starting [36mclean-extension-github-authentication[39m ...
+[14:17:41] Starting [36mclean-extension-grunt[39m ...
+[14:17:41] Starting [36mclean-extension-gulp[39m ...
+[14:17:41] Starting [36mclean-extension-html-language-features-client[39m ...
+[14:17:41] Starting [36mclean-extension-html-language-features-server[39m ...
+[14:17:41] Starting [36mclean-extension-ipynb[39m ...
+[14:17:41] Starting [36mclean-extension-jake[39m ...
+[14:17:41] Starting [36mclean-extension-json-language-features-client[39m ...
+[14:17:41] Starting [36mclean-extension-json-language-features-server[39m ...
+[14:17:41] Starting [36mclean-extension-markdown-language-features[39m ...
+[14:17:41] Starting [36mclean-extension-markdown-math[39m ...
+[14:17:41] Starting [36mclean-extension-merge-conflict[39m ...
+[14:17:41] Starting [36mclean-extension-mermaid-markdown-features[39m ...
+[14:17:41] Starting [36mclean-extension-terminal-suggest[39m ...
+[14:17:41] Starting [36mclean-extension-microsoft-authentication[39m ...
+[transpile] Found 10867 files
+[14:17:41] Starting [36mclean-extension-notebook-renderers[39m ...
+[14:17:41] Starting [36mclean-extension-npm[39m ...
+[14:17:41] Starting [36mclean-extension-php-language-features[39m ...
+[14:17:41] Starting [36mclean-extension-references-view[39m ...
+[14:17:41] Starting [36mclean-extension-search-result[39m ...
+[14:17:41] Starting [36mclean-extension-simple-browser[39m ...
+[14:17:41] Starting [36mclean-extension-tunnel-forwarding[39m ...
+[14:17:41] Starting [36mclean-extension-typescript-language-features-web[39m ...
+[14:17:41] Starting [36mclean-extension-typescript-language-features[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-api-tests[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-colorize-tests[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-colorize-perf-tests[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-test-resolver[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-selfhost-test-provider[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-selfhost-import-aid[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-extras[39m ...
+[14:17:41] Starting [36mclean-extension-vscode-pr-pinger[39m ...
+[14:17:43] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/ipynb/notebook-src/tsconfig.json with 0 errors.
+[14:17:43] Finished [36mclean-extension-debug-server-ready[39m after [35m2655 ms[39m
+[14:17:43] Starting [36mtranspile-extension:debug-server-ready[39m ...
+[14:17:45] Starting [32mcompilation[39m[34m extensions[39m...
+[14:17:46] Finished [36mclean-extension-debug-auto-launch[39m after [35m5360 ms[39m
+[14:17:46] Starting [36mtranspile-extension:debug-auto-launch[39m ...
+[14:17:46] Finished [36mclean-extension-gulp[39m after [35m5591 ms[39m
+[14:17:46] Starting [36mtranspile-extension:gulp[39m ...
+[14:17:46] Finished [36mclean-extension-grunt[39m after [35m5705 ms[39m
+[14:17:46] Starting [36mtranspile-extension:grunt[39m ...
+[14:17:48] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/markdown-language-features/notebook/tsconfig.json with 0 errors.
+[14:17:48] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/markdown-language-features/preview-src/tsconfig.json with 0 errors.
+[14:17:48] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/markdown-language-features/markdown-editor-src/tsconfig.json with 0 errors.
+[14:17:48] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/simple-browser/preview-src/tsconfig.json with 0 errors.
+[14:17:48] Finished [36mclean-extension-extension-editing[39m after [35m7548 ms[39m
+[14:17:48] Starting [36mtranspile-extension:extension-editing[39m ...
+[14:17:48] Finished [36mclean-extension-markdown-math[39m after [35m7824 ms[39m
+[14:17:48] Starting [36mtranspile-extension:markdown-math[39m ...
+[14:17:49] Finished [36mclean-extension-jake[39m after [35m8062 ms[39m
+[14:17:49] Starting [36mtranspile-extension:jake[39m ...
+[14:17:49] Finished [36mclean-extension-merge-conflict[39m after [35m8189 ms[39m
+[14:17:49] Starting [36mtranspile-extension:merge-conflict[39m ...
+[14:17:49] Finished [36mclean-extension-simple-browser[39m after [35m8473 ms[39m
+[14:17:50] Starting [36mtranspile-extension:simple-browser[39m ...
+[14:17:51] Finished [36mclean-extension-tunnel-forwarding[39m after [35m10406 ms[39m
+[14:17:51] Starting [36mtranspile-extension:tunnel-forwarding[39m ...
+[14:17:51] Finished [36mclean-extension-vscode-colorize-perf-tests[39m after [35m10612 ms[39m
+[14:17:51] Starting [36mtranspile-extension:vscode-colorize-perf-tests[39m ...
+[14:17:51] Finished [36mclean-extension-vscode-colorize-tests[39m after [35m10791 ms[39m
+[14:17:51] Starting [36mtranspile-extension:vscode-colorize-tests[39m ...
+[14:17:52] Finished [36mclean-extension-vscode-extras[39m after [35m10927 ms[39m
+[14:17:52] Starting [36mtranspile-extension:vscode-extras[39m ...
+[14:17:52] Finished [36mclean-extension-vscode-selfhost-test-provider[39m after [35m11054 ms[39m
+[14:17:52] Starting [36mtranspile-extension:vscode-selfhost-test-provider[39m ...
+[14:17:52] Finished [36mclean-extension-vscode-selfhost-import-aid[39m after [35m11306 ms[39m
+[14:17:52] Starting [36mtranspile-extension:vscode-selfhost-import-aid[39m ...
+[14:17:52] Finished [36mclean-extension-vscode-pr-pinger[39m after [35m11353 ms[39m
+[14:17:52] Starting [36mtranspile-extension:vscode-pr-pinger[39m ...
+[14:17:53] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/markdown-math/notebook/tsconfig.json with 0 errors.
+[14:17:53] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/mermaid-markdown-features/preview-src/tsconfig.json with 0 errors.
+[14:17:53] Finished [32mtypechecking extension media (tsgo)[39m $REPO/extensions/notebook-renderers/tsconfig.json with 0 errors.
+(node:20981) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/markdown-language-features/esbuild.markdownEditor.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/markdown-math/esbuild.notebook.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/simple-browser/esbuild.webview.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/markdown-language-features/esbuild.notebook.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/markdown-language-features/esbuild.webview.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/notebook-renderers/esbuild.notebook.mts with 0 errors.
+[14:17:53] Finished [32mesbuilding extension media[39m $REPO/extensions/ipynb/esbuild.notebook.mts with 0 errors.
+[14:17:54] Finished [36mclean-extension-css-language-features-client[39m after [35m13441 ms[39m
+[14:17:54] Starting [36mtranspile-extension:css-language-features-client[39m ...
+[14:17:54] Finished [36mclean-extension-configuration-editing[39m after [35m13724 ms[39m
+[14:17:54] Starting [36mtranspile-extension:configuration-editing[39m ...
+[14:17:54] Finished [36mclean-extension-git-base[39m after [35m13785 ms[39m
+[14:17:54] Starting [36mtranspile-extension:git-base[39m ...
+[14:17:54] Finished [36mclean-extension-emmet[39m after [35m13903 ms[39m
+[14:17:54] Starting [36mtranspile-extension:emmet[39m ...
+[14:17:55] Finished [36mclean-extension-css-language-features-server[39m after [35m14236 ms[39m
+[14:17:55] Starting [36mtranspile-extension:css-language-features-server[39m ...
+[14:17:55] Finished [36mclean-extension-ipynb[39m after [35m14336 ms[39m
+[14:17:55] Starting [36mtranspile-extension:ipynb[39m ...
+[14:17:55] Finished [36mclean-extension-github[39m after [35m14561 ms[39m
+[14:17:55] Starting [36mtranspile-extension:github[39m ...
+[14:17:55] Finished [36mclean-extension-json-language-features-client[39m after [35m14891 ms[39m
+[14:17:55] Starting [36mtranspile-extension:json-language-features-client[39m ...
+[14:17:56] Finished [36mclean-extension-json-language-features-server[39m after [35m15065 ms[39m
+[14:17:56] Starting [36mtranspile-extension:json-language-features-server[39m ...
+[14:17:56] Finished [36mclean-extension-mermaid-markdown-features[39m after [35m15512 ms[39m
+[14:17:56] Starting [36mtranspile-extension:mermaid-markdown-features[39m ...
+[14:17:57] Finished [36mclean-extension-git[39m after [35m16116 ms[39m
+[14:17:57] Starting [36mtranspile-extension:git[39m ...
+[14:17:58] Finished [36mclean-extension-references-view[39m after [35m17045 ms[39m
+[14:17:58] Starting [36mtranspile-extension:references-view[39m ...
+[14:17:58] Finished [36mclean-extension-notebook-renderers[39m after [35m17213 ms[39m
+[14:17:58] Starting [36mtranspile-extension:notebook-renderers[39m ...
+[14:17:58] Finished [36mclean-extension-html-language-features-client[39m after [35m17385 ms[39m
+[14:17:58] Starting [36mtranspile-extension:html-language-features-client[39m ...
+[14:17:58] Finished [36mclean-extension-search-result[39m after [35m17562 ms[39m
+[14:17:58] Starting [36mtranspile-extension:search-result[39m ...
+[14:17:58] Finished [36mclean-extension-vscode-api-tests[39m after [35m17662 ms[39m
+[14:17:58] Starting [36mtranspile-extension:vscode-api-tests[39m ...
+[14:18:00] Finished [36mclean-extension-npm[39m after [35m18991 ms[39m
+[14:18:00] Starting [36mtranspile-extension:npm[39m ...
+[14:18:00] Finished [36mclean-extension-vscode-test-resolver[39m after [35m19148 ms[39m
+[14:18:00] Starting [36mtranspile-extension:vscode-test-resolver[39m ...
+[14:18:01] Finished [36mclean-extension-typescript-language-features-web[39m after [35m20263 ms[39m
+[14:18:01] Starting [36mtranspile-extension:typescript-language-features-web[39m ...
+[14:18:02] Finished [36mclean-extension-github-authentication[39m after [35m21215 ms[39m
+[14:18:02] Starting [36mtranspile-extension:github-authentication[39m ...
+[14:18:02] Finished [36mclean-extension-markdown-language-features[39m after [35m21470 ms[39m
+[14:18:02] Starting [36mtranspile-extension:markdown-language-features[39m ...
+[14:18:03] Finished [36mclean-extension-microsoft-authentication[39m after [35m22072 ms[39m
+[14:18:03] Starting [36mtranspile-extension:microsoft-authentication[39m ...
+[14:18:05] Finished [36mclean-extension-typescript-language-features[39m after [35m24026 ms[39m
+[14:18:05] Starting [36mtranspile-extension:typescript-language-features[39m ...
+[14:18:08] Finished [36mclean-extension-php-language-features[39m after [35m27475 ms[39m
+[14:18:08] Starting [36mtranspile-extension:php-language-features[39m ...
+[14:18:10] Finished [36mclean-extension-terminal-suggest[39m after [35m29899 ms[39m
+[14:18:10] Starting [36mtranspile-extension:terminal-suggest[39m ...
+[14:18:12] Finished [32mesbuilding extension media[39m $REPO/extensions/mermaid-markdown-features/esbuild.webview.mts with 0 errors.
+[14:18:12] Finished 'compile-extension-media' after 32 s
+[14:18:12] Finished [36mtranspile-extension:debug-server-ready[39m after [35m28846 ms[39m
+[14:18:12] Finished [36mtranspile-extension:jake[39m after [35m23426 ms[39m
+[14:18:12] Finished [36mtranspile-extension:markdown-math[39m after [35m23661 ms[39m
+[14:18:12] Finished [36mtranspile-extension:gulp[39m after [35m25902 ms[39m
+[14:18:12] Finished [36mtranspile-extension:debug-auto-launch[39m after [35m26134 ms[39m
+[14:18:12] Finished [36mtranspile-extension:grunt[39m after [35m25789 ms[39m
+[14:18:12] Finished [36mtranspile-extension:vscode-selfhost-import-aid[39m after [35m20197 ms[39m
+[14:18:12] Finished [36mtranspile-extension:vscode-pr-pinger[39m after [35m20157 ms[39m
+[14:18:13] Finished [36mclean-extension-html-language-features-server[39m after [35m32074 ms[39m
+[14:18:13] Starting [36mtranspile-extension:html-language-features-server[39m ...
+[14:18:13] Finished [36mtranspile-extension:vscode-extras[39m after [35m21486 ms[39m
+[14:18:13] Finished [36mtranspile-extension:tunnel-forwarding[39m after [35m22327 ms[39m
+[14:18:13] Finished [36mtranspile-extension:vscode-colorize-perf-tests[39m after [35m22125 ms[39m
+[14:18:13] Finished [36mtranspile-extension:vscode-colorize-tests[39m after [35m21949 ms[39m
+[14:18:14] Finished [36mtranspile-extension:simple-browser[39m after [35m23955 ms[39m
+[14:18:14] Finished [36mtranspile-extension:extension-editing[39m after [35m25755 ms[39m
+[14:18:14] Finished [36mtranspile-extension:configuration-editing[39m after [35m19716 ms[39m
+[14:18:14] Finished [36mtranspile-extension:search-result[39m after [35m16001 ms[39m
+[14:18:14] Finished [36mtranspile-extension:merge-conflict[39m after [35m25397 ms[39m
+[14:18:15] Finished [36mtranspile-extension:git-base[39m after [35m20184 ms[39m
+[14:18:15] Finished [36mtranspile-extension:css-language-features-client[39m after [35m20829 ms[39m
+[14:18:15] Finished [36mtranspile-extension:json-language-features-server[39m after [35m19391 ms[39m
+[14:18:15] Finished [36mtranspile-extension:vscode-test-resolver[39m after [35m15292 ms[39m
+[14:18:15] Finished [36mtranspile-extension:vscode-selfhost-test-provider[39m after [35m23748 ms[39m
+
+  dist/sanity-test-extension.js       32.4mb ⚠️
+  dist/test-extension.js              32.2mb ⚠️
+  dist/extension.js                   30.6mb ⚠️
+  dist/worker2.js                    271.3kb
+  dist/diffWorker.js                 263.5kb
+  dist/tikTokenizerWorker.js          77.5kb
+  dist/copilotDebugCommand.js         48.0kb
+  dist/copilotCLITodoWorker.js         3.4kb
+  dist/sanity-test-extension.js.map   14.7mb
+  dist/test-extension.js.map          14.6mb
+  dist/extension.js.map               14.2mb
+  dist/worker2.js.map                150.3kb
+  dist/diffWorker.js.map             142.7kb
+  dist/tikTokenizerWorker.js.map      50.5kb
+  dist/copilotDebugCommand.js.map     33.6kb
+  dist/copilotCLITodoWorker.js.map     2.0kb
+
+⚡ Done in 45857ms
+[14:18:17] Finished [36mtranspile-extension:html-language-features-client[39m after [35m18883 ms[39m
+[14:18:17] Finished [36mtranspile-extension:mermaid-markdown-features[39m after [35m21258 ms[39m
+[14:18:17] Finished [36mtranspile-extension:json-language-features-client[39m after [35m21959 ms[39m
+[14:18:17] Finished [36mtranspile-extension:references-view[39m after [35m19788 ms[39m
+[14:18:18] Finished [36mtranspile-extension:notebook-renderers[39m after [35m19753 ms[39m
+[14:18:18] Finished [36mtranspile-extension:typescript-language-features-web[39m after [35m16693 ms[39m
+[14:18:18] Finished [36mtranspile-extension:css-language-features-server[39m after [35m22764 ms[39m
+[14:18:18] Finished [36mtranspile-extension:github[39m after [35m22453 ms[39m
+[14:18:18] Finished [36mtranspile-extension:ipynb[39m after [35m22671 ms[39m
+[14:18:18] Finished [36mtranspile-extension:npm[39m after [35m18461 ms[39m
+[14:18:18] Finished [36mtranspile-extension:php-language-features[39m after [35m10007 ms[39m
+[14:18:18] Finished [36mtranspile-extension:emmet[39m after [35m23806 ms[39m
+[14:18:18] Finished [36mtranspile-extension:microsoft-authentication[39m after [35m15647 ms[39m
+[14:18:18] Finished [36mtranspile-extension:vscode-api-tests[39m after [35m20079 ms[39m
+[14:18:18] Finished [36mtranspile-extension:github-authentication[39m after [35m16582 ms[39m
+[14:18:19] Finished [36mtranspile-extension:git[39m after [35m21942 ms[39m
+[14:18:19] Finished [36mtranspile-extension:html-language-features-server[39m after [35m5990 ms[39m
+[14:18:19] Finished [36mtranspile-extension:markdown-language-features[39m after [35m16953 ms[39m
+[14:18:19] Finished [36mtranspile-extension:typescript-language-features[39m after [35m14732 ms[39m
+[14:18:20] Finished [32mcompilation[39m[34m extensions[39m with 0 errors after [35m34410 ms[39m
+[14:18:20] Finished [36mtranspile-extension:terminal-suggest[39m after [35m9213 ms[39m
+[14:18:20] Starting [36mtranspile-extensions[39m ...
+[14:18:20] Finished [36mtranspile-extensions[39m after [35m7 ms[39m
+[14:18:20] Finished 'transpile-extensions' after 39 s
+
+  dist/simulationMain.js      29.1mb ⚠️
+  dist/simulationMain.js.map  14.7mb
+
+⚡ Done in 50117ms
+[build-fast] extensions finished in 53688ms
+Creating symlinks for Claude session storage and instructions...
+[resources] Copying all non-TS files to out...
+[resources] Copied 2364 files
+[transpile] Done in 51958ms
+
+✓ Total: 54759ms
+[build-fast] client finished in 60553ms
+[build-fast] copilot finished in 60577ms

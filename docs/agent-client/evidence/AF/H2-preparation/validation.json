@@ -1,0 +1,12 @@
+{
+  "kind": "inactive-H2-preparation",
+  "h1_checkpoint": "404134a07e84a35c67c99c5f3c12a6744e022e48",
+  "vsix_sha256": "35d7638d65bcd93cfaeb6803eb1b3c87bb1476a4952549c59efb5edadf127421",
+  "vsix_bytes": 6746,
+  "real_extension_host_loaded": false,
+  "real_dsh_runtime_run": false,
+  "real_model_task_run": false,
+  "fixture_tests_passed": 5,
+  "provider_typecheck_exit": 0,
+  "human_accepted": false
+}

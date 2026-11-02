@@ -1,0 +1,13 @@
+
+
+  CustomEditorResolverContribution - /CHROMIUM/
+    ✔ Registers custom editors from the previous session without using the custom editor service #325506
+    ✔ Cached custom editors: sessions=true, admission=[]
+    ✔ Cached custom editors: sessions=true, admission=["test.audited"]
+    ✔ Cached custom editors: sessions=true, admission=undefined
+    ✔ Cached custom editors: sessions=false, admission=[]
+    ✔ Policy windows receive live contributions and unregister them on removal
+
+
+  6 passing (171ms)
+

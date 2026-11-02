@@ -1,0 +1,51 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm.
+npm warn Unknown project config "target". This will stop working in the next major version of npm.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm.
+
+> code-oss-dev@1.145.0 build-fast
+> node build/next/build-fast.ts --client-only
+
+[build-fast] incremental state is missing
+[build-fast] client=full, extensions=skip, copilot=skip
+npm warn Unknown env config "ms-build-id". This will stop working in the next major version of npm.
+npm warn Unknown env config "build-from-source". This will stop working in the next major version of npm.
+npm warn Unknown env config "target". This will stop working in the next major version of npm.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn Unknown env config "runtime". This will stop working in the next major version of npm.
+npm warn Unknown env config "disturl". This will stop working in the next major version of npm.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm.
+npm warn Unknown project config "disturl". This will stop working in the next major version of npm.
+npm warn Unknown project config "target". This will stop working in the next major version of npm.
+npm warn Unknown project config "ms_build_id". This will stop working in the next major version of npm.
+npm warn Unknown project config "runtime". This will stop working in the next major version of npm.
+npm warn Unknown project config "build_from_source". This will stop working in the next major version of npm.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm.
+
+> code-oss-dev@1.145.0 gulp
+> node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js copy-codicons compile-api-proposal-names compile-extension-point-names
+
+[15:42:43] Using gulpfile /workspace/scratch/11910be6d76c/vscode-restored/gulpfile.mjs
+[15:42:43] Starting 'copy-codicons'...
+[15:42:43] Starting 'compile-api-proposal-names'...
+[15:42:43] Starting 'compile-extension-point-names'...
+[15:42:43] Starting [32mcompilation[39m[34m api-proposal-names[39m...
+[15:42:43] Starting [32mcompilation[39m[34m extension-point-names[39m...
+[15:42:43] Finished 'copy-codicons' after 13 ms
+[15:42:43] Finished [32mcompilation[39m[34m api-proposal-names[39m with 0 errors after [35m518 ms[39m
+[15:42:43] Finished 'compile-api-proposal-names' after 527 ms
+[15:42:44] Finished [32mcompilation[39m[34m extension-point-names[39m with 0 errors after [35m1632 ms[39m
+[15:42:44] Finished 'compile-extension-point-names' after 1.64 s
+[build-fast] prerequisites finished in 4025ms
+[clean] out
+[transpile] src → out
+[transpile] Found 10860 files
+[resources] Copying all non-TS files to out...
+[resources] Copied 2362 files
+[transpile] Done in 10068ms
+
+✓ Total: 10083ms
+[build-fast] client finished in 10879ms

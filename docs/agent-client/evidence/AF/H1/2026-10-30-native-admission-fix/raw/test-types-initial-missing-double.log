@@ -1,0 +1,2 @@
+src/vs/workbench/test/browser/workbenchTestServices.ts(2039,14): error TS2420: Class 'TestWorkbenchExtensionEnablementService' incorrectly implements interface 'IWorkbenchExtensionEnablementService'.
+  Property 'isDevelopmentEnablementOverrideAllowed' is missing in type 'TestWorkbenchExtensionEnablementService' but required in type 'IWorkbenchExtensionEnablementService'.

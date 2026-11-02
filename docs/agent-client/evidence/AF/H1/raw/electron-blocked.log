@@ -1,0 +1,57 @@
+electron.launch: Timeout 30000ms exceeded.
+Call log:
+[2m  - <launching> .build/electron/code-oss --inspect=0 --remote-debugging-port=0 . --agents --no-sandbox --disable-gpu --disable-dev-shm-usage --user-data-dir=/tmp/af-probe-profile --extensions-dir=/tmp/af-empty-extensions --enable-smoke-test-driver --skip-welcome --disable-workspace-trust --disable-telemetry[22m
+[2m  - <launched> pid=19[22m
+[2m  - [pid=19][err] [19:1029/160838.408512:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to open socket: Operation not permitted[22m
+[2m  - [pid=19][err] Debugger listening on ws://127.0.0.1:42807/519695d7-e8cb-433d-9e0d-5c4f8586a35d[22m
+[2m  - [pid=19][err] For help, see: https://nodejs.org/learn/getting-started/debugging[22m
+[2m  - <ws connecting> ws://127.0.0.1:42807/519695d7-e8cb-433d-9e0d-5c4f8586a35d[22m
+[2m  - <ws connected> ws://127.0.0.1:42807/519695d7-e8cb-433d-9e0d-5c4f8586a35d[22m
+[2m  - [pid=19][err] Debugger attached.[22m
+[2m  - [pid=19][err] AFBOOT code/didStartMain[22m
+[2m  - [pid=19][err] AFBOOT code/willLoadMainBundle[22m
+[2m  - [pid=19][err] AFBOOT code/didLoadMainBundle[22m
+[2m  - [pid=19][err] AFBOOT code/willConfigureCommandlineSwitches[22m
+[2m  - [pid=19][err] AFBOOT code/didConfigureCommandlineSwitches[22m
+[2m  - [pid=19][err] AFBOOT code/willGetUserDataPath[22m
+[2m  - [pid=19][err] AFBOOT code/didGetUserDataPath[22m
+[2m  - [pid=19][err] AFBOOT code/willStartCrashReporter[22m
+[2m  - [pid=19][err] AFBOOT code/didStartCrashReporter[22m
+[2m  - [pid=19][err] AFBOOT code/willRegisterSchemesAsPrivileged[22m
+[2m  - [pid=19][err] AFBOOT code/didRegisterSchemesAsPrivileged[22m
+[2m  - [pid=19][err] AFBOOT code/willRegisterListeners[22m
+[2m  - [pid=19][err] AFBOOT code/didRegisterListeners[22m
+[2m  - [pid=19][err] AFBOOT code/willGetPreferredSystemLanguages[22m
+[2m  - [pid=19][err] AFBOOT code/didGetPreferredSystemLanguages[22m
+[2m  - [pid=19][err] AFBOOT code/willWaitForAppReady[22m
+[2m  - [pid=19][err] [19:1029/160838.518535:ERROR:net/base/address_tracker_linux.cc:224] Could not create NETLINK socket: Operation not permitted (1)[22m
+[2m  - [pid=19][err] [19:1029/160838.518561:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")[22m
+[2m  - [pid=19][err] [19:1029/160838.518594:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to open socket: Operation not permitted[22m
+[2m  - [pid=19][err] [19:1029/160838.518601:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to open socket: Operation not permitted[22m
+[2m  - [pid=19][err] [19:1029/160838.519267:ERROR:device/udev_linux/udev_watcher.cc:51] Failed to initialize a udev monitor.[22m
+[2m  - [pid=19][err][22m
+[2m  - [pid=19][err] DevTools listening on ws://127.0.0.1:39851/devtools/browser/0ecd08b3-7fda-4426-8324-d7f417d0b1e1[22m
+[2m  - <ws connecting> ws://127.0.0.1:39851/devtools/browser/0ecd08b3-7fda-4426-8324-d7f417d0b1e1[22m
+[2m  - [pid=19][err] AFBOOT code/didWaitForAppReady[22m
+[2m  - [pid=19][err] AFBOOT code/mainAppReady[22m
+[2m  - [pid=19][err] AFBOOT code/willResolveNlsConfiguration[22m
+[2m  - [pid=19][err] AFBOOT code/didResolveNlsConfiguration[22m
+[2m  - [pid=19][err] AFBOOT code/willBootstrapESM[22m
+[2m  - [pid=19][err] AFBOOT code/didBootstrapESM[22m
+[2m  - [pid=19][err] AFBOOT code/willRunMainBundle[22m
+[2m  - [pid=19][err] AF_MAIN code/willCreateMainServices[22m
+[2m  - [pid=19][err] Warning: 'remote-debugging-port' is not in the list of known options, but still passed to Electron/Chromium.[22m
+[2m  - [pid=19][err] AF_MAIN code/didCreateMainServices[22m
+[2m  - [pid=19][err] AF_MAIN code/willInitMainServices[22m
+[2m  - [pid=19][err] AFBOOT code/didRunMainBundle[22m
+[2m  - [pid=19][err] [19:1029/160838.734310:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:[22m
+[2m  - [pid=19][err] [19:1029/160838.734416:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")[22m
+[2m  - <ws connected> ws://127.0.0.1:39851/devtools/browser/0ecd08b3-7fda-4426-8324-d7f417d0b1e1[22m
+[2m  - [pid=19][err] [19:1029/160838.738187:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:[22m
+[2m  - [pid=19][err] AF_MAIN code/didInitMainServices[22m
+[2m  - [pid=19][err] AF_MAIN code/willStartMainServer[22m
+[2m  - [pid=19][err] AF_CAUGHT EPERM listen EPERM: operation not permitted /tmp/af-probe-profile/1.14-main.sock[22m
+
+    at async /tmp/af-probe.cjs:9:7 {
+  name: 'TimeoutError'
+}

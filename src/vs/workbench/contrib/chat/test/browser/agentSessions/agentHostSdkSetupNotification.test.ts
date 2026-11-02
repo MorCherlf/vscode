@@ -75,6 +75,19 @@ suite('Agent SDK setup banner', () => {
 	suite('presentation', () => {
 		const claude: IAgentSdkSetupInfo = { agent: 'claude', download: 'notDownloaded', setupDocsUrl: 'https://example.test/claude' };
 
+		test('Agent First offers native connection setup without requiring GitHub', () => {
+			const notification = createAgentSdkSetupNotification({ ...claude, download: 'ready' }, 'Claude', 'noAccount', false, false, true);
+			assert.deepStrictEqual({
+				commands: commandIds(notification?.actions ?? []),
+				args: notification?.actions.map(action => action.kind === ChatInputNotificationActionKind.Command ? action.commandArgs : undefined),
+				description: notification?.description,
+			}, {
+				commands: ['sessions.configureNativeAgent'],
+				args: [['claude']],
+				description: 'Configure an API key and endpoint, or use the agent\'s existing local configuration.',
+			});
+		});
+
 		test('the download offer names the SDK, explains it, and carries a single Download button', () => {
 			const notification = createAgentSdkSetupNotification(claude, 'Claude', 'downloadOffered');
 

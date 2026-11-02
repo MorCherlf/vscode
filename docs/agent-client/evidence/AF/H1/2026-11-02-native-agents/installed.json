@@ -1,0 +1,21 @@
+{
+  "installedApp": "/Applications/VSC Agent Preview.app",
+  "source": "e4c411dfe715bd1f4349efae448cf31773851659",
+  "binary": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview",
+  "architecture": "/Applications/VSC Agent Preview.app/Contents/MacOS/VSC Agent Preview: Mach-O 64-bit executable arm64",
+  "productSha256": "de138dabd5ea6199969c7b6162c7147a1128d8db8537966de3795c24ad2a02bb",
+  "agentSdks": {
+    "claude": {
+      "version": "0.3.304",
+      "bundledPath": "agent-sdks/claude"
+    },
+    "codex": {
+      "version": "0.163.0",
+      "bundledPath": "agent-sdks/codex"
+    }
+  },
+  "adHocSignatureVerified": true,
+  "notarized": false,
+  "externalSymlinks": [],
+  "previousApp": "/Users/morcherlf/Developer/personal/VSCode/.build/native-agents-20261102/previous-recovery/VSC Agent Preview.app"
+}

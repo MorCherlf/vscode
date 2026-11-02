@@ -1,0 +1,85 @@
+{
+	"date": "2026-10-29",
+	"inputCommit": "7796b94fda73fb0498d9cc29cbb974ee32b764c9",
+	"scope": "API type seam and source/documentation audit only, not an installed VSIX or DSH/Agents Window runtime test.",
+	"command": [
+		".build/mac-toolchain/node-v24.22.1-darwin-arm64/bin/node",
+		"apps/agent-client/node_modules/typescript/bin/tsc",
+		"--project",
+		"docs/agent-client/feasibility/evidence/tsconfig.dsh-vscode-api-probe.json"
+	],
+	"exitCode": 0,
+	"compiler": "TypeScript 6.0.2",
+	"strict": true,
+	"skipLibCheck": false,
+	"declarationFiles": 186,
+	"probeSha256": "71860549e5492e15e9cae3f2421f20a638cb0432f085505073a18e5d41d1890f",
+	"configSha256": "b82d04150d30e0cc8bd342c2599cd74eb95df8aff8238a01fb90e42cad0b72d8",
+	"sources": [
+		{
+			"path": "src/vscode-dts/vscode.d.ts",
+			"sha256": "1fc60f012cdde89eceaf26cfe4401e9d0862d9d38062115224fee1564e6ee774"
+		},
+		{
+			"path": "src/vscode-dts/vscode.proposed.chatSessionsProvider.d.ts",
+			"sha256": "b03485badd63aac4dba7642b01245f1d4a5d87db8087ff3f7d1d6a2cb0c35104"
+		},
+		{
+			"path": "src/vs/workbench/api/common/extHost.api.impl.ts",
+			"sha256": "6d29aac6f164d9c71ed26d23c9573529347daa5e2dda47c4b8e4b7e73ca49880"
+		},
+		{
+			"path": "src/vs/workbench/services/extensions/common/extensionsProposedApi.ts",
+			"sha256": "1143fc9a3e04c1b1738e16eceb3636d8fc1894ee646f8b2a3e3346cc3bb083fd"
+		},
+		{
+			"path": "src/vs/workbench/services/extensions/common/extensionManifestPropertiesService.ts",
+			"sha256": "0120d9854a5d28aceb3fece7d5bd326ba5e814b8489eb49a6cbbb634b9618cef"
+		},
+		{
+			"path": "src/vs/sessions/sessions.common.main.ts",
+			"sha256": "41290d663630fb86ef0ab326b3995062a48db1189c5e5362232b401527fbd514"
+		},
+		{
+			"path": "src/vs/sessions/SESSIONS.md",
+			"sha256": "d7bf1a34fbc1a6867e7c18b55fa991002b7d23b3299804b32476a5e91af0a1bd"
+		},
+		{
+			"path": "src/vs/sessions/contrib/providers/copilotChatSessions/COPILOT_CHAT_SESSIONS_PROVIDER.md",
+			"sha256": "26451d69ee9ee9f1dfc1976f7490c0623304b7ab89a1d0a827a1768149c93d0a"
+		},
+		{
+			"path": "src/vs/sessions/contrib/providers/copilotChatSessions/browser/copilotChatSessions.contribution.ts",
+			"sha256": "4527914641ad37cd6dbf3c6e7b4ee8483478cec1ae9765f5f234aaa1c4619dac"
+		},
+		{
+			"path": "extensions/copilot/src/extension/chatSessions/vscode-node/chatSessions.ts",
+			"sha256": "6b47b1b9522c3ec189e8d1aac987a78ffc1e7189773376f12e3ea0ec3a366872"
+		}
+	],
+	"markdownFilesChecked": 11,
+	"localLinksChecked": 121,
+	"errors": [],
+	"runtimeTestsExecuted": false,
+	"pending": [
+		"Product proposed API enablement and runtime activation",
+		"Generic extension sessions projected into original Agents Window",
+		"Actual DSH process/plugins, approvals, cancellation and restore",
+		"Editor-only activation and module-load negative fixtures",
+		"Independent VSC and DSH upgrade/rollback"
+	],
+	"webSources": [
+		{
+			"url": "https://code.visualstudio.com/api/advanced-topics/using-proposed-api",
+			"retrievedDate": "2026-10-29"
+		},
+		{
+			"url": "https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview",
+			"retrievedDate": "2026-10-29"
+		},
+		{
+			"url": "https://github.com/deepseek-ai/deepseek-harness/blob/f3803c96974ad4a94195fb97e5c637e9c2a3afe3/packages/sdk/client/README.md",
+			"retrievedDate": "2026-10-29"
+		}
+	]
+}

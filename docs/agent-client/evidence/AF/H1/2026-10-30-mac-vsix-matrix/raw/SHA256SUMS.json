@@ -1,0 +1,20 @@
+{
+  "README.md": "7adcd5d86bb94df267083c8a57e7dc76ffda27390c95fb380de30d54ffd26e88",
+  "fixtures/h1-native-fixture.dependent-0.0.1.vsix": "aafef1e027319dd9289b67377af767e392d9c3842cd9ffa17aa6ea38bc2cff05",
+  "fixtures/h1-native-fixture.editor-only-0.0.1.vsix": "e7c95054e3d855232308efc382e0c070d344b7ea911f779fdac47d410b93e86a",
+  "fixtures/h1-native-fixture.mixed-0.0.1.vsix": "40f1d265ad4d2b8d11935833cbcfd4b3160ccf3e900252a0bee2305694bda7a9",
+  "fixtures/sources/dependent/extension.cjs": "0faf6566304af25d92694678ab4f74f90a990ea98fce9096d554af6dfbfe0625",
+  "fixtures/sources/dependent/package.json": "d39350f15ddd42ef0370e2348b1974c3e1ca694e1f8a7b6a8d05f27ae0809ee2",
+  "fixtures/sources/development-only/extension.cjs": "160b957947c4c22527f2bc19d52ec5ff7d283050322b8f80033964bac48c436d",
+  "fixtures/sources/development-only/package.json": "67996dcc80645bd29be8deb5c3b1a0191875dd6699e9b97bb22a55e7cf492765",
+  "fixtures/sources/editor-only/extension.cjs": "3ad5af63f992e38e29c37e36895358f8d845b4937001f92715f195da0d66077a",
+  "fixtures/sources/editor-only/package.json": "81c8be12b354b13baec38e6b693e638914151121750e045a440f4379704f0952",
+  "fixtures/sources/mixed/extension.cjs": "3b6ffbe1b7b9756c92673fcd9396de8e3e234ffe80c319d46d92a20a0ea1225a",
+  "fixtures/sources/mixed/package.json": "eeaa7a8501d04d7a1d6d7919d854e0fd1c5487df717969a0b4a59a436893e00a",
+  "raw/development-result.json": "1ee1fe0f3d2b93a6c5f2f0977797dba4fdafa4a8ac5ee5c0e453cfcce953f0c9",
+  "raw/initial-controller-error.json": "60ebcef9cde8bc1820f116f3726e79bc2e5190896c16945c9c1486998fba9cac",
+  "raw/native-vsix-controller.mjs": "13cd3bd4168ee7664358ba5f8e6835e47e3f5c76d1a6e990fe5517afcf326653",
+  "raw/result.json": "b5d4ae14792763d9ac3906b5491649689a70d079d3554710a3915f919b03bdb3",
+  "screenshots/native-vsix-negative.png": "17922abc173c044a3af1640d62274fdbceacfd3a35cfc6b7eec856bb6aa7a68e",
+  "validation.json": "c23445f7a642aedc7154e46b382db82897b7ad0df8a8d025ec93642c6f4c618c"
+}

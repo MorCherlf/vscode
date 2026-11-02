@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/dsh-runtime@0.1.0 test
+> node --test test/*.test.mjs
+
+✔ fixture: concurrent creation serializes durable projections (16.423294ms)
+✔ fixture: runtime owns execution and original session resume is requested on restore (4.906019ms)
+✔ fixture: unknown side effect is not replayed, including after restart (3.269721ms)
+✔ fixture: busy session rejects duplicate; cancelling never kills shared harness (3.668172ms)
+✔ fixture: initialization is single-flight; unsupported config is explicit (1.244357ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.05665

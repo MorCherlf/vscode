@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @morcherlf/agent-host@0.1.0 build:test
+> node scripts/build.mjs --test
+
+{"output":"/workspace/scratch/11910be6d76c/vscode/packages/agent-host/dist-test","modules":1036,"dependencies":62,"bytes":497857503}
