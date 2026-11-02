@@ -37,6 +37,7 @@ export async function prepareBundledAgentSdks(platform: string, arch: string, ap
 		}
 		const destination = path.join(appRoot, 'agent-sdks', sdk);
 		fs.mkdirSync(path.dirname(destination), { recursive: true });
-		fs.cpSync(cached, destination, { recursive: true, force: true });
+		// npm's relative .bin links must remain portable; cp otherwise rewrites them to cache paths.
+		fs.cpSync(cached, destination, { recursive: true, force: true, verbatimSymlinks: true });
 	}
 }
