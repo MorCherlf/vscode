@@ -1,0 +1,650 @@
+Found --crash-reporter-directory argument. Setting crashDumps directory to be '/Users/morcherlf/Developer/personal/VSCode/.build/crashes'
+(node:24450) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `Code - OSS Helper (Renderer) --trace-deprecation ...` to show where the warning was created)
+(node:24450) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.
+(node:24450) ExperimentalWarning: WASI is an experimental feature and might change at any time
+
+
+  Tests are using suiteSetup and setup correctly
+    ✔ assertCleanState - check that registries are clean at the start of test running
+
+  Native agent configuration
+    ✔ normalizes a configured endpoint and keeps local configuration free of app credentials
+    ✔ rejects malformed connections without echoing keys into diagnostics
+    ✔ recognizes only the two native configuration resources
+
+  CodexLaunchConfig
+    ✔ native API keys use a separate environment key and never enter argv
+    ✔ adds the Copilot proxy and enforces telemetry overrides after extra arguments
+    ✔ routes traces to loopback and logs/metrics directly to the external sink
+    ✔ keeps gRPC signal endpoints unchanged and uses decoded headers
+    ✔ adds client skill read access without overriding the profiles existing restrictions
+    ✔ defines workspace-scoped permission profiles after extra arguments
+    ✔ keeps the Linux runtime readable through inherited skill profiles without granting SDK directory access
+    ✔ clears the service tier only for the Copilot provider
+    ✔ resume explicitly binds each session model and provider
+
+  claudeSdkOptions / buildSubprocessEnv
+    ✔ strips unsafe variables and forwards home paths in proxy mode
+    ✔ maps Agent Host traces to loopback and logs/metrics to the external sink
+    ✔ keeps gRPC signal endpoints unchanged
+    ✔ always sets ELECTRON_RUN_AS_NODE=1 even when not present in process.env
+    ✔ native mode (proxied=false) inherits auth vars + PATH (SDK replace semantics) while still stripping VSCODE_*/ELECTRON_*/NODE_OPTIONS
+
+  claudeSdkOptions / MCP server projection
+    ✔ keeps primary stdio and all remote servers while skipping additional-root stdio
+
+  claudeSdkOptions / buildOptions plugins projection
+    ✔ non-empty plugins project without duplicate SDK MCP discovery
+    ✔ empty plugins array omits Options.plugins
+    ✔ undefined plugins omits Options.plugins
+    ✔ projects denied workspace MCP servers into startup settings
+    ✔ UserPromptSubmit adds transient host context
+    ✔ PreToolUse projects a host runtime restriction
+    ✔ explicit native API credentials use the configured endpoint and private state
+    ✔ proxy transport sets ANTHROPIC_BASE_URL + per-session ANTHROPIC_AUTH_TOKEN
+    ✔ native transport omits ANTHROPIC_BASE_URL/ANTHROPIC_AUTH_TOKEN (subprocess env carries the user credentials)
+
+  claudeSdkOptions / buildOptions resumeSessionAt projection
+    ✔ resume + resumeSessionAt projects onto Options.resume and Options.resumeSessionAt
+    ✔ resume without resumeSessionAt omits Options.resumeSessionAt
+    ✔ non-resume startup never carries resumeSessionAt even when provided
+
+  claudeSdkOptions / buildOptions additionalDirectories projection
+    ✔ projects cwd from the primary and additionalDirectories from the tail
+    ✔ empty additionalDirectories omits Options.additionalDirectories
+    ✔ undefined additionalDirectories omits Options.additionalDirectories
+
+  resolveSdkTarget
+    ✔ returns <platform>-<arch> for supported (platform, arch)
+    ✔ appends -musl on musl Linux iff the package has separate musl SKUs
+    ✔ returns undefined for unsupported (platform, arch)
+
+  AgentSdkDownloader
+    ✔ bundled SDK resolution is offline and requires a completed installation
+    ✔ bundled paths cannot escape the installed application
+    ✔ isAvailable: false when no env override and no product config
+    ✔ isAvailable: true when env override set
+    ✔ isAvailable: true when product config populated and host has a target
+    ✔ loadSdkRoot: dev override returns the path unchanged
+(node:24450) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+    ✔ resolveInstalledSdkRoot never downloads on a cold or removed cache (38ms)
+    ✔ resolveInstalledSdkRoot uses the configured local SDK
+    ✔ loadSdkRoot: substitutes {sdkTarget} into urlTemplate
+    ✔ loadSdkRoot: cache miss → downloads, extracts, writes sentinel
+    ✔ loadSdkRoot: reports monotonic download progress ending at totalBytes
+    ✔ loadSdkRoot: counts only the endpoints of a download, with the time it took
+    ✔ loadSdkRoot: a failed download reports its bucket, never the raw cause (308ms)
+    ✔ loadSdkRoot: marks progress explicitly requested by a user-initiated flow
+    ✔ loadSdkRoot: a user asking by hand retries through the negative cache (627ms)
+    ✔ loadSdkRoot: cache hit returns immediately without re-downloading
+    ✔ download consent persists in host storage without an SDK cache
+    ✔ loadSdkRoot: cache dir includes sdkTarget so Universal launches stay separate
+    ✔ loadSdkRoot: missing product config and no env override throws actionable error
+    ✔ loadSdkRoot: urlTemplate with unknown placeholder throws config error
+    ✔ loadSdkRoot: cancel before download completes cleans up scratch dir (56ms)
+    ✔ loadSdkRoot: concurrent calls in same process share one download
+    ✔ loadSdkRoot: rename-loser path returns existing cache when winner already published
+    ✔ loadSdkRoot records its use so that other processes keep the version
+
+  agentHostMcpServerId
+    ✔ is stable for the same authority, server name and resource url
+    ✔ differs when authority, name or url differ
+
+  resolveSessionForResource
+    ✔ returns undefined when no authorization servers provided
+    ✔ returns undefined when no provider matches the server
+    ✔ returns token from exact scope match
+    ✔ falls back to narrowest superset session when exact match fails
+    ✔ returns undefined when no session has matching scopes
+    ✔ tries multiple authorization servers in order
+
+  selectAuthenticationSession
+    ✔ selects by account preference and sole-account fallback
+
+  AgentHostAuthTokenCache
+    ✔ forwards the first token and skips it after completion
+    ✔ tracks identical MCP tokens independently by host session and customization id
+    ✔ preserves entitlement hints when waiting for an earlier same-token authentication
+    ✔ same-token callers await the in-flight authentication
+    ✔ forwards changed account provenance even when the token is unchanged
+    ✔ different tokens are serialized for the same resource and scopes
+    ✔ a completed token waits for a newer in-flight authentication
+    ✔ clear cancels queued authentication from the previous generation
+    ✔ scoped clear does not cancel unrelated in-flight authentication
+    ✔ tokens for distinct scopes and resources are tracked independently
+    ✔ failed authentication is not cached
+    ✔ clear forgets every completed token
+
+  AgentHostAuthenticationRecovery
+    ✔ cancels recovery when its enablement generation becomes stale
+    ✔ force-forwards the post-sign-in token when session-change handling repopulates the cache
+    ✔ tries a broader matching session once before prompting again
+    ✔ defers when the quarantined replacement cannot be resolved yet
+    ✔ prompts when the broader session is removed after replacing a rejected exact session
+    ✔ does not switch accounts without interactive sign-in
+    ✔ does not forward credential removal and resets escalation when the current token disappears
+
+  AgentHost authentication telemetry
+    ✔ reports the recovery decisions and cancelled sign-in without session data
+    ✔ reports one decision for concurrent challenges
+    ✔ does not emit recovery telemetry for ordinary background authentication
+    ✔ distinguishes provider unavailability from missing sessions
+    ✔ reports session creation without counting repeated cached forwards
+    ✔ reports the actual scopes when a scoped lookup returns a broader session
+    ✔ reports sign-in credential selection: unchanged
+    ✔ reports sign-in credential selection: exact
+    ✔ reports sign-in credential selection: superset
+    ✔ reports sign-in setupFailure without hiding errors or claiming authentication success
+    ✔ reports sign-in forwardFailure without hiding errors or claiming authentication success
+    ✔ reports sign-in superseded without hiding errors or claiming authentication success
+    ✔ reports sign-in noSession without hiding errors or claiming authentication success
+    ✔ reports sign-in providerUnavailable without hiding errors or claiming authentication success
+    ✔ reports sign-in noPreviousCredential without hiding errors or claiming authentication success
+    ✔ reports sign-in deduplicated without hiding errors or claiming authentication success
+
+  autoAuthenticateMcpServer
+    ✔ reuses remembered server access silently and pushes tokens only when allowed
+    ✔ forwards an MCP token for a GitHub MCP step-up challenge that echoes the Copilot Connector scope
+
+  resolveMcpServerAuthentication
+    ✔ discovers legacy MCP authentication with interaction false
+    ✔ discovers legacy MCP authentication with interaction true
+    ✔ discovers root MCP authentication with interaction false
+    ✔ discovers root MCP authentication with interaction true
+    ✔ protected resource discovery failures stay silent without forwarding a token
+    ✔ protected resource discovery failures propagate interactively without forwarding a token
+    ✔ metadata failure with interaction false, fallback none and cancellation false
+    ✔ metadata failure with interaction true, fallback none and cancellation false
+    ✔ metadata failure with interaction false, fallback succeeds and cancellation false
+    ✔ metadata failure with interaction true, fallback succeeds and cancellation false
+    ✔ metadata failure with interaction true, fallback fails and cancellation false
+    ✔ metadata failure with interaction true, fallback succeeds and cancellation true
+    ✔ provider failure with interaction false, fallback none and cancellation false
+    ✔ provider failure with interaction true, fallback none and cancellation false
+    ✔ provider failure with interaction false, fallback succeeds and cancellation false
+    ✔ provider failure with interaction true, fallback succeeds and cancellation false
+    ✔ provider failure with interaction true, fallback fails and cancellation false
+    ✔ provider failure with interaction true, fallback succeeds and cancellation true
+    ✔ preserves OAuth context when selecting an account
+    ✔ uses challenge scopes without replacing the protected resource scope catalog
+    ✔ uses supported scopes when the challenge does not specify scopes
+    ✔ does not eagerly request GitHub MCP supported scopes
+    ✔ does not create a dynamic provider silently without a persisted registration
+    ✔ fetches authorization server metadata through the request service
+    ✔ restores a persisted dynamically registered provider without user interaction
+    ✔ serializes authentication for the same OAuth client with distinct host-advertised targets
+    ✔ isolates static OAuth clients sharing a resource with none legacy registration
+    ✔ isolates static OAuth clients sharing a resource with matching legacy registration
+    ✔ isolates static OAuth clients sharing a resource with different-secret legacy registration
+    ✔ restores a persisted configured provider without user interaction
+    ✔ keeps configured public and confidential clients separate when a client secret changes
+
+  modelRequiresAgentAuthentication
+    ✔ bypasses required agent auth only for an advertised BYOK model
+
+  authenticateProtectedResources
+    ✔ generic account forwarding and revocation leave native agent credentials untouched
+    ✔ provider-level protected resource authentication does not include an MCP target
+    ✔ a rejected token does not keep the harness off the default account
+    ✔ keeps the default account and its entitlement while a refreshed session replaces the default session
+    ✔ follows the default account across account switches and sign-in
+    ✔ forwards same-account entitlement changes when default account uses session
+    ✔ forwards same-account entitlement changes when default account uses connector-session
+    ✔ forwards selected account provenance without changing the host resource
+    ✔ connector-scoped authentication preference is experiment gated: undefined
+    ✔ connector-scoped authentication preference is experiment gated: false
+    ✔ connector-scoped authentication preference is experiment gated: true
+    ✔ Copilot Connector credential stays on the default session until a session grants every Copilot and Connector scope
+    ✔ never downgrades the forwarded Copilot credential to a Connector session with fewer scopes
+    ✔ forwards the Connector session that Connector authorization creates for a narrow default session
+    ✔ Copilot Connector credential stays on the authorized account when another account is returned first
+    ✔ a connector authorization upgrade replaces the token forwarded to a running agent host
+    ✔ connector preference retains usable Copilot authentication for other-account
+    ✔ connector preference retains usable Copilot authentication for missing-base-scope
+    ✔ connector preference retains usable Copilot authentication for rejected
+    ✔ connector preference retains usable Copilot authentication for lookup-failed
+    ✔ skips authenticate when the cached token is unchanged
+    ✔ allows a newly signed-in account after removing a quarantined session
+    ✔ cancels a background lookup that returns a token quarantined while it was pending
+    ✔ forwards a token without a malformed session expiry
+    ✔ does not infer credential removal when a previously available token disappears
+    ✔ does not clear shared authentication while the provider is not ready
+    ✔ clears shared authentication after an explicit session removal
+    ✔ forwards the surviving token instead of revoking when another account remains
+    ✔ leaves resources the removed session could not satisfy untouched
+    ✔ repairs host authentication after an external clear without replacing the cache
+
+  resolveAuthenticationInteractively
+    ✔ explicit recovery opens product sign-in without an existing session
+    ✔ explicit recovery opens product sign-in even with a refused existing session
+    ✔ explicit recovery can be retried after cancellation without forwarding a credential
+    ✔ explicit recovery cannot forward credentials after its connection becomes stale
+    ✔ uses an existing token before prompting and dedupes repeated checks
+    ✔ uses a non-rejected existing session before prompting
+    ✔ uses the product sign-in flow and forwards its token
+    ✔ does not fall back to direct provider login when product sign-in is canceled
+    ✔ propagates product sign-in failures
+
+  Agent SDK setup banner
+    state
+      ✔ signed-out user with no SDK is offered the download
+      ✔ standing consent waits quietly for the SDK to be used
+      ✔ a fetch in flight has nothing to ask for, since the host shows its own progress
+      ✔ a request the host has not answered yet is not a fresh offer
+      ✔ SDK on disk reporting no models means no account
+      ✔ models are the honest end state, whatever the status says
+      ✔ nothing shows until entitlement settles, since "signed out" is not yet a fact
+      ✔ the missing-account explanation stays behind its flag
+      ✔ a signed-in user is never told they have no account
+      ✔ a signed-in user can be offered an unresolved agent-owned account
+      ✔ an agent-owned account is not guessed while discovery is unresolved
+      ✔ an agent-owned account with no models is not called signed out
+      ✔ a signed-in user mid-download is still shown nothing
+      ✔ a signed-in user is offered the download too
+      ✔ having models does not hide the download
+      ✔ the download offer does not wait for entitlement
+      ✔ the download offer is not behind the signed-out flag
+    presentation
+      ✔ Agent First offers native connection setup without requiring GitHub
+      ✔ the download offer names the SDK, explains it, and carries a single Download button
+      ✔ models add the send-a-message option without changing the Download action
+      ✔ every noun comes from the agent, so a second agent needs no entry here
+      ✔ a missing account offers every route the agent declared, GitHub sign-in last
+      ✔ every button is addressed to the agent, and the sign-in one is labelled by its provider
+      ✔ an already signed-in GitHub user is only offered the agent-owned route
+      ✔ the routes named in the copy are the ones the agent declared, ranked as the buttons rank them
+      ✔ a name carrying markdown is escaped, so the host cannot forge a third link
+      ✔ the copy is trusted for its own two commands alone, so its links render and reach nothing else
+      ✔ the banner cannot be dismissed, since it is the only route to a working agent
+      ✔ nothing is rendered once the user is set up, or for an agent the host has not named yet
+    model availability
+      ✔ explains download-on-use when models are already available
+      ✔ updates the visible offer when models for its agent appear and disappear
+    display names
+      ✔ reads each agent name the host published, and skips what it did not
+      ✔ a host that has not reported, or failed, names nobody
+    activation reachability
+      ✔ an advertised setup is found for its session type and only that one
+      ✔ no advertised setup leaves the harness gated
+    funnel
+      ✔ first sight of the offer counts
+      ✔ an SDK that found no account is where users get stuck
+      ✔ a stuck user who then has models is the conversion
+      ✔ a re-render, or a failed download returning to the offer, is not a second offer
+      ✔ a conversion is not re-counted on every later render
+      ✔ a fetch in flight, or giving up, moves the user nowhere
+      ✔ a user this feature was never for is not a convert
+
+  CodexAgent
+    ✔ ignores guardian review outcome warnings handled by structured events
+    ✔ surfaces guardian turn-interruption warnings
+    ✔ surfaces terminal guardian review failures once on their current turn
+    ✔ targeted MCP tokens and revocation affect only one server in one owning session
+    ✔ GitHub MCP injection respects unowned server enablement
+    ✔ Agent Merge turns omit only GitHub MCP servers
+    ✔ clears GitHub MCP credentials when the GitHub endpoint changes
+    ✔ rebinds initial ambient startup before replaying native configuration
+    ✔ native replay does not replace an active turn or an already configured connection
+    ✔ does not commit stale GitHub authentication after an endpoint change
+    ✔ does not treat a transient host configuration scope as a chat backing
+    ✔ resolves a bound conversation URI from the recorded session binding
+    ✔ resolution uses only a recorded binding
+    ✔ creates MCP customization state only after a concrete chat is bound
+    ✔ routes MCP requests only to the exact bound chat
+    ✔ listChatsToMigrate returns only known Codex chats without provenance
+    ✔ activated discovery classifies known Codex chats as internal and unknown chats as external
+    steering input correlation
+      ✔ matches plain steering and ignores duplicate echoes
+      ✔ defers steering until the app-server turn is ready without consuming the input
+      ✔ correlates identical steering messages and duplicate echoes by submission ID
+      ✔ matches expanded browser context while preserving the original UI message
+      ✔ distinguishes equal prompts with different attachments and out-of-order echoes
+      ✔ unrelated and duplicate echoes leave other pending steering untouched
+      ✔ matches the captured transport input without resolving mutated attachment context again
+
+  ClaudeAgent
+    ✔ startup telemetry counts all SDK sessions before migration filtering
+    ✔ startup telemetry captures a missing Claude SDK without downloading it or replacing the initial snapshot
+    ✔ startup telemetry records a processed Claude result with 0 candidates after provider publication
+    ✔ startup telemetry records a processed Claude result with 2 candidates after provider publication
+    ✔ startup telemetry distinguishes deferred Claude discovery from its late empty result
+    ✔ startup telemetry records a late Claude result even after discovery scan sampling is exhausted
+    ✔ getDescriptor advertises the Claude provider
+    ✔ setWorkingDirectory rejects because Claude does not advertise workspace conversion
+    ✔ advertises multipleWorkingDirectories by default
+    ✔ selects provider-native autonomous session config and respects policy
+    ✔ getProtectedResources returns the GitHub resource
+    ✔ enterprise: getProtectedResources + authenticate use the computed enterprise resource
+    ✔ models observable is empty before authenticate
+    ✔ fromSdkModelInfo projects ModelInfo without commercial metadata and reuses the effort schema
+    ✔ signed-in probe flips inferred-native to proxy (allowSignedOutWhenUsable)
+    ✔ coalesces concurrent refreshModels calls onto one CAPI models request
+    ✔ keeps the last known-good models only when every attempted source fails
+    ✔ clears models when enumeration for a replacement token fails
+    ✔ first sign-in keeps the native catalog published while the proxy catalog enumerates
+    ✔ signed out with an SDK-reported account: models populate from supportedModels() with no proxy start and no CAPI models() call
+    ✔ the SDK default alias row is dropped from the native catalog
+    ✔ an SDK account report of "nothing configured" publishes an empty catalog instead of the SDK static list
+    ✔ native model enumeration closes the throwaway query (no leaked subprocess)
+    ✔ native-default authenticate still starts the proxy so Copilot-routed models can run
+    ✔ a host-default transport flip no longer proactively demands auth (sign-in defers to first send)
+    ✔ construction in proxy mode does not emit auth/required
+    ✔ re-authenticating an unchanged token starts the proxy when a prior start left no handle
+    ✔ createChat before authenticate throws ProtocolError(AHP_AUTH_REQUIRED) with protected resources
+    ✔ enterprise endpoint changes retire Claude proxy credentials (pending authentication: false)
+    ✔ enterprise endpoint changes retire Claude proxy credentials (pending authentication: true)
+    ✔ authenticate populates models filtered to Claude family
+    ✔ authenticate populates full pricing metadata from billing tokenPrices
+    ✔ authenticate surfaces the CAPI chat-default model first; ties preserve insertion order
+    ✔ authenticate sources configSchema enum from each model's reasoning_effort list (Phase 6.1 / Cycle D3 / I5)
+    ✔ authenticate rejects non-GitHub resources without disturbing state
+    ✔ authenticate with the same token does not restart the proxy
+    ✔ authenticate with a different token restarts the proxy and disposes the old handle
+    ✔ an older proxy startup cannot replace a newer authentication on the same endpoint
+    ✔ revoking authentication disposes the Copilot proxy and clears its models
+    ✔ authenticate retries proxy startup after a transient failure
+    ✔ model filter excludes non-Claude entries
+    ✔ AgentSession URI helpers round-trip the claude scheme
+    ✔ dispose disposes the proxy handle and is idempotent
+    ✔ phase-stub graduation: abortSession + changeModel no longer throw
+    ✔ AgentService surfaces the registered ClaudeAgent in the providers map
+    ✔ stale model writes from an old token are dropped
+    ✔ createChat (non-fork) mints a claude:/<uuid> backing with provisional: true; no DB or SDK contact
+    ✔ createChat without a workingDirectory materializes in a shared scratch dir (workspace-less quick chat)
+    ✔ createProvisional creates a session without SDK startup contact
+    ✔ pipeline methods throw before materialize on provisional sessions
+    ✔ resume keeps the existing overlay model (materialize does not clobber on isResume)
+    ✔ captures the baseline checkpoint on fresh materialize but not on resume (parity with Copilot)
+    ✔ createChat honors the host-minted session URI
+    ✔ standard host sessions retain their address and an independent Claude backing ID
+    ✔ createChat({ fork }) forks at the anchor uuid, then materializes lazily on first sendMessage
+    ✔ createChat({ fork }) ignores requested working directories and inherits the live source set
+    ✔ createChat({ fork }) at the last turn anchors on that turn's assistant
+    ✔ truncateChat(turnId) resolves the anchor, restarts at it on the same id, and prunes the DB
+    ✔ truncateChat cold-resumes an unloaded chat, then applies the anchor on the next turn
+    ✔ truncateChat throws when the turn is not in the transcript
+    ✔ truncateChat on a provisional chat is a no-op
+    ✔ truncateChat() with no turnId clears the chat in place (deleteSession + fresh same id)
+    ✔ truncateChat() with no turnId awaits the live query teardown (subprocess exit) before deleteSession
+    ✔ truncateChat() with no turnId on an unloaded chat deletes + recreates fresh on the same id, preserving the overlay
+    ✔ createChat({ fork }) inherits the source permissionMode overlay
+    ✔ createChat({ fork }) with a create-config model override persists it on the fork
+    ✔ createChat({ fork }) falls back to a fresh conversation when the turnId is not in the transcript
+    ✔ createChat({ fork }) rejects when the forked session has no working directory
+    ✔ createChat({ fork }) does not classify an unbound source chat by URI shape
+    ✔ createChat({ fork }) falls back to a fresh conversation for a provisional/never-sent source
+    ✔ first sendMessage on a provisional session materializes it (single startup, single materialize event)
+    ✔ multi-root session passes additionalDirectories to the SDK and emits the full resolved set
+    ✔ consecutive send snapshots replace secondary roots before the next prompt
+    ✔ identical consecutive send snapshots do not rebuild the Claude query
+    ✔ a queued send applies changed roots only after the active turn completes
+    ✔ an unloaded single-root session accepts its first secondary root
+    ✔ failed secondary-root rebuild blocks the prompt and retries on the next send
+    ✔ failed applied-root persistence disposes the rebuilt Claude query
+    ✔ multi-root session discovers and retains customizations from an additional directory
+    ✔ cold resume recovers the additional directories from the persisted overlay
+    ✔ cold resume prefers the complete send snapshot over the persisted root seed
+    ✔ getChatMetadata hydrates the additional directories from the persisted overlay
+    ✔ a forked peer chat inherits the parent session additional directories
+    ✔ a live peer chat replaces roots from each complete send snapshot
+    ✔ a forked peer chat inherits its never-materialized parent's explicit model
+    ✔ materializing in a worktree reanchors customization discovery (315ms)
+    ✔ materialize resolves the SDK agent name from the file frontmatter, not the filename
+    ✔ materialize resolves a built-in (claude-internal) agent selection to its name
+    ✔ materialize event payload includes the exact chat resource
+    ✔ createChat model + config.permissionMode flow into Options on first send (M11 / Phase 6.1 C2)
+    ✔ createChat model.config.thinkingLevel flows into Options.effort on first send (M11 / Phase 6.1 C2)
+    ✔ two sendMessage calls reuse the materialized Query
+    ✔ text content_block emits ChatResponsePart(Markdown) before ChatDelta
+    ✔ thinking content_block emits ChatResponsePart(Reasoning) before ChatReasoning
+    ✔ result emits ChatUsage immediately before ChatTurnComplete
+    ✔ proxy credit reports are summed and attached to the turn ChatUsage as copilotUsage
+    ✔ multiple text blocks each get a distinct partId; deltas route correctly
+    ✔ canonical SDKAssistantMessage with tool_use content drops silently (partial stream owns ChatToolCallStart)
+    ✔ D3: subagent spawn mirrors onto onDidSpawnChat while the subagent signals still flow
+    ✔ D3: subagent spawn follows the current owner chat format
+    ✔ canonical SDKAssistantMessage with text content does not double-emit signals already produced by stream_event partials (Phase 6.1 / Cycle F)
+    ✔ _isResumed flips on first system:init
+    ✔ tearing a materialized session down aborts the controller and rejects the in-flight send
+    ✔ teardown racing _writeCustomizationDirectory does not orphan the materialized session (C1)
+    ✔ disposing a provisional session never calls SDK startup and removes the record
+    ✔ sendMessage on a disk-only session (created in another window) resumes from disk
+    ✔ sendMessage on a disk-only session whose SDK record is missing throws "unknown session"
+    ✔ resumed session keeps overlay-derived permissionMode on turn 2 (no silent flip to default)
+    ✔ configuration events forward a mid-turn picker change and revert to the fallback when the key is deleted (issue #321691)
+    ✔ shutdown drains a mix of provisional and materialized sessions
+    ✔ mapper throwing on a malformed stream_event is logged and the turn continues
+    ✔ sendMessage tags SDKUserMessage.uuid with the effective turn id (M1 / Turn.id ↔ uuid invariant)
+    ✔ attachments (File and Directory) become a system-reminder block on the user message
+    ✔ selection attachments become URI references with line suffixes
+    ✔ simple attachments use their model representation as context
+    ✔ agent feedback annotations attachments reference the attached comment ids
+    ✔ shutdown resolves without throwing
+    ✔ tearing down a chat of an unknown session is a safe no-op
+    ✔ shutdown clears provisional sessions; a concurrent chat teardown is safe
+    ✔ tearing a session down removes the wrapper but does NOT delete the SDK or DB session
+    ✔ chats.getMessages returns an empty transcript for a chat with no backing
+    ✔ native catalog returns every SDK entry while migration returns known sessions
+    ✔ native discovery emits only unknown Claude Code chats as external
+    ✔ external chat discovery tolerates a corrupt DB without poisoning the rest of the listing
+    ✔ external chat discovery returns undefined (cannot enumerate yet) when the SDK fails to load
+    ✔ getChatMetadata joins SDK info with sidecar overlay, returns SDK-only fields for external sessions, and undefined for unknown ids (Phase 6.1 / Cycle D4 / I7)
+    ✔ getChatMetadata resolves a registered AH session through its exact default-chat backing
+    ✔ restoring chat history downloads a cold SDK while passive metadata and discovery stay cold
+    ✔ shutdown is idempotent and returns the same memoized promise on concurrent calls
+    ✔ ClaudeAgentSdkService caches the resolved module and logs the first load failure exactly once
+    ✔ ClaudeAgentSdkService forwards listSubagents + getSubagentMessages to the underlying bindings (Phase 12 step 2)
+    ✔ resolveChatConfig returns Claude-native permissionMode + reused Permissions schema
+    ✔ a chat may set its own permission mode and tool permissions
+    ✔ chatConfigCompletions returns no items (permissionMode is a static enum)
+    ✔ dispose releases the proxy handle even with no materialized sessions
+    ✔ agent.dispose() during a racing first sendMessage aborts the provisional and disposes the WarmQuery
+    ✔ onClientToolCallComplete is a benign no-op for an unknown toolCallId (Phase 10)
+    ✔ setClientTools registers tools that flow into Options.mcpServers on first materialize
+    ✔ setClientTools after materialize triggers yield-restart on next sendMessage with the new tool set
+    ✔ a pending truncation anchor reaches the next rebuild as Options.resumeSessionAt, consumed once
+    ✔ the truncation anchor is applied exactly once and not leaked to later rebuilds
+    ✔ a rebuild that fails after reading the anchor keeps it staged so the next send retries the truncation
+    ✔ truncateToTurn / pruneAllTurns reach the session database
+    ✔ setClientTools with an equal snapshot does NOT restart
+    ✔ setClientTools on an unknown chat is silently dropped
+    ✔ onClientToolCallComplete resolves the parked deferred keyed by tool_use_id
+    ✔ onClientToolCallComplete walks subagent URIs to the root session
+    ✔ chat teardown rejects every parked client-tool call with CancellationError
+    ✔ FakeQuery.setMcpServers stays unmodeled (Phase 10 never calls Query.setMcpServers for client tools)
+    ✔ setClientTools landing during the materialize gap is re-synced into the live session
+    ✔ setClientTools landing during the resume bootstrap gap is re-synced into the live session
+    ✔ rebind failure leaves the client-tool diff dirty so the next send retries
+
+  ClaudeAgent — agent SDK setup channel
+    ✔ an SDK already on disk publishes `ready` plus the docs URL the banner links to
+    ✔ a cold cache publishes `notDownloaded`, which is what turns the banner into an offer
+    ✔ an explicit download fetches the SDK, holds progress interest for the fetch, and ends at `ready`
+    ✔ a download that lands stays `downloading` until the catalog does, so the banner never flashes "no account"
+    ✔ the request key is cleared as it is consumed, so an identical later press still lands
+    ✔ a request addressed to another agent is ignored
+    ✔ a failed download releases the progress interest and stops claiming to be downloading
+    ✔ chat discovery waits for the SDK rather than fetching it, and runs again once it lands
+    ✔ a reload re-asks the SDK for the account the user set up elsewhere, fetching nothing
+    ✔ a reload addressed to another agent is ignored
+
+  ClaudeAgent — per-session provider
+    ✔ a cross-transport model switch defers, then rebuilds on the new (native) transport at the next send (US 11)
+    ✔ a same-transport model change still hot-swaps the live query (no rebuild)
+    ✔ a switch during an in-flight turn leaves it untouched; the rebuild fires only on the next send (US 12)
+    ✔ a native→Copilot switch while signed out surfaces AHP_AUTH_REQUIRED on the next send, then rebuilds once signed in (US 27)
+    ✔ with a runtime host-default transport flip, a live session is not rerouted on an ordinary (non-switch) rebuild
+    ✔ a Copilot→native switch survives a cold resume: the reload rematerializes on native
+    ✔ the Copilot resource is unconditionally optional, whatever the opt-in or the SDK account report says
+    ✔ the Copilot resource is advertised, never dropped, so the silent token probe survives
+    ✔ merged catalog lists both providers, each id provider-qualified
+    ✔ per-session transport gates on the picked model, not a global mode
+    ✔ a forked peer chat inherits its never-materialized parent's native model and runs native with a bare id, signed out
+    ✔ signed out, the native catalog bootstraps with no manual refresh
+    ✔ a failing proxy start does not fail sign-in
+    ✔ a replacement token whose proxy start fails tears down the prior account instead of silently serving it
+
+  ClaudeAgentSession (Phase 7 §3.2)
+    ✔ dispose with parked permission unblocks SDK (Test 17)
+
+  ClaudeAgent (Phase 7 §3.4 — _handleCanUseTool)
+    ✔ Test 1 — default mode parks, respondToPermissionRequest(true) → allow
+    ✔ Test 2 — default mode parks, respondToPermissionRequest(false) → deny
+    ✔ server tool with nothing to confirm is allowed without prompting
+    ✔ set_workspace uses a plain-language confirmation without raw input
+    ✔ move_session is kept out of the auto-approve allow-list and asks through canUseTool
+    ✔ Test 7 — pending_confirmation signal carries the correct shape
+    ✔ Test 8 — synchronous auto-respond inside pending_confirmation listener resolves canUseTool
+    ✔ SDK abort signal unparks a pending canUseTool with deny instead of waiting on the user
+    ✔ SDK abort signal already aborted on entry returns deny without parking
+    ✔ respondToPermissionRequest unknown id is silent
+    ✔ Phase 12 step 5 — canUseTool inside a subagent context tags pending_confirmation with parentToolCallId and feeds the resolver cache
+    ✔ Phase 12 step 5 — AskUserQuestion + ExitPlanMode inside a subagent context tag their emitted signals with parentToolCallId
+
+  ClaudeAgent (Phase 7 §3.5 — INTERACTIVE_CLAUDE_TOOLS)
+    ✔ Test 12 — AskUserQuestion: surfaces ChatInputRequested, returns updatedInput keyed by question text
+    ✔ Test 13 — AskUserQuestion: cancel returns deny with production wording
+    ✔ Test 12b — ExitPlanMode: Approve persists permissionMode=acceptEdits without a reentrant live SDK call
+    ✔ ExitPlanMode approval changes the invoking chat's own permission mode, not the session's
+    ✔ Test 13b — ExitPlanMode: Deny returns deny with production wording, no mode flip
+    ✔ Test 13c — ExitPlanMode: approving from a peer chat persists permissionMode to the owning session config scope, not the peer chat URI
+    ✔ Test 14 — ExitPlanMode: synchronous respond inside pending_confirmation listener resolves canUseTool
+    ✔ respondToUserInputRequest unknown id is silent
+
+  ClaudeAgent (Phase 7 §3.6 / §3.8 — permissionMode propagation)
+    ✔ Test 16 — live permissionMode update forwards via Query.setPermissionMode on the next sendMessage
+    ✔ Test 16b — live state seeded BEFORE first sendMessage flows into Options.permissionMode at materialize
+
+  ClaudeAgent (Phase 10.6 — MCP elicitation translation)
+    ✔ form-mode elicitation surfaces ChatInputRequested and returns accepted content
+    ✔ declined form-mode elicitation returns a decline result
+    ✔ aborting the SDK signal cancels a parked elicitation
+    ✔ url-mode elicitation surfaces the url with no questions and accepts with no content
+    ✔ a pre-aborted signal cancels without ever parking
+    ✔ a url-mode request with no url cancels without surfacing a prompt
+    ✔ a form with no representable fields cancels without surfacing a prompt
+
+  ClaudeAgent (Phase 8 — file edit tracking via SDK message stream)
+    ✔ Options carries enableFileCheckpointing and host hooks
+    ✔ Options carries forwardSubagentText: true so live subagent text + thinking flow through (Phase 12 step 1)
+
+  ClaudeAgent (Phase 9 — runtime mutation surface)
+    ✔ changeModel on a provisional session mutates the pending model bag (no SDK contact)
+    ✔ changeModel on a materialized session queues a model+effort bundle that drains at the next yield boundary
+    ✔ changeModel with `max` effort passes `max` through on the runtime path
+    ✔ changeModel with same id and unchanged effort skips the SDK setters
+    ✔ setPendingMessages with steering injects a `priority: now` SDK user message into the iterable
+    ✔ setPendingMessages with empty steering and non-empty queued is a no-op
+    ✔ steering_consumed fires when the iterable hands the steering message to the SDK
+    ✔ abortSession before SDK initialization cancels the turn and leaves the session reusable
+    ✔ abortSession after SDK initialization cancels the turn and leaves the session reusable
+    ✔ abortSession denies any parked permission requests so the SDK canUseTool callback unwinds with deny instead of leaving stale UI behind
+    ✔ subprocess crash mid-stream rejects the in-flight turn and the next sendMessage rebinds via resume
+    ✔ rebind re-applies bijective state (model + effort) on the new Query
+    ✔ intermediate result during steering does NOT complete the in-flight sendMessage or fire ChatTurnComplete
+    ✔ intermediate result during steering does NOT settle the original sendMessage promise (regression for C1)
+
+  ClaudeAgent (Phase 13 — transcript reconstruction)
+    ✔ getMessages returns mapped Turn[] from SDK transcript
+    ✔ getMessages resolves a released peer-chat subagent through the exact source backing
+    ✔ getMessages on a provisional chat returns [] with no SDK call
+    ✔ getMessages restores retained Bash output from the chat database
+    ✔ getMessages returns [] on SDK fetch failure (warn-logged)
+
+  ClaudeAgent — Phase 11 customizations
+    ✔ createChat seeds the eager activeClient customizations to the plugin manager
+    ✔ createChat without an activeClient does not sync customizations
+    ✔ GitHub MCP is enabled by default and respects customization disablement
+    ✔ GitHub MCP root setting disables server injection
+    ✔ GitHub MCP injection deduplicates an existing server by endpoint URI
+    ✔ disabled bundled MCP children are excluded from initial SDK startup
+    ✔ workspace MCP enablement gates SDK startup and rebuilds after re-enable
+    ✔ Agent Merge turns deny only MCP tools of enabled GitHub servers
+    ✔ session MCP enablement persists across materialization and customization refreshes
+    ✔ reconciles newly-disabled MCP servers when customizations are republished
+    ✔ serializes customization and send-triggered MCP reconciliation
+    ✔ createChat re-seeds the eager activeClient when the host re-creates an existing chat
+    ✔ createChat eager seeding suppresses orphan customization progress
+    ✔ setClientCustomizations forwards each item as a SessionCustomizationUpdated action
+    ✔ reducer-backed customization enablement stays isolated per session
+    ✔ getCustomizations returns [] — provider-level catalogue, not a cross-session aggregator
+    ✔ getChatCustomizations resolves against a provisional session
+    ✔ getChatCustomizations overlays the enablement state onto client-pushed entries
+    ✔ replacing client customizations removes stale plugin and bundled MCP enablement
+    ✔ removing a client removes its plugin and bundled MCP enablement
+    ✔ send pre-flight: dirty customizations triggers a rebind (SDK plugin URI set is captured at startup, so any change must restart the Query)
+    ✔ mid-turn reducer toggle reconciles before the following send
+    ✔ getChatCustomizations swallows SDK snapshot failure and returns the client-pushed projection
+    ✔ getChatCustomizations derives the Built-in container from the live SDK command set post-materialize
+    ✔ getChatCustomizations surfaces a native plugin captured from the live SDK init.plugins (path filter)
+    ✔ changeAgent on a provisional session stashes the selection (no SDK contact) and lands on Options.agent at materialize
+    ✔ changeAgent on a materialized session triggers a rebind with the new Options.agent on the rebuilt Query
+    ✔ changeAgent(undefined) clears the selection: rebind, Options.agent omitted
+    ✔ createChat persists an additional chat; getChats lists it; disposeChat removes it
+    ✔ createChat resolves every chat the same way, whatever role the host gives it
+    ✔ createChat without working directories runs an additional chat in the session scratch dir too
+    ✔ createChat and a later send recreate a missing recorded scratch folder
+    ✔ a workspace-less chat moved under a foldered session keeps its folder and resumes with it
+    ✔ createChat / disposeChat on the default chat URI are no-ops
+    ✔ chat backings retain only provider chat data
+    ✔ createChat keeps the AH session id independent from the Claude SDK id
+    ✔ createChat({ fork }) binds the exact target chat directly, with no bindSessionChat call, decoupling the new AH session id from the forked SDK id
+    ✔ createChat({ fork }) forks from a source whose own AH session id differs from its SDK backing
+    ✔ createChat({ fork }) inherits the source permissionMode overlay onto the exact target chat
+    ✔ createChat({ importConversation }) binds the exact target chat directly and its model takes precedence over a create-config model
+    ✔ active-client tools are addressed to the exact chats Agent Host calls out, independently
+    ✔ createChat({ fork }) forks the source chat; the additional chat resumes its own forked SDK session
+    ✔ createChat({ fork }) keeps provider history intact
+    ✔ createChat({ fork }) creates a fresh provider chat when the source transcript is unavailable
+    ✔ createChat({ fork }) still creates the chat when nothing is inheritable
+    ✔ createChat({ fork }) creates a fresh provider chat when a source fork is rejected
+    ✔ createChat({ fork }) uses the supplied provider anchor
+    ✔ createChat({ fork }) with an unknown turn falls back to a fresh chat
+    ✔ sendMessage to an additional chat targets a chat distinct from the parent session
+    ✔ SDK callbacks route to an additional chat through the reverse SDK id index
+    ✔ truncateChat targets the addressed SDK session
+    ✔ configuration events keep the inherited additional mode on the next send
+    ✔ lazy chat materialization applies the latest persisted permission mode
+    ✔ onClientToolCallComplete targets the addressed additional chat
+    ✔ changeModel on an additional chat persists in the catalog so a later resume picks it up
+    ✔ disposing the default SDK session does not dispose its additional chats
+    ✔ disposeChat removes a host-bound default-chat provisional
+    ✔ releaseChat releases only the addressed live chat
+    ✔ setPendingMessages routes steering to a materialized additional chat, warns for an unknown one
+    ✔ changeAgent on an additional chat persists to its overlay so a later resume picks it up
+    ✔ sendMessage routes each additional chat to its own forked chat
+    ✔ restart round-trip: a forked additional chat re-materializes from the orchestrator's providerData on a fresh agent backed by the same database
+    ✔ getChatMetadata hydrates a peer chat's additional directories from its own storage, not its owner's
+    ✔ cold peer-chat fork inherits model/agent/permissionMode/workingDirectories from the source PEER chat, not the session-wide scope (regression)
+    ✔ cold peer-chat fork falls back to the source peer's recorded backing model when the peer was never materialized
+    ✔ changeModel on an additional chat fires onDidChangeChatData with the refreshed providerData
+    ✔ createChat mints a provisional session and chat teardown tears it down
+    ✔ chats.createChat persists an additional chat; getChats lists it; chats.disposeChat removes it
+    ✔ chats.createChat({ fork }) forks the source chat; chats.sendMessage resumes the additional chat's own forked SDK session
+    ✔ chats addresses the default chat by the default chat URI (sendMessage and getMessages both route to its exact backing)
+    ✔ chats.changeModel on an additional fires onDidChangeChatData with the refreshed providerData (parity with legacy changeModel)
+    ✔ chats.changeAgent on an additional persists to its overlay so a later resume picks it up (parity with legacy changeAgent)
+
+  ClaudeAgent — host OTel session-title spans
+    ✔ emits a host OTel session-title span when this agent's session title changes
+    ✔ ignores session-title changes belonging to another provider
+
+  ClaudeAgent — materializeChat legacy default-chat recovery
+    ✔ materializeChat recovers the historical implicit default-chat identity from an old persisted session when providerData is absent
+    ✔ materializeChat legacy default-chat recovery is idempotent across repeated calls
+    ✔ materializeChat does not assign the default backing to a peer without providerData
+    ✔ a peer stored under its own resource without a backing never reads its owner's conversation
+    ✔ materializeChat derives a session-backed chat's SDK id from its storage, not its owner
+
+  ClaudeAgent — host seams
+    ✔ a peer chat server tool executes against its exact Agent Host chat channel
+    ✔ a peer chat takes its server tools from its owner session
+    ✔ a launch keeps the owner it started with, and the next send relaunches under the chat's new owner
+    ✔ a subagent chat resolves its spawn edge only from the host-supplied origin
+    ✔ a client tool completion addressed to a subagent resolves the spawning chat from the context origin
+    ✔ a client active on one chat is not implicitly extended to a newly created peer chat
+    ✔ remove-all truncation works on a legacy default chat recovered by materializeChat
+
+
+  557 passing (2s)

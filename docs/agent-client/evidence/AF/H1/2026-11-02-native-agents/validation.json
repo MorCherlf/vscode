@@ -1,0 +1,17 @@
+{
+  "source": "e4c411dfe715bd1f4349efae448cf31773851659",
+  "electronTests": {
+    "passing": 557,
+    "selectors": 8,
+    "log": "tests.log"
+  },
+  "focusedSourceTypes": "pass",
+  "focusedTestTypes": "pass",
+  "buildTypes": "pass",
+  "changedFileLint": "pass",
+  "layerValidation": "pass",
+  "sourceProductSha256": "86d8531a8bfd3ebea77b2c1724b0e77e9a046d5da16049a3ee9a39d5101aa4d8",
+  "fixtureKeyMatchesInSettingsOrVscLogs": [],
+  "humanAcceptance": false,
+  "livePaidServiceValidated": false
+}

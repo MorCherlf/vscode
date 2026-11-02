@@ -1,0 +1,41 @@
+{
+  "source": "e4c411dfe715bd1f4349efae448cf31773851659",
+  "startupWithoutModal": true,
+  "configuredViaOriginalQuickInput": [
+    "codex",
+    "claude"
+  ],
+  "agentHostRestartReplay": true,
+  "codexWorksAfterSavingClaude": true,
+  "originalChatResponses": [
+    "CODEX_NATIVE_OK",
+    "CLAUDE_NATIVE_OK",
+    "CODEX_NATIVE_OK"
+  ],
+  "requests": [
+    {
+      "url": "/openai/v1/responses",
+      "model": "fixture-codex",
+      "authenticated": true,
+      "toolResults": false
+    },
+    {
+      "url": "/anthropic/v1/messages?beta=true",
+      "model": "fixture-claude",
+      "authenticated": true,
+      "toolResults": false
+    },
+    {
+      "url": "/openai/v1/responses",
+      "model": "fixture-codex",
+      "authenticated": true,
+      "toolResults": false
+    }
+  ],
+  "secretStorage": "in-memory in disposable UI profile; production storage unchanged",
+  "screenshotsInspected": true,
+  "notes": [
+    "Open a new chat after changing the connection; original explicit model selections may refer to the previous catalog.",
+    "CDP readiness, background QuickInput dismissal and exact accessible-name selectors required automation corrections."
+  ]
+}

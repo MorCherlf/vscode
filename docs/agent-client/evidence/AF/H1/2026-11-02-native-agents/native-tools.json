@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "agent": "claude",
+      "model": "@provider=anthropic:fixture-claude",
+      "response": "CLAUDE_NATIVE_OK",
+      "fileEdited": true,
+      "requests": [
+        {
+          "agent": "claude",
+          "authenticated": true,
+          "toolName": "Write",
+          "toolResults": false
+        },
+        {
+          "agent": "claude",
+          "authenticated": true,
+          "toolName": "Write",
+          "toolResults": true
+        }
+      ]
+    },
+    {
+      "agent": "codex",
+      "model": "@provider=agent-first-api:fixture-codex",
+      "response": "CODEX_NATIVE_OK",
+      "fileEdited": true,
+      "requests": [
+        {
+          "agent": "codex",
+          "authenticated": true,
+          "toolName": "exec_command",
+          "toolResults": false
+        },
+        {
+          "agent": "codex",
+          "authenticated": true,
+          "toolName": "exec_command",
+          "toolResults": true
+        }
+      ]
+    }
+  ]
+}
